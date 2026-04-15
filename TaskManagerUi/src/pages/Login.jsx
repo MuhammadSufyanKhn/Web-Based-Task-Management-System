@@ -1,0 +1,35 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('https://localhost:7127/api/auth/login', { email, password });
+            
+            // Token ko browser mein save karna taake har page par use ho sake
+            localStorage.setItem('token', res.data.token); 
+            
+            alert("Mubarak ho! Login ho gaya.");
+            window.location.href = "/dashboard"; // Redirecting to dashboard
+        } catch (err) {
+            alert("Ghalat Email ya Password!");
+        }
+    };
+
+    return (
+        <div style={{ padding: '20px' }}>
+            <h2>Login</h2>
+            <form onSubmit={handleLogin}>
+                <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} /><br/><br/>
+                <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} /><br/><br/>
+                <button type="submit">Chalo Bhai!</button>
+            </form>
+        </div>
+    );
+};
+
+export default Login;
