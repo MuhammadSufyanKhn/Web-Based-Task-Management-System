@@ -1,0 +1,162 @@
+2026-04-16 20:37:03.977 +05:00 [INF] User profile is available. Using 'C:\Users\DELL\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-16 20:37:04.290 +05:00 [INF] Now listening on: https://localhost:7127
+2026-04-16 20:37:04.292 +05:00 [INF] Now listening on: http://localhost:5277
+2026-04-16 20:37:04.335 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-16 20:37:04.336 +05:00 [INF] Hosting environment: Development
+2026-04-16 20:37:04.338 +05:00 [INF] Content root path: D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI
+2026-04-16 20:37:04.930 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/index.html - null null
+2026-04-16 20:37:05.433 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/index.html - 304 null null 512.0601ms
+2026-04-16 20:37:05.448 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/swagger-ui.css - null null
+2026-04-16 20:37:05.458 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/index.js - null null
+2026-04-16 20:37:05.449 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/swagger-ui-bundle.js - null null
+2026-04-16 20:37:05.486 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/index.js - 304 null null 28.2389ms
+2026-04-16 20:37:05.458 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-16 20:37:05.449 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/index.css - null null
+2026-04-16 20:37:05.458 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-16 20:37:05.464 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - null null
+2026-04-16 20:37:05.543 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/index.css - 304 null null 93.965ms
+2026-04-16 20:37:05.543 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/swagger-ui.css - 304 null null 95.3124ms
+2026-04-16 20:37:05.545 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/swagger-ui-bundle.js - 304 null null 95.7395ms
+2026-04-16 20:37:05.543 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/swagger-ui-standalone-preset.js - 304 null null 85.083ms
+2026-04-16 20:37:05.582 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 124.3811ms
+2026-04-16 20:37:05.624 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - 200 null text/javascript; charset=UTF-8 159.8585ms
+2026-04-16 20:37:05.662 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7127/swagger/v1/swagger.json - null null
+2026-04-16 20:37:05.688 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7127/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.4632ms
+2026-04-16 20:37:51.907 +05:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7127/api/auth/login - null null
+2026-04-16 20:37:51.933 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:37:51.940 +05:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7127/api/auth/login - 204 null null 39.8268ms
+2026-04-16 20:37:51.943 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7127/api/auth/login - application/json 48
+2026-04-16 20:37:51.964 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:37:52.105 +05:00 [INF] Executing endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:52.156 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManagerAPI.Models.DTOS.loginDto) on controller TaskManagerAPI.Controllers.AuthController (TaskManagementAPI).
+2026-04-16 20:37:52.592 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:37:54.363 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7127/api/auth/login - application/json 48
+2026-04-16 20:37:54.376 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:37:54.381 +05:00 [INF] Executing endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:54.385 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManagerAPI.Models.DTOS.loginDto) on controller TaskManagerAPI.Controllers.AuthController (TaskManagementAPI).
+2026-04-16 20:37:54.394 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:37:55.899 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7127/api/auth/login - application/json 48
+2026-04-16 20:37:55.908 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:37:55.921 +05:00 [INF] Executing endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:55.923 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManagerAPI.Models.DTOS.loginDto) on controller TaskManagerAPI.Controllers.AuthController (TaskManagementAPI).
+2026-04-16 20:37:55.943 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:37:56.300 +05:00 [INF] Executed DbCommand (33ms) [Parameters=[@request_Email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[IsDeleted], [u].[PasswordHash], [u].[UpdatedBy], [u].[UpdatedDate], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @request_Email
+2026-04-16 20:37:56.300 +05:00 [INF] Executed DbCommand (205ms) [Parameters=[@request_Email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[IsDeleted], [u].[PasswordHash], [u].[UpdatedBy], [u].[UpdatedDate], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @request_Email
+2026-04-16 20:37:56.300 +05:00 [INF] Executed DbCommand (205ms) [Parameters=[@request_Email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[IsDeleted], [u].[PasswordHash], [u].[UpdatedBy], [u].[UpdatedDate], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @request_Email
+2026-04-16 20:37:56.597 +05:00 [INF] User string@gmail.com logged in successfully at "2026-04-16T20:37:56.5971399+05:00"
+2026-04-16 20:37:56.597 +05:00 [INF] User string@gmail.com logged in successfully at "2026-04-16T20:37:56.5971491+05:00"
+2026-04-16 20:37:56.597 +05:00 [INF] User string@gmail.com logged in successfully at "2026-04-16T20:37:56.5971060+05:00"
+2026-04-16 20:37:56.619 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-04-16 20:37:56.620 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-04-16 20:37:56.620 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-04-16 20:37:56.636 +05:00 [INF] Executed action TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI) in 693.8509ms
+2026-04-16 20:37:56.636 +05:00 [INF] Executed action TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI) in 4463.9025ms
+2026-04-16 20:37:56.636 +05:00 [INF] Executed action TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI) in 2240.4178ms
+2026-04-16 20:37:56.640 +05:00 [INF] Executed endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:56.646 +05:00 [INF] Executed endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:56.652 +05:00 [INF] Executed endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:37:56.681 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7127/api/auth/login - 200 null text/plain; charset=utf-8 2318.5599ms
+2026-04-16 20:37:56.681 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7127/api/auth/login - 200 null text/plain; charset=utf-8 782.8634ms
+2026-04-16 20:37:56.681 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7127/api/auth/login - 200 null text/plain; charset=utf-8 4738.2273ms
+2026-04-16 20:38:32.735 +05:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7127/api/auth/login - null null
+2026-04-16 20:38:32.742 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:38:32.743 +05:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7127/api/auth/login - 204 null null 8.3348ms
+2026-04-16 20:38:32.745 +05:00 [INF] Request starting HTTP/2 POST https://localhost:7127/api/auth/login - application/json 43
+2026-04-16 20:38:32.753 +05:00 [INF] CORS policy execution successful.
+2026-04-16 20:38:32.754 +05:00 [INF] Executing endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:38:32.755 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(TaskManagerAPI.Models.DTOS.loginDto) on controller TaskManagerAPI.Controllers.AuthController (TaskManagementAPI).
+2026-04-16 20:38:32.762 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:38:32.781 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[@request_Email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[IsDeleted], [u].[PasswordHash], [u].[UpdatedBy], [u].[UpdatedDate], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @request_Email
+2026-04-16 20:38:32.791 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-04-16 20:38:32.798 +05:00 [INF] Executed action TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI) in 37.1773ms
+2026-04-16 20:38:32.803 +05:00 [INF] Executed endpoint 'TaskManagerAPI.Controllers.AuthController.Login (TaskManagementAPI)'
+2026-04-16 20:38:32.808 +05:00 [INF] Request finished HTTP/2 POST https://localhost:7127/api/auth/login - 400 null text/plain; charset=utf-8 63.2859ms
+2026-04-16 20:52:43.954 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:52:47.715 +05:00 [INF] User string@gmail.com logged in successfully at "2026-04-16T20:52:47.7148132+05:00"
+2026-04-16 20:55:05.247 +05:00 [INF] Login attempt for user: string@gmail.com
+2026-04-16 20:55:05.312 +05:00 [INF] User string@gmail.com logged in successfully at "2026-04-16T20:55:05.3118920+05:00"
+2026-04-16 21:54:52.865 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 21:54:58.475 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 21:54:58.748 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-04-16T21:54:58.7472759+05:00"
+2026-04-16 23:01:16.926 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-04-16 23:01:17.039 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-04-16T23:01:17.0391812+05:00"
+2026-04-16 23:01:18.317 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:01:18.328 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:01:32.971 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 23:01:32.976 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-04-16T23:01:32.9763183+05:00"
+2026-04-16 23:01:33.959 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:01:33.965 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:29:13.339 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-04-16 23:29:14.678 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-04-16T23:29:14.6782450+05:00"
+2026-04-16 23:29:17.180 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:29:17.248 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:30:14.608 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 23:30:14.613 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-04-16T23:30:14.6138943+05:00"
+2026-04-16 23:30:15.435 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:30:15.446 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:30:25.316 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-04-16 23:30:25.322 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-04-16T23:30:25.3225997+05:00"
+2026-04-16 23:30:26.109 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:30:26.123 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:32:38.210 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:32:38.217 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:13.081 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:13.091 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:15.374 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:15.381 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:16.583 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:16.592 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:16.930 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:16.939 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.102 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.109 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.324 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.335 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.610 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.615 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.758 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:17.765 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:31.071 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 23:33:31.076 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-04-16T23:33:31.0761903+05:00"
+2026-04-16 23:33:31.617 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:33:31.622 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:33:40.208 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-04-16 23:33:40.214 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-04-16T23:33:40.2147779+05:00"
+2026-04-16 23:33:40.805 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:33:40.810 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:39:47.784 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:39:47.791 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:44:14.294 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:44:14.304 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:44:40.380 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:44:40.386 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:45:04.437 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-04-16 23:45:04.441 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-04-16T23:45:04.4413397+05:00"
+2026-04-16 23:45:05.399 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:45:05.405 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-04-16 23:52:16.233 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-04-16 23:52:16.255 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-04-16T23:52:16.2558085+05:00"
+2026-04-16 23:52:17.110 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:52:17.134 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:52:17.135 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:52:17.159 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:57:55.106 +05:00 [INF] Task 'a' created by User 6
+2026-04-16 23:57:55.106 +05:00 [INF] Task 'a' created by User 6
+2026-04-16 23:57:57.873 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:57:57.899 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:59:04.968 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:59:05.005 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-04-16 23:59:05.108 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-04-16 23:59:05.133 +05:00 [INF] Dashboard stats retrieved for user 6 with role User

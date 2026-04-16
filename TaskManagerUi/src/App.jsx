@@ -1,66 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import TaskList from './pages/Tasklist';
+import CreateTask from './pages/CreateTask';
 
 function App() {
-  // Ek state banayi hai taake pata chale kaunsa form dikhana hai
-  const [isLogin, setIsLogin] = useState(true);
-
   return (
-    <div className="App" style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      minHeight: '100vh',
-      backgroundColor: '#f4f4f4',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      
-      <div style={{ 
-        backgroundColor: '#fff', 
-        padding: '30px', 
-        borderRadius: '10px', 
-        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-        width: '350px'
-      }}>
-        <h1 style={{ textAlign: 'center', color: '#333' }}>
-          {isLogin ? "Welcome Back!" : "Join Us!"}
-        </h1>
+    <Router>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={
+            <div className="card">
+              <h2 className="title">Login</h2>
+              <Login />
+              <div className="footer-link">
+                Don't have an account? <Link to="/register">Register</Link>
+              </div>
+            </div>
+          } />
 
-        {/* Buttons to switch between Login and Register */}
-        <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }}>
-          <button 
-            onClick={() => setIsLogin(true)}
-            style={{ 
-              border: 'none', 
-              background: 'none', 
-              fontWeight: isLogin ? 'bold' : 'normal',
-              borderBottom: isLogin ? '2px solid blue' : 'none',
-              cursor: 'pointer',
-              padding: '10px'
-            }}>
-            Login
-          </button>
-          <button 
-            onClick={() => setIsLogin(false)}
-            style={{ 
-              border: 'none', 
-              background: 'none', 
-              fontWeight: !isLogin ? 'bold' : 'normal',
-              borderBottom: !isLogin ? '2px solid blue' : 'none',
-              cursor: 'pointer',
-              padding: '10px'
-            }}>
-            Register
-          </button>
-        </div>
+          <Route path="/register" element={
+            <div className="card">
+              <h2 className="title">Register</h2>
+              <Register />
+              <div className="footer-link">
+                Already have an account? <Link to="/login">Login</Link>
+              </div>
+            </div>
+          } />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/my-tasks" element={<TaskList />} />
+          <Route path="/create-task" element={<CreateTask />} />
 
-        {/* Conditional Rendering: Jo state true hogi wahi dikhega */}
-        {isLogin ? <Login /> : <Register />}
-        
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
