@@ -35,22 +35,39 @@ const TaskList = () => {
                 </thead>
                 <tbody>
                     {tasks.map(task => (
-                        <tr key={task.taskId}> 
+                        <tr key={task.taskId}>
                             <td>
                                 <strong>{task.title}</strong>
                                 <p style={{ fontSize: '11px' }}>{task.descriptions}</p>
                             </td>
                             <td><span className={`priority-${task.taskPriority}`}> {task.taskPriority}</span></td>
                             <td>
-                                {/* Status-Pending, Status-InProgress, Status-Completed classes trigger hongi */}
+
                                 <span className={`badge status-${task.taskStatus}`}>
                                     {task.taskStatus}
                                 </span>
                             </td>
                             <td>{task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}</td>
                             <td>
-                                <button className="btn-edit" >Edit</button>
-                                <button className="btn-delete">Delete</button>
+                                <Link style={{ textDecoration: 'none' }} to={`/edit-task/${task.taskId}`} className="btn-edit">Edit</Link>
+                                
+                                <button
+                                    className="btn-delete"
+                                    onClick={async () => {
+                                        if (window.confirm("Are you sure you want to delete this task?")) {
+                                            try {
+                                                await axios.delete(`https://localhost:7127/api/Task/delete-task/${task.taskId}`, {
+                                                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+                                                });
+                                                setTasks(tasks.filter(t => t.taskId !== task.taskId));
+                                            } catch (error) {
+                                                console.error("Error deleting task:", error);
+                                            }
+                                        }
+                                    }}
+                                >
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     ))}

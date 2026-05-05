@@ -1,28 +1,20 @@
 src/App.css
+
 .container {
-    display: flex;
     flex-wrap: wrap;
-    /* Mobile par upar neeche ho jayenge */
     gap: 20px;
+    font-family: sans-serif;
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f2f5;
-    padding: 20px;
-    font-family: sans-serif;
 }
 
 .card {
-    background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 500px;
+    height: auto;
 }
 
 .card form {
@@ -83,9 +75,8 @@ src/App.css
 }
 
 .dashboard-main {
-    padding: 20px;
     background: #f4f7f6;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .dash-header {
@@ -97,10 +88,10 @@ src/App.css
 
 .stats-container {
     display: flex;
-    flex-direction: row; /* Ye line cards ko ek row mein layegi */
+    flex-direction: row; 
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Mobile par khud hi niche aa jayenge */
+    flex-wrap: wrap; 
     margin-bottom: 40px;
     width: 100%;
 }
@@ -110,7 +101,7 @@ src/App.css
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 250px; /* Specific width taake row mein 3 aa sakein */
+    width: 250px;
     text-align: center;
 }
 .stat-card:hover {
@@ -130,9 +121,10 @@ src/App.css
     margin: 10px 0 0 0;
 }
 
-/* Colors based on Status */
 .pending {
     border-left: 8px solid #ffc107;
+    border-right: 8px solid #ffc107;
+    background: #fff3cd;
 }
 
 .pending .count {
@@ -141,14 +133,19 @@ src/App.css
 
 .progress {
     border-left: 8px solid #17a2b8;
+    border-right: 8px solid #17a2b8;
+    background: #e0f7fa;
 }
 
 .progress .count {
     color: #17a2b8;
+
 }
 
 .completed {
     border-left: 8px solid #28a745;
+    border-right: 8px solid #28a745;
+    background: #e9f7ef;
 }
 
 .completed .count {
@@ -346,3 +343,7 @@ src/App.css
     font-weight: bold;
     transition: background 0.3s;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}   

@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "TaskManagementAPI.Controllers.TaskController",
+    "Method": "GetTaskById",
+    "RelativePath": "api/Task/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementAPI.Controllers.TaskController",
     "Method": "CreateTask",
     "RelativePath": "api/Task/create-task",
     "HttpMethod": "POST",
@@ -98,7 +114,7 @@
       },
       {
         "Name": "updatedTask",
-        "Type": "TaskManagerAPI.Models.TaskItem",
+        "Type": "TaskManagementAPI.Models.DTOS.UpdateTaskDto",
         "IsRequired": true
       }
     ],

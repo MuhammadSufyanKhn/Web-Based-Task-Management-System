@@ -11,8 +11,8 @@ using TaskManagerAPI.Helpers;
 var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information() // Default level Information rakho
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning) // Microsoft ke faltu logs rok do
+    .MinimumLevel.Information() 
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning) 
     .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", LogEventLevel.Warning)
     .WriteTo.Console()
     .WriteTo.File(Path.Combine(AppContext.BaseDirectory, "Logs", "log-.txt"),
@@ -25,7 +25,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// 2. JWT Authentication Setup
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -42,7 +41,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// 3. CORS Setup (VS Code/React ke liye)
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReact",
         policy => policy.WithOrigins("http://localhost:5173")
@@ -52,7 +50,6 @@ builder.Services.AddCors(options => {
 
 builder.Services.AddControllers();
 
-// 4. Swagger Setup
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<JwtService>();
@@ -65,8 +62,8 @@ app.UseSwaggerUI();
 app.UseCors("AllowReact");
 
 
-app.UseAuthentication(); // Pehle Authentication
-app.UseAuthorization();  // Phir Authorization
+app.UseAuthentication(); 
+app.UseAuthorization(); 
 
 app.MapControllers();
 

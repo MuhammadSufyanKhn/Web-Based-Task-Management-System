@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import TaskList from './pages/Tasklist';
 import CreateTask from './pages/CreateTask';
+import EditTask from './pages/edit-task';
 
 function App() {
   return (
@@ -17,25 +18,16 @@ function App() {
             <div className="card">
               <h2 className="title">Login</h2>
               <Login />
-              <div className="footer-link">
-                Don't have an account? <Link to="/register">Register</Link>
-              </div>
+
             </div>
           } />
 
-          <Route path="/register" element={
-            <div className="card">
-              <h2 className="title">Register</h2>
-              <Register />
-              <div className="footer-link">
-                Already have an account? <Link to="/login">Login</Link>
-              </div>
-            </div>
-          } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/my-tasks" element={<TaskList />} />
           <Route path="/create-task" element={<CreateTask />} />
-
+          <Route path="/edit-task/:id" element={<EditTask />} />
         </Routes>
       </div>
     </Router>

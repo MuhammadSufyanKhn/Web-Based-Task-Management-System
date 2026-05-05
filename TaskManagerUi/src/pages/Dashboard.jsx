@@ -15,11 +15,10 @@ const Dashboard = () => {
                 });
                 setStats(res.data);
 
-                // Role decode karna UI title ke liye
                 const payload = JSON.parse(atob(token.split('.')[1]));
                 setRole(payload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
             } catch (err) {
-                console.error("Stats load nahi huay", err);
+                console.error("Stats cant be loaded", err);
             }
         };
         fetchStats();
@@ -27,32 +26,29 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-main">
-    <header className="dash-header">
-        <h2>{role === "Admin" ? "Admin Overview" : "My Task Dashboard"}</h2>
-        <button className="btn-logout" onClick={() => { localStorage.clear(); window.location.href = "/login" }}>Logout</button>
-    </header>
+            <header className="dash-header">
+                <h2>{role === "Admin" ? "Admin Overview" : "My Task Dashboard"}</h2>
+                <button className="btn-logout" onClick={() => { localStorage.clear(); window.location.href = "/login" }}>Logout</button>
+            </header>
 
-    {/* Stats Row */}
-    <div className="stats-container">
-        <div className="stat-card pending">
-            <h3>Pending</h3>
-            <p className="count">{stats.pendingCount}</p>
+            <div className="stats-container">
+                <div className="stat-card pending">
+                    <h3>Pending</h3>
+                    <p className="count">{stats.pendingCount}</p>
+                </div>
+
+                <div className="stat-card progress">
+                    <h3>In-Progress</h3>
+                    <p className="count">{stats.inProgressCount}</p>
+                </div>
+
+                <div className="stat-card completed">
+                    <h3>Completed</h3>
+                    <p className="count">{stats.completedCount}</p>
+                </div>
+            </div>
+            <TaskList />
         </div>
-
-        <div className="stat-card progress">
-            <h3>In-Progress</h3>
-            <p className="count">{stats.inProgressCount}</p>
-        </div>
-
-        <div className="stat-card completed">
-            <h3>Completed</h3>
-            <p className="count">{stats.completedCount}</p>
-        </div>
-    </div>
-
-    {/* Neeche Task List dikhayenge */}
-    <TaskList /> 
-</div>
     );
 };
 

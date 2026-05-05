@@ -1,0 +1,943 @@
+2026-05-05 19:47:47.314 +05:00 [INF] Login attempt for user: ssuet@gmail.com
+2026-05-05 19:47:47.687 +05:00 [INF] User ssuet@gmail.com logged in successfully at "2026-05-05T19:47:47.6870427+05:00"
+2026-05-05 19:47:50.581 +05:00 [INF] Login attempt for user: ssuet@gmail.com
+2026-05-05 19:47:50.847 +05:00 [INF] User ssuet@gmail.com logged in successfully at "2026-05-05T19:47:50.8478323+05:00"
+2026-05-05 19:50:13.910 +05:00 [INF] Login attempt for user: ssuet@gmail.com
+2026-05-05 19:50:13.923 +05:00 [INF] User ssuet@gmail.com logged in successfully at "2026-05-05T19:50:13.9230511+05:00"
+2026-05-05 19:50:14.405 +05:00 [INF] Tasks retrieved for user 7 with role User
+2026-05-05 19:50:14.457 +05:00 [INF] Tasks retrieved for user 7 with role User
+2026-05-05 19:50:14.524 +05:00 [INF] Dashboard stats retrieved for user 7 with role User
+2026-05-05 19:50:14.541 +05:00 [INF] Dashboard stats retrieved for user 7 with role User
+2026-05-05 19:50:26.877 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 19:50:26.886 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T19:50:26.8866420+05:00"
+2026-05-05 19:50:27.591 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:50:27.606 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:50:27.642 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:50:27.666 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:51:14.426 +05:00 [INF] Task 'Unit test ' created by User 6
+2026-05-05 19:51:15.584 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:51:15.598 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:51:15.600 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:51:15.615 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:13.881 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:13.891 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:13.891 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:13.908 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:45.958 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:45.972 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:46.010 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:46.021 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:48.952 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:48.955 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:54:48.961 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:54:48.969 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:01.619 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:01.628 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:01.630 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:01.640 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:02.345 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:02.354 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:02.356 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:02.369 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:27.035 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:27.046 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:56:27.047 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:56:27.064 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:53.464 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:53.473 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:53.475 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:53.490 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:56.543 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:56.546 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:56.551 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:56.556 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:58.731 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:58.734 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:57:58.741 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:57:58.746 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:58:55.673 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:58:55.685 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:58:55.694 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:58:55.706 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:58:57.575 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:58:57.579 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 19:58:57.584 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 19:58:57.592 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:22.123 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:22.133 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:22.138 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:22.142 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:49.201 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:49.212 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:49.214 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:49.225 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:56.597 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:56.602 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:02:56.607 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:02:56.615 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:03:07.741 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:03:07.743 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:03:07.751 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:03:07.754 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:03:29.989 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:03:29.992 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:03:29.997 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:03:30.002 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:10:03.144 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:10:03.152 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:10:03.161 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:10:03.174 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:10:04.440 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:10:04.445 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:10:04.449 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:10:04.454 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:13:22.048 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:13:22.059 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:13:22.061 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:13:22.077 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:13:23.439 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:13:23.473 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:13:23.526 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:13:23.528 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:22.814 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:22.824 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:25.461 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:25.467 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:26.160 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:26.168 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:31.489 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:31.498 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:31.530 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:31.540 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:32.878 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:32.884 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:32.889 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:32.897 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:42.810 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:42.818 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:42.822 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:42.830 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:46.772 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:46.776 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:14:46.780 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:14:46.783 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:10.346 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:10.349 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:10.392 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:10.393 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:14.520 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:14.523 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:14.529 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:14.531 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:18.029 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:18.035 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:18.040 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:18.045 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:19.140 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:19.145 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:19.148 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:19.156 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:23.022 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:23.024 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:23.031 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:23.038 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:47.416 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:47.438 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:47.442 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:47.453 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:51.286 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:51.289 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:15:51.294 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:15:51.301 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:05.880 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:05.893 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:05.898 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:05.905 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:35.248 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:35.251 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:35.257 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:35.261 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:41.214 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:41.216 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:41.223 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:41.225 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:47.960 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:47.966 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:16:47.968 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:16:47.976 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:17:04.908 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:17:04.918 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:17:04.918 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:17:04.928 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:17:07.670 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:17:07.673 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:17:07.680 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:17:07.683 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:19:02.518 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:19:02.524 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:19:02.552 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:19:02.560 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:19:06.372 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:19:06.384 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:19:06.385 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:19:06.396 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:23:37.202 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:23:37.212 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:23:37.214 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:23:37.233 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:23:40.938 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:23:40.949 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:23:40.949 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:23:40.959 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:24:57.685 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:24:57.691 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:24:57.694 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:24:57.700 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:25:01.143 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:25:01.145 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:25:01.151 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:25:01.153 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:25:23.717 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:25:23.718 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:25:23.725 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:25:23.727 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:26:02.500 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 20:26:02.512 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T20:26:02.5125463+05:00"
+2026-05-05 20:26:03.362 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:26:03.368 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:26:03.372 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:26:03.380 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:26:09.537 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:26:09.542 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:26:09.545 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:26:09.552 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:33:06.163 +05:00 [INF] Login attempt for user: sufyan
+2026-05-05 20:33:09.891 +05:00 [WRN] Login failed: User sufyan not found
+2026-05-05 20:33:39.856 +05:00 [INF] Login attempt for user: ssuet@gmail.com
+2026-05-05 20:33:56.981 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 20:33:57.277 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T20:33:57.2758580+05:00"
+2026-05-05 20:36:02.670 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:02.736 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:02.743 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:02.760 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:09.410 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:09.422 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:09.449 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:09.462 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:16.475 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:16.478 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:16.484 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:16.487 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:21.943 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:21.945 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:36:21.953 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:36:21.958 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:37:48.711 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:37:48.717 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:37:48.718 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:37:48.726 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:15.113 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:15.268 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:15.667 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:15.669 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:16.484 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:16.487 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:16.494 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:16.499 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:20.260 +05:00 [INF] Task with id 108 updated by user 6 with role User
+2026-05-05 20:45:21.632 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:21.647 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:26.173 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:26.186 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:45:26.217 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:26.231 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:33.658 +05:00 [INF] Task with id 108 updated by user 6 with role User
+2026-05-05 20:45:34.779 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:45:34.789 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:46:09.953 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:46:09.960 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:46:57.619 +05:00 [INF] Task with id 108 updated by user 6 with role User
+2026-05-05 20:46:58.924 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:46:58.935 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:06.571 +05:00 [INF] Task with id 108 updated by user 6 with role User
+2026-05-05 20:49:07.610 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:49:07.622 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:49:07.656 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:07.663 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:20.418 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:20.421 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:49:20.427 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:20.430 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:49:25.563 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:25.602 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:49:25.604 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:49:25.610 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:52:04.885 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:52:04.894 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:52:04.897 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:52:04.945 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:55:32.648 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:55:32.692 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:55:32.697 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:55:32.712 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:56:08.826 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:56:08.832 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 20:56:08.833 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 20:56:08.839 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:01:43.268 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 21:01:43.391 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T21:01:43.3905926+05:00"
+2026-05-05 21:01:44.314 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:01:44.320 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:01:44.337 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:01:44.345 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:01:55.934 +05:00 [INF] Task with id 108 updated by user 6 with role User
+2026-05-05 21:01:56.824 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:01:56.833 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:01:56.837 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:01:56.849 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:46.196 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:46.205 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:46.239 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:46.247 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:54.593 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:54.597 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:54.603 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:54.609 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:55.521 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:55.527 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:55.530 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:55.538 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:58.972 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:58.977 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:05:58.981 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:05:58.984 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:06:24.770 +05:00 [INF] Task 'Delete task api' created by User 6
+2026-05-05 21:06:26.400 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:26.409 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:26.414 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:06:26.424 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:06:54.429 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:54.434 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:58.982 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:58.987 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 21:06:58.996 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 21:06:59.000 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:28:09.503 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 22:28:09.503 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 22:28:11.089 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 22:28:15.929 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T22:28:15.9281531+05:00"
+2026-05-05 22:28:15.929 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T22:28:15.9281334+05:00"
+2026-05-05 22:28:15.929 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T22:28:15.9281731+05:00"
+2026-05-05 22:28:20.786 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 22:28:21.051 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T22:28:21.0509849+05:00"
+2026-05-05 22:28:21.466 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:28:21.572 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:28:21.576 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:28:21.589 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:29:06.455 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:29:06.457 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:29:06.471 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:29:06.479 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:29:46.007 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:29:46.014 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:29:46.064 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:29:46.069 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:30:29.287 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:30:29.293 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:30:29.306 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:30:29.368 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:33:56.529 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:33:56.541 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:33:56.541 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:33:56.554 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:34:03.171 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:34:03.173 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:34:03.182 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:34:03.191 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:41:37.339 +05:00 [INF] Task with id 112 updated by user 6 with role User
+2026-05-05 22:41:38.585 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:41:38.602 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:41:38.617 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:41:38.628 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:45:07.049 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:45:07.059 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:45:07.065 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:45:07.090 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:45:20.361 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:45:20.371 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:45:20.372 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:45:20.383 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:47:43.426 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:47:43.431 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:47:43.434 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:47:43.437 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:47:54.036 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 22:47:54.105 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T22:47:54.1054868+05:00"
+2026-05-05 22:47:54.206 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:47:54.207 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:47:54.214 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:47:54.216 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:35.855 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:35.867 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:35.867 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:35.879 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.060 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.062 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.074 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.079 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.163 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.164 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.169 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.172 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.354 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.355 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.361 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.364 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.491 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.496 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.501 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.503 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.610 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.611 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.616 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.619 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.790 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.791 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.795 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.798 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.931 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.932 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:36.938 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:36.942 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:37.047 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:37.049 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:48:37.056 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:48:37.058 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:49:20.703 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:49:20.704 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:49:20.712 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:49:20.713 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:49:31.780 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:49:31.788 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:49:31.791 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:49:31.799 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:39.585 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:39.590 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:39.590 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:39.598 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:56.154 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:56.156 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:56.159 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:56.160 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:59.373 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:59.374 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:52:59.379 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:52:59.380 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:53:04.398 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:53:04.402 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:53:04.403 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:53:04.411 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:55:00.884 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:55:00.891 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:55:00.892 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:55:00.901 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:34.073 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:34.079 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:34.080 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:34.088 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:35.153 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:35.155 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:35.159 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:35.163 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:37.781 +05:00 [INF] Task with id 108 deleted by user 6 with role User
+2026-05-05 22:59:40.765 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:40.767 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 22:59:40.772 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 22:59:40.774 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:06:58.115 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:06:58.231 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:06:59.545 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:08:53.784 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 23:08:54.100 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T23:08:54.1005674+05:00"
+2026-05-05 23:08:54.228 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:08:54.234 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:08:54.236 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:08:54.288 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:08:54.290 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:08:54.295 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:09:07.231 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:09:07.241 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:09:07.242 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:09:07.267 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:09:07.270 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:09:07.270 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:09:50.459 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:09:50.565 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:09:50.738 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:09:50.744 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:09:51.564 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:09:51.581 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:10:00.809 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 23:10:00.972 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T23:10:00.9713418+05:00"
+2026-05-05 23:10:01.062 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:10:01.065 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:10:01.066 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:10:01.080 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:10:01.084 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:10:01.088 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:10:09.537 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:10:09.542 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:10:09.543 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:10:09.555 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:10:09.558 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:10:09.558 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:11:27.787 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:11:27.792 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:11:27.794 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:11:27.833 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:11:27.836 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:11:27.837 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:12:33.782 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 23:12:36.198 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T23:12:36.1980936+05:00"
+2026-05-05 23:12:36.429 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:12:36.447 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:12:36.565 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:12:36.643 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:12:36.650 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported. The unsupported member type is located on type 'System.Func`1[System.Collections.Generic.List`1[TaskManagerAPI.Models.TaskItem]]'. Path: $.
+ ---> System.NotSupportedException: Serialization and deserialization of 'System.Func`1[[System.Collections.Generic.List`1[[TaskManagerAPI.Models.TaskItem, TaskManagementAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]' instances is not supported.
+   at System.Text.Json.Serialization.Converters.UnsupportedTypeConverter`1.Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ThrowNotSupportedException(WriteStack& state, Exception innerException)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-05 23:12:36.654 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:14:46.295 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:14:46.387 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:14:46.543 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:14:46.545 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:14:55.406 +05:00 [INF] Task with id 110 deleted by user 6 with role User
+2026-05-05 23:16:51.265 +05:00 [INF] Task 'hello g ' created by User 6
+2026-05-05 23:16:52.429 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:16:52.430 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:16:52.438 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:16:52.438 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:16:55.640 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:16:55.643 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:16:55.646 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:16:55.650 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.450 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.450 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.450 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.450 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.625 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:13.626 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:13.635 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:18.334 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:18.335 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:18:18.341 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:18:18.343 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:21:46.373 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:21:46.392 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:21:46.393 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:21:46.403 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:21:51.550 +05:00 [INF] Task with id 112 deleted by user 6 with role User
+2026-05-05 23:21:52.790 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:21:52.790 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:21:52.796 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:21:52.799 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:15.687 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-05 23:22:15.736 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-05T23:22:15.7351274+05:00"
+2026-05-05 23:22:15.815 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:15.818 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:15.823 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:15.825 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:27.946 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:27.949 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:27.954 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:27.957 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:37.166 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:37.168 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:37.174 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-05 23:22:37.175 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-05 23:22:45.258 +05:00 [INF] Login attempt for user: admin@gmail.com
+2026-05-05 23:22:47.165 +05:00 [INF] Login attempt for user: admin@gmail.com
+2026-05-05 23:24:44.452 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-05 23:24:44.461 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-05T23:24:44.4616614+05:00"
+2026-05-05 23:24:44.577 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-05 23:24:44.583 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-05 23:24:44.625 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-05 23:24:44.634 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin

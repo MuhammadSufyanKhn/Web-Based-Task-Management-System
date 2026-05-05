@@ -42,9 +42,9 @@ namespace TaskManagementAPI.Controllers
             }
             var stats = new
             {
-                PendingCount = query.Count(t => t.TaskStatus == "Pending"),
-                InProgressCount = query.Count(t => t.TaskStatus == "InProgress"),
-                CompletedCount = query.Count(t => t.TaskStatus == "Completed")
+                PendingCount = query.Count(t => t.TaskStatus == "Pending" && t.IsDeleted == false),
+                InProgressCount = query.Count(t => t.TaskStatus == "InProgress" && t.IsDeleted == false),
+                CompletedCount = query.Count(t => t.TaskStatus == "Completed" && t.IsDeleted == false)
             };
 
             _logger.LogInformation("Dashboard stats retrieved for user {UserId} with role {UserRole}", userIdclaim, UserRole);
@@ -65,7 +65,7 @@ namespace TaskManagementAPI.Controllers
                 int parsedUserId = Convert.ToInt32(userIdclaim);
                 query = query.Where(t => t.UserId == parsedUserId);
             }
-            var tasks = query.ToList();
+            var tasks = query.Where(c => c.IsDeleted == false).ToList();
             _logger.LogInformation("Tasks retrieved for user {UserId} with role {UserRole}", userIdclaim, UserRole);
             return Ok(tasks);
         }
@@ -112,27 +112,37 @@ namespace TaskManagementAPI.Controllers
             {
                 return Forbid("You are not authorized to delete this task.");
             }
-            var deletedTask = new TaskItem
-            {
-                TaskId = task.TaskId,
-                Title = task.Title,
-                Descriptions = task.Descriptions,
-                TaskStatus = task.TaskStatus,
-                TaskPriority = task.TaskPriority,
-                DueDate = task.DueDate,
-                CreatedBy = task.CreatedBy,
-                CreatedDate = task.CreatedDate,
-                IsDeleted = true
-            };
-            _context.TaskItems.Remove(task);
+
+            task.IsDeleted = true;
+            
+            _context.TaskItems.Update(task);
             _context.SaveChanges();
             _logger.LogInformation("Task with id {TaskId} deleted by user {UserId} with role {UserRole}", id, userIdclaim, UserRole);
             return Ok("Task deleted successfully.");
         }
 
         [Authorize]
+        [HttpGet("{id}")] 
+        public IActionResult GetTaskById(int id)
+        {
+            var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+            var task = _context.TaskItems.Find(id);
+
+            if (task == null) return NotFound("Task not found.");
+
+            if (UserRole != "Admin" && task.CreatedBy != Convert.ToInt32(userIdclaim))
+            {
+                return Forbid();
+            }
+
+            return Ok(task);
+        }
+
+        [Authorize]
         [HttpPut("update-task/{id}")]
-        public IActionResult UpdateTask(int id, [FromBody] TaskItem updatedTask)
+        public IActionResult UpdateTask(int id, [FromBody] UpdateTaskDto updatedTask)
         {
             var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
@@ -147,18 +157,16 @@ namespace TaskManagementAPI.Controllers
             {
                 return Forbid("You are not authorized to update this task.");
             }
-            var oldTask = new TaskItem
-            {
-                TaskId = updatedTask.TaskId,
-                Title = updatedTask.Title,
-                Descriptions = updatedTask.Descriptions,
-                TaskStatus = updatedTask.TaskStatus,
-                TaskPriority = updatedTask.TaskPriority,
-                DueDate = updatedTask.DueDate,
-                UpdatedBy = Convert.ToInt32(userIdclaim),
-                UpdatedDate = DateTime.UtcNow
-            };
-            
+
+            task.Title = updatedTask.Title;
+            task.Descriptions = updatedTask.Descriptions;
+            task.TaskStatus = updatedTask.TaskStatus;
+            task.TaskPriority = updatedTask.TaskPriority;
+            task.DueDate = updatedTask.DueDate;
+            task.UpdatedBy = Convert.ToInt32(userIdclaim);
+            task.UpdatedDate = DateTime.UtcNow;
+
+
             _context.SaveChanges();
             _logger.LogInformation("Task with id {TaskId} updated by user {UserId} with role {UserRole}", id, userIdclaim, UserRole);
             return Ok(task);

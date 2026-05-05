@@ -14,13 +14,13 @@ const CreateTask = () => {
             await axios.post('https://localhost:7127/api/task/create-task', task, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            alert("Mubarak ho! Task ban gaya.");
+            alert("Task created successfully!");
             navigate('/dashboard');
-        } catch (err) { alert("Masla ho gaya!"); }
+        } catch (err) { alert("Error occured! please try again"); }
     };
 
     return (
-        <div className="dashboard-main"> {/* Background consistency ke liye */}
+        <div style={{ width: "100vw" }} className="dashboard-main"> 
             <div className="create-task-card">
                 <h2 className="title" style={{border: 'none', fontSize: '24px'}}>✨ Create New Task</h2>
                 <form onSubmit={handleSubmit}>

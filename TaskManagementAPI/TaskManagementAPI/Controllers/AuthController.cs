@@ -70,8 +70,8 @@ namespace TaskManagerAPI.Controllers
             }
 
             _logger.LogInformation("User {Email} logged in successfully at {Time}", request.Email, DateTime.Now);
-            // Login method ke andar
-            var token = _jwtService.GenerateToken(user); // Aik chota sa function bana lo
+    
+            var token = _jwtService.GenerateToken(user);
             return Ok(new { token = token, message = "login successful" });
         }
 

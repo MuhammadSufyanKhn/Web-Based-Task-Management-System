@@ -145,6 +145,29 @@
         }
       }
     },
+    "/api/Task/{id}": {
+      "get": {
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Task/update-task/{id}": {
       "put": {
         "tags": [
@@ -165,17 +188,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TaskItem"
+                "$ref": "#/components/schemas/UpdateTaskDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TaskItem"
+                "$ref": "#/components/schemas/UpdateTaskDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TaskItem"
+                "$ref": "#/components/schemas/UpdateTaskDto"
               }
             }
           }
@@ -235,20 +258,12 @@
         },
         "additionalProperties": false
       },
-      "TaskItem": {
-        "required": [
-          "title",
-          "userId"
-        ],
+      "UpdateTaskDto": {
         "type": "object",
         "properties": {
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "title": {
-            "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "descriptions": {
             "type": "string",
@@ -265,96 +280,6 @@
           "dueDate": {
             "type": "string",
             "format": "date-time",
-            "nullable": true
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/Users"
-          },
-          "createdBy": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedBy": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "updatedDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Users": {
-        "required": [
-          "email",
-          "passwordHash",
-          "userName",
-          "userRole"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "passwordHash": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "userRole": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "createdBy": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedBy": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "updatedDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TaskItem"
-            },
             "nullable": true
           }
         },
