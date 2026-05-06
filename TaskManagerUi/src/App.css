@@ -2,7 +2,7 @@ src/App.css
 
 .container {
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     font-family: sans-serif;
     display: flex;
     justify-content: center;

@@ -3,8 +3,8 @@
     public class CreateTaskDto
     {
         public string Title { get; set; }
-        public string? Descriptions { get; set; } // SQL mein 's' hai
-        public string? TaskPriority { get; set; } // High, Medium, Low
+        public string? Descriptions { get; set; } 
+        public string? TaskPriority { get; set; } 
         public DateTime? DueDate { get; set; }
     }
 }

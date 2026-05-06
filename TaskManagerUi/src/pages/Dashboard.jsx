@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TaskList from './Tasklist';
+import Profile from './profile';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
     const [stats, setStats] = useState({ pendingCount: 0, inProgressCount: 0, completedCount: 0 });
     const [role, setRole] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchStats = async () => {
@@ -23,12 +26,33 @@ const Dashboard = () => {
         };
         fetchStats();
     }, []);
+    if (localStorage.getItem('token') === null) {
+        navigate('/login');
+    }
 
     return (
         <div className="dashboard-main">
             <header className="dash-header">
                 <h2>{role === "Admin" ? "Admin Overview" : "My Task Dashboard"}</h2>
-                <button className="btn-logout" onClick={() => { localStorage.clear(); window.location.href = "/login" }}>Logout</button>
+                <button
+                    style={{
+                        marginLeft: "auto",
+                        backgroundColor: "#3498db",
+                        color: "white",
+                        border: "none",
+                        padding: "8px 20px",
+                        borderRadius: "6px",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        cursor: "pointer",
+                        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                        outline: "none"
+                    }}
+                    className="btn-profile"
+                    onClick={() => navigate('/profile')}
+                >
+                    View Profile
+                </button>
             </header>
 
             <div className="stats-container">

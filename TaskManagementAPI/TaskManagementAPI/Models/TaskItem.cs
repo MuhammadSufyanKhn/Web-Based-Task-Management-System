@@ -20,7 +20,6 @@ namespace TaskManagerAPI.Models
         [ForeignKey("UserId")]
         public Users User { get; set; } = null!;
 
-        // Audit Fields
         public int? CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public int? UpdatedBy { get; set; }

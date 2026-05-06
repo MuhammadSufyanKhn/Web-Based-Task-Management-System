@@ -69,6 +69,8 @@ namespace TaskManagementAPI.Controllers
             _logger.LogInformation("Tasks retrieved for user {UserId} with role {UserRole}", userIdclaim, UserRole);
             return Ok(tasks);
         }
+
+
         [Authorize]
         [HttpPost("create-task")]
         public IActionResult CreateTask([FromBody] CreateTaskDto taskDto)
@@ -76,11 +78,11 @@ namespace TaskManagementAPI.Controllers
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             int userId = Convert.ToInt32(userIdClaim);
 
-            var newTask = new TaskItem // Apne model ka naam check kar lena
+            var newTask = new TaskItem 
             {
                 Title = taskDto.Title,
                 Descriptions = taskDto.Descriptions,
-                TaskStatus = "Pending", // Default status
+                TaskStatus = "Pending", 
                 UserId = userId,
                 CreatedDate = DateTime.Now,
                 CreatedBy = userId,
