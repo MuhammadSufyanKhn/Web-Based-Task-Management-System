@@ -53,7 +53,7 @@ const EditTask = () => {
             );
 
             alert("Task Updated!");
-            navigate("/dashboard");
+            navigate("/View-all-tasks");
         } catch (err) {
             console.error("Error updating task", err);
         }
@@ -65,16 +65,18 @@ const EditTask = () => {
             width: "100vw",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#f0f2f5"
+            alignItems: "flex-start",
+            paddingTop: "5px",
+            
         }}>
             <div style={{
-                width: "100%",
-                maxWidth: "520px",
+                width: "90%",
+                maxWidth: "450px",
                 background: "white",
-                padding: "30px",
+                padding: "25px",
                 borderRadius: "15px",
                 boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
+                 
             }}>
 
                 <h2 style={{

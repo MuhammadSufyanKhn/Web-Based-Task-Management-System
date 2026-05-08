@@ -1,0 +1,506 @@
+2026-05-08 11:02:52.500 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-08 11:02:52.584 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-08 11:02:58.722 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-08T11:02:58.7214337+05:00"
+2026-05-08 11:02:58.722 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-08T11:02:58.7214260+05:00"
+2026-05-08 11:02:59.626 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:02:59.656 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:02:59.688 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:02:59.690 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:03:12.245 +05:00 [INF] Task with id 2112 updated by user 6 with role User
+2026-05-08 11:03:13.250 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:03:13.253 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:03:13.267 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:03:13.278 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:08:56.055 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:08:56.069 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:08:56.069 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:08:56.088 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:09:19.770 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:09:19.773 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:09:19.782 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:09:19.787 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:10:40.119 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:10:40.130 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:10:40.131 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:10:40.141 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:10:53.538 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:10:53.540 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:10:53.548 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:10:53.553 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:11:01.048 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:11:01.050 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:11:01.060 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:11:01.067 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:12:42.679 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:12:42.686 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:12:42.687 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:12:42.702 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:12:47.786 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:12:47.796 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:12:47.802 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:12:47.815 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:16:23.711 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:16:23.721 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:16:23.722 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:16:23.745 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:28:49.924 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:28:49.932 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:28:49.998 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:28:50.012 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:29:22.219 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:29:22.226 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:29:22.227 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:29:22.234 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:29:30.676 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:29:30.678 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:29:30.684 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:29:30.688 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:04.313 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:04.321 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:04.324 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:04.333 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:05.751 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:05.752 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:05.758 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:05.762 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:14.872 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:14.873 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:14.882 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:14.884 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:26.690 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:26.699 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:26.704 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:26.714 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:36.476 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:36.486 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:31:36.488 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:31:36.506 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:32:47.554 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:32:47.563 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:32:47.565 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:32:47.572 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:36:03.184 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:36:03.193 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:36:03.194 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:36:03.204 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:40:57.540 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-08 11:40:57.619 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-08T11:40:57.6196791+05:00"
+2026-05-08 11:40:57.712 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:40:57.722 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:40:57.723 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:40:57.735 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:41:19.068 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-08 11:41:19.146 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-08T11:41:19.1460647+05:00"
+2026-05-08 11:41:19.269 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:41:19.277 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:41:19.279 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:41:19.287 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:42:16.337 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:42:16.339 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:42:16.342 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:42:16.344 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:43:20.690 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:43:20.721 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:43:20.734 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:43:20.742 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:43:29.381 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:43:29.387 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:43:29.391 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:43:29.399 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:46:43.594 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:46:43.601 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:46:43.609 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:46:43.619 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:22.480 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:22.489 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:22.511 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:22.522 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:27.494 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:27.497 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:27.502 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:27.509 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:55.087 +05:00 [INF] Task 'admin panel' created by User 6
+2026-05-08 11:51:56.128 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:56.130 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:51:56.134 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:51:56.144 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:52:48.541 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:52:48.549 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:52:48.552 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:52:48.561 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:53:45.059 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:53:45.069 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:53:45.069 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:53:45.082 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:55:05.630 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:55:05.637 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:55:05.641 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:55:05.648 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:56:52.773 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:56:52.780 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:56:52.788 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:56:52.798 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:57:17.074 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:57:17.077 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:57:17.080 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:57:17.086 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:57:17.933 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:57:17.934 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:57:17.939 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:57:17.944 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:17.485 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:17.495 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:17.496 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:17.510 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:23.257 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:23.259 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:23.266 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:23.268 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:36.354 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:36.399 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:36.403 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:36.413 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:37.224 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:37.231 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 11:59:37.232 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 11:59:37.241 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:00:11.114 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:00:11.120 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:00:11.128 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:00:11.138 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:00:59.411 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:00:59.422 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:00:59.422 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:00:59.448 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:00.110 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:00.118 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:00.120 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:00.129 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:05.415 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:05.423 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:05.428 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:05.439 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:11.870 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:11.871 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:11.875 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:11.878 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:53.193 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:53.198 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:53.200 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:53.205 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:57.639 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:57.644 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:01:57.649 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:01:57.653 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:39.474 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:39.487 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:39.498 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:39.506 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:44.353 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:44.355 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:44.365 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:44.371 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:57.641 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:57.643 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:57.649 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:57.654 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:57.869 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:57.871 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:57.877 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:57.880 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:58.060 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:58.064 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:05:58.067 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:05:58.072 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:06:05.167 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:06:05.168 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:06:05.172 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:06:05.174 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:09:35.681 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:09:35.691 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:09:35.692 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:09:35.703 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:09:39.729 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:09:39.730 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:09:39.741 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:09:39.744 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:11:34.531 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:34.542 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:34.542 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:11:34.552 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:11:38.826 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:38.832 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:40.383 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:40.389 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:41.173 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:41.179 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:41.691 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:11:41.697 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:13:06.453 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:13:06.464 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:13:24.542 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:13:24.548 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:53.419 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:53.428 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:55.842 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:55.849 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:58.030 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:14:58.036 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:31.466 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:32.911 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:32.917 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:37.100 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:37.111 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:37.116 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:15:37.125 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:15:40.218 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:15:40.226 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:48.161 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-08 12:17:48.219 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-08T12:17:48.2190750+05:00"
+2026-05-08 12:17:48.318 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:48.330 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:17:48.340 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:48.341 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:17:52.522 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:52.537 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:54.040 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:54.045 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:17:54.052 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:54.055 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:17:55.222 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:17:55.230 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:20:30.029 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:20:30.038 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:20:30.094 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:20:30.108 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:25:40.642 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:25:40.649 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:25:40.663 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:25:40.673 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:30:53.879 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:30:53.886 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:30:53.888 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:30:53.896 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:30:57.711 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:30:57.714 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:30:57.719 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:30:57.722 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:33:38.539 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:33:38.549 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:33:38.550 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:33:38.558 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:35:24.949 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:35:24.961 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:35:24.965 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:35:24.980 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:35:34.974 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:35:34.975 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:35:34.981 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:35:34.985 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:42.843 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:42.854 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:42.858 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:42.875 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:46.961 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:46.963 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:46.973 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:46.979 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:51.045 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:51.048 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:51.059 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:51.066 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:56.009 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:56.012 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:36:56.023 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:36:56.026 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:38:50.703 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:38:50.711 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:38:50.715 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:38:50.727 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:40:54.166 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:40:54.179 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:40:54.181 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:40:54.191 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:40:57.632 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:40:57.635 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:40:57.642 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:40:57.645 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:00.573 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:00.574 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:00.584 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:00.589 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:02.457 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:02.461 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:02.466 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:02.469 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:13.518 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:13.522 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:13.526 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:13.532 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:40.924 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:40.935 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:40.943 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:40.957 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:51.064 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:51.068 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:41:51.074 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:41:51.080 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:51:03.432 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:51:03.443 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:51:03.450 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:51:03.458 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:52:20.132 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:52:20.142 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:52:20.144 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:52:20.155 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:52:22.888 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:52:22.891 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:52:22.900 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:52:22.907 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:00.033 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:00.041 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:00.051 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:00.059 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:02.278 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:02.279 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:02.286 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:02.288 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:04.637 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:04.640 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:04.649 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:04.655 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:21.554 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:21.555 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:21.562 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:21.571 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:55.185 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:55.194 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:55.200 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:55.214 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:57.788 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:57.791 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:53:57.798 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:53:57.802 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:00.414 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:00.420 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:00.424 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:00.432 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:02.595 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:02.600 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:02.606 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:02.609 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:16.334 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:16.337 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:16.346 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:16.353 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:18.285 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:18.286 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:18.297 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:18.305 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:20.573 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:20.576 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:20.584 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:20.586 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:22.538 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:22.540 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:22.552 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:22.555 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:26.350 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:26.352 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:54:26.355 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:54:26.359 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:16.022 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:16.035 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:16.038 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:16.051 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:21.306 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:21.307 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:21.316 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:21.321 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:24.656 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:24.657 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:24.665 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:24.668 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:27.931 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:27.933 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:55:27.943 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:55:27.944 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:57:53.354 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:57:53.360 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:57:53.364 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:57:53.376 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:19.180 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:19.190 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:19.192 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:19.199 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:21.453 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:21.456 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:21.465 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:21.470 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:26.055 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:26.058 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:26.070 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:26.071 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:28.573 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:28.575 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:28.580 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:28.582 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:30.630 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:30.640 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:54.484 +05:00 [INF] Task 'sql query ' created by User 6
+2026-05-08 12:58:55.879 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:55.881 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:55.887 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:55.888 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:58:58.841 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:58:58.853 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:59:05.488 +05:00 [INF] Task with id 2118 updated by user 6 with role User
+2026-05-08 12:59:06.772 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:59:06.782 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 12:59:06.787 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 12:59:06.798 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:00:25.745 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:00:25.757 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:00:32.997 +05:00 [INF] Task with id 2114 updated by user 6 with role User
+2026-05-08 13:00:44.551 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:00:44.562 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:03.946 +05:00 [INF] Task with id 2114 updated by user 6 with role User
+2026-05-08 13:01:04.746 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:04.755 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:09.499 +05:00 [INF] Task with id 2114 updated by user 6 with role User
+2026-05-08 13:01:10.631 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:10.638 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:12.333 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:12.343 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:01:12.359 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:01:12.370 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:01:31.890 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:01:31.906 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:01:57.835 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:02:08.464 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.543 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.549 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.628 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.633 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.806 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:12.812 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-08 13:03:16.122 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:03:16.129 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:03:16.130 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:03:16.137 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:44.300 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:44.309 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:44.312 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:44.318 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:44.550 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:44.552 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:44.559 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:44.560 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:44.998 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:45.002 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:04:45.005 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:04:45.011 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:07:20.286 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:07:20.292 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-08 13:07:20.293 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-08 13:07:20.298 +05:00 [INF] Dashboard stats retrieved for user 6 with role User

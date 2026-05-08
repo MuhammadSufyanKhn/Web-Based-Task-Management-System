@@ -34,11 +34,10 @@ const TaskList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {tasks.map(task => (
+                    {tasks.slice(0, 2).map(task => (
                         <tr key={task.taskId}>
                             <td>
                                 <strong>{task.title}</strong>
-                                <p style={{ fontSize: '11px' }}>{task.descriptions}</p>
                             </td>
                             <td><span className={`priority-${task.taskPriority}`}> {task.taskPriority}</span></td>
                             <td>
@@ -50,7 +49,7 @@ const TaskList = () => {
                             <td>{task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}</td>
                             <td>
                                 <Link style={{ textDecoration: 'none' }} to={`/edit-task/${task.taskId}`} className="btn-edit">Edit</Link>
-                                
+
                                 <button
                                     className="btn-delete"
                                     onClick={async () => {
@@ -68,10 +67,22 @@ const TaskList = () => {
                                 >
                                     Delete
                                 </button>
+                                <Link style={{ textDecoration: 'none' }} to={`/ViewTaskDetails/${task.taskId}`} className="btn-view">View Details</Link>
                             </td>
                         </tr>
                     ))}
                 </tbody>
+                {
+                    tasks.length > 2 && (
+                        <tfoot>
+                            <tr>
+                                <td colSpan="5" style={{ textAlign: 'center', padding: '15px 0', background: 'linear-gradient(to right, #fff, #fff9e6, #fff)', borderTop: '1px solid #eee',  }}>
+                                    <Link style={{ textDecoration: 'none', color: '#b8860b', fontWeight: 'bold', display: 'block', textAlign: 'center' }} to="/view-all-tasks" className="view-all-link">View All Tasks ({tasks.length})</Link>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    )
+                }
             </table>
         </div>
     );

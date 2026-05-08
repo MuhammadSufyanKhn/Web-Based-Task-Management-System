@@ -58,7 +58,6 @@ const Profile = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: "'Segoe UI', Roboto, sans-serif",
             flexDirection: "column",
             overflow: "hidden",
             padding: "20px"
@@ -69,7 +68,7 @@ const Profile = () => {
             backgroundColor: "#fff",
             borderRadius: "15px",
             boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-            padding: "40px",
+            padding: "20px",
             boxSizing: "border-box",
             maxHeight: "90vh"
         },

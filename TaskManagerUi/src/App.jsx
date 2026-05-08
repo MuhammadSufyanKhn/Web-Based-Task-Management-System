@@ -8,11 +8,13 @@ import TaskList from './pages/Tasklist';
 import CreateTask from './pages/CreateTask';
 import EditTask from './pages/edit-task';
 import Profile from './pages/profile';
+import ViewTaskDetails from './pages/ViewDetails';
+import viewalltasks from './pages/viewalltask';
+import ViewAllTasks from './pages/viewalltask';
 
-// ProtectedRoute Component for checking token before rendering protected pages
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
-  
+
   if (!token) {
     return <Navigate to="/login" replace />;
   }
@@ -42,6 +44,12 @@ function App() {
           } />
           <Route path="/profile" element={
             <ProtectedRoute> <Profile /> </ProtectedRoute>
+          } />
+          <Route path="/ViewTaskDetails/:id" element={
+            <ProtectedRoute> <ViewTaskDetails /> </ProtectedRoute>
+          } />
+          <Route path="/view-all-tasks" element={
+            <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
           } />
         </Routes>
       </div>

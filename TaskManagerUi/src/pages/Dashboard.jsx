@@ -13,6 +13,10 @@ const Dashboard = () => {
         const fetchStats = async () => {
             try {
                 const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/login');
+                    return;
+                }
                 const res = await axios.get('https://localhost:7127/api/task/dashboard-stats', {
                     headers: { Authorization: `Bearer ${token}` }
                 });

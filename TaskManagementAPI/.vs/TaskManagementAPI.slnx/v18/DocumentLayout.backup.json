@@ -66,8 +66,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\UpdateProfileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:50:01.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T07:50:01.097Z"
             },
             {
               "$type": "Document",
@@ -75,9 +74,9 @@
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "TaskManagementAPI\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs*",
-              "RelativeToolTip": "TaskManagementAPI\\Controllers\\UserController.cs*",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAE4AAAAFAAAAAAAAAA==",
+              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "TaskManagementAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAADwv0cAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T07:27:06.967Z",
               "EditorCaption": ""
@@ -92,8 +91,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\TaskItem.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T06:56:30.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T06:56:30.649Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\UpdateTaskDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-05T15:43:56.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T15:43:56.075Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\CreateTaskDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T18:47:44.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T18:47:44.728Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\TaskController.cs",
               "ViewState": "AgIAAHsAAAAAAAAAAAAowFQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T16:56:26.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T16:56:26.576Z"
             },
             {
               "$type": "Document",
@@ -180,8 +175,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T07:54:32.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-15T07:54:32.852Z"
             }
           ]
         }

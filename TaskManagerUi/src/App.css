@@ -1,5 +1,6 @@
 src/App.css
 
+    
 .container {
     flex-wrap: wrap;
     gap: 10px;
@@ -76,14 +77,12 @@ src/App.css
 
 .dashboard-main {
     background: #f4f7f6;
-    height: 100%;
 }
 
 .dash-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
 }
 
 .stats-container {
@@ -92,17 +91,18 @@ src/App.css
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap; 
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
 .stat-card {
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     width: 250px;
     text-align: center;
+    transition: all 0.3s ease;
 }
 .stat-card:hover {
     transform: translateY(-5px);
@@ -158,24 +158,15 @@ src/App.css
     margin-top: 20px;
 }
 .dashboard-main {
-    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f4f7f6;
+    padding: 15px;
     min-height: 100vh;
-
-    /* Main Dashboard Layout */
-.dashboard-main {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f2f5;
-    min-height: 100vh;
+    border: 1px solid #ddd;
 }
 
-/* Header Styling */
 .dash-header {
     width: 100%;
     max-width: 1100px;
@@ -183,27 +174,26 @@ src/App.css
     justify-content: space-between;
     align-items: center;
     background: white;
-    padding: 15px 30px;
+    padding: 10px 30px;
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* Table Container Fix */
 .task-table-container {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 1100px; /* Wider for professional look */
+    max-width: 1100px; 
 }
 
 .task-table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 10px; /* Rows ke beech mein gap */
-    margin-top: 20px;
+    border-spacing: 0 10px; 
+    margin-top: 5px;
 }
 
 .task-table th {
@@ -226,6 +216,10 @@ src/App.css
     padding: 15px;
     border-top: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
+        font-size: 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
 }
 
 .task-table tr:hover td {
@@ -286,7 +280,7 @@ src/App.css
 }
 
 .custom-input:focus { border-color: #007bff; outline: none; }
-}
+
 
 .btn-logout{
     background-color: #dc3545;
@@ -342,6 +336,34 @@ src/App.css
     font-size: 14px;
     font-weight: bold;
     transition: background 0.3s;
+}
+.btn-delete{
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    margin-left: 9px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-view{
+    background-color: #fd008b;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-view:hover {
+    background-color: #c7006b;
 }
 
 ::-webkit-scrollbar {
