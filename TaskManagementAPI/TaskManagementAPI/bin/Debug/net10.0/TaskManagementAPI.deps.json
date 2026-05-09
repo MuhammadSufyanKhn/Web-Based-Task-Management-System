@@ -9,16 +9,15 @@
       "TaskManagementAPI/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.6",
-          "Microsoft.AspNetCore.OpenApi": "10.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "10.0.6",
           "Serilog": "4.3.1",
           "Serilog.AspNetCore": "10.0.0",
           "Serilog.Sinks.Console": "6.1.1",
           "Serilog.Sinks.File": "7.0.0",
-          "Swashbuckle.AspNetCore": "10.1.7",
           "Swashbuckle.AspNetCore.Swagger": "10.1.7",
-          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.7"
+          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.7",
+          "Swashbuckle.AspNetCore.SwaggerUI": "10.1.7"
         },
         "runtime": {
           "TaskManagementAPI.dll": {}
@@ -64,17 +63,6 @@
         },
         "runtime": {
           "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
-            "assemblyVersion": "10.0.6.0",
-            "fileVersion": "10.0.626.17701"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.OpenApi/10.0.6": {
-        "dependencies": {
-          "Microsoft.OpenApi": "2.4.1"
-        },
-        "runtime": {
-          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
             "assemblyVersion": "10.0.6.0",
             "fileVersion": "10.0.626.17701"
           }
@@ -687,13 +675,6 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/10.1.7": {
-        "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "10.1.7",
-          "Swashbuckle.AspNetCore.SwaggerGen": "10.1.7",
-          "Swashbuckle.AspNetCore.SwaggerUI": "10.1.7"
-        }
-      },
       "Swashbuckle.AspNetCore.Swagger/10.1.7": {
         "dependencies": {
           "Microsoft.OpenApi": "2.4.1"
@@ -877,13 +858,6 @@
       "sha512": "sha512-JVPyTTr5J/Z5PikptDP2g8qwNJBJ09GZ7yHpaPDAMZ0qKeA2ZKqpZhUNJk1clBqZJeMj2T7gZ5o6oOrmLxuBdw==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.6",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.10.0.6.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.OpenApi/10.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-WTAQe7MAbbKztRyeCRGZOqqlIqpMHDBz+jKo7LLY6hp4qRqn7iucR24u32KJVxV7mF3tSEfwXH96NgGSiDBw7A==",
-      "path": "microsoft.aspnetcore.openapi/10.0.6",
-      "hashPath": "microsoft.aspnetcore.openapi.10.0.6.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
       "type": "package",
@@ -1129,13 +1103,6 @@
       "sha512": "sha512-fKL7mXv7qaiNBUC71ssvn/dU0k9t0o45+qm2XgKAlSt19xF+ijjxyA3R6HmCgfKEKwfcfkwWjayuQtRueZFkYw==",
       "path": "serilog.sinks.file/7.0.0",
       "hashPath": "serilog.sinks.file.7.0.0.nupkg.sha512"
-    },
-    "Swashbuckle.AspNetCore/10.1.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vgef8DPT411JU5JjHiDbr0WOxsIVuAvegPGtqmm4Na4JRl/264dfBJcGkiPHsAr5P+Vda+qN1rZKRtBl1rF9aA==",
-      "path": "swashbuckle.aspnetcore/10.1.7",
-      "hashPath": "swashbuckle.aspnetcore.10.1.7.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/10.1.7": {
       "type": "package",

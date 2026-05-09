@@ -1,0 +1,273 @@
+2026-05-09 15:37:54.095 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 15:37:54.105 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.105 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.105 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.105 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.149 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.156 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:37:54.156 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:37:54.156 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:37:54.157 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:37:54.162 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:37:54.331 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 15:37:54.361 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 15:37:54.373 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 15:38:04.825 +05:00 [INF] Login attempt for user: Admin@gmai.com
+2026-05-09 15:38:04.856 +05:00 [WRN] Login failed: User Admin@gmai.com not found
+2026-05-09 15:38:12.821 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:38:12.879 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:38:12.8790641+05:00"
+2026-05-09 15:38:22.647 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:38:22.653 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:38:22.6530284+05:00"
+2026-05-09 15:38:28.624 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:38:28.628 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:38:28.6282167+05:00"
+2026-05-09 15:38:34.495 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:38:34.501 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:38:34.5014970+05:00"
+2026-05-09 15:38:49.652 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-09 15:38:49.666 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-09T15:38:49.6667141+05:00"
+2026-05-09 15:38:52.432 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-09 15:38:52.439 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-09T15:38:52.4392234+05:00"
+2026-05-09 15:38:56.551 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-09 15:38:56.559 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-09T15:38:56.5599141+05:00"
+2026-05-09 15:40:34.347 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-09 15:40:46.582 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-09T15:40:46.5663180+05:00"
+2026-05-09 15:56:11.821 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:56:11.900 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:56:11.9004316+05:00"
+2026-05-09 15:56:27.699 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-09 15:56:27.910 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-09T15:56:27.9105562+05:00"
+2026-05-09 15:56:28.322 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:28.367 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:28.390 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:28.424 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:33.079 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:33.094 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:35.684 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:35.689 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:35.696 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:35.698 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:37.153 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-09 15:56:37.166 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-09 15:56:40.316 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:40.317 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:40.326 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-09 15:56:40.330 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-09 15:56:42.907 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-09 15:56:42.914 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-09 15:57:35.096 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 15:57:35.107 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T15:57:35.1069774+05:00"
+2026-05-09 16:05:17.358 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:05:17.369 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:06:27.560 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:27.583 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:28.101 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:28.112 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:28.315 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:28.327 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:49.588 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:49.603 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:58.298 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:06:58.312 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:00.527 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:00.540 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:28.611 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:07:28.620 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:28.630 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:28.632 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:07:43.061 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:43.069 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:43.072 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:43.083 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:44.094 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:44.097 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:44.099 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:44.104 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:44.522 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:44.526 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:44.530 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:44.533 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.416 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.418 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.422 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.429 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.552 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.558 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.559 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.565 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.702 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.708 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.711 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.717 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.838 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.843 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:07:46.847 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:07:46.853 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:08:38.743 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:08:38.752 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:08:42.866 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:42.870 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:08:42.875 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:42.879 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:08:47.961 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:47.962 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:08:47.967 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:47.970 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:08:48.841 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:48.843 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:08:48.849 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:08:48.850 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:03.186 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:09:03.200 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:09:11.315 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:11.318 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:11.324 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:11.324 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:12.546 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:12.547 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:12.588 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:12.591 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:13.027 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:13.029 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:13.034 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:13.038 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:09:15.721 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:15.726 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:09:15.734 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:09:15.744 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:38.279 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:38.288 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:41.478 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:41.485 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:41.496 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:41.507 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:41.962 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:41.965 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:41.969 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:41.974 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:42.103 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:42.107 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:42.111 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:42.117 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:42.298 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:42.302 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:42.304 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:42.307 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:11:54.275 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:11:54.284 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:12:01.267 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:12:01.278 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:12:39.273 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:12:39.286 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:13:11.268 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:13:11.276 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:26.456 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:26.463 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:26.467 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:26.474 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:26.951 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:26.954 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:26.966 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:26.969 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.088 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.091 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.094 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.100 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.257 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.260 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.264 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.272 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.332 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.335 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:14:27.338 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:14:27.342 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:15:01.254 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:15:01.263 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:15:01.268 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:15:01.277 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:15:01.390 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:15:01.398 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:15:01.399 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:15:01.415 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:16:10.282 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:16:10.293 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:16:10.297 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:16:10.312 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:16:56.261 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:16:56.268 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:16:56.274 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:16:56.282 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:17:01.004 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:01.010 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:03.628 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:03.629 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:17:03.633 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:03.635 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:17:12.708 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:17:12.716 +05:00 [INF] Profile retrieved for user ID 5.
+2026-05-09 16:17:21.117 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 16:17:21.128 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T16:17:21.1286506+05:00"
+2026-05-09 16:17:21.210 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:21.216 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:21.217 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:17:21.226 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:17:26.468 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:26.475 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:28.269 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:28.272 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:17:28.273 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:28.278 +05:00 [INF] Dashboard stats retrieved for user 5 with role Admin
+2026-05-09 16:17:34.638 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:34.650 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:35.671 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:35.676 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:17:35.676 +05:00 [INF] Tasks retrieved for user 5 with role Admin
+2026-05-09 16:17:35.685 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:23:31.684 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:23:31.693 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:24:07.397 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:24:07.410 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:24:07.458 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:24:07.466 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:23.181 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:40.192 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:54.273 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:54.287 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:57.217 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:29:57.227 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:30:02.313 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:30:02.323 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:30:28.032 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 16:30:28.045 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T16:30:28.0455766+05:00"
+2026-05-09 16:31:03.111 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:31:03.122 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:31:44.280 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:31:44.291 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:32:53.736 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:32:54.047 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:32:54.061 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:33:44.210 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:33:44.221 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:50:28.769 +05:00 [INF] Admin stats retrieved.
+2026-05-09 16:50:28.778 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:12:54.360 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:12:54.368 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:18:16.733 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:18:16.744 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:18:17.158 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:18:17.189 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:32.999 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:33.021 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:43.416 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:43.432 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:58.667 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:58.679 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:59.105 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:59.115 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:59.367 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:21:59.385 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:22:08.926 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-09 17:22:08.944 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-09T17:22:08.9443380+05:00"
+2026-05-09 17:22:09.162 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:22:09.176 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:27:47.225 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:27:47.232 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:28:44.775 +05:00 [INF] Admin stats retrieved.
+2026-05-09 17:28:44.783 +05:00 [INF] Admin stats retrieved.

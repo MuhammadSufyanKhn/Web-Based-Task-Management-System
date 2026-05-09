@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,18 @@ const Login = () => {
             });
 
             localStorage.setItem('token', res.data.token);
-            window.location.href = "/dashboard";
+
+            const decoded = jwtDecode(res.data.token);
+            const userRole = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+            if (userRole === 'Admin')
+            {
+                window.location.href = "/Admin-dashboard";
+            }
+            else 
+            {
+                window.location.href = "/dashboard";
+            }
+
         } catch (err) {
             alert("Invalid Email or Password!");
         }

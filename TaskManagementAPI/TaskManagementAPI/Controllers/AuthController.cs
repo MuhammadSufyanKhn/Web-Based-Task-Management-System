@@ -6,6 +6,7 @@ using TaskManagerAPI.Models.DTOs;
 using TaskManagerAPI.Models;
 using TaskManagerAPI.Models.DTOS;
 using TaskManagerAPI.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TaskManagerAPI.Controllers
 {
@@ -75,6 +76,5 @@ namespace TaskManagerAPI.Controllers
             return Ok(new { token = token, message = "login successful" });
         }
 
-        
     }
 }

@@ -26,6 +26,52 @@ namespace TaskManagementAPI.Controllers
             _jwtService = _jwtservice;
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("AdminStats")]
+        public IActionResult AdminStats()
+        {
+            var totalUsers = _context.Users.Count(u => u.IsDeleted == false);
+            var totalTasks = _context.TaskItems.Count(t => t.IsDeleted == false);
+            var pendingTasks = _context.TaskItems.Count(t => t.TaskStatus == "Pending" && t.IsDeleted == false);
+            var inProgressTasks = _context.TaskItems.Count(t => t.TaskStatus == "InProgress" && t.IsDeleted == false);
+            var completedTasks = _context.TaskItems.Count(t => t.TaskStatus == "Completed" && t.IsDeleted == false);
+            var stats = new
+            {
+                TotalUsers = totalUsers,
+                TotalTasks = totalTasks,
+                PendingTasks = pendingTasks,
+                InProgressTasks = inProgressTasks,
+                CompletedTasks = completedTasks
+            };
+            _logger.LogInformation("Admin stats retrieved.");
+            return Ok(stats);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("AllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            var users = _context.Users.Select(u => new 
+            {
+                u.UserId,
+                u.UserName,
+                u.Email,          
+                u.CreatedDate
+            }).ToList();
+
+            _logger.LogInformation("All users retrieved by admin.");
+            return Ok(users);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("AllTasks")]
+        public IActionResult GetAllTasks()
+        {
+            var tasks = _context.TaskItems.Where(t => t.IsDeleted == false).ToList();
+            _logger.LogInformation("All tasks retrieved by admin.");
+            return Ok(tasks);
+        }
+
         [Authorize]
         [HttpGet("dashboard-stats")]
         public IActionResult DashboardStats()
@@ -125,7 +171,7 @@ namespace TaskManagementAPI.Controllers
 
         [Authorize]
         [HttpGet("{id}")] 
-        public IActionResult GetTaskById(int id)
+        public IActionResult GetTaskById(int id)    
         {
             var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;

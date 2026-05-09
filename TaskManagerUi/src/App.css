@@ -105,12 +105,12 @@ src/App.css
     transition: all 0.3s ease;
 }
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(5px);
 }
 
 .stat-card h3 {
     margin: 0;
-    color: #666;
+    color: black;
     font-size: 1.1rem;
     text-transform: uppercase;
 }
@@ -122,34 +122,58 @@ src/App.css
 }
 
 .pending {
-    border-left: 8px solid #ffc107;
-    border-right: 8px solid #ffc107;
-    background: #fff3cd;
+    border-left: 8px solid #4a3908;
+    border-right: 8px solid #4a3908;
+    background: yellow;
 }
 
 .pending .count {
-    color: #ffc107;
+    color: black;
 }
 
 .progress {
-    border-left: 8px solid #17a2b8;
-    border-right: 8px solid #17a2b8;
-    background: #e0f7fa;
+    border-left: 8px solid #000000;
+    border-right: 8px solid #000000;
+    background: slategray;
 }
 
 .progress .count {
-    color: #17a2b8;
+    color: black;
 
 }
 
 .completed {
-    border-left: 8px solid #28a745;
-    border-right: 8px solid #28a745;
-    background: #e9f7ef;
+    border-left: 8px solid #000000;
+    border-right: 8px solid #000000;
+    background: cyan;
 }
 
 .completed .count {
-    color: #28a745;
+    color: #000000;
+}
+.stat-card.total {
+    background: #171a4f; 
+    border-left: 6px solid #e261ff;
+    border-right: 6px solid #e261ff;
+}
+
+.stat-card.total .count {
+    color: #e4e4e4;
+}
+.stat-card.total h3 {
+    color: #e4e4e4;
+}
+.stat-card.users {
+    background: #f9ca24; 
+    border-left: 6px solid #271c05;
+    border-right: 6px solid #271c05;
+}
+
+.stat-card.users .count {
+    color: black;
+}
+.stat-card.users h3 {
+    color: black;
 }
 
 .create-task-section {

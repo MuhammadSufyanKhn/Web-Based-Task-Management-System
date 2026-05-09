@@ -49,6 +49,36 @@
   },
   {
     "ContainingType": "TaskManagementAPI.Controllers.TaskController",
+    "Method": "AdminStats",
+    "RelativePath": "api/Task/AdminStats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementAPI.Controllers.TaskController",
+    "Method": "GetAllTasks",
+    "RelativePath": "api/Task/AllTasks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementAPI.Controllers.TaskController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Task/AllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TaskManagementAPI.Controllers.TaskController",
     "Method": "CreateTask",
     "RelativePath": "api/Task/create-task",
     "HttpMethod": "POST",

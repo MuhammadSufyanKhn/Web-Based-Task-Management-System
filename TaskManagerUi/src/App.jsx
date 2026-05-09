@@ -9,8 +9,8 @@ import CreateTask from './pages/CreateTask';
 import EditTask from './pages/edit-task';
 import Profile from './pages/profile';
 import ViewTaskDetails from './pages/ViewDetails';
-import viewalltasks from './pages/viewalltask';
 import ViewAllTasks from './pages/viewalltask';
+import AdminDashboard from './pages/Admin-dashboard';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -50,6 +50,9 @@ function App() {
           } />
           <Route path="/view-all-tasks" element={
             <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
+          } />
+          <Route path="/Admin-dashboard" element={
+            <ProtectedRoute> <AdminDashboard /> </ProtectedRoute>
           } />
         </Routes>
       </div>

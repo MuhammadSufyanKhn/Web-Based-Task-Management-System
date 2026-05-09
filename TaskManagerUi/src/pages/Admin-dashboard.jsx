@@ -3,6 +3,8 @@ import axios from 'axios';
 import TaskList from './Tasklist';
 import Profile from './profile';
 import { useNavigate } from 'react-router-dom';
+import AdminAllTasks from './AdminAllTasks'
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [stats, setStats] = useState({ pendingCount: 0, inProgressCount: 0, completedCount: 0 });
@@ -17,7 +19,7 @@ const Dashboard = () => {
                     navigate('/login');
                     return;
                 }
-                const res = await axios.get('https://localhost:7127/api/task/dashboard-stats', {
+                const res = await axios.get('https://localhost:7127/api/task/AdminStats', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setStats(res.data);
@@ -37,45 +39,52 @@ const Dashboard = () => {
     return (
         <div className="dashboard-main">
             <header className="dash-header">
-                <h2>{"My Task Dashboard"}</h2>
-                <button
-                    style={{
-                        marginLeft: "auto",
-                        backgroundColor: "#3498db",
-                        color: "white",
-                        border: "none",
-                        padding: "8px 20px",
-                        borderRadius: "6px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        cursor: "pointer",
-                        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                        outline: "none"
-                    }}
-                    className="btn-profile"
-                    onClick={() => navigate('/profile')}
-                >
-                    View Profile
-                </button>
+                <h2>{"Admin Dashboard"}</h2>
+
+                <button style={{
+                    padding: "12px 30px",
+                    backgroundColor: "#e74c3c",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    cursor: "pointer"
+                }} onClick={() => {
+                    localStorage.removeItem('token');
+                    navigate('/login');
+                }}>Logout </button>
             </header>
 
             <div className="stats-container">
+                <div className="stat-card total">
+                    <h3>Total Tasks</h3>
+                    <p className="count">{stats.totalTasks || 0}</p>
+                </div>
+
+                <div className="stat-card users">
+                    <h3>Total Users</h3>
+                    <p className="count">{stats.totalUsers || 0}</p>
+                </div>
+            </div>
+            <div className="stats-container">
                 <div className="stat-card pending">
                     <h3>Pending</h3>
-                    <p className="count">{stats.pendingCount}</p>
+                    <p className="count">{stats.pendingTasks || 0}</p>
                 </div>
 
                 <div className="stat-card progress">
                     <h3>In-Progress</h3>
-                    <p className="count">{stats.inProgressCount}</p>
+                    <p className="count">{stats.inProgressTasks || 0}</p>
                 </div>
 
                 <div className="stat-card completed">
                     <h3>Completed</h3>
-                    <p className="count">{stats.completedCount}</p>
+                    <p className="count">{stats.completedTasks || 0}</p>
                 </div>
             </div>
-            <TaskList />
+            <Link to="/AdminAllTasks">View All Tasks</Link>
+            <Link to="/admin/all-users">View All Users</Link>
         </div>
     );
 };

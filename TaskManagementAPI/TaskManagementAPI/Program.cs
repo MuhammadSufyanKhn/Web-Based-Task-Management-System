@@ -48,12 +48,13 @@ builder.Services.AddCors(options => {
                         .AllowAnyHeader());
 });
 
+builder.Services.AddMvc();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<JwtService>();
-
+builder.Services.AddControllers();
 var app = builder.Build();
 
 app.UseSwagger();
