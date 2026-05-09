@@ -66,7 +66,7 @@ const AdminAllTasks = () => {
       borderRadius: '12px',
       boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
     }}>
-      
+
       {/* Header Section */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
@@ -89,11 +89,11 @@ const AdminAllTasks = () => {
         </div>
       </div>
 
-      {/* Table Section */}
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>User Name</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>
@@ -103,18 +103,21 @@ const AdminAllTasks = () => {
         <tbody>
           {filteredTasks.length > 0 ? (
             filteredTasks.map((task) => (
-                <tr key={task.taskId} style={{ borderBottom: '1px solid #eee' }}>
-                  
+              <tr key={task.taskId} style={{ borderBottom: '1px solid #eee' }}>
+
                 <td style={{ padding: '12px' }}><strong>{task.title}</strong></td>
+                <td style={{ padding: '12px', color: '#555' }}>
+                  {task.userName || 'N/A'}
+                </td>
                 <td style={{ padding: '12px' }}>
                   <span style={{ fontWeight: '500' }}>{task.taskPriority}</span>
                 </td>
                 <td style={{ padding: '12px' }}>
-                  <span style={{ 
-                    padding: '4px 8px', 
-                    borderRadius: '4px', 
-                    fontSize: '12px', 
-                    backgroundColor: '#e9ecef' 
+                  <span style={{
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    fontSize: '12px',
+                    backgroundColor: '#e9ecef'
                   }}>
                     {task.taskStatus}
                   </span>
@@ -123,43 +126,43 @@ const AdminAllTasks = () => {
                   {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}
                 </td>
                 <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
-                  <button 
-                    onClick={() => navigate(`/Admin-edit-task/${task.id}`)}
-                    style={{ 
-                      backgroundColor: '#ffc107', 
-                      border: 'none', 
-                      padding: '6px 12px', 
-                      borderRadius: '4px', 
+                  <button
+                    onClick={() => navigate(`/Admin-edit-task/${task.taskId}`)}
+                    style={{
+                      backgroundColor: '#ffc107',
+                      border: 'none',
+                      padding: '6px 12px',
+                      borderRadius: '4px',
                       cursor: 'pointer',
-                      fontWeight: 'bold' 
+                      fontWeight: 'bold'
                     }}
                   >
                     Edit
                   </button>
-                  <button 
-                    onClick={() => handleDeleteTask(task.id)} 
-                    style={{ 
-                      backgroundColor: '#dc3545', 
-                      color: 'white', 
-                      border: 'none', 
-                      padding: '6px 12px', 
-                      borderRadius: '4px', 
+                  <button
+                    onClick={() => handleDeleteTask(task.taskId)}
+                    style={{
+                      backgroundColor: '#dc3545',
+                      color: 'white',
+                      border: 'none',
+                      padding: '6px 12px',
+                      borderRadius: '4px',
                       cursor: 'pointer',
-                      fontWeight: 'bold' 
+                      fontWeight: 'bold'
                     }}
                   >
                     Delete
                   </button>
-                  <button 
-                    onClick={() => navigate(`/ViewDetails/${task.id}`)}
-                    style={{ 
-                      backgroundColor: '#17a2b8', 
-                      color: 'white', 
-                      border: 'none', 
-                      padding: '6px 12px', 
-                      borderRadius: '4px', 
+                  <button
+                    onClick={() => navigate(`/ViewTaskDetails/${task.taskId}`)}
+                    style={{
+                      backgroundColor: '#17a2b8',
+                      color: 'white',
+                      border: 'none',
+                      padding: '6px 12px',
+                      borderRadius: '4px',
                       cursor: 'pointer',
-                      fontWeight: 'bold' 
+                      fontWeight: 'bold'
                     }}
                   >
                     Details
@@ -178,12 +181,12 @@ const AdminAllTasks = () => {
       </table>
 
       <div style={{ marginTop: '30px', textAlign: 'center' }}>
-        <Link to="/Admin-dashboard" style={{ 
-          color: '#1a1a40', 
-          textDecoration: 'none', 
-          fontSize: '14px', 
-          padding: '8px 16px', 
-          borderRadius: '6px', 
+        <Link to="/Admin-dashboard" style={{
+          color: '#1a1a40',
+          textDecoration: 'none',
+          fontSize: '14px',
+          padding: '8px 16px',
+          borderRadius: '6px',
           border: '2px solid #1a1a40',
           fontWeight: 'bold'
         }}>

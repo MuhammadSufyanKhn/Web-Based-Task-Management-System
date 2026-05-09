@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const EditTask = () => {
+const AdminEditTask = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -18,12 +18,22 @@ const EditTask = () => {
     const headers = { Authorization: `Bearer ${token}` };
 
     useEffect(() => {
+
+        
         const fetchTask = async () => {
             try {
+                 
                 const res = await axios.get(
                     `https://localhost:7127/api/Task/${id}`,
                     { headers }
                 );
+                setTask({
+                    title: res.data.title || "",
+                    descriptions: res.data.descriptions || "",
+                    taskPriority: res.data.taskPriority || "Medium",
+                    dueDate: res.data.dueDate || "",
+                    taskStatus: res.data.taskStatus || "Pending"
+                });
 
                 if (res.data.dueDate) {
                     res.data.dueDate = res.data.dueDate.split("T")[0];
@@ -35,8 +45,8 @@ const EditTask = () => {
                 navigate("/AdminAllTasks");
             }
         };
-
-        fetchTask();
+        if(id)
+            fetchTask();
     }, [id]);
 
     const handleChange = (e) => {
@@ -228,4 +238,4 @@ const EditTask = () => {
     );
 };
 
-export default EditTask;
+export default AdminEditTask;

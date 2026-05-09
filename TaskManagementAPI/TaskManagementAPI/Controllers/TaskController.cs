@@ -30,7 +30,7 @@ namespace TaskManagementAPI.Controllers
         [HttpGet("AdminStats")]
         public IActionResult AdminStats()
         {
-            var totalUsers = _context.Users.Count(u => u.IsDeleted == false);
+            var totalUsers = _context.Users.Count(u => u.IsDeleted == false && u.UserRole == "User");
             var totalTasks = _context.TaskItems.Count(t => t.IsDeleted == false);
             var pendingTasks = _context.TaskItems.Count(t => t.TaskStatus == "Pending" && t.IsDeleted == false);
             var inProgressTasks = _context.TaskItems.Count(t => t.TaskStatus == "InProgress" && t.IsDeleted == false);
@@ -51,12 +51,13 @@ namespace TaskManagementAPI.Controllers
         [HttpGet("AllUsers")]
         public IActionResult GetAllUsers()
         {
-            var users = _context.Users.Select(u => new 
+            var users = _context.Users.Where(u => u.UserRole == "User").Select(u => new 
             {
                 u.UserId,
                 u.UserName,
                 u.Email,          
-                u.CreatedDate
+                u.CreatedDate,
+                TotalTasks = _context.TaskItems.Count(t => t.UserId == u.UserId && t.IsDeleted == false)
             }).ToList();
 
             _logger.LogInformation("All users retrieved by admin.");
@@ -67,10 +68,25 @@ namespace TaskManagementAPI.Controllers
         [HttpGet("AllTasks")]
         public IActionResult GetAllTasks()
         {
-            var tasks = _context.TaskItems.Where(t => t.IsDeleted == false).ToList();
+            var tasks = _context.TaskItems
+        .Include(t => t.User) 
+        .Where(t => t.IsDeleted == false)
+        .Select(t => new
+        {
+            t.TaskId,
+            t.Title,
+            t.TaskStatus,
+            t.TaskPriority,
+            t.DueDate,
+            UserName = t.User != null ? t.User.UserName : "Unknown",
+            t.UserId
+        })
+        .ToList();
             _logger.LogInformation("All tasks retrieved by admin.");
             return Ok(tasks);
         }
+
+        
 
         [Authorize]
         [HttpGet("dashboard-stats")]
@@ -176,7 +192,19 @@ namespace TaskManagementAPI.Controllers
             var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
-            var task = _context.TaskItems.Find(id);
+            var task = _context.TaskItems
+        .Where(t => t.TaskId == id)
+        .Select(t => new
+        {
+            t.TaskId,
+            t.Title,
+            t.Descriptions,
+            t.TaskStatus,
+            t.TaskPriority,
+            t.DueDate,
+            t.CreatedBy
+        })
+        .FirstOrDefault();
 
             if (task == null) return NotFound("Task not found.");
 

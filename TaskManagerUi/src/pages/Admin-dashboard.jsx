@@ -99,7 +99,7 @@ const Dashboard = () => {
             </div>
             <div className="dashboard-actions">
                 <Link to="/AdminAllTasks" className="action-link">View All Tasks</Link>
-                <Link to="/admin/all-users" className="action-link">View All Users</Link>
+                <Link to="/AllUsersList" className="action-link">View All Users</Link>
             </div>
         </div>
     );
