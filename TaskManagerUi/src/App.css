@@ -104,9 +104,7 @@ src/App.css
     text-align: center;
     transition: all 0.3s ease;
 }
-.stat-card:hover {
-    transform: translateY(5px);
-}
+
 
 .stat-card h3 {
     margin: 0;
@@ -118,7 +116,7 @@ src/App.css
 .stat-card .count {
     font-size: 3rem;
     font-weight: bold;
-    margin: 10px 0 0 0;
+    margin: 3px 0 0 0;
 }
 
 .pending {
@@ -129,6 +127,11 @@ src/App.css
 
 .pending .count {
     color: black;
+}
+.pending:hover {
+    background-color: #ffc400;
+    box-shadow: 0 6px 15px rgba(74, 57, 8, 0.2);
+    cursor: pointer;
 }
 
 .progress {
@@ -141,6 +144,11 @@ src/App.css
     color: black;
 
 }
+.progress:hover {
+    background-color: #6c757d;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
 
 .completed {
     border-left: 8px solid #000000;
@@ -150,6 +158,11 @@ src/App.css
 
 .completed .count {
     color: #000000;
+}
+.completed:hover {
+    background-color: #17a2b8;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 .stat-card.total {
     background: #171a4f; 
@@ -163,6 +176,12 @@ src/App.css
 .stat-card.total h3 {
     color: #e4e4e4;
 }
+.total:hover {
+    background-color: #1a1a40;
+    box-shadow: 0 6px 15px rgba(23, 26, 79, 0.2);
+    cursor: pointer;
+
+}
 .stat-card.users {
     background: #f9ca24; 
     border-left: 6px solid #271c05;
@@ -175,7 +194,11 @@ src/App.css
 .stat-card.users h3 {
     color: black;
 }
-
+.users:hover {
+    background-color: #ba9e2f;
+    box-shadow: 0 6px 15px rgba(249, 202, 36, 0.2);
+    cursor: pointer;
+}
 .create-task-section {
     width: 100%;
     max-width: 500px;
@@ -393,3 +416,58 @@ src/App.css
 ::-webkit-scrollbar {
     width: 8px;
 }   
+
+.welcome-message {
+    background: #ffffff;
+    padding: 20px 30px; 
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    width: 100%;
+    max-width: 1100px; 
+    text-align: center;
+    margin-bottom: 20px;
+    border-top: 6px solid #1a1a40; 
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-message h2 {
+    font-size: 2rem;
+    color: #1a1a40; 
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.welcome-message p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.dashboard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    margin-top: 30px;
+}
+
+.action-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a40; 
+    padding: 10px 20px;
+    border: 2px solid #1a1a40;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-link:hover {
+    background-color: #1a1a40;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(26, 26, 64, 0.2);
+    transform: translateY(-2px); 
+}

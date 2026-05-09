@@ -56,6 +56,16 @@ const Dashboard = () => {
                 }}>Logout </button>
             </header>
 
+            <div className="welcome-message">
+                <h2>System Overview</h2>
+                <p>
+                    Manage your administrative workflow and monitor
+                    real-time user activity from a single interface.
+                </p>
+            </div>
+            <div>
+                    <h2 style={{ marginTop: '2px', color: '#1a3a5a' }}>Task Overview</h2>
+            </div>
             <div className="stats-container">
                 <div className="stat-card total">
                     <h3>Total Tasks</h3>
@@ -66,6 +76,10 @@ const Dashboard = () => {
                     <h3>Total Users</h3>
                     <p className="count">{stats.totalUsers || 0}</p>
                 </div>
+            </div>
+
+            <div>
+                    <h2 style={{ marginTop: '5px', color: '#1a3a5a' }}>Task Status Breakdown</h2>
             </div>
             <div className="stats-container">
                 <div className="stat-card pending">
@@ -83,8 +97,10 @@ const Dashboard = () => {
                     <p className="count">{stats.completedTasks || 0}</p>
                 </div>
             </div>
-            <Link to="/AdminAllTasks">View All Tasks</Link>
-            <Link to="/admin/all-users">View All Users</Link>
+            <div className="dashboard-actions">
+                <Link to="/AdminAllTasks" className="action-link">View All Tasks</Link>
+                <Link to="/admin/all-users" className="action-link">View All Users</Link>
+            </div>
         </div>
     );
 };

@@ -54,15 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -74,8 +70,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\TaskItem.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T06:56:30.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T06:56:30.649Z"
             },
             {
               "$type": "Document",
@@ -87,8 +82,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T15:07:43.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T15:07:43.95Z"
             },
             {
               "$type": "Document",
@@ -100,8 +94,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Swagger\\ExampleOperationFilter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T10:23:10.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-09T10:23:10.451Z"
             },
             {
               "$type": "Document",
@@ -113,8 +106,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\UpdateProfileDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:50:01.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T07:50:01.097Z"
             },
             {
               "$type": "Document",
@@ -126,8 +118,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAgwEcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:27:06.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T07:27:06.967Z"
             },
             {
               "$type": "Document",
@@ -139,8 +130,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\UpdateTaskDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-05T15:43:56.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T15:43:56.075Z"
             },
             {
               "$type": "Document",
@@ -152,8 +142,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Models\\DTOS\\CreateTaskDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T18:47:44.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T18:47:44.728Z"
             },
             {
               "$type": "Document",
@@ -178,8 +167,7 @@
               "RelativeToolTip": "TaskManagementAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-16T15:50:24.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T15:50:24.751Z"
             },
             {
               "$type": "Document",
@@ -191,8 +179,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Services\\jwtservice.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAYwBoAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T15:44:24.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T15:44:24.19Z"
             },
             {
               "$type": "Document",
@@ -204,8 +191,11 @@
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAkwDgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T07:54:32.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-15T07:54:32.852Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }

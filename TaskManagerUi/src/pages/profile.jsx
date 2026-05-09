@@ -22,7 +22,7 @@ const Profile = () => {
         axios.get('https://localhost:7127/api/user/Profile', {
         headers: { Authorization: `Bearer ${token}` }
     }).then(res => {
-        // Backend 'userName' bhej raha hai, isay state mein sahi se set karen
+        
         setUser({ 
             userName: res.data.userName || '', 
             email: res.data.email || '', 

@@ -28,7 +28,6 @@ const ViewAllTasks = () => {
         fetchAllTasks();
     }, []);
 
-    // Logic for Filtering
     const filteredTasks = tasks.filter(task => {
         if (filterPriority === "All") return true;
         return task.taskPriority === filterPriority;
