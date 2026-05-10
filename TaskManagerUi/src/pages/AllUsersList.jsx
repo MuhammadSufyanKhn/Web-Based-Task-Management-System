@@ -35,16 +35,12 @@ const AllUsersList = () => {
         fetchAllUsers();
     }, []);
 
-    // Placeholder functions for your buttons
     const handleEdit = (userId) => {
-        console.log("Edit user ID:", userId);
-        // navigate(`/admin-edit-user/${userId}`); // Update with your actual route
+        navigate(`/Admin-edit-user/${userId}`);
     };
 
     const handleDelete = (userId) => {
         if (window.confirm("Are you sure you want to delete this user?")) {
-            console.log("Delete user ID:", userId);
-            // Add your axios.delete logic here later
         }
     };
 
@@ -142,7 +138,6 @@ const AllUsersList = () => {
                 </tbody>
             </table>
 
-            {/* Footer Navigation */}
             <div style={{ marginTop: '30px', textAlign: 'center' }}>
                 <Link to="/Admin-dashboard" style={{
                     color: '#1a1a40',

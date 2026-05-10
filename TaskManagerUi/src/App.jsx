@@ -14,6 +14,7 @@ import AdminDashboard from './pages/Admin-dashboard';
 import AdminAllTasks from './pages/AdminAllTasks';
 import AdminEditTask from './pages/Admin-Edit-Task';
 import AllUsersList from './pages/AllUsersList';
+import AdminEditUser from './pages/Admin-edit-user';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -66,7 +67,9 @@ function App() {
           <Route path="/Admin-edit-task/:id" element={
             <ProtectedRoute> <AdminEditTask /> </ProtectedRoute>
           } />
-
+          <Route path="/Admin-edit-user/:id" element={
+            <ProtectedRoute> <AdminEditUser /> </ProtectedRoute>
+          } />
         </Routes>
       </div>
     </Router>
