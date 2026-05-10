@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const ViewAllTasks = () => {
+    const navigate = useNavigate();
     const [tasks, setTasks] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
@@ -11,6 +12,10 @@ const ViewAllTasks = () => {
 
     const fetchAllTasks = async () => {
         try {
+            if (!token) {
+                navigate('/login');
+                return;
+            }
             const res = await fetch(`https://localhost:7127/api/task/my-tasks`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -21,6 +26,19 @@ const ViewAllTasks = () => {
             setError(error.message);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleDeleteTask = async (taskId) => {
+        if (window.confirm("Are you sure you want to delete this task?")) {
+            try {
+                await axios.delete(`https://localhost:7127/api/Task/delete-task/${taskId}`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setTasks(tasks.filter(t => t.taskId !== taskId));
+            } catch (error) {
+                console.error("Error deleting task:", error);
+            }
         }
     };
 
@@ -45,11 +63,15 @@ const ViewAllTasks = () => {
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
         }}>
 
+            {/* Header Section - Exactly like Admin side */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <h2 style={{ margin: 0 }}>📋 All My Tasks</h2>
-                <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+                <div>
+                    <h2 style={{ margin: 0 }}>📋 All My Tasks</h2>
+                    <p style={{ marginLeft: '5px', color: '#666', fontSize: '14px' }}>View and manage your assigned tasks.</p>
+                </div>
 
-                    <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter by Priority:</label>
+                <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+                    <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
                     <select
                         value={filterPriority}
                         onChange={(e) => setFilterPriority(e.target.value)}
@@ -61,7 +83,7 @@ const ViewAllTasks = () => {
                         <option value="Low">Low</option>
                     </select>
 
-                    <Link to="/create-task" className="add-btn" style={{
+                    <Link to="/create-task" style={{
                         textDecoration: 'none',
                         backgroundColor: '#007bff',
                         color: 'white',
@@ -73,14 +95,15 @@ const ViewAllTasks = () => {
                 </div>
             </div>
 
-            <table className="task-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+            {/* Table Section - Exactly like Admin side */}
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
-                        <th style={{ padding: '12px' }}>Title</th>
-                        <th style={{ padding: '12px' }}>Priority</th>
-                        <th style={{ padding: '12px' }}>Status</th>
-                        <th style={{ padding: '12px' }}>Due Date</th>
-                        <th style={{ padding: '12px' }}>Actions</th>
+                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
+                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
+                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
+                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>
+                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -89,12 +112,15 @@ const ViewAllTasks = () => {
                             <tr key={task.taskId} style={{ borderBottom: '1px solid #eee' }}>
                                 <td style={{ padding: '12px' }}><strong>{task.title}</strong></td>
                                 <td style={{ padding: '12px' }}>
-                                    <span className={`priority-${task.taskPriority}`} style={{ fontWeight: '500' }}>
-                                        {task.taskPriority}
-                                    </span>
+                                    <span style={{ fontWeight: '500' }}>{task.taskPriority}</span>
                                 </td>
                                 <td style={{ padding: '12px' }}>
-                                    <span className={`badge status-${task.taskStatus}`}>
+                                    <span style={{
+                                        padding: '4px 8px',
+                                        borderRadius: '4px',
+                                        fontSize: '12px',
+                                        backgroundColor: '#e9ecef'
+                                    }}>
                                         {task.taskStatus}
                                     </span>
                                 </td>
@@ -102,27 +128,47 @@ const ViewAllTasks = () => {
                                     {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}
                                 </td>
                                 <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
-                                    <Link to={`/edit-task/${task.taskId}`} className="btn-edit" style={{ textDecoration: 'none' }}>Edit</Link>
-
                                     <button
-                                        className="btn-delete"
-                                        onClick={async () => {
-                                            if (window.confirm("Are you sure you want to delete this task?")) {
-                                                try {
-                                                    await axios.delete(`https://localhost:7127/api/Task/delete-task/${task.taskId}`, {
-                                                        headers: { Authorization: `Bearer ${token}` }
-                                                    });
-                                                    setTasks(tasks.filter(t => t.taskId !== task.taskId));
-                                                } catch (error) {
-                                                    console.error("Error deleting task:", error);
-                                                }
-                                            }
+                                        onClick={() => navigate(`/edit-task/${task.taskId}`)}
+                                        style={{
+                                            backgroundColor: '#ffc107',
+                                            border: 'none',
+                                            padding: '6px 12px',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        onClick={() => handleDeleteTask(task.taskId)}
+                                        style={{
+                                            backgroundColor: '#dc3545',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '6px 12px',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
                                         }}
                                     >
                                         Delete
                                     </button>
-
-                                    <Link to={`/ViewTaskDetails/${task.taskId}`} className="btn-view" style={{ textDecoration: 'none' }}>Details</Link>
+                                    <button
+                                        onClick={() => navigate(`/ViewTaskDetails/${task.taskId}`)}
+                                        style={{
+                                            backgroundColor: '#17a2b8',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '6px 12px',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        Details
+                                    </button>
                                 </td>
                             </tr>
                         ))
@@ -136,8 +182,17 @@ const ViewAllTasks = () => {
                 </tbody>
             </table>
 
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                <Link to="/dashboard" style={{ color: '#ff00fbff', textDecoration: 'none', fontSize: '14px', padding: '8px 12px', borderRadius: '6px', border: '1px solid #ff00fbff' }}>
+            {/* Footer Section */}
+            <div style={{ marginTop: '30px', textAlign: 'center' }}>
+                <Link to="/dashboard" style={{
+                    color: '#1a1a40',
+                    textDecoration: 'none',
+                    fontSize: '14px',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    border: '2px solid #1a1a40',
+                    fontWeight: 'bold'
+                }}>
                     ← Back to Dashboard
                 </Link>
             </div>

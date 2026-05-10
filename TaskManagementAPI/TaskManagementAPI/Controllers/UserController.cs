@@ -76,5 +76,64 @@ namespace TaskManagementAPI.Controllers
             _logger.LogInformation("Profile updated for user ID {UserId}.", userId);
             return Ok("Profile updated successfully.");
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetUserById(int id)
+        {
+            var user = _context.Users
+                .Where(u => u.UserId == id && u.IsDeleted == false)
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.UserName,
+                    u.Email,
+                    u.UserRole,
+                    u.CreatedDate
+                })
+                .FirstOrDefault();
+            if (user == null)
+            {
+                _logger.LogWarning("User with ID {UserId} not found or is deleted.", id);
+                return NotFound("User not found.");
+            }
+            _logger.LogInformation("User with ID {UserId} retrieved.", id);
+            return Ok(user);
+        }
+
+        [HttpPut("Update-user/{id}")]
+        public IActionResult UpdateUser(int id, [FromBody] UpdateProfileDto request)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserId == id && u.IsDeleted == false);
+            if (user == null)
+            {
+                _logger.LogWarning("User with ID {UserId} not found or is deleted.", id);
+                return NotFound("User not found.");
+            }
+            user.UserName = request.UserName ?? user.UserName;
+            user.Email = request.Email ?? user.Email;
+            user.UpdatedDate = DateTime.Now;
+            user.UpdatedBy = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+            _context.SaveChanges();
+            _logger.LogInformation("User with ID {UserId} updated.", id);
+            return Ok("User updated successfully.");
+        }
+
+        [HttpDelete("Delete-user/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserId == id && u.IsDeleted == false);
+            if (user == null)
+            {
+                _logger.LogWarning("User with ID {UserId} not found or is already deleted.", id);
+                return NotFound("User not found.");
+            }
+            user.IsDeleted = true;
+            user.UpdatedDate = DateTime.Now;
+            user.UpdatedBy = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+            _context.SaveChanges();
+
+            _logger.LogInformation("User with ID {UserId} marked as deleted.", id);
+            return Ok("User deleted successfully.");
+        }
     }
 }

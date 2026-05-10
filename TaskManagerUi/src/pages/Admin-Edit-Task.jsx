@@ -234,7 +234,7 @@ const AdminEditTask = () => {
                         <button type="submit" style={{
                             width: "100%",
                             padding: "14px",
-                            backgroundColor: "#007bff",
+                            backgroundColor: "#28a745",
                             color: "white",
                             border: "none",
                             borderRadius: "8px",

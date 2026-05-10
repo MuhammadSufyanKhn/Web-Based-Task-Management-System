@@ -31,10 +31,10 @@ namespace TaskManagementAPI.Controllers
         public IActionResult AdminStats()
         {
             var totalUsers = _context.Users.Count(u => u.IsDeleted == false && u.UserRole == "User");
-            var totalTasks = _context.TaskItems.Count(t => t.IsDeleted == false);
-            var pendingTasks = _context.TaskItems.Count(t => t.TaskStatus == "Pending" && t.IsDeleted == false);
-            var inProgressTasks = _context.TaskItems.Count(t => t.TaskStatus == "InProgress" && t.IsDeleted == false);
-            var completedTasks = _context.TaskItems.Count(t => t.TaskStatus == "Completed" && t.IsDeleted == false);
+            var totalTasks = _context.TaskItems.Count(t => t.IsDeleted == false && t.User.IsDeleted == false);
+            var pendingTasks = _context.TaskItems.Count(t => t.TaskStatus == "Pending" && t.IsDeleted == false && t.User.IsDeleted == false);
+            var inProgressTasks = _context.TaskItems.Count(t => t.TaskStatus == "InProgress" && t.IsDeleted == false && t.User.IsDeleted == false);
+            var completedTasks = _context.TaskItems.Count(t => t.TaskStatus == "Completed" && t.IsDeleted == false && t.User.IsDeleted == false);
             var stats = new
             {
                 TotalUsers = totalUsers,
@@ -51,7 +51,7 @@ namespace TaskManagementAPI.Controllers
         [HttpGet("AllUsers")]
         public IActionResult GetAllUsers()
         {
-            var users = _context.Users.Where(u => u.UserRole == "User").Select(u => new 
+            var users = _context.Users.Where(u => u.UserRole == "User" && u.IsDeleted == false).Select(u => new 
             {
                 u.UserId,
                 u.UserName,
@@ -70,7 +70,7 @@ namespace TaskManagementAPI.Controllers
         {
             var tasks = _context.TaskItems
         .Include(t => t.User) 
-        .Where(t => t.IsDeleted == false)
+        .Where(t => t.IsDeleted == false && t.User.IsDeleted == false)
         .Select(t => new
         {
             t.TaskId,

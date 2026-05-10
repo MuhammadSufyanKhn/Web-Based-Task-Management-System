@@ -8,8 +8,8 @@ const Profile = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        const { userName, value } = e.target;
-        setUser((prevUser) => ({ ...prevUser, [userName]: value }));
+        const { name, value } = e.target; // Fixed: using 'name' instead of 'userName' to match input names
+        setUser((prevUser) => ({ ...prevUser, [name]: value }));
     };
 
     useEffect(() => {
@@ -20,17 +20,16 @@ const Profile = () => {
         }
 
         axios.get('https://localhost:7127/api/user/Profile', {
-        headers: { Authorization: `Bearer ${token}` }
-    }).then(res => {
-        
-        setUser({ 
-            userName: res.data.userName || '', 
-            email: res.data.email || '', 
-            password: '' 
-        });
-    })
-    .catch(err => console.error("Error fetching profile", err));
-}, [navigate]);
+            headers: { Authorization: `Bearer ${token}` }
+        }).then(res => {
+            setUser({
+                userName: res.data.userName || '',
+                email: res.data.email || '',
+                password: ''
+            });
+        })
+            .catch(err => console.error("Error fetching profile", err));
+    }, [navigate]);
 
     const handleUpdate = async () => {
         const token = localStorage.getItem('token');
@@ -43,7 +42,6 @@ const Profile = () => {
         } catch (err) {
             alert("Failed to update profile");
         }
-        
     };
 
     const logout = () => {
@@ -51,179 +49,209 @@ const Profile = () => {
         window.location.href = "/login";
     };
 
-    const styles = {
-        pageWrapper: {
-            backgroundColor: "#f4f7f6",
-            height: "90%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            overflow: "hidden",
-            padding: "20px"
-        },
-        card: {
-            width: "90%",
-            maxWidth: "600px",
-            backgroundColor: "#fff",
-            borderRadius: "15px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-            padding: "20px",
-            boxSizing: "border-box",
-            maxHeight: "90vh"
-        },
-        header: {
-            textAlign: "center",
-            color: "#1a3a5a",
-            fontSize: "28px",
-            fontWeight: "600",
-            marginBottom: "30px"
-        },
-        fieldGroup: {
-            marginBottom: "20px"
-        },
-        label: {
-            display: "block",
-            fontSize: "15px",
-            fontWeight: "600",
-            color: "#555",
-            marginBottom: "8px"
-        },
-        input: {
-            width: "100%",
-            padding: "12px 15px",
-            borderRadius: "8px",
-            border: "1px solid #e0e0e0",
-            backgroundColor: "#f8f9fa",
-            fontSize: "15px",
-            color: "#333",
-            boxSizing: "border-box",
-            outline: "none",
-            transition: "border 0.2s"
-        },
-        readonlyBox: {
-            width: "100%",
-            padding: "12px 15px",
-            borderRadius: "8px",
-            border: "1px solid #f0f0f0",
-            backgroundColor: "#fdfdfd",
-            fontSize: "15px",
-            color: "#666",
-            boxSizing: "border-box"
-        },
-        buttonContainer: {
-            display: "flex",
-            justifyContent: "center",
-            gap: "15px",
-            marginTop: "30px"
-        },
-        btnEdit: {
-            padding: "12px 30px",
-            backgroundColor: "#3498db",
-            color: "#fff",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: "600",
-            cursor: "pointer",
-            transition: "background 0.3s"
-        },
-        btnSave: {
-            padding: "12px 30px",
-            backgroundColor: "#2ecc71",
-            color: "#fff",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: "600",
-            cursor: "pointer"
-        },
-        btnLogout: {
-            padding: "12px 30px",
-            backgroundColor: "#e74c3c",
-            color: "#fff",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: "600",
-            cursor: "pointer"
-        },
-        cancelLink: {
-            display: "block",
-            textAlign: "center",
-            marginTop: "20px",
-            color: "#888",
-            textDecoration: "none",
-            fontSize: "14px",
-            cursor: "pointer"
-        }
-    };
-
     return (
-        <div style={styles.pageWrapper}>
-            <h1>Task Management System</h1>
-            <div style={styles.card}>
-                <h2 style={styles.header}>User Profile</h2>
-                
-                <div style={styles.fieldGroup}>
-                    <label style={styles.label}>Full Name</label>
-                    {isEditing ? (
-                        <input 
-                            style={styles.input}
-                            value={user.userName} 
-                            onChange={(e) => setUser({...user, userName: e.target.value})} 
-                        />
-                    ) : (
-                        <div style={styles.readonlyBox}>{user.userName}</div>
-                    )}
-                </div>
+        <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh", overflowX: "hidden" }}>
 
-                <div style={styles.fieldGroup}>
-                    <label style={styles.label}>Email Address</label>
-                    {isEditing ? (
-                        <input 
-                            style={styles.input}
-                            value={user.email} 
-                            onChange={(e) => setUser({...user, email: e.target.value})} 
-                        />
-                    ) : (
-                        <div style={styles.readonlyBox}>{user.email}</div>
-                    )}
-                </div>
+            {/* Top Header - Green Styling (Matching Task Editor) */}
+            <h2 style={{
+                textAlign: "center",
+                paddingBottom: "10px",
+                fontSize: "24px",
+                backgroundColor: "#28a745",
+                color: "white",
+                width: "100vh",
+                margin: "0 auto",
+                borderRadius: "0 0 15px 15px",
+                paddingTop: "15px"
+            }}>
+                🛠️ User Profile Management
+            </h2>
 
-                <div style={styles.fieldGroup}>
-                    <label style={styles.label}>Password</label>
-                    {isEditing ? (
-                        <input 
-                            type="password"
-                            style={styles.input}
-                            placeholder="Enter new password"
-                            value={user.password}
-                            onChange={(e) => setUser({...user, password: e.target.value})} 
-                        />
-                    ) : (
-                        <div style={styles.readonlyBox}>********</div>
-                    )}
-                </div>
-                
-                <div style={styles.buttonContainer}>
-                    <button 
-                        style={isEditing ? styles.btnSave : styles.btnEdit}
-                        onClick={() => isEditing ? handleUpdate() : setIsEditing(true)}
-                    >
-                        {isEditing ? "Save Changes" : "Edit Profile"}
-                    </button>
-                    
-                    {!isEditing && (
-                        <button style={styles.btnLogout} onClick={logout}>
-                            Logout
-                        </button>
-                    )}
-                </div>
+            {/* Form Container */}
+            <div style={{
+                width: "100vw",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingTop: "30px",
+                paddingBottom: "30px"
+            }}>
+                <div style={{
+                    width: "100vh",
+                    maxWidth: "95%",
+                    background: "white",
+                    padding: "30px",
+                    borderRadius: "15px",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                    borderTop: "5px solid #28a745",
+                    boxSizing: "border-box",
+                    position: "relative",
+                    right: "0.5%",
+                }}>
+                    <h2 style={{
+                        textAlign: "center",
+                        marginBottom: "20px",
+                        borderBottom: "2px solid #eee",
+                        paddingBottom: "10px",
+                        fontSize: "22px",
+                        color: "#333"
+                    }}>
+                        👤 {isEditing ? "Edit Profile Details" : "Account Information"}
+                    </h2>
 
-                <span style={styles.cancelLink} onClick={() => navigate('/dashboard')}>
-                    Cancel & Go Back
-                </span>
+                    <div>
+                        <div style={{ marginBottom: "15px" }}>
+                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                Full Name
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    name="userName"
+                                    style={{
+                                        width: "100%",
+                                        padding: "12px",
+                                        borderRadius: "6px",
+                                        border: "1px solid #ddd",
+                                        backgroundColor: "#fdfdfd",
+                                        boxSizing: "border-box"
+                                    }}
+                                    value={user.userName}
+                                    onChange={(e) => setUser({ ...user, userName: e.target.value })}
+                                />
+                            ) : (
+                                <div style={{
+                                    width: "100%",
+                                    padding: "12px",
+                                    borderRadius: "6px",
+                                    border: "1px solid #ddd",
+                                    backgroundColor: "#f9f9f9",
+                                    boxSizing: "border-box",
+                                    color: "#555"
+                                }}>{user.userName}</div>
+                            )}
+                        </div>
+
+                        <div style={{ marginBottom: "15px" }}>
+                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                Email Address
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    name="email"
+                                    style={{
+                                        width: "100%",
+                                        padding: "12px",
+                                        borderRadius: "6px",
+                                        border: "1px solid #ddd",
+                                        backgroundColor: "#fdfdfd",
+                                        boxSizing: "border-box"
+                                    }}
+                                    value={user.email}
+                                    onChange={(e) => setUser({ ...user, email: e.target.value })}
+                                />
+                            ) : (
+                                <div style={{
+                                    width: "100%",
+                                    padding: "12px",
+                                    borderRadius: "6px",
+                                    border: "1px solid #ddd",
+                                    backgroundColor: "#f9f9f9",
+                                    boxSizing: "border-box",
+                                    color: "#555"
+                                }}>{user.email}</div>
+                            )}
+                        </div>
+
+                        <div style={{ marginBottom: "25px" }}>
+                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                Password
+                            </label>
+                            {isEditing ? (
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Enter new password"
+                                    style={{
+                                        width: "100%",
+                                        padding: "12px",
+                                        borderRadius: "6px",
+                                        border: "1px solid #ddd",
+                                        backgroundColor: "#fdfdfd",
+                                        boxSizing: "border-box"
+                                    }}
+                                    value={user.password}
+                                    onChange={(e) => setUser({ ...user, password: e.target.value })}
+                                />
+                            ) : (
+                                <div style={{
+                                    width: "100%",
+                                    padding: "12px",
+                                    borderRadius: "6px",
+                                    border: "1px solid #ddd",
+                                    backgroundColor: "#f9f9f9",
+                                    boxSizing: "border-box",
+                                    color: "#555"
+                                }}>********</div>
+                            )}
+                        </div>
+
+                        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                            <button
+                                style={{
+                                    width: "100%",
+                                    padding: "14px",
+                                    backgroundColor: isEditing ? "#2ecc71" : "#3498db",
+                                    color: "white",
+                                    border: "none",
+                                    borderRadius: "8px",
+                                    cursor: "pointer",
+                                    fontWeight: "bold",
+                                    fontSize: "16px",
+                                    boxSizing: "border-box",
+                                    transition: "background 0.3s"
+                                }}
+                                onClick={() => isEditing ? handleUpdate() : setIsEditing(true)}
+                            >
+                                {isEditing ? "💾 Save Profile Changes" : "✏️ Edit Profile"}
+                            </button>
+
+                            {!isEditing && (
+                                <button
+                                    style={{
+                                        width: "100%",
+                                        padding: "14px",
+                                        backgroundColor: "#e74c3c",
+                                        color: "white",
+                                        border: "none",
+                                        borderRadius: "8px",
+                                        cursor: "pointer",
+                                        fontWeight: "bold",
+                                        fontSize: "16px",
+                                        boxSizing: "border-box"
+                                    }}
+                                    onClick={logout}
+                                >
+                                    🚪 Logout
+                                </button>
+                            )}
+                        </div>
+
+                        <span
+                            style={{
+                                display: "block",
+                                textAlign: "center",
+                                marginTop: "20px",
+                                color: "#888",
+                                textDecoration: "underline",
+                                fontSize: "14px",
+                                cursor: "pointer"
+                            }}
+                            onClick={() => navigate('/dashboard')}
+                        >
+                            Cancel & Go Back
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     );

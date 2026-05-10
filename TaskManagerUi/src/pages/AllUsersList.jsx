@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 const AllUsersList = () => {
     const [users, setUsers] = useState([]);
@@ -39,10 +40,23 @@ const AllUsersList = () => {
         navigate(`/Admin-edit-user/${userId}`);
     };
 
-    const handleDelete = (userId) => {
-        if (window.confirm("Are you sure you want to delete this user?")) {
+    const handleDelete = async (userId) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+        try {
+            await axios.delete(`https://localhost:7127/api/user/Delete-user/${userId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            
+            setUsers(prevUsers => prevUsers.filter(user => user.userId !== userId));
+            
+            window.alert("User deleted successfully!");
+            
+        } catch (error) {
+            console.error("Error deleting user:", error);
+            window.alert("Failed to delete user. Backend mein koi error hai.");
         }
-    };
+    }
+};
 
     if (loading) return <div style={{ textAlign: "center", marginTop: "50px" }}>Loading...</div>;
 
@@ -56,7 +70,6 @@ const AllUsersList = () => {
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
         }}>
 
-            {/* Header Section */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div>
                     <h2 style={{ margin: 0 }}>👥 All Users (Admin)</h2>
@@ -66,7 +79,6 @@ const AllUsersList = () => {
                 </div>
             </div>
 
-            {/* Table Section */}
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
@@ -84,7 +96,7 @@ const AllUsersList = () => {
                                 <td style={{ padding: '12px' }}>{user.userId}</td>
                                 <td style={{ padding: '12px' }}><strong>{user.userName}</strong></td>
                                 <td style={{ padding: '12px', color: '#555' }}>{user.email}</td>
-                                
+
                                 <td style={{ padding: '12px' }}>
                                     <span style={{
                                         padding: '4px 8px',
@@ -98,7 +110,7 @@ const AllUsersList = () => {
                                 </td>
 
                                 <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
-                                    <button 
+                                    <button
                                         onClick={() => handleEdit(user.userId)}
                                         style={{
                                             backgroundColor: '#ffc107',
@@ -111,7 +123,7 @@ const AllUsersList = () => {
                                     >
                                         Edit
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={() => handleDelete(user.userId)}
                                         style={{
                                             backgroundColor: '#dc3545',
