@@ -67,26 +67,46 @@ const AdminAllTasks = () => {
       boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
     }}>
 
-      {/* Header Section */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
           <h2 style={{ margin: 0 }}>📋 All Tasks (Admin)</h2>
           <p style={{ marginLeft: '5px', color: '#666', fontSize: '14px' }}>Manage all system tasks efficiently.</p>
         </div>
 
-        <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-          <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
-          <select
-            value={filterPriority}
-            onChange={(e) => setFilterPriority(e.target.value)}
-            style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
-          >
-            <option value="All">All Priorities</option>
-            <option value="High">High</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-          </select>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
+          
+          <div>
+            <button
+              onClick={() => navigate('/create-task')}
+              style={{
+                backgroundColor: '#28a745',
+                color: 'white',
+                border: 'none',
+                padding: '8px 12px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Create Task
+            </button>
+          </div>
+          <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+            <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
+            <select
+              value={filterPriority}
+              onChange={(e) => setFilterPriority(e.target.value)}
+              style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
+            >
+              <option value="All">All Priorities</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
         </div>
+
+
       </div>
 
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -94,6 +114,7 @@ const AdminAllTasks = () => {
           <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>User Name</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Task assigned by</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>
@@ -108,6 +129,9 @@ const AdminAllTasks = () => {
                 <td style={{ padding: '12px' }}><strong>{task.title}</strong></td>
                 <td style={{ padding: '12px', color: '#555' }}>
                   {task.userName || 'N/A'}
+                </td>
+                <td style={{ padding: '12px', color: '#555' }}>
+                  {task.assignedBy || 'N/A'}
                 </td>
                 <td style={{ padding: '12px' }}>
                   <span style={{ fontWeight: '500' }}>{task.taskPriority}</span>

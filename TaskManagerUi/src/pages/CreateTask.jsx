@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 
 const CreateTask = () => {
+    const userRole = JSON.parse(atob(localStorage.getItem('token').split('.')[1]))["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+    const userId = JSON.parse(atob(localStorage.getItem('token').split('.')[1]))["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+    const [users, setUsers] = useState([]);
+    const [loadingUsers, setLoadingUsers] = useState(false);
     const [task, setTask] = useState({ title: '', descriptions: '', taskPriority: 'Medium', dueDate: '' });
     const navigate = useNavigate();
+
+    // Fetch users if the current user is an Admin
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.get(`https://localhost:7127/api/Task/AllUsers`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setUsers(response.data);
+            } catch (err) {
+                console.error("Error fetching users:", err);
+            }
+        };
+
+        if (userRole === "Admin") {
+            fetchUsers();
+        }
+    }, [userRole]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +46,7 @@ const CreateTask = () => {
     return (
         <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh", overflowX: "hidden" }}>
             
-            {/* Top Header - Green Styling (Matching other pages) */}
+            {/* Top Header */}
             <h2 style={{
                 textAlign: "center",
                 paddingBottom: "10px",
@@ -109,6 +132,39 @@ const CreateTask = () => {
                                 placeholder="Add some details..." 
                                 onChange={e => setTask({...task, descriptions: e.target.value})}
                             ></textarea>
+                        </div>
+
+                        <div>
+                            {userRole === "Admin" && (
+                                <div style={{ marginBottom: "15px" }}>
+                                <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                    Assign To
+                                </label>
+                                <select
+                                    style={{
+                                    width: "100%",
+                                    padding: "12px",
+                                    borderRadius: "6px",
+                                    border: "1px solid #ddd",
+                                    backgroundColor: "#fdfdfd",
+                                    boxSizing: "border-box"
+                                    }}
+                                    onChange={e => setTask({ ...task, assignedTo: e.target.value })}
+                                    defaultValue=""
+                                >
+                                    <option value="" disabled>Select User</option>
+                                    {loadingUsers ? (
+                                        <option>Loading users...</option>
+                                    ) : (
+                                        users.map(user => (
+                                            <option key={user.userId} value={user.userId}>
+                                                {user.userName}
+                                            </option>
+                                        ))
+                                    )}
+                                </select>
+                                </div>
+                            )}
                         </div>
 
                         <div style={{ display: 'flex', gap: '15px', marginBottom: '25px' }}>

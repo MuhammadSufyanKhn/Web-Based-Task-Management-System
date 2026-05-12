@@ -30,15 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -48,7 +44,7 @@
               "RelativeDocumentMoniker": "TaskManagementAPI\\Controllers\\TaskController.cs",
               "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\TaskController.cs",
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\TaskController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwB0AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCEAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-09T16:48:02.787Z",
               "EditorCaption": ""
@@ -87,8 +83,7 @@
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAAAwH4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T07:27:06.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T07:27:06.967Z"
             },
             {
               "$type": "Document",
@@ -101,6 +96,10 @@
               "ViewState": "AgIAAEUAAAAAAAAAAADwvzgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-15T07:54:32.852Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }
