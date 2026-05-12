@@ -63,7 +63,6 @@ const ViewAllTasks = () => {
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
         }}>
 
-            {/* Header Section - Exactly like Admin side */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div>
                     <h2 style={{ margin: 0 }}>📋 All My Tasks</h2>
@@ -95,7 +94,6 @@ const ViewAllTasks = () => {
                 </div>
             </div>
 
-            {/* Table Section - Exactly like Admin side */}
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>

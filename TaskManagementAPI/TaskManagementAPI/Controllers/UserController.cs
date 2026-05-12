@@ -127,9 +127,24 @@ namespace TaskManagementAPI.Controllers
                 _logger.LogWarning("User with ID {UserId} not found or is already deleted.", id);
                 return NotFound("User not found.");
             }
+
+            var currentUserIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            int currentUserId = Convert.ToInt32(currentUserIdClaim);
+
             user.IsDeleted = true;
             user.UpdatedDate = DateTime.Now;
-            user.UpdatedBy = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+            user.UpdatedBy = currentUserId;
+
+            var userTasks = _context.TaskItems.Where(t => t.UserId == id && t.IsDeleted == false).ToList();
+
+            // har task ko soft delete krnay k loiay
+            foreach (var task in userTasks)
+            {
+                task.IsDeleted = true;
+                task.UpdatedDate = DateTime.Now;
+                task.UpdatedBy = currentUserId;
+            }
+
             _context.SaveChanges();
 
             _logger.LogInformation("User with ID {UserId} marked as deleted.", id);

@@ -69,24 +69,32 @@ namespace TaskManagementAPI.Controllers
         public IActionResult GetAllTasks()
         {
             var tasks = _context.TaskItems
-        .Include(t => t.User) 
-        .Where(t => t.IsDeleted == false && t.User.IsDeleted == false)
-        .Select(t => new
-        {
-            t.TaskId,
-            t.Title,
-            t.TaskStatus,
-            t.TaskPriority,
-            t.DueDate,
-            UserName = t.User != null ? t.User.UserName : "Unknown",
-            t.UserId
-        })
-        .ToList();
+                .Include(t => t.User)
+                .Where(t => t.IsDeleted == false && t.User.IsDeleted == false)
+                .Select(t => new
+                {
+                    t.TaskId,
+                    t.Title,
+                    t.TaskStatus,
+                    t.TaskPriority,
+                    t.DueDate,
+                    t.UserId,
+                    // The person doing the task
+                    UserName = t.User != null ? t.User.UserName : "Unknown",
+
+                    // The Admin who assigned the task
+                    AssignedBy = _context.Users
+                        .Where(u => u.UserId == t.CreatedBy)
+                        .Select(u => u.UserName)
+                        .FirstOrDefault() ?? "Unknown"
+                })
+                .ToList();
+
             _logger.LogInformation("All tasks retrieved by admin.");
             return Ok(tasks);
         }
 
-        
+
 
         [Authorize]
         [HttpGet("dashboard-stats")]
@@ -138,16 +146,18 @@ namespace TaskManagementAPI.Controllers
         public IActionResult CreateTask([FromBody] CreateTaskDto taskDto)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            int userId = Convert.ToInt32(userIdClaim);
+            int loggedInUserId = Convert.ToInt32(userIdClaim);
 
-            var newTask = new TaskItem 
+            int assignedUserId = taskDto.UserId > 0 ? taskDto.UserId : loggedInUserId;
+
+            var newTask = new TaskItem
             {
                 Title = taskDto.Title,
                 Descriptions = taskDto.Descriptions,
-                TaskStatus = "Pending", 
-                UserId = userId,
+                TaskStatus = "Pending",
+                UserId = assignedUserId,     
                 CreatedDate = DateTime.Now,
-                CreatedBy = userId,
+                CreatedBy = loggedInUserId, 
                 DueDate = taskDto.DueDate,
                 TaskPriority = taskDto.TaskPriority ?? "Medium"
             };
@@ -155,7 +165,7 @@ namespace TaskManagementAPI.Controllers
             _context.TaskItems.Add(newTask);
             _context.SaveChanges();
 
-            _logger.LogInformation("Task '{Title}' created by User {Id}", newTask.Title, userId);
+            _logger.LogInformation("Task '{Title}' created by {Id}", newTask.Title, loggedInUserId);
             return Ok(new { message = "Task Created Successfully!", task = newTask });
         }
 
@@ -191,6 +201,7 @@ namespace TaskManagementAPI.Controllers
         {
             var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            int currentUserId = Convert.ToInt32(userIdclaim);
 
             var task = _context.TaskItems
         .Where(t => t.TaskId == id)
@@ -202,13 +213,14 @@ namespace TaskManagementAPI.Controllers
             t.TaskStatus,
             t.TaskPriority,
             t.DueDate,
-            t.CreatedBy
+            t.CreatedBy,
+            t.UserId
         })
         .FirstOrDefault();
 
             if (task == null) return NotFound("Task not found.");
 
-            if (UserRole != "Admin" && task.CreatedBy != Convert.ToInt32(userIdclaim))
+            if (UserRole != "Admin" && task.CreatedBy != currentUserId && task.UserId != currentUserId)
             {
                 return Forbid();
             }
@@ -222,6 +234,7 @@ namespace TaskManagementAPI.Controllers
         {
             var userIdclaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var UserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            int currentUserId = Convert.ToInt32(userIdclaim);
 
             var task = _context.TaskItems.Find(id);
 
@@ -229,7 +242,7 @@ namespace TaskManagementAPI.Controllers
             {
                 return NotFound("Task not found.");
             }
-            if (UserRole != "Admin" && task.CreatedBy != Convert.ToInt32(userIdclaim))
+            if (UserRole != "Admin" && task.CreatedBy != currentUserId && task.UserId != currentUserId)
             {
                 return Forbid("You are not authorized to update this task.");
             }

@@ -39,6 +39,8 @@ const AdminAllTasks = () => {
         await axios.delete(`https://localhost:7127/api/Task/delete-task/${taskId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
+        window.alert("Task deleted successfully!");
+        window.location.reload();
         setTasks(tasks.filter(t => t.id !== taskId));
       } catch (error) {
         console.error("Error deleting task:", error);
@@ -73,24 +75,9 @@ const AdminAllTasks = () => {
           <p style={{ marginLeft: '5px', color: '#666', fontSize: '14px' }}>Manage all system tasks efficiently.</p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
+        <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
           
-          <div>
-            <button
-              onClick={() => navigate('/create-task')}
-              style={{
-                backgroundColor: '#28a745',
-                color: 'white',
-                border: 'none',
-                padding: '8px 12px',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontWeight: 'bold'
-              }}
-            >
-              Create Task
-            </button>
-          </div>
+          
           <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
             <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
             <select
@@ -104,6 +91,24 @@ const AdminAllTasks = () => {
               <option value="Low">Low</option>
             </select>
           </div>
+
+          <div>
+            <button
+              onClick={() => navigate('/create-task')}
+              style={{
+                backgroundColor: '#218838',
+                color: 'white',
+                border: 'none',
+                padding: '8px 12px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Create Task
+            </button>
+          </div>
+
         </div>
 
 
@@ -113,8 +118,8 @@ const AdminAllTasks = () => {
         <thead>
           <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>User Name</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Task assigned by</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Assigned to</th>
+            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Assigned By</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
             <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>

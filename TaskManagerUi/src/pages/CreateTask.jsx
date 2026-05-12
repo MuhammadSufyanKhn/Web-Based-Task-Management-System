@@ -7,7 +7,7 @@ const CreateTask = () => {
     const userId = JSON.parse(atob(localStorage.getItem('token').split('.')[1]))["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
     const [users, setUsers] = useState([]);
     const [loadingUsers, setLoadingUsers] = useState(false);
-    const [task, setTask] = useState({ title: '', descriptions: '', taskPriority: 'Medium', dueDate: '' });
+    const [task, setTask] = useState({ title: '', descriptions: '', taskPriority: 'Medium', dueDate: '', userId:0 });
     const navigate = useNavigate();
 
     // Fetch users if the current user is an Admin
@@ -37,7 +37,7 @@ const CreateTask = () => {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Task created successfully!");
-            navigate('/dashboard');
+            navigate(-1);
         } catch (err) { 
             alert("Error occured! please try again"); 
         }
@@ -149,7 +149,7 @@ const CreateTask = () => {
                                     backgroundColor: "#fdfdfd",
                                     boxSizing: "border-box"
                                     }}
-                                    onChange={e => setTask({ ...task, assignedTo: e.target.value })}
+                                    onChange={e => setTask({ ...task, userId: parseInt(e.target.value) })}
                                     defaultValue=""
                                 >
                                     <option value="" disabled>Select User</option>
