@@ -9,12 +9,12 @@ using TaskManagerAPI.Helpers;
 
 namespace TaskManagementAPI.tests.Services
 {
-    public class jwtservicetests
+    public class Jwtservicetests
     {
         private readonly Mock<IConfiguration> _config;
         private readonly JwtService _jwtService;
 
-        public jwtservicetests()
+        public Jwtservicetests()
         {
             _config = new Mock<IConfiguration>();
 

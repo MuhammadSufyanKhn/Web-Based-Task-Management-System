@@ -27,7 +27,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             _mockLogger = new Mock<ILogger<AuthController>>();
 
-            var mockConfig = new Dictionary<string, string>
+            var mockConfig = new Dictionary<string, string?>
             {
                 { "Jwt:Key","YeEkFakeSecretKeyHaiTestingKeLiye123456789!"},
                 { "Jwt:Issuer", "TestIssuer"},
