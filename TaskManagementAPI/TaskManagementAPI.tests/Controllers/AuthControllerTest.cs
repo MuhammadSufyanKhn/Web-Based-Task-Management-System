@@ -1,4 +1,5 @@
 ﻿using Castle.Core.Logging;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,7 @@ using TaskManagerAPI.Controllers;
 using TaskManagerAPI.Helpers;
 using TaskManagerAPI.Models;
 using TaskManagerAPI.Models.DTOs;
+using TaskManagerAPI.Models.DTOS;
 
 namespace TaskManagementAPI.tests.Controllers
 {
@@ -37,7 +39,7 @@ namespace TaskManagementAPI.tests.Controllers
             _jwtservice = new JwtService(fakeConfig);
         }
 
-        private AppDbContext GetInMemoryDbContext()
+        private AppDbContext GetDatabase()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
             return new AppDbContext(options);
@@ -50,10 +52,10 @@ namespace TaskManagementAPI.tests.Controllers
         }
 
         [Fact]
-        public void Register_WhenEmailAlreadyExists_ReturnsBadRequest()
+        public void AuthController_Register_WhenEmailAlreadyExists_ReturnsBadRequest()
         {
             // Arrange
-            var db = GetInMemoryDbContext();
+            var db = GetDatabase();
 
             db.Users.Add(new Users
             {
@@ -82,7 +84,121 @@ namespace TaskManagementAPI.tests.Controllers
             // Assert
             var badRequest = Assert.IsType<BadRequestObjectResult>(result);
 
-            Assert.Equal("email already exists", badRequest.Value);
+            Assert.Equal("User already exists with this email.", badRequest.Value);
+        }
+
+        [Fact]
+        public void AuthController_Register_WhereRequestIsValid_ReturnOK()
+        {
+            //Arrange
+            var db = GetDatabase();
+
+            var controller = new AuthController(db, _mockLogger.Object, _jwtservice);
+            var request = new RegisterDto
+            {
+                Email = "NewTest@gmail.com",
+                Username = "NewTestUser",
+                Password = "NewTestUser"
+            };
+
+            //Act
+            var result = controller.Register(request);
+
+            //Assert
+            var okrequest = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal("User registered successfully!", okrequest.Value);
+
+            var checkuser = db.Users.FirstOrDefault(c => c.Email == "NewTest@gmail.com");
+            Assert.NotNull(checkuser);
+            Assert.Equal("User", checkuser.UserRole);
+        }
+
+        [Fact]
+        public void AuthController_Login_WhenreUserNotFound_Returnbadrequest()
+        {
+            //Arrange
+            var db = GetDatabase();
+            var controller = new AuthController(db, _mockLogger.Object, _jwtservice);
+
+            var request = new loginDto { Email = "NewTest@gmail.com", Password = "NewTestUser" };
+            //Act
+            var result = controller.Login(request);
+
+            //Assert
+            var badrequest = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("User not found.", badrequest.Value);
+        }
+        [Fact]
+        public void AuthController_Login_WhenPasswordisIncorrect_ReturnbadRequest()
+        {
+            //Arrange
+            var db = GetDatabase();
+            
+            db.Users.Add(new Users
+            {
+                Email = "testlogin@gmail.com",
+                PasswordHash= HashPassword("testlogin")
+            });
+            db.SaveChanges();
+
+            var controller = new AuthController(db, _mockLogger.Object, _jwtservice);
+            var request = new loginDto
+            {
+                Email = "testlogin@gmail.com",
+                Password = "wrongpassword"
+            };
+
+            //Act
+            var result = controller.Login(request);
+            
+            //Assert
+            var badrequest = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Incorrect password.", badrequest.Value);
+        }
+
+        [Fact]
+        public void AuthController_Login_WhenCrdentialsAreCorrect_ReturnOkWithToken()
+        {
+            //Arrange
+            var db = GetDatabase();
+            db.Users.Add(new Users
+            {
+                UserId = 10,
+                Email = "loginemail@gmail.com",
+                PasswordHash = HashPassword("LoginSuccess"),
+                UserRole = "User"
+            });
+            db.SaveChanges();
+
+            var controller = new AuthController(db, _mockLogger.Object, _jwtservice);
+
+            var request = new loginDto
+            {
+                Email = "loginemail@gmail.com",
+                Password = "LoginSuccess"
+            };
+
+            //Act
+            var result = controller.Login(request);
+
+            //Assert
+            var okrequest = Assert.IsType<OkObjectResult>(result);
+
+            var responseValue = okrequest.Value;
+            Assert.NotNull(responseValue);
+
+            var tokenProperty = responseValue.GetType().GetProperty("token");
+            Assert.NotNull(tokenProperty);
+
+            var tokenValue = tokenProperty.GetValue(responseValue, null)?.ToString();
+
+            Assert.False(string.IsNullOrEmpty(tokenValue)); 
+            Assert.Equal(3, tokenValue.Split('.').Length);
+
+            var message = responseValue.GetType().GetProperty("message");
+            var messagevalue = message?.GetValue(responseValue)?.ToString();
+
+            Assert.Equal("login successful", messagevalue);
         }
     }
 }
