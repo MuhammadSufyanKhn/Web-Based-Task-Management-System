@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi.tests\\controllers\\authcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|solutionrelative:taskmanagementapi.tests\\controllers\\authcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|solutionrelative:taskmanagementapi\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi.tests\\controllers\\taskcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|solutionrelative:taskmanagementapi.tests\\controllers\\taskcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi.tests\\controllers\\usercontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,14 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|solutionrelative:taskmanagementapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi.tests\\services\\jwtservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{788B3E8D-C33D-466D-934D-0EC1449CCB36}|TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj|solutionrelative:taskmanagementapi.tests\\services\\jwtservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|d:\\taskmanagementsystem\\taskmanagementapi\\taskmanagementapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AFDF02E-CF18-4459-D717-8AF5E39FEEB0}|TaskManagementAPI\\TaskManagementAPI.csproj|solutionrelative:taskmanagementapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,76 +34,59 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserControllerTest.cs",
-              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
-              "RelativeDocumentMoniker": "TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
-              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
-              "RelativeToolTip": "TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
-              "ViewState": "AgIAABEBAAAAAAAAAAAAwBYBAAAAAAAAAAAAAA==",
+              "Title": "TaskControllerTest.cs",
+              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\TaskControllerTest.cs",
+              "RelativeDocumentMoniker": "TaskManagementAPI.tests\\Controllers\\TaskControllerTest.cs",
+              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\TaskControllerTest.cs",
+              "RelativeToolTip": "TaskManagementAPI.tests\\Controllers\\TaskControllerTest.cs",
+              "ViewState": "AgIAAMkBAAAAAAAAAAD4v9YBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T15:12:37.448Z",
+              "WhenOpened": "2026-05-17T09:40:55.247Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "TaskManagementAPI\\Controllers\\TaskController.cs",
+              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "TaskManagementAPI\\Controllers\\TaskController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T09:40:13.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "TaskManagementAPI\\Controllers\\UserController.cs",
               "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "TaskManagementAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAQwGUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-16T15:11:22.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthControllerTest.cs",
-              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\AuthControllerTest.cs",
-              "RelativeDocumentMoniker": "TaskManagementAPI.tests\\Controllers\\AuthControllerTest.cs",
-              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\AuthControllerTest.cs",
-              "RelativeToolTip": "TaskManagementAPI.tests\\Controllers\\AuthControllerTest.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAcwB0AAAA7AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserControllerTest.cs",
+              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
+              "RelativeDocumentMoniker": "TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
+              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
+              "RelativeToolTip": "TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAD4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T12:21:23.296Z",
+              "WhenOpened": "2026-05-16T15:12:37.448Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "TaskManagementAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "TaskManagementAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T12:21:59.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "jwtservicetests.cs",
-              "DocumentMoniker": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Services\\jwtservicetests.cs",
-              "RelativeDocumentMoniker": "TaskManagementAPI.tests\\Services\\jwtservicetests.cs",
-              "ToolTip": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Services\\jwtservicetests.cs",
-              "RelativeToolTip": "TaskManagementAPI.tests\\Services\\jwtservicetests.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwBAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T10:03:17.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }

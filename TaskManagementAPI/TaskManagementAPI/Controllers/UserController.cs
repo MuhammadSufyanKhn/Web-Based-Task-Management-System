@@ -137,7 +137,6 @@ namespace TaskManagementAPI.Controllers
 
             var userTasks = _context.TaskItems.Where(t => t.UserId == id && t.IsDeleted == false).ToList();
 
-            // har task ko soft delete krnay k loiay
             foreach (var task in userTasks)
             {
                 task.IsDeleted = true;
