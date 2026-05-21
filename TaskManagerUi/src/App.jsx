@@ -52,7 +52,11 @@ function App() {
           <Route path="/ViewTaskDetails/:id" element={
             <ProtectedRoute> <ViewTaskDetails /> </ProtectedRoute>
           } />
-          <Route path="/view-all-tasks" element={
+          <Route path="/view-all-tasks/:userId" element={
+            <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
+            
+          } />
+          <Route path="/view-all-tasks/:userId" element={
             <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
           } />
           <Route path="/Admin-dashboard" element={

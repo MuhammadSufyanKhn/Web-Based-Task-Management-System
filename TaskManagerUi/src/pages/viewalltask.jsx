@@ -1,9 +1,10 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const ViewAllTasks = () => {
     const navigate = useNavigate();
+    const { userId } = useParams();
     const [tasks, setTasks] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
@@ -16,7 +17,11 @@ const ViewAllTasks = () => {
                 navigate('/login');
                 return;
             }
-            const res = await fetch(`https://localhost:7127/api/task/my-tasks`, {
+            const url = userId 
+                ? `https://localhost:7127/api/Task/user-tasks/${userId}`
+                : `https://localhost:7127/api/Task/my-tasks`;
+
+            const res = await fetch(url, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (!res.ok) throw new Error("Failed to fetch tasks");
@@ -44,7 +49,7 @@ const ViewAllTasks = () => {
 
     React.useEffect(() => {
         fetchAllTasks();
-    }, []);
+    }, [userId]);
 
     const filteredTasks = tasks.filter(task => {
         if (filterPriority === "All") return true;
@@ -180,20 +185,25 @@ const ViewAllTasks = () => {
                 </tbody>
             </table>
 
-            {/* Footer Section */}
             <div style={{ marginTop: '30px', textAlign: 'center' }}>
-                <Link to="/dashboard" style={{
-                    color: '#1a1a40',
-                    textDecoration: 'none',
-                    fontSize: '14px',
-                    padding: '8px 16px',
-                    borderRadius: '6px',
-                    border: '2px solid #1a1a40',
-                    fontWeight: 'bold'
-                }}>
-                    ← Back to Dashboard
-                </Link>
-            </div>
+    <button 
+        onClick={() => navigate(-1)} 
+        style={{
+            color: '#1a1a40',
+            textDecoration: 'none',
+            fontSize: '14px',
+            padding: '8px 16px',
+            borderRadius: '6px',
+            border: '2px solid #1a1a40',
+            fontWeight: 'bold',
+            backgroundColor: 'transparent',
+            cursor: 'pointer'
+        }}
+    >
+        ← Back 
+    </button>
+</div>
+
         </div>
     );
 };

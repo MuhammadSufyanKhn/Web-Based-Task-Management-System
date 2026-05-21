@@ -45,7 +45,6 @@ const TaskList = () => {
             width: '100%',
             boxSizing: 'border-box'
         }}>
-            {/* Header Section - Exactly like Admin side */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div>
                     <h2 style={{ margin: 0 }}>📋 My Recent Tasks</h2>
@@ -63,7 +62,6 @@ const TaskList = () => {
                 }}>+ New Task</Link>
             </div>
 
-            {/* Table Section - Exactly like Admin side */}
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>

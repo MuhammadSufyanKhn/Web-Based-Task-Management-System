@@ -40,7 +40,6 @@ const ViewTaskDetails = () => {
     return (
         <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh", overflowX: "hidden" }}>
             
-            {/* Top Header - Green */}
             <h2 style={{
                 textAlign: "center",
                 paddingBottom: "10px",
@@ -54,8 +53,6 @@ const ViewTaskDetails = () => {
             }}>
                 🛠️ Task Details
             </h2>
-
-            {/* Form Container */}
             <div style={{
                 width: "100vw",
                 display: "flex",

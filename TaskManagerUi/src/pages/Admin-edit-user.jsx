@@ -15,7 +15,6 @@ const AdminEditUser = () => {
             return;
         }
 
-        // FIX 1: Use the userId in the URL to fetch the specific user, not the logged-in profile
         axios.get(`https://localhost:7127/api/user/${userId}`, {
             headers: { Authorization: `Bearer ${token}` }
         }).then(res => {

@@ -52,7 +52,6 @@ const Profile = () => {
     return (
         <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh", overflowX: "hidden" }}>
 
-            {/* Top Header - Green Styling (Matching Task Editor) */}
             <h2 style={{
                 textAlign: "center",
                 paddingBottom: "10px",
@@ -66,8 +65,6 @@ const Profile = () => {
             }}>
                 🛠️ User Profile Management
             </h2>
-
-            {/* Form Container */}
             <div style={{
                 width: "100vw",
                 display: "flex",
