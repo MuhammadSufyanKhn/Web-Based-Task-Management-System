@@ -325,6 +325,54 @@ namespace TaskManagementAPI.tests.Controllers
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.NotNull(okResult.Value);
         }
+
+        [Fact]
+        public void TaskController_GetTasksByUserId_UserExists_ReturnOkWithTasks()
+        {
+            // Arrange
+            var db = GetDatabase();
+            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+
+            SetUserContext(controller, loggedInUserId: 1, role: "Admin");
+
+            int targetUserId = 2;
+
+            // Act
+            var result = controller.GetTasksByUserId(targetUserId);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var tasks = Assert.IsAssignableFrom<IEnumerable<TaskItem>>(okResult.Value);
+
+            Assert.Equal(2, tasks.Count());
+            Assert.All(tasks, t => Assert.Equal(targetUserId, t.UserId));
+            Assert.All(tasks, t => Assert.False(t.IsDeleted));
+        }
+
+        [Fact]
+        public void TaskController_GetTasksByUserId_UserNotFoundOrDeleted_ReturnNotFound()
+        {
+            // Arrange
+            var db = GetDatabase();
+            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            SetUserContext(controller, loggedInUserId: 1, role: "Admin");
+
+            int nonExistentUserId = 99;
+
+            int deletedUserId = 4;
+
+            // Act
+            var resultNonExistent = controller.GetTasksByUserId(nonExistentUserId);
+            var resultDeleted = controller.GetTasksByUserId(deletedUserId);
+
+            // Assert
+            var notFoundResult1 = Assert.IsType<NotFoundObjectResult>(resultNonExistent);
+            Assert.Equal("User not found", notFoundResult1.Value);
+
+            var notFoundResult2 = Assert.IsType<NotFoundObjectResult>(resultDeleted);
+            Assert.Equal("User not found", notFoundResult2.Value);
+        }
+
         [Fact]
         public void TaskController_CreateTask_NoUserIdProvided_AssignsToLoggedInUser()
         {

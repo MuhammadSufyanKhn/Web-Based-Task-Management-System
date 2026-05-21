@@ -151,6 +151,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TaskManagementAPI.Controllers.TaskController",
+    "Method": "GetTasksByUserId",
+    "RelativePath": "api/Task/user-tasks/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TaskManagementAPI.Controllers.UserController",
     "Method": "GetUserById",
     "RelativePath": "api/User/{id}",

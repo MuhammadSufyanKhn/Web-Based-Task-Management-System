@@ -140,6 +140,24 @@ namespace TaskManagementAPI.Controllers
             return Ok(tasks);
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("user-tasks/{userId}")]
+        public IActionResult GetTasksByUserId(int userId)
+        {
+            var userExists = _context.Users.Any(u => u.UserId == userId && u.IsDeleted == false);
+            if (!userExists)
+            {
+                return NotFound("User not found");
+            }
+
+            var tasks = _context.TaskItems
+                .Where(t => t.UserId == userId && t.IsDeleted == false)
+                .ToList();
+
+            _logger.LogInformation("Admin has viewed the task of User {UserId}.", userId);
+            return Ok(tasks);
+        }
+
 
         [Authorize]
         [HttpPost("create-task")]
