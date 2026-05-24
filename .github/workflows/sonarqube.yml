@@ -1,0 +1,59 @@
+name: SonarQube Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'zulu'
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install SonarQube Scanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Test SonarQube Connectivity
+        run: |
+          curl -sf \
+            -H "ngrok-skip-browser-warning: true" \
+            -H "User-Agent: SonarScanner" \
+            "${{ secrets.SONAR_HOST_URL }}/api/system/status" || echo "Warning: SonarQube may not be reachable"
+
+      - name: Begin SonarQube Analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dotnet-sonarscanner begin \
+            /k:"TaskManagementSystem" \
+            /n:"Task Management System" \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
+            /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            /d:sonar.exclusions="**/bin/**,**/obj/**,**/Migrations/**"
+
+      - name: Build Project
+        run: dotnet build --no-incremental
+
+      - name: End SonarQube Analysis
+        run: |
+          dotnet-sonarscanner end \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
