@@ -145,7 +145,6 @@ D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\st
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\staticwebassets.development.json
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\swae.build.ex.cache
-D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\TaskMana.0D8D9FF3.Up2Date
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\TaskManagementAPI.dll
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\refint\TaskManagementAPI.dll

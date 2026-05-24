@@ -1,0 +1,10 @@
+﻿D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\AuthControllerTest.cs
+D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\TaskControllerTest.cs
+D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\UserControllerTest.cs
+D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Services\jwtservicetests.cs
+D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\UnitTest1.cs
+C:\Users\DELL\.nuget\packages\microsoft.net.test.sdk\17.14.1\build\net8.0\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\DELL\.nuget\packages\microsoft.testplatform.testhost\17.14.1\build\net8.0\x64\testhost.exe
+C:\Users\DELL\.nuget\packages\microsoft.testplatform.testhost\17.14.1\build\net8.0\x64\testhost.dll
+C:\Users\DELL\.nuget\packages\xunit.runner.visualstudio\3.1.4\build\net8.0\xunit.abstractions.dll
+C:\Users\DELL\.nuget\packages\xunit.runner.visualstudio\3.1.4\build\net8.0\xunit.runner.visualstudio.testadapter.dll

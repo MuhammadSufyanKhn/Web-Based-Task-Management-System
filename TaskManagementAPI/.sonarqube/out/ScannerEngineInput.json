@@ -1,0 +1,136 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.2.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1779447619000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "TaskManagementSystem"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI"
+    },
+    {
+      "key": "sonar.sources",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.vs\\TaskManagementAPI.slnx\\config\\applicationhost.config,D:\\TaskManagementSystem\\TaskManagementAPI\\.vs\\TaskManagementAPI.slnx\\v18\\DocumentLayout.backup.json,D:\\TaskManagementSystem\\TaskManagementAPI\\.vs\\TaskManagementAPI.slnx\\v18\\DocumentLayout.json"
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0,788B3E8D-C33D-466D-934D-0EC1449CCB36"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.projectKey",
+      "value": "TaskManagementSystem:8AFDF02E-CF18-4459-D717-8AF5E39FEEB0"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.projectName",
+      "value": "TaskManagementAPI"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.projectBaseDir",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.working.directory",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.sources",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\AuthController.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\TaskController.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Controllers\\UserController.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Data\\AppDbContext.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\DTOS\\CreateTaskDto.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\DTOS\\loginDto.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\DTOS\\RegisterDto.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\DTOS\\UpdateProfileDto.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\DTOS\\UpdateTaskDto.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\TaskItem.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Models\\Users.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Program.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Services\\jwtservice.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Swagger\\ExampleOperationFilter.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\TaskManagementAPI.GlobalUsings.g.cs,\"D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs\",D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\TaskManagementAPI.AssemblyInfo.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\TaskManagementAPI.MvcApplicationPartsAssemblyInfo.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\appsettings.Development.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\appsettings.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Logs\\log-20260416.txt,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.http,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\Properties\\launchSettings.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\project.assets.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\TaskManagementAPI.csproj.nuget.dgspec.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\bin\\Debug\\net10.0\\appsettings.Development.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\bin\\Debug\\net10.0\\appsettings.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\bin\\Debug\\net10.0\\TaskManagementAPI.deps.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\bin\\Debug\\net10.0\\TaskManagementAPI.runtimeconfig.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\bin\\Debug\\net10.0\\TaskManagementAPI.staticwebassets.endpoints.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\ApiEndpoints.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\rjsmcshtml.dswa.cache.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\rjsmrazor.dswa.cache.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\rpswa.dswa.cache.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\staticwebassets.build.endpoints.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\staticwebassets.build.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\TaskManagementAPI.sourcelink.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\Debug\\net10.0\\EndpointInfo\\TaskManagementAPI.json"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.cs.analyzer.projectOutPaths",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.cs.roslyn.reportFilePaths",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "8AFDF02E-CF18-4459-D717-8AF5E39FEEB0.sonar.cs.scanner.telemetry",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.projectKey",
+      "value": "TaskManagementSystem:788B3E8D-C33D-466D-934D-0EC1449CCB36"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.projectName",
+      "value": "TaskManagementAPI.tests"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.projectBaseDir",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.working.directory",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\.sonar\\mod1"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.sources",
+      "value": ""
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.tests",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\obj\\project.assets.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\obj\\TaskManagementAPI.tests.csproj.nuget.dgspec.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\appsettings.Development.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\appsettings.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\TaskManagementAPI.deps.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\TaskManagementAPI.runtimeconfig.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\TaskManagementAPI.staticwebassets.endpoints.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\TaskManagementAPI.tests.deps.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\bin\\Debug\\net10.0\\TaskManagementAPI.tests.runtimeconfig.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\obj\\Debug\\net10.0\\TaskManagementAPI.tests.sourcelink.json,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\AuthControllerTest.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\TaskControllerTest.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Controllers\\UserControllerTest.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\Services\\jwtservicetests.cs,D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\UnitTest1.cs"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.cs.analyzer.projectOutPaths",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\1"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.cs.roslyn.reportFilePaths",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\1\\Issues.json"
+    },
+    {
+      "key": "788B3E8D-C33D-466D-934D-0EC1449CCB36.sonar.cs.scanner.telemetry",
+      "value": "D:\\TaskManagementSystem\\TaskManagementAPI\\.sonarqube\\out\\1\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9000"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}
