@@ -14,18 +14,18 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: 'zulu'
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
@@ -37,7 +37,9 @@ jobs:
           curl -sf \
             -H "ngrok-skip-browser-warning: true" \
             -H "User-Agent: SonarScanner" \
-            "${{ secrets.SONAR_HOST_URL }}/api/system/status" || echo "Warning: SonarQube may not be reachable"
+            "${{ secrets.SONAR_HOST_URL }}/api/system/status" \
+            && echo "✅ SonarQube reachable" \
+            || echo "❌ SonarQube NOT reachable - check ngrok"
 
       - name: Begin SonarQube Analysis
         env:
@@ -51,7 +53,7 @@ jobs:
             /d:sonar.exclusions="**/bin/**,**/obj/**,**/Migrations/**"
 
       - name: Build Project
-        run: dotnet build --no-incremental
+        run: dotnet build TaskManagementAPI.slnx --no-incremental
 
       - name: End SonarQube Analysis
         run: |
