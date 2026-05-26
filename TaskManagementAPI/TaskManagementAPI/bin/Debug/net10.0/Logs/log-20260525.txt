@@ -1,0 +1,716 @@
+2026-05-25 15:37:37.705 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:37:37.705 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:37:49.882 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:37:56.935 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:37:57.261 +05:00 [ERR] An error occurred using the connection to database 'TaskManagementSystem' on server '.\SQLEXPRESS'.
+2026-05-25 15:37:57.261 +05:00 [ERR] An error occurred using the connection to database 'TaskManagementSystem' on server '.\SQLEXPRESS'.
+2026-05-25 15:37:57.261 +05:00 [ERR] An error occurred using the connection to database 'TaskManagementSystem' on server '.\SQLEXPRESS'.
+2026-05-25 15:37:57.261 +05:00 [ERR] An error occurred using the connection to database 'TaskManagementSystem' on server '.\SQLEXPRESS'.
+2026-05-25 15:37:57.338 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagementAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:37:57.338 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagementAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:38:19.003 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:37:57.338 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagementAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:38:20.221 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method22(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TaskManagerAPI.Controllers.AuthController.Login(loginDto request) in D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs:line 65
+   at lambda_method4(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:38:20.219 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method22(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TaskManagerAPI.Controllers.AuthController.Login(loginDto request) in D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs:line 65
+   at lambda_method3(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:38:20.960 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method22(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TaskManagerAPI.Controllers.AuthController.Login(loginDto request) in D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs:line 65
+   at lambda_method3(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:37:57.338 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'TaskManagementAPI.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:38:19.002 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:43:13.995 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method22(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteCore[TResult](Expression query, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TaskManagerAPI.Controllers.AuthController.Login(loginDto request) in D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs:line 65
+   at lambda_method3(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1,State:0,Class:20
+2026-05-25 15:44:03.420 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:44:07.871 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-25T15:44:07.8703569+05:00"
+2026-05-25 15:44:28.802 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-25 15:44:28.902 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-25T15:44:28.9026021+05:00"
+2026-05-25 15:44:29.809 +05:00 [INF] Admin stats retrieved.
+2026-05-25 15:44:29.848 +05:00 [INF] Admin stats retrieved.
+2026-05-25 15:44:39.696 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:44:39.715 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-25T15:44:39.7153070+05:00"
+2026-05-25 15:44:40.005 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:44:40.042 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:44:40.049 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:44:40.120 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:44:42.744 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 15:44:42.761 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 15:44:46.133 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:44:46.142 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:44:46.143 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:44:46.153 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:54:38.044 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 15:54:41.829 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-25T15:54:41.8277009+05:00"
+2026-05-25 15:54:42.345 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:54:42.383 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:54:42.648 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:54:42.651 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:54:55.999 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 15:57:16.391 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 15:57:17.471 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:17.481 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:24.939 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:24.949 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:27.513 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:27.521 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:45.581 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:45.587 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:57:45.594 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:57:45.604 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:48.512 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:48.517 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:48.519 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:48.528 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:49.299 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:49.302 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:49.307 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:49.309 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:57.187 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:57.189 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 15:59:57.194 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 15:59:57.196 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:09.960 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:09.962 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:09.968 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:09.972 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:11.599 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:11.601 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:11.607 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:11.610 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:12.642 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:12.646 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:12.647 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:12.654 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:28.563 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:28.568 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:28.572 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:28.579 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:50.631 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:50.668 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:50.672 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:50.676 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:51.912 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:51.918 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:56.554 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:56.558 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:56.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:56.567 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:57.678 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:57.687 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:59.941 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:59.943 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:02:59.947 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:02:59.949 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:03:17.852 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 16:05:02.080 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:05:02.085 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:20.523 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:20.529 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.081 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.087 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.461 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.468 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.602 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.609 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.779 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.785 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.918 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:21.926 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:28.831 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:28.889 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:32.667 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 16:06:33.515 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:33.520 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:36.257 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:36.268 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:39.762 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:39.768 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:06:39.768 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:39.778 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:06:41.782 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:06:41.792 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:18.671 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:18.679 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:19.640 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:19.652 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:20.376 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:20.385 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:29.341 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:29.347 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:29.349 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:29.356 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:32.097 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:32.099 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:32.109 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:32.112 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:35.607 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:35.609 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:35.615 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:35.619 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:07:36.282 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:07:36.290 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:43.561 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:43.570 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:44.181 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:44.189 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:44.700 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:44.710 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:45.740 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:45.745 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:45.749 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:45.759 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.028 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.037 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.072 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.073 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.095 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.098 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.103 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.106 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.244 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.246 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.252 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.258 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.390 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.391 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.396 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.401 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.597 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.600 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:48.606 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:48.607 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:54.445 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:54.447 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:09:54.460 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:09:54.470 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:14:33.745 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:33.756 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:36.921 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:36.928 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:36.942 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:14:36.951 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:14:39.165 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:39.173 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:44.660 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 16:14:45.523 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:45.531 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:51.199 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:51.207 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:52.548 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:52.550 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:14:52.556 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:14:52.558 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:15:40.326 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 16:15:40.340 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 16:15:50.072 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-25 16:15:50.138 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-25T16:15:50.1380021+05:00"
+2026-05-25 16:15:50.461 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:15:50.475 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:15:52.588 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:15:52.605 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:16:04.216 +05:00 [INF] Task with id 2146 updated by user 5 with role Admin
+2026-05-25 16:16:05.234 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:16:05.242 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:16:14.293 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:16:14.303 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:29.026 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:29.035 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:29.739 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:29.748 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:30.383 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:30.394 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:30.974 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:30.981 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:33.611 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:21:33.618 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:21:36.334 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:36.342 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:37.515 +05:00 [INF] All users retrieved by admin.
+2026-05-25 16:21:37.524 +05:00 [INF] All users retrieved by admin.
+2026-05-25 16:21:38.423 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:38.441 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:21:49.354 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 16:21:49.361 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-25T16:21:49.3610647+05:00"
+2026-05-25 16:21:49.469 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:49.471 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:21:49.475 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:49.478 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:21:53.892 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:53.902 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:55.815 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:55.818 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:21:55.821 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:21:55.827 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:31.761 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:31.774 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:46.081 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:46.092 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:46.092 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:46.098 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:46.782 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:46.785 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:46.789 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:46.793 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.257 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.258 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.263 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.266 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.375 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.376 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.384 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.385 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.571 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.573 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.578 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.582 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.805 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.806 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:47.811 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:32:47.814 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:32:48.916 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 16:32:48.923 +05:00 [INF] Profile retrieved for user ID 6.
+2026-05-25 16:32:59.041 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-05-25 16:32:59.051 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-05-25T16:32:59.0514317+05:00"
+2026-05-25 16:32:59.194 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:32:59.203 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:33:03.518 +05:00 [INF] All users retrieved by admin.
+2026-05-25 16:33:03.526 +05:00 [INF] All users retrieved by admin.
+2026-05-25 16:33:06.277 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:33:06.289 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:33:07.148 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:33:07.157 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:33:11.366 +05:00 [INF] Task with id 2138 updated by user 5 with role Admin
+2026-05-25 16:33:12.076 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:33:12.085 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:33:13.334 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:33:13.343 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:17.531 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:17.541 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:19.035 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:19.044 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:26.345 +05:00 [INF] Task with id 2138 updated by user 5 with role Admin
+2026-05-25 16:41:27.252 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:27.259 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:33.485 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:33.494 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:35.463 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:35.471 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:40.423 +05:00 [INF] Task with id 2144 updated by user 5 with role Admin
+2026-05-25 16:41:41.225 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:41.233 +05:00 [INF] All tasks retrieved by admin.
+2026-05-25 16:41:42.269 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:42.280 +05:00 [INF] Admin stats retrieved.
+2026-05-25 16:41:54.096 +05:00 [INF] Login attempt for user: sufyan@gmail.com
+2026-05-25 16:41:54.165 +05:00 [INF] User sufyan@gmail.com logged in successfully at "2026-05-25T16:41:54.1657408+05:00"
+2026-05-25 16:41:54.281 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:41:54.299 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:41:54.303 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:41:54.316 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:42:01.076 +05:00 [INF] Task with id 2138 updated by user 6 with role User
+2026-05-25 16:42:01.846 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:42:01.853 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:42:06.732 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:42:06.734 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:42:06.739 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 16:42:06.741 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 16:48:54.615 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:09:43.846 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:09:43.865 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:09:43.869 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:09:43.897 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:09:52.263 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:09:52.269 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:09:52.270 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:09:52.279 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:11:23.696 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:11:23.702 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:11:23.703 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:11:23.711 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:16:28.895 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:16:28.900 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:16:28.903 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:16:28.909 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:16:32.109 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:16:32.146 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:16:32.149 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:16:32.155 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:17:21.152 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:17:21.158 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 17:17:21.159 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 17:17:21.164 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 18:26:12.120 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 18:26:12.125 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 18:26:12.127 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 18:26:12.139 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 18:31:55.244 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 18:31:55.258 +05:00 [INF] Dashboard stats retrieved for user 6 with role User
+2026-05-25 18:31:55.305 +05:00 [INF] Tasks retrieved for user 6 with role User
+2026-05-25 18:31:55.319 +05:00 [INF] Dashboard stats retrieved for user 6 with role User

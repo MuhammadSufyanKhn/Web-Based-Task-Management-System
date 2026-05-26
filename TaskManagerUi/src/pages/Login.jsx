@@ -130,7 +130,9 @@ const Login = () => {
                         marginTop: "10px"
                     }}
                     onMouseOver={(e) => e.target.style.opacity = 0.85}
+                    onFocus={(e) => e.target.style.opacity = 0.85}
                     onMouseOut={(e) => e.target.style.opacity = 1}
+                    onBlur={(e) => e.target.style.opacity = 1}
                 >
                     Login
                 </button>

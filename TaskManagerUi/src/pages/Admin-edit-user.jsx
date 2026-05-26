@@ -91,7 +91,7 @@ const AdminEditUser = () => {
                     
                     <div>
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="userName" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Full Name
                             </label>
                             {isEditing ? (
@@ -125,7 +125,7 @@ const AdminEditUser = () => {
                         </div>
 
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="email" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Email Address
                             </label>
                             {isEditing ? (
@@ -159,7 +159,7 @@ const AdminEditUser = () => {
                         </div>
 
                         <div style={{ marginBottom: "25px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="password" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Password
                             </label>
                             {isEditing ? (

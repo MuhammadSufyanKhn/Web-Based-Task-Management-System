@@ -151,3 +151,4 @@ D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\re
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\TaskManagementAPI.pdb
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\TaskManagementAPI.genruntimeconfig.cache
 D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\ref\TaskManagementAPI.dll
+D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

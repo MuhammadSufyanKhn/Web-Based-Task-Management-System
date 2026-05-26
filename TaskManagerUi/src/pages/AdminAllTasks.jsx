@@ -6,7 +6,6 @@ const AdminAllTasks = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
   const [filterPriority, setFilterPriority] = React.useState("All");
   const token = localStorage.getItem("token");
 
@@ -26,8 +25,8 @@ const AdminAllTasks = () => {
       if (!res.ok) throw new Error("Failed to fetch tasks");
       const data = await res.json();
       setTasks(data);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -79,8 +78,9 @@ const AdminAllTasks = () => {
           
           
           <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-            <label style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
+            <label htmlFor="filterPriority" style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
             <select
+              id="filterPriority"
               value={filterPriority}
               onChange={(e) => setFilterPriority(e.target.value)}
               style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}

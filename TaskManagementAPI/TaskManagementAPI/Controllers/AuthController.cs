@@ -7,6 +7,7 @@ using TaskManagerAPI.Models;
 using TaskManagerAPI.Models.DTOS;
 using TaskManagerAPI.Helpers;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace TaskManagerAPI.Controllers
 {
@@ -26,6 +27,8 @@ namespace TaskManagerAPI.Controllers
         }
 
         [HttpPost("register")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult Register(RegisterDto request)
         {
             if (_context.Users.Any(u => u.Email == request.Email))
@@ -33,8 +36,7 @@ namespace TaskManagerAPI.Controllers
                 return BadRequest("User already exists with this email.");
             }
 
-            using var sha256 = SHA256.Create();
-            var hashedPassword = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(request.Password)));
+            var hashedPassword = Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(request.Password)));
 
             var newUser = new Users
             {
@@ -53,25 +55,30 @@ namespace TaskManagerAPI.Controllers
         }
 
         [HttpPost("login")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult Login([FromBody] loginDto request)
         {
-            _logger.LogInformation("Login attempt for user: {Email}", request.Email);
+            if (_logger.IsEnabled(LogLevel.Information))
+                _logger.LogInformation("Login attempt for user: {Email}", request.Email);
 
             var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
             if (user == null)
             {
-                _logger.LogWarning("Login failed: User {Email} not found", request.Email);
+                if (_logger.IsEnabled(LogLevel.Warning))
+                    _logger.LogWarning("Login failed: User {Email} not found", request.Email);
                 return BadRequest("User not found.");
             }
-            using var sha256 = SHA256.Create();
-            var hashedPassword = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(request.Password)));
+            var hashedPassword = Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(request.Password)));
             if (user.PasswordHash != hashedPassword)
             {
                 return BadRequest("Incorrect password.");
             }
 
-            _logger.LogInformation("User {Email} logged in successfully at {Time}", request.Email, DateTime.Now);
-    
+            if (_logger.IsEnabled(LogLevel.Information))
+                _logger.LogInformation("User {Email} logged in successfully at {Time}", request.Email, DateTime.Now);
+
+
             var token = _jwtService.GenerateToken(user);
             return Ok(new { token = token, message = "login successful" });
         }

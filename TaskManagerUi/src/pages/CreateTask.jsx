@@ -93,7 +93,7 @@ const CreateTask = () => {
 
                     <form onSubmit={handleSubmit}>
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="title" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Task Title
                             </label>
                             <input 
@@ -113,7 +113,7 @@ const CreateTask = () => {
                         </div>
                         
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="descriptions" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Description
                             </label>
                             <textarea 
@@ -135,7 +135,7 @@ const CreateTask = () => {
                         <div>
                             {userRole === "Admin" && (
                                 <div style={{ marginBottom: "15px" }}>
-                                <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                <label htmlFor="assignTo" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                     Assign To
                                 </label>
                                 <select
@@ -147,7 +147,7 @@ const CreateTask = () => {
                                     backgroundColor: "#fdfdfd",
                                     boxSizing: "border-box"
                                     }}
-                                    onChange={e => setTask({ ...task, userId: parseInt(e.target.value) })}
+                                    onChange={e => setTask({ ...task, userId: Number.parseInt(e.target.value) })}
                                     defaultValue=""
                                 >
                                     <option value="" disabled>Select User</option>
@@ -167,7 +167,7 @@ const CreateTask = () => {
 
                         <div style={{ display: 'flex', gap: '15px', marginBottom: '25px' }}>
                             <div style={{ flex: 1 }}>
-                                <label style={{ fontWeight: "600", display: 'block', marginBottom: '8px', color: "#444" }}>
+                                <label htmlFor="taskPriority" style={{ fontWeight: "600", display: 'block', marginBottom: '8px', color: "#444" }}>
                                     Priority
                                 </label>
                                 <select 
@@ -189,7 +189,7 @@ const CreateTask = () => {
                                 </select>
                             </div>
                             <div style={{ flex: 1 }}>
-                                <label style={{ fontWeight: "600", display: 'block', marginBottom: '8px', color: "#444" }}>
+                                <label htmlFor="dueDate" style={{ fontWeight: "600", display: 'block', marginBottom: '8px', color: "#444" }}>
                                     Due Date
                                 </label>
                                 <input 

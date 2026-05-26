@@ -1,10 +1,9 @@
 Ü
-{D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\TaskManagementAPI.tests.AssemblyInfo.csutf-8è
-ÉD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.csutf-8à
-}D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\TaskManagementAPI.tests.GlobalUsings.g.csutf-8v
-kC:\Users\DELL\.nuget\packages\microsoft.net.test.sdk\17.14.1\build\net8.0\Microsoft.NET.Test.Sdk.Program.csutf-8W
-ND:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\UnitTest1.csutf-8f
+{D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\TaskManagementAPI.tests.AssemblyInfo.csutf-8à
+}D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\TaskManagementAPI.tests.GlobalUsings.g.csutf-8è
+ÉD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.csutf-8v
+kC:\Users\DELL\.nuget\packages\microsoft.net.test.sdk\17.14.1\build\net8.0\Microsoft.NET.Test.Sdk.Program.csutf-8l
+cD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\UserControllerTest.csutf-8f
 ]D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Services\jwtservicetests.csutf-8l
-cD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\UserControllerTest.csutf-8l
 cD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\TaskControllerTest.csutf-8l
 cD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI.tests\Controllers\AuthControllerTest.csutf-8

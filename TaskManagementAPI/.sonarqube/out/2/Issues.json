@@ -1,0 +1,1478 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "5.0.0.0",
+        "fileVersion": "5.0.0-2.25569.105 (fad253f5)",
+        "semanticVersion": "5.0.0",
+        "language": "en-GB"
+      },
+      "results": [
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Title' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Descriptions' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'TaskStatus' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'TaskPriority' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateTaskDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'UserName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 23,
+                  "endLine": 5,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Email' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 23,
+                  "endLine": 6,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Password' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/UpdateProfileDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Title' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/CreateTaskDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/CreateTaskDto.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 23,
+                  "endLine": 7,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Users' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Data/AppDbContext.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 16,
+                  "endLine": 8,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Data/AppDbContext.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 29,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'TaskItems' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Data/AppDbContext.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 16,
+                  "endLine": 8,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Data/AppDbContext.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 32,
+                  "endLine": 13,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8604",
+          "level": "warning",
+          "message": "Possible null reference argument for parameter 's' in 'byte[] Encoding.GetBytes(string s)'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Services/jwtservice.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 79,
+                  "endLine": 20,
+                  "endColumn": 97
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S101",
+          "level": "warning",
+          "message": "Rename class 'loginDto' to match pascal case naming rules, consider using 'LoginDto'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Models/DTOS/loginDto.cs",
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 18,
+                  "endLine": 3,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 63,
+                  "endLine": 36,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'User with ID {UserId} not found or is deleted.' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 36,
+                  "endLine": 48,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 36,
+                  "endLine": 68,
+                  "endColumn": 84
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 36,
+                  "endLine": 96,
+                  "endColumn": 84
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 36,
+                  "endLine": 109,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'User not found.' 5 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 33,
+                  "endLine": 49,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 33,
+                  "endLine": 69,
+                  "endColumn": 50
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 33,
+                  "endLine": 97,
+                  "endColumn": 50
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 33,
+                  "endLine": 110,
+                  "endColumn": 50
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 128,
+                  "startColumn": 33,
+                  "endLine": 128,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 93,
+                  "endLine": 65,
+                  "endColumn": 101
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 59,
+                  "endLine": 84,
+                  "endColumn": 67
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 106,
+                  "startColumn": 89,
+                  "endLine": 106,
+                  "endColumn": 97
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 30,
+                  "endLine": 26,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 20,
+                  "endLine": 52,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 17,
+                  "endLine": 48,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 13,
+                  "endLine": 51,
+                  "endColumn": 86
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 89,
+                  "endLine": 124,
+                  "endColumn": 97
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 138,
+                  "startColumn": 89,
+                  "endLine": 138,
+                  "endColumn": 97
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 30,
+                  "endLine": 56,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 20,
+                  "endLine": 77,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 17,
+                  "endLine": 68,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 13,
+                  "endLine": 76,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 90,
+                  "endLine": 118,
+                  "endColumn": 98
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 96,
+                  "endLine": 119,
+                  "endColumn": 104
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 94,
+                  "endLine": 120,
+                  "endColumn": 102
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 54,
+                  "endLine": 144,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 88,
+                  "endLine": 155,
+                  "endColumn": 96
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 162,
+                  "startColumn": 63,
+                  "endLine": 162,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 30,
+                  "endLine": 104,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 20,
+                  "endLine": 118,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 17,
+                  "endLine": 109,
+                  "endColumn": 89
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 117,
+                  "startColumn": 13,
+                  "endLine": 117,
+                  "endColumn": 73
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 30,
+                  "endLine": 81,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 20,
+                  "endLine": 100,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 17,
+                  "endLine": 96,
+                  "endColumn": 89
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 13,
+                  "endLine": 99,
+                  "endColumn": 75
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 30,
+                  "endLine": 122,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 20,
+                  "endLine": 150,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 17,
+                  "endLine": 127,
+                  "endColumn": 97
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1873",
+          "level": "note",
+          "message": "Evaluation of this argument may be expensive and unnecessary if logging is disabled",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/UserController.cs",
+                "region": {
+                  "startLine": 149,
+                  "startColumn": 13,
+                  "endLine": 149,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 30,
+                  "endLine": 153,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 20,
+                  "endLine": 167,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 173,
+                  "startColumn": 30,
+                  "endLine": 173,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 20,
+                  "endLine": 197,
+                  "endColumn": 86
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 202,
+                  "startColumn": 30,
+                  "endLine": 202,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 225,
+                  "startColumn": 20,
+                  "endLine": 225,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 263,
+                  "startColumn": 30,
+                  "endLine": 263,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 293,
+                  "startColumn": 20,
+                  "endLine": 293,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 230,
+                  "startColumn": 30,
+                  "endLine": 230,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/TaskManagementSystem/TaskManagementAPI/TaskManagementAPI/Controllers/TaskController.cs",
+                "region": {
+                  "startLine": 258,
+                  "startColumn": 20,
+                  "endLine": 258,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CA1873": {
+          "id": "CA1873",
+          "shortDescription": "Avoid potentially expensive logging",
+          "fullDescription": "In many situations, logging is disabled or set to a log level that results in an unnecessary evaluation for this argument.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1873",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS8604": {
+          "id": "CS8604",
+          "shortDescription": "Possible null reference argument.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8604)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S101": {
+          "id": "S101",
+          "shortDescription": "Types should be named in PascalCase",
+          "fullDescription": "Shared naming conventions allow teams to collaborate efficiently.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1125": {
+          "id": "S1125",
+          "shortDescription": "Boolean literals should not be redundant",
+          "fullDescription": "A boolean literal can be represented in two different ways: true or false. They can be combined with logical operators (!, &&, ||, ==, !=) to produce logical expressions that represent truth values. However, comparing a boolean literal to a variable or expression that evaluates to a boolean value is unnecessary and can make the code harder to read and understand. The more complex a boolean expression is, the harder it will be for developers to understand its meaning and expected behavior, and it will favour the introduction of new bugs.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6968": {
+          "id": "S6968",
+          "shortDescription": "Actions that return a value should be annotated with ProducesResponseTypeAttribute containing the return type",
+          "fullDescription": "In an ASP.NET Core Web API, controller actions can optionally return a result value. If a controller action returns a value in the happy path, for example ControllerBase.Ok(Object), annotating the action with one of the [ProducesResponseType] overloads that describe the type is recommended.",
+          "defaultLevel": "warning",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

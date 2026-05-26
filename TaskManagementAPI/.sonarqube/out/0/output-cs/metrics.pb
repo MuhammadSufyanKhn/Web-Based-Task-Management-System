@@ -1,13 +1,13 @@
 _
-]D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Swagger\ExampleOperationFilter.cs
+]D:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Swagger\ExampleOperationFilter.csª
+FD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Program.cs,r9	 !"#$%&'()*,-./01346789:<=?BCEG‚""$&(,-.346789:<=?BCEG
 RD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Services\jwtservice.cs 8jr"	
- !"#%&'(‚	"%ª
-FD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Program.cs,r9	 !"#$%&'()*,-./01346789:<=?BCEG‚""$&(,-.346789:<=?BCEGv
-ND:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Models\TaskItem.cs 8r	
-‚v
+ !"#%&'(‚	"%v
 KD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Models\Users.cs 8jr	
 ‚
-m
+v
+ND:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Models\TaskItem.cs 8r	
+‚m
 XD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Models\DTOS\UpdateTaskDto.cs 
 8
 r	
@@ -22,7 +22,8 @@ XD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Models\DTOS\CreateT
 r	
 æ
 YD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\UserController.cs? 8r 	
- !"#$%&'()*+,-./012345789:;<=>?@ABCDEFGHIJKLMNPQRSTUVWXYZ[\]^_`abcdeghijklmnopqrstuvwyz{|}~€ƒ„†‡ˆŠŒ‘“•–—˜™x‚[ "#$%'()*+.0134:;=>@ABDEGHIJKLMSTUWXYZ[^`acdjkmnpqrstuv|}€ƒ„†‡ˆŠŒ“•–¢
-YD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\TaskController.csX 88jRUrí	 !"#$%&'()*+,-./023456789:;<=?@ACDEFGHIJKLMNOPQSVWXYZ[]^_cdefghjlmnopqrstuvxyz|}~€‚„…†‡ˆ‰Š‹Œ‘’“”•–—™š›Ÿ¢£¤¥¦§©«¬­®¯°±²³´µ·¸º»¼¾¿ÀÁÂÄÆÇÈÉÊËÌÍÎĞÒÓÔÕÖØÙÚÛÜİŞàáâãäåæçèéêëìíïñòóôö÷ùúûüışÿƒ„…†‡ˆ‰ŠŒ‘’•–—˜œx‚Å!"#$%./689:;<?@GHIJLMNOPQSVWX]^ghjlnostuxy€‚„…‡ˆŠ‹Œ“”–™š¦§©­®±³´·¸º»ÂÄÆÇÉËÍĞÒÓÔÕÜİŞàáâäåæçèéêëïñóöışÿƒ…‡‰Œ‘’•–—Ç
-YD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs 8rD	 !"$%'()*+,-./1245789:<=>?@ABCDEFGIKLMOPx‚!$%)*-124:<=?@BCDFIKL{
-PD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Data\AppDbContext.cs 8r	‚
+ !"#$%&'()*+,-./012345789:;<=>?@ABCDEFGHIJKLMNPQRSTUVWXYZ[\]^_`abcdeghijklmnopqrstuvwyz{|}~€ƒ„†‡ˆŠŒ‘“•–—˜™x‚[ "#$%'()*+.0134:;=>@ABDEGHIJKLMSTUWXYZ[^`acdjkmnpqrstuv|}€ƒ„†‡ˆŠŒ“•–{
+PD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Data\AppDbContext.cs 8r	‚¼
+YD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\TaskController.cs] 8>r	 !"#$%&'()*+,-./023456789:;<=>@ABDEFHIJKLMNOPQRSTUWXYZ[\^_`defhijkmopqrstuvwxy{|}~€‚„…†ˆŠ‹Œ‘’”•—˜™š›œŸ¡¢£¤¥§¨«¬­®¯°²´µ¶·¸¹º»¼½¾ÀÁÂÃÅÆÈÉÊËÌÎĞÑÒÓÔÕÖ×ØÚÜİßàáâäåæçèéêìíîïğñòóôõö÷øùûışÿ€‚ƒ…†‡ˆ‰Š‹‘’“”•–˜™š›œ¡¢£¥¦ª¬x"‚Ï!"#$%./79:;<=@AJKLMOPQRSTUWXY^_jkmoqrvwx{|}†ˆŠ‹‘’”›œ¡¢¤¥§¯°²¶·º¼½ÀÁÂÃÅÌÎĞÑÓÕ×ÚÜİßàáèéêìíîğñòóôõö÷ûıÿ‚‰Š‹‘“•˜™š›œ¡¢£¥Î
+YD:\TaskManagementSystem\TaskManagementAPI\TaskManagementAPI\Controllers\AuthController.cs 8	rJ	
+ !"#$%')*+,-./0134679:;<=>?ABCDEFGHIJKLNORSTVWx‚"$'+,/346>?ABDEFHIKNORS

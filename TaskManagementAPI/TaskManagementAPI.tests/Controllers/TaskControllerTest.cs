@@ -21,7 +21,6 @@ namespace TaskManagementAPI.tests.Controllers
     public class TaskControllerTest
     {
         private readonly Mock<ILogger<TaskController>>  _Mocklogger;
-        private readonly JwtService _jwtService;
 
         public TaskControllerTest()
         {
@@ -35,10 +34,9 @@ namespace TaskManagementAPI.tests.Controllers
 
             var fakeConfig = new ConfigurationBuilder().AddInMemoryCollection(mockConfig).Build();
 
-            _jwtService = new JwtService(fakeConfig);
         }
 
-        private AppDbContext GetDatabase()
+        private static AppDbContext GetDatabase()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
@@ -110,7 +108,7 @@ namespace TaskManagementAPI.tests.Controllers
             return db;
         }
 
-        private void SetUserContext(TaskController taskController, int loggedInUserId = 2, string role = "User")
+        private static void SetUserContext(TaskController taskController, int loggedInUserId = 2, string role = "User")
         {
             var claims = new List<Claim>
             {
@@ -130,7 +128,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
             // Act
@@ -156,7 +154,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
             // Act
@@ -195,7 +193,7 @@ namespace TaskManagementAPI.tests.Controllers
             }
             db.SaveChanges();
 
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
             // Act
@@ -214,7 +212,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             //Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             //Act
@@ -240,7 +238,7 @@ namespace TaskManagementAPI.tests.Controllers
             }
             db.SaveChanges();
 
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
             // Act
@@ -259,7 +257,7 @@ namespace TaskManagementAPI.tests.Controllers
         public void TaskController_DashboardStats_UserSeesTheirStats_ReturnStats()
         {
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2, "User");
 
             var result = controller.DashboardStats();
@@ -277,7 +275,7 @@ namespace TaskManagementAPI.tests.Controllers
         public void TaskController_DashboardStats_AdminSeesTheirStats_ReturnStats()
         {
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             var result = controller.DashboardStats();
@@ -297,7 +295,7 @@ namespace TaskManagementAPI.tests.Controllers
             // Arrange
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2, "User");
 
             // Act
@@ -305,9 +303,9 @@ namespace TaskManagementAPI.tests.Controllers
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var tasks = Assert.IsAssignableFrom<IEnumerable<TaskItem>>(okResult.Value);
+            var tasks = Assert.IsType<List<TaskItem>>(okResult.Value);
 
-            Assert.Equal(2, tasks.Count());
+            Assert.Equal(2, tasks.Count);
             Assert.All(tasks, t => Assert.Equal(2, t.UserId));
         }
         [Fact]
@@ -315,7 +313,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             // Act
@@ -331,7 +329,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
 
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
@@ -342,9 +340,9 @@ namespace TaskManagementAPI.tests.Controllers
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var tasks = Assert.IsAssignableFrom<IEnumerable<TaskItem>>(okResult.Value);
+            var tasks = Assert.IsType<List<TaskItem>>(okResult.Value);
 
-            Assert.Equal(2, tasks.Count());
+            Assert.Equal(2, tasks.Count);
             Assert.All(tasks, t => Assert.Equal(targetUserId, t.UserId));
             Assert.All(tasks, t => Assert.False(t.IsDeleted));
         }
@@ -354,7 +352,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, loggedInUserId: 1, role: "Admin");
 
             int nonExistentUserId = 99;
@@ -378,12 +376,13 @@ namespace TaskManagementAPI.tests.Controllers
         {
             //Assert
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 3, "User");
 
             var dto = new CreateTaskDto
             {
                 Title = "New Task",
+                UserId = 3,
                 Descriptions = "Do something",
                 DueDate = DateTime.Now.AddDays(5),
                 TaskPriority = "High"
@@ -408,7 +407,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             var dto = new CreateTaskDto
@@ -438,7 +437,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2, "User");
 
             // Act
@@ -459,7 +458,7 @@ namespace TaskManagementAPI.tests.Controllers
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             // Act
@@ -478,7 +477,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2, "User");
 
             // Act
@@ -493,7 +492,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2,  "User");
 
             // Act
@@ -515,7 +514,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2,  "User");
 
             // Act
@@ -530,7 +529,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2,  "User");
 
             // Act
@@ -545,7 +544,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "Admin");
 
             // Act
@@ -560,7 +559,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 2, "User");
 
             var dto = new UpdateTaskDto
@@ -591,7 +590,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 4,  "User");
 
             var dto = new UpdateTaskDto
@@ -615,7 +614,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1, "User");
 
             var dto = new UpdateTaskDto
@@ -639,7 +638,7 @@ Assert.True(deletedTask.IsDeleted);
         {
             // Arrange
             var db = GetDatabase();
-            var controller = new TaskController(db, _Mocklogger.Object, _jwtService);
+            var controller = new TaskController(db, _Mocklogger.Object);
             SetUserContext(controller, 1,  "Admin");
 
             var dto = new UpdateTaskDto

@@ -5,7 +5,6 @@ import axios from "axios";
 const AllUsersList = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState(""); 
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
@@ -26,8 +25,8 @@ const AllUsersList = () => {
             if (!res.ok) throw new Error("Failed to fetch users");
             const data = await res.json();
             setUsers(data);
-        } catch (error) {
-            setError(error.message);
+        } catch (err) {
+            setError(err.message);
         } finally {
             setLoading(false);
         }

@@ -28,7 +28,7 @@ namespace TaskManagementAPI.tests.Controllers
             _mockLogger = new Mock<ILogger<UserController>>();
         }
 
-        private AppDbContext GetDatabase(bool isUserDeleted = false)
+        private static AppDbContext GetDatabase(bool isUserDeleted = false)
         {
             var options = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
             var db = new AppDbContext(options);
@@ -45,7 +45,7 @@ namespace TaskManagementAPI.tests.Controllers
             return db;
         }
 
-        private void SetUserContext(UserController userController, int loggedInUserId = 13)
+        private static void SetUserContext(UserController userController, int loggedInUserId = 13)
         {
             var claims = new List<Claim>
             {

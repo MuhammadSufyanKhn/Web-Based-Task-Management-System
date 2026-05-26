@@ -86,7 +86,7 @@ const ViewTaskDetails = () => {
 
                     <div>
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="taskTitle" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Task Title
                             </label>
                             <input
@@ -106,7 +106,7 @@ const ViewTaskDetails = () => {
                         </div>
 
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="taskDescription" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Description
                             </label>
                             <textarea
@@ -132,7 +132,7 @@ const ViewTaskDetails = () => {
                             marginBottom: "15px"
                         }}>
                             <div style={{ flex: 1 }}>
-                                <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                <label htmlFor="taskPriority" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                     Priority
                                 </label>
                                 <input
@@ -152,7 +152,7 @@ const ViewTaskDetails = () => {
                             </div>
 
                             <div style={{ flex: 1 }}>
-                                <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                                <label htmlFor="taskStatus" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                     Status
                                 </label>
                                 <input
@@ -173,7 +173,7 @@ const ViewTaskDetails = () => {
                         </div>
 
                         <div style={{ marginBottom: "25px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="taskDueDate" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Due Date
                             </label>
                             <input

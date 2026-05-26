@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
+import TaskTable from "../components/TaskTable";
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
-    const navigate = useNavigate();
     const token = localStorage.getItem('token');
+    const decoded = jwtDecode(token);
+    const userId = decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+    const role = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
     useEffect(() => {
         const fetchTasks = async () => {
@@ -50,7 +54,6 @@ const TaskList = () => {
                     <h2 style={{ margin: 0 }}>📋 My Recent Tasks</h2>
                     <p style={{ marginLeft: '5px', color: '#666', fontSize: '14px' }}>Overview of your most recent activities.</p>
                 </div>
-
                 <Link to="/create-task" style={{
                     textDecoration: 'none',
                     backgroundColor: '#007bff',
@@ -62,116 +65,32 @@ const TaskList = () => {
                 }}>+ New Task</Link>
             </div>
 
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
-                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
-                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
-                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
-                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>
-                        <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tasks.length > 0 ? (
-                        tasks.slice(0, 2).map(task => (
-                            <tr key={task.taskId} style={{ borderBottom: '1px solid #eee' }}>
-                                <td style={{ padding: '12px' }}><strong>{task.title}</strong></td>
-                                <td style={{ padding: '12px' }}>
-                                    <span style={{ fontWeight: '500' }}>{task.taskPriority}</span>
-                                </td>
-                                <td style={{ padding: '12px' }}>
-                                    <span style={{
-                                        padding: '4px 8px',
-                                        borderRadius: '4px',
-                                        fontSize: '12px',
-                                        backgroundColor: '#e9ecef'
-                                    }}>
-                                        {task.taskStatus}
-                                    </span>
-                                </td>
-                                <td style={{ padding: '12px' }}>
-                                    {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}
-                                </td>
-                                <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
-                                    <button
-                                        onClick={() => navigate(`/edit-task/${task.taskId}`)}
-                                        style={{
-                                            backgroundColor: '#ffc107',
-                                            border: 'none',
-                                            padding: '6px 12px',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={() => handleDeleteTask(task.taskId)}
-                                        style={{
-                                            backgroundColor: '#dc3545',
-                                            color: 'white',
-                                            border: 'none',
-                                            padding: '6px 12px',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Delete
-                                    </button>
-                                    <button
-                                        onClick={() => navigate(`/ViewTaskDetails/${task.taskId}`)}
-                                        style={{
-                                            backgroundColor: '#17a2b8',
-                                            color: 'white',
-                                            border: 'none',
-                                            padding: '6px 12px',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        Details
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="5" style={{ textAlign: 'center', padding: '30px', color: '#888' }}>
-                                No recent tasks found.
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-                {tasks.length > 2 && (
-                    <tfoot>
-                        <tr>
-                            <td colSpan="5" style={{ padding: '0' }}>
-                                <Link 
-                                    to="/view-all-tasks" 
-                                    style={{ 
-                                        textDecoration: 'none', 
-                                        color: '#007bff', 
-                                        fontWeight: 'bold', 
-                                        display: 'block', 
-                                        textAlign: 'center',
-                                        padding: '15px',
-                                        backgroundColor: '#f8f9fa',
-                                        borderRadius: '0 0 12px 12px',
-                                        fontSize: '14px',
-                                        borderTop: '1px solid #eee'
-                                    }}
-                                >
-                                    View All Tasks ({tasks.length}) →
-                                </Link>
-                            </td>
-                        </tr>
-                    </tfoot>
-                )}
-            </table>
+            <TaskTable
+                tasks={tasks.slice(0, 2)}
+                onDelete={handleDeleteTask}
+                emptyMessage="No recent tasks found."
+            />
+
+            {tasks.length > 2 && (
+                <div style={{ borderTop: '1px solid #eee' }}>
+                    <Link
+                        to={role === "Admin" ? `/view-all-tasks/${userId}` : `/view-all-tasks`}
+                        style={{
+                            textDecoration: 'none',
+                            color: '#007bff',
+                            fontWeight: 'bold',
+                            display: 'block',
+                            textAlign: 'center',
+                            padding: '15px',
+                            backgroundColor: '#f8f9fa',
+                            borderRadius: '0 0 12px 12px',
+                            fontSize: '14px',
+                        }}
+                    >
+                        View All Tasks ({tasks.length}) →
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };

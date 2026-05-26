@@ -39,16 +39,16 @@ namespace TaskManagementAPI.tests.Controllers
             _jwtservice = new JwtService(fakeConfig);
         }
 
-        private AppDbContext GetDatabase()
+        private static AppDbContext GetDatabase()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
             return new AppDbContext(options);
         }
 
-        private string HashPassword(string password)
+        private static string HashPassword(string password)
         {
-            using var sha56 = SHA256.Create();
-            return Convert.ToBase64String(sha56.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            return Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
+        
         }
 
         [Fact]

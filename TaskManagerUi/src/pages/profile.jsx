@@ -98,11 +98,12 @@ const Profile = () => {
 
                     <div>
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="userName" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Full Name
                             </label>
                             {isEditing ? (
                                 <input
+                                    id="userName"
                                     name="userName"
                                     style={{
                                         width: "100%",
@@ -129,11 +130,12 @@ const Profile = () => {
                         </div>
 
                         <div style={{ marginBottom: "15px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="email" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Email Address
                             </label>
                             {isEditing ? (
                                 <input
+                                    id="email"
                                     name="email"
                                     style={{
                                         width: "100%",
@@ -160,7 +162,7 @@ const Profile = () => {
                         </div>
 
                         <div style={{ marginBottom: "25px" }}>
-                            <label style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
+                            <label htmlFor="password" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
                                 Password
                             </label>
                             {isEditing ? (
@@ -233,7 +235,8 @@ const Profile = () => {
                             )}
                         </div>
 
-                        <span
+                        <button
+                            onClick={() => navigate('/dashboard')}
                             style={{
                                 display: "block",
                                 textAlign: "center",
@@ -241,12 +244,14 @@ const Profile = () => {
                                 color: "#888",
                                 textDecoration: "underline",
                                 fontSize: "14px",
-                                cursor: "pointer"
+                                cursor: "pointer",
+                                background: "none",
+                                border: "none",
+                                width: "100%"
                             }}
-                            onClick={() => navigate('/dashboard')}
                         >
                             Cancel & Go Back
-                        </span>
+                        </button>
                     </div>
                 </div>
             </div>

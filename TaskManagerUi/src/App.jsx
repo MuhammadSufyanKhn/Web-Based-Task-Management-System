@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import PropTypes from 'prop-types';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -23,6 +24,9 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
   return children;
+};
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 function App() {
@@ -52,7 +56,7 @@ function App() {
           <Route path="/ViewTaskDetails/:id" element={
             <ProtectedRoute> <ViewTaskDetails /> </ProtectedRoute>
           } />
-          <Route path="/view-all-tasks/:userId" element={
+          <Route path="/view-all-tasks" element={
             <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
             
           } />

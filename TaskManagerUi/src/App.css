@@ -36,7 +36,7 @@ src/App.css
 .card button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     border-radius: 6px;
@@ -47,7 +47,7 @@ src/App.css
 }
 
 .card button:hover {
-    background-color: #0056b3;
+   background-color: #004494;
 }
 
 .title {
@@ -75,15 +75,6 @@ src/App.css
     text-decoration: underline;
 }
 
-.dashboard-main {
-    background: #f4f7f6;
-}
-
-.dash-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .stats-container {
     display: flex;
@@ -344,7 +335,7 @@ src/App.css
     background-color: #c82333;
 }
 .btn-edit{
-    background-color: #53d738;
+    background-color: #1a7a36;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -356,25 +347,15 @@ src/App.css
     transition: background 0.3s;
 }
 .btn-edit:hover {
-    background-color: #28a745;
+   background-color: #135c28;
 }
-.btn-delete{
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
+
 .btn-delete:hover {
     background-color: #c82333;
 }
 
 .add-btn{
-    background-color: #007bff;
+   background-color: #0056b3;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -383,6 +364,10 @@ src/App.css
     font-size: 14px;
     font-weight: bold;
     transition: background 0.3s;
+}
+.add-btn:hover {
+    
+    background-color: #004494; 
 }
 .btn-delete{
     background-color: #dc3545;
@@ -398,7 +383,7 @@ src/App.css
 }
 
 .btn-view{
-    background-color: #fd008b;
+    background-color: #c4006c;
     color: white;
     margin-left: 10px;
     border: none;
@@ -410,7 +395,7 @@ src/App.css
     transition: background 0.3s;
 }
 .btn-view:hover {
-    background-color: #c7006b;
+    background-color: #9e0057;
 }
 
 ::-webkit-scrollbar {

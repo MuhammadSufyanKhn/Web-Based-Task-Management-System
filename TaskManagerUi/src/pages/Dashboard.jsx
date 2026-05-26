@@ -1,44 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TaskList from './Tasklist';
-import Profile from './profile';
 import { useNavigate } from 'react-router-dom';
+import StatsCard from '../components/StatsCard';
 
 const Dashboard = () => {
     const [stats, setStats] = useState({ pendingCount: 0, inProgressCount: 0, completedCount: 0 });
-    const [role, setRole] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchStats = async () => {
             try {
                 const token = localStorage.getItem('token');
-                if (!token) {
-                    navigate('/login');
-                    return;
-                }
+                if (!token) { navigate('/login'); return; }
                 const res = await axios.get('https://localhost:7127/api/task/dashboard-stats', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setStats(res.data);
-
-                const payload = JSON.parse(atob(token.split('.')[1]));
-                setRole(payload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
             } catch (err) {
                 console.error("Stats cant be loaded", err);
             }
         };
         fetchStats();
-    }, []);
-    if (localStorage.getItem('token') === null) {
-        navigate('/login');
-    }
+    }, [navigate]);
+
+    if (!localStorage.getItem('token')) navigate('/login');
 
     return (
         <div className="dashboard-main">
             <header className="dash-header">
-                <h2>{"My Task Dashboard"}</h2>
+                <h2>My Task Dashboard</h2>
                 <button
+                    className="btn-profile"
+                    onClick={() => navigate('/profile')}
                     style={{
                         marginLeft: "auto",
                         backgroundColor: "#3498db",
@@ -48,33 +42,19 @@ const Dashboard = () => {
                         borderRadius: "6px",
                         fontSize: "14px",
                         fontWeight: "600",
-                        cursor: "pointer",
-                        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                        outline: "none"
+                        cursor: "pointer"
                     }}
-                    className="btn-profile"
-                    onClick={() => navigate('/profile')}
                 >
                     View Profile
                 </button>
             </header>
 
             <div className="stats-container">
-                <div className="stat-card pending">
-                    <h3>Pending</h3>
-                    <p className="count">{stats.pendingCount}</p>
-                </div>
-
-                <div className="stat-card progress">
-                    <h3>In-Progress</h3>
-                    <p className="count">{stats.inProgressCount}</p>
-                </div>
-
-                <div className="stat-card completed">
-                    <h3>Completed</h3>
-                    <p className="count">{stats.completedCount}</p>
-                </div>
+                <StatsCard title="Pending" count={stats.pendingCount} className="pending" />
+                <StatsCard title="In-Progress" count={stats.inProgressCount} className="progress" />
+                <StatsCard title="Completed" count={stats.completedCount} className="completed" />
             </div>
+
             <TaskList />
         </div>
     );
