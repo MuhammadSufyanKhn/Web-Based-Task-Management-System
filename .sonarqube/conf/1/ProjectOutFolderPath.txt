@@ -1,1 +1,0 @@
-D:\TaskManagementSystem\.sonarqube\out\1
