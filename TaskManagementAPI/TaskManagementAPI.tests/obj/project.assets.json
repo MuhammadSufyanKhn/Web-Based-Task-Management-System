@@ -3880,11 +3880,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj",
+      "projectUniqueName": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj",
       "projectName": "TaskManagementAPI.tests",
-      "projectPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj",
+      "projectPath": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\TaskManagementAPI.tests.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\obj\\",
+      "outputPath": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI.tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3906,8 +3906,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {
-              "projectPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj"
+            "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {
+              "projectPath": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj"
             }
           }
         }
@@ -4246,5 +4246,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.OpenApi' 2.4.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

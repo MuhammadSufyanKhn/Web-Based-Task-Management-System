@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {}
+    "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {}
   },
   "projects": {
-    "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {
+    "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj",
+        "projectUniqueName": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj",
         "projectName": "TaskManagementAPI",
-        "projectPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj",
+        "projectPath": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\TaskManagementAPI.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\",
+        "outputPath": "D:\\.NET PROJECTS\\TaskManagementSystem\\TaskManagementAPI\\TaskManagementAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

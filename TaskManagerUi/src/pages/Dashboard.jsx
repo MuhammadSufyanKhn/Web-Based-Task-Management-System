@@ -30,23 +30,54 @@ const Dashboard = () => {
         <div className="dashboard-main">
             <header className="dash-header">
                 <h2>My Task Dashboard</h2>
-                <button
-                    className="btn-profile"
-                    onClick={() => navigate('/profile')}
-                    style={{
-                        marginLeft: "auto",
-                        backgroundColor: "#3498db",
-                        color: "white",
-                        border: "none",
-                        padding: "8px 20px",
-                        borderRadius: "6px",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        cursor: "pointer"
-                    }}
-                >
-                    View Profile
-                </button>
+                <div style={{ marginLeft: "auto", display: "flex", gap: "10px" }}>
+                    <button
+                        onClick={() => navigate('/kanban')}
+                        style={{
+                            backgroundColor: "#0052cc",
+                            color: "white",
+                            border: "none",
+                            padding: "8px 20px",
+                            borderRadius: "6px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            cursor: "pointer"
+                        }}
+                    >
+                        📋 Kanban Board
+                    </button>
+                    <button
+                        onClick={() => navigate('/backlog')}
+                        style={{
+                            backgroundColor: "#2c3e50",
+                            color: "white",
+                            border: "none",
+                            padding: "8px 20px",
+                            borderRadius: "6px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            cursor: "pointer"
+                        }}
+                    >
+                        📖 Backlog & Sprints
+                    </button>
+                    <button
+                        className="btn-profile"
+                        onClick={() => navigate('/profile')}
+                        style={{
+                            backgroundColor: "#3498db",
+                            color: "white",
+                            border: "none",
+                            padding: "8px 20px",
+                            borderRadius: "6px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            cursor: "pointer"
+                        }}
+                    >
+                        View Profile
+                    </button>
+                </div>
             </header>
 
             <div className="stats-container">

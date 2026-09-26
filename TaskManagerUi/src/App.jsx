@@ -16,6 +16,9 @@ import AdminAllTasks from './pages/AdminAllTasks';
 import AdminEditTask from './pages/Admin-Edit-Task';
 import AllUsersList from './pages/AllUsersList';
 import AdminEditUser from './pages/Admin-edit-user';
+import KanbanBoard from './pages/KanbanBoard';
+import ProjectSettings from './pages/ProjectSettings';
+import Backlog from './pages/Backlog';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -38,6 +41,17 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
+          {/* Kanban Board & Project Settings */}
+          <Route path="/kanban" element={
+            <ProtectedRoute> <KanbanBoard /> </ProtectedRoute>
+          } />
+          <Route path="/backlog" element={
+            <ProtectedRoute> <Backlog /> </ProtectedRoute>
+          } />
+          <Route path="/project-settings" element={
+            <ProtectedRoute> <ProjectSettings /> </ProtectedRoute>
+          } />
+
           <Route path="/dashboard" element={
             <ProtectedRoute> <Dashboard /> </ProtectedRoute>
           } />
@@ -58,7 +72,6 @@ function App() {
           } />
           <Route path="/view-all-tasks" element={
             <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
-            
           } />
           <Route path="/view-all-tasks/:userId" element={
             <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
