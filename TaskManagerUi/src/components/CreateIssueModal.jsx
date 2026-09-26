@@ -23,6 +23,8 @@ const CreateIssueModal = ({
     initialStatusId,
     initialSprintId = null,
     initialEpicId = null,
+    initialDueDate = '',
+    parentTaskId = null,
     statuses = [],
     members = [],
     components = [],
@@ -49,12 +51,13 @@ const CreateIssueModal = ({
     const [title, setTitle] = useState('');
     const [descriptions, setDescriptions] = useState('');
     const [statusId, setStatusId] = useState(initialStatusId || (statuses[0]?.id || ''));
-    const [issueTypeId, setIssueTypeId] = useState('1'); // Task
+    const [issueTypeId, setIssueTypeId] = useState(parentTaskId ? '5' : '1'); // 5 = Subtask
     const [priorityId, setPriorityId] = useState('3'); // Medium
     const [userId, setUserId] = useState(isAdmin ? '' : (currentUserId ? String(currentUserId) : ''));
     const [componentId, setComponentId] = useState('');
     const [storyPoints, setStoryPoints] = useState('');
-    const [dueDate, setDueDate] = useState('');
+    const [originalEstimateHours, setOriginalEstimateHours] = useState('');
+    const [dueDate, setDueDate] = useState(initialDueDate || '');
     const [sprintId, setSprintId] = useState(initialSprintId ? String(initialSprintId) : '');
     const [epicId, setEpicId] = useState(initialEpicId ? String(initialEpicId) : '');
     const [sprintsList, setSprintsList] = useState(propSprints || []);
@@ -105,7 +108,7 @@ const CreateIssueModal = ({
                 title: title.trim(),
                 descriptions: descriptions.trim(),
                 statusId: statusId ? parseInt(statusId) : null,
-                issueTypeId: issueTypeId ? parseInt(issueTypeId) : 1,
+                issueTypeId: issueTypeId ? parseInt(issueTypeId) : (parentTaskId ? 5 : 1),
                 priorityId: priorityId ? parseInt(priorityId) : 3,
                 userId: userId ? parseInt(userId) : (currentUserId || null),
                 componentId: componentId ? parseInt(componentId) : null,
@@ -113,7 +116,11 @@ const CreateIssueModal = ({
                 dueDate: dueDate ? new Date(dueDate).toISOString() : null,
                 labels,
                 sprintId: sprintId ? parseInt(sprintId) : null,
-                epicId: epicId ? parseInt(epicId) : null
+                epicId: epicId ? parseInt(epicId) : null,
+                parentTaskId: parentTaskId ? parseInt(parentTaskId) : null,
+                originalEstimateMinutes: originalEstimateHours !== '' && !isNaN(parseFloat(originalEstimateHours))
+                    ? Math.round(parseFloat(originalEstimateHours) * 60)
+                    : null
             };
 
             await api.post('/kanban/task', payload);
@@ -199,6 +206,25 @@ const CreateIssueModal = ({
                 )}
 
                 <form onSubmit={handleSubmit} style={{ padding: '24px', overflowY: 'auto', flex: 1 }}>
+                    {parentTaskId && (
+                        <div style={{
+                            padding: '10px 14px',
+                            backgroundColor: 'rgba(99, 102, 241, 0.15)',
+                            border: '1px solid rgba(99, 102, 241, 0.35)',
+                            borderRadius: '8px',
+                            color: '#c7d2fe',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            marginBottom: '16px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                        }}>
+                            <span style={{ fontSize: '16px' }}>↳</span>
+                            <span>Creating <strong>Subtask</strong> linked to Parent Task #{parentTaskId}</span>
+                        </div>
+                    )}
+
                     {/* Issue Type & Status row */}
                     <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
                         <div style={{ flex: 1 }}>
@@ -360,9 +386,9 @@ const CreateIssueModal = ({
                         </div>
                     </div>
 
-                    {/* Component, Story Points & Due Date row */}
-                    <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
-                        <div style={{ flex: 1 }}>
+                    {/* Component, Story Points, Original Estimate & Due Date row */}
+                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.9fr 1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                        <div>
                             <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
                                 Component
                             </label>
@@ -387,7 +413,7 @@ const CreateIssueModal = ({
                             </select>
                         </div>
 
-                        <div style={{ flex: 1 }}>
+                        <div>
                             <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
                                 Story Points
                             </label>
@@ -395,7 +421,7 @@ const CreateIssueModal = ({
                                 type="number"
                                 min="0"
                                 max="100"
-                                placeholder="Estimate"
+                                placeholder="Pts"
                                 value={storyPoints}
                                 onChange={(e) => setStoryPoints(e.target.value)}
                                 style={{
@@ -411,7 +437,31 @@ const CreateIssueModal = ({
                             />
                         </div>
 
-                        <div style={{ flex: 1 }}>
+                        <div>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                                Estimate (hrs)
+                            </label>
+                            <input
+                                type="number"
+                                step="0.5"
+                                min="0"
+                                placeholder="e.g. 4.5"
+                                value={originalEstimateHours}
+                                onChange={(e) => setOriginalEstimateHours(e.target.value)}
+                                style={{
+                                    width: '100%',
+                                    padding: '8px 10px',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#1e293b',
+                                    color: '#f8fafc',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    fontSize: '13px',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                        </div>
+
+                        <div>
                             <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
                                 Due Date
                             </label>
@@ -594,9 +644,15 @@ const CreateIssueModal = ({
 
 CreateIssueModal.propTypes = {
     initialStatusId: PropTypes.number,
+    initialSprintId: PropTypes.number,
+    initialEpicId: PropTypes.number,
+    initialDueDate: PropTypes.string,
+    parentTaskId: PropTypes.number,
     statuses: PropTypes.array.isRequired,
     members: PropTypes.array.isRequired,
     components: PropTypes.array.isRequired,
+    sprints: PropTypes.array,
+    epics: PropTypes.array,
     onClose: PropTypes.func.isRequired,
     onIssueCreated: PropTypes.func.isRequired
 };

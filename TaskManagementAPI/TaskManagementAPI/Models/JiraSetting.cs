@@ -28,6 +28,17 @@ namespace TaskManagerAPI.Models
         public bool IsSyncEnabled { get; set; } = true;
 
         public DateTime? LastSyncDate { get; set; }
+        public DateTime? LastSyncedAt { get => LastSyncDate; set => LastSyncDate = value; }
+
+        [MaxLength(50)]
+        public string? ConnectionStatus { get; set; } // Connected, Disconnected, Error
+
+        public string? LastSyncError { get; set; }
+
+        public bool AutoSync { get; set; } = false;
+
+        [MaxLength(255)]
+        public string? WebhookSecret { get; set; }
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 

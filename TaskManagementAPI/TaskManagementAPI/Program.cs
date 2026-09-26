@@ -53,8 +53,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
 builder.Services.AddScoped<JwtService>();
-builder.Services.AddControllers();
+builder.Services.AddScoped<TaskManagementAPI.Services.IActivityLogService, TaskManagementAPI.Services.ActivityLogService>();
+builder.Services.AddScoped<TaskManagementAPI.Services.INotificationService, TaskManagementAPI.Services.NotificationService>();
+builder.Services.AddScoped<TaskManagementAPI.Services.IJiraCloudService, TaskManagementAPI.Services.JiraCloudService>();
 var app = builder.Build();
 
 app.UseSwagger();

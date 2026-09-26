@@ -41,6 +41,7 @@ namespace TaskManagementAPI.Controllers
                 .Include(t => t.Component)
                 .Include(t => t.Epic)
                 .Include(t => t.Sprint)
+                .Include(t => t.Subtasks)
                 .Include(t => t.TaskLabels)
                     .ThenInclude(tl => tl.Label)
                 .Where(t => !t.IsDeleted && !t.User.IsDeleted);
@@ -114,7 +115,12 @@ namespace TaskManagementAPI.Controllers
                 EpicName = t.Epic?.Name,
                 EpicColor = t.Epic?.ColorHex,
                 ComponentName = t.Component?.Name,
-                Labels = t.TaskLabels.Select(tl => tl.Label.Name).ToList()
+                Labels = t.TaskLabels.Select(tl => tl.Label.Name).ToList(),
+                ParentTaskId = t.ParentTaskId,
+                SubtasksCount = t.Subtasks.Count(st => !st.IsDeleted),
+                OriginalEstimateMinutes = t.OriginalEstimateMinutes,
+                RemainingEstimateMinutes = t.RemainingEstimateMinutes,
+                TimeSpentMinutes = t.TimeSpentMinutes
             };
 
             // 2. Fetch Sprints

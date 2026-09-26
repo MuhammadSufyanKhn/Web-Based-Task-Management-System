@@ -60,6 +60,13 @@ namespace TaskManagementAPI.Models.DTOS
         public string? EpicKey { get; set; }
         public string? EpicName { get; set; }
         public string? EpicColor { get; set; }
+
+        // Parent & Subtasks & Time Tracking
+        public int? ParentTaskId { get; set; }
+        public int SubtasksCount { get; set; }
+        public int? OriginalEstimateMinutes { get; set; }
+        public int? RemainingEstimateMinutes { get; set; }
+        public int TimeSpentMinutes { get; set; }
     }
 
     public class ProjectMemberDto
@@ -91,6 +98,9 @@ namespace TaskManagementAPI.Models.DTOS
         public List<string>? Labels { get; set; }
         public int? SprintId { get; set; }
         public int? EpicId { get; set; }
+        public int? ParentTaskId { get; set; }
+        public int? OriginalEstimateMinutes { get; set; }
+        public int? RemainingEstimateMinutes { get; set; }
     }
 
     public class UpdateTaskDetailDto
@@ -107,5 +117,8 @@ namespace TaskManagementAPI.Models.DTOS
         public List<string>? Labels { get; set; }
         public int? SprintId { get; set; }
         public int? EpicId { get; set; }
+        public int? ParentTaskId { get; set; }
+        public int? OriginalEstimateMinutes { get; set; }
+        public int? RemainingEstimateMinutes { get; set; }
     }
 }

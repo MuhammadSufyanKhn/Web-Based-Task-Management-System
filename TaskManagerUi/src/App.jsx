@@ -20,6 +20,10 @@ import KanbanBoard from './pages/KanbanBoard';
 import ProjectSettings from './pages/ProjectSettings';
 import Backlog from './pages/Backlog';
 import ProjectReports from './pages/ProjectReports';
+import ListView from './pages/ListView';
+import CalendarView from './pages/CalendarView';
+import TimelineView from './pages/TimelineView';
+import GanttView from './pages/GanttView';
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -42,9 +46,21 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Kanban Board, Backlog & Project Reports */}
+          {/* Views: Kanban Board, List, Calendar, Timeline, Gantt, Backlog, Reports & Settings */}
           <Route path="/kanban" element={
             <ProtectedRoute> <KanbanBoard /> </ProtectedRoute>
+          } />
+          <Route path="/list" element={
+            <ProtectedRoute> <ListView /> </ProtectedRoute>
+          } />
+          <Route path="/calendar" element={
+            <ProtectedRoute> <CalendarView /> </ProtectedRoute>
+          } />
+          <Route path="/timeline" element={
+            <ProtectedRoute> <TimelineView /> </ProtectedRoute>
+          } />
+          <Route path="/gantt" element={
+            <ProtectedRoute> <GanttView /> </ProtectedRoute>
           } />
           <Route path="/backlog" element={
             <ProtectedRoute> <Backlog /> </ProtectedRoute>

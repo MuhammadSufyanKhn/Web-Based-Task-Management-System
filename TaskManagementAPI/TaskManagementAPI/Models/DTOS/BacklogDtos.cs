@@ -60,6 +60,11 @@ namespace TaskManagementAPI.Models.DTOS
         public string? EpicColor { get; set; }
         public string? ComponentName { get; set; }
         public List<string> Labels { get; set; } = new List<string>();
+        public int? ParentTaskId { get; set; }
+        public int SubtasksCount { get; set; }
+        public int? OriginalEstimateMinutes { get; set; }
+        public int? RemainingEstimateMinutes { get; set; }
+        public int TimeSpentMinutes { get; set; }
     }
 
     public class EpicSummaryDto

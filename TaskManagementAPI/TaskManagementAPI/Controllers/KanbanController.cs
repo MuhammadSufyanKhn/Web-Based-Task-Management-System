@@ -15,11 +15,19 @@ namespace TaskManagementAPI.Controllers
     {
         private readonly AppDbContext _context;
         private readonly ILogger<KanbanController> _logger;
+        private readonly Services.IActivityLogService _activityLog;
+        private readonly Services.INotificationService _notificationService;
 
-        public KanbanController(AppDbContext context, ILogger<KanbanController> logger)
+        public KanbanController(
+            AppDbContext context,
+            ILogger<KanbanController> logger,
+            Services.IActivityLogService? activityLog = null,
+            Services.INotificationService? notificationService = null)
         {
             _context = context;
             _logger = logger;
+            _activityLog = activityLog ?? new Services.ActivityLogService(context);
+            _notificationService = notificationService ?? new Services.NotificationService(context);
         }
 
         private int GetCurrentUserId()
@@ -89,6 +97,7 @@ namespace TaskManagementAPI.Controllers
                 .Include(t => t.Component)
                 .Include(t => t.Sprint)
                 .Include(t => t.Epic)
+                .Include(t => t.Subtasks)
                 .Include(t => t.TaskLabels)
                     .ThenInclude(tl => tl.Label)
                 .Where(t => !t.IsDeleted && !t.User.IsDeleted);
@@ -177,7 +186,12 @@ namespace TaskManagementAPI.Controllers
                         EpicId = t.EpicId,
                         EpicKey = t.Epic?.Key,
                         EpicName = t.Epic?.Name,
-                        EpicColor = t.Epic?.ColorHex
+                        EpicColor = t.Epic?.ColorHex,
+                        ParentTaskId = t.ParentTaskId,
+                        SubtasksCount = t.Subtasks.Count(st => !st.IsDeleted),
+                        OriginalEstimateMinutes = t.OriginalEstimateMinutes,
+                        RemainingEstimateMinutes = t.RemainingEstimateMinutes,
+                        TimeSpentMinutes = t.TimeSpentMinutes
                     })
                     .ToList();
 
@@ -303,6 +317,32 @@ namespace TaskManagementAPI.Controllers
             }
 
             await _context.SaveChangesAsync();
+
+            var oldStatusName = task.Status?.DisplayName ?? task.TaskStatus;
+            if (oldStatusName != targetStatus.DisplayName)
+            {
+                await _activityLog.LogActivityAsync(
+                    task.TaskId,
+                    currentUserId,
+                    "StatusChanged",
+                    "Status",
+                    oldStatusName,
+                    targetStatus.DisplayName,
+                    $"Moved card from {oldStatusName} to {targetStatus.DisplayName}"
+                );
+
+                var actorName = User.Identity?.Name ?? (currentUserRole == "Admin" ? "Administrator" : "Team Member");
+                await _notificationService.NotifyStatusChangedAsync(
+                    task.TaskId,
+                    task.Title,
+                    oldStatusName,
+                    targetStatus.DisplayName,
+                    task.UserId,
+                    currentUserId,
+                    actorName
+                );
+            }
+
             return Ok(new { message = "Card moved successfully." });
         }
 
@@ -317,6 +357,15 @@ namespace TaskManagementAPI.Controllers
                 .Include(t => t.Component)
                 .Include(t => t.Sprint)
                 .Include(t => t.Epic)
+                .Include(t => t.ParentTask)
+                .Include(t => t.Subtasks)
+                    .ThenInclude(st => st.Status)
+                .Include(t => t.Subtasks)
+                    .ThenInclude(st => st.Priority)
+                .Include(t => t.Subtasks)
+                    .ThenInclude(st => st.IssueType)
+                .Include(t => t.Subtasks)
+                    .ThenInclude(st => st.User)
                 .Include(t => t.TaskLabels)
                     .ThenInclude(tl => tl.Label)
                 .FirstOrDefaultAsync(t => t.TaskId == id && !t.IsDeleted);
@@ -325,6 +374,31 @@ namespace TaskManagementAPI.Controllers
             {
                 return NotFound(new { message = "Task not found." });
             }
+
+            var subtasks = task.Subtasks
+                .Where(st => !st.IsDeleted)
+                .OrderBy(st => st.TaskId)
+                .Select(st => new
+                {
+                    st.TaskId,
+                    IssueKey = !string.IsNullOrEmpty(st.JiraIssueKey) ? st.JiraIssueKey : $"TASK-{st.TaskId}",
+                    st.Title,
+                    st.StatusId,
+                    StatusName = st.Status?.DisplayName ?? st.TaskStatus,
+                    StatusCategory = st.Status?.Category ?? "Todo",
+                    PriorityName = st.Priority?.Name ?? st.TaskPriority ?? "Medium",
+                    PriorityColor = st.Priority?.ColorHex ?? "#ffab00",
+                    IssueTypeName = st.IssueType?.Name ?? "Sub-task",
+                    IssueTypeIcon = st.IssueType?.Icon ?? "subtask",
+                    IssueTypeColor = st.IssueType?.ColorHex ?? "#4a90e2",
+                    st.UserId,
+                    AssigneeName = st.User?.UserName ?? "Unassigned",
+                    st.StoryPoints,
+                    st.DueDate,
+                    st.TimeSpentMinutes,
+                    st.OriginalEstimateMinutes,
+                    st.RemainingEstimateMinutes
+                }).ToList();
 
             return Ok(new
             {
@@ -354,6 +428,13 @@ namespace TaskManagementAPI.Controllers
                 EpicKey = task.Epic?.Key,
                 EpicName = task.Epic?.Name,
                 EpicColor = task.Epic?.ColorHex,
+                task.ParentTaskId,
+                ParentTaskKey = task.ParentTask != null ? (!string.IsNullOrEmpty(task.ParentTask.JiraIssueKey) ? task.ParentTask.JiraIssueKey : $"TASK-{task.ParentTask.TaskId}") : null,
+                ParentTaskTitle = task.ParentTask?.Title,
+                task.OriginalEstimateMinutes,
+                task.RemainingEstimateMinutes,
+                task.TimeSpentMinutes,
+                Subtasks = subtasks,
                 task.CreatedBy,
                 task.CreatedDate,
                 task.UpdatedDate,
@@ -385,12 +466,17 @@ namespace TaskManagementAPI.Controllers
                 });
             }
 
+            var oldUserId = task.UserId;
+
             task.Title = dto.Title;
             task.Descriptions = dto.Descriptions;
             task.DueDate = dto.DueDate;
             task.StoryPoints = dto.StoryPoints;
             task.SprintId = dto.SprintId;
             task.EpicId = dto.EpicId;
+            task.ParentTaskId = dto.ParentTaskId;
+            if (dto.OriginalEstimateMinutes.HasValue) task.OriginalEstimateMinutes = dto.OriginalEstimateMinutes.Value;
+            if (dto.RemainingEstimateMinutes.HasValue) task.RemainingEstimateMinutes = dto.RemainingEstimateMinutes.Value;
 
             if (dto.UserId.HasValue && dto.UserId.Value > 0)
             {
@@ -453,6 +539,28 @@ namespace TaskManagementAPI.Controllers
             }
 
             await _context.SaveChangesAsync();
+
+            await _activityLog.LogActivityAsync(
+                task.TaskId,
+                currentUserId,
+                "Updated",
+                null,
+                null,
+                null,
+                "Task details updated"
+            );
+
+            if (oldUserId != task.UserId)
+            {
+                var assignedByUser = await _context.Users.FindAsync(currentUserId);
+                await _notificationService.NotifyTaskAssignedAsync(
+                    task.TaskId,
+                    task.Title,
+                    task.UserId,
+                    assignedByUser?.UserName ?? "Admin"
+                );
+            }
+
             return Ok(new { message = "Task updated successfully." });
         }
 
@@ -528,6 +636,10 @@ namespace TaskManagementAPI.Controllers
                 BoardOrder = nextOrder,
                 SprintId = dto.SprintId,
                 EpicId = dto.EpicId,
+                ParentTaskId = dto.ParentTaskId,
+                OriginalEstimateMinutes = dto.OriginalEstimateMinutes,
+                RemainingEstimateMinutes = dto.RemainingEstimateMinutes ?? dto.OriginalEstimateMinutes,
+                TimeSpentMinutes = 0,
                 IsDeleted = false
             };
 
@@ -555,7 +667,179 @@ namespace TaskManagementAPI.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            await _activityLog.LogActivityAsync(
+                newTask.TaskId,
+                currentUserId,
+                "Created",
+                null,
+                null,
+                null,
+                $"Task created with key TASK-{newTask.TaskId}"
+            );
+
+            if (assignedUserId != currentUserId)
+            {
+                var creator = await _context.Users.FindAsync(currentUserId);
+                await _notificationService.NotifyTaskAssignedAsync(
+                    newTask.TaskId,
+                    newTask.Title,
+                    assignedUserId,
+                    creator?.UserName ?? "Admin"
+                );
+            }
+
             return Ok(new { message = "Task created successfully.", taskId = newTask.TaskId, issueKey = newTask.JiraIssueKey });
+        }
+
+        [HttpGet("task/{id}/subtasks")]
+        public async Task<IActionResult> GetSubtasks(int id)
+        {
+            var taskList = await _context.TaskItems
+                .Include(t => t.Status)
+                .Include(t => t.Priority)
+                .Include(t => t.IssueType)
+                .Include(t => t.User)
+                .Where(t => t.ParentTaskId == id && !t.IsDeleted)
+                .OrderBy(t => t.TaskId)
+                .ToListAsync();
+
+            var subtasks = taskList.Select(t => new
+            {
+                t.TaskId,
+                IssueKey = !string.IsNullOrEmpty(t.JiraIssueKey) ? t.JiraIssueKey : $"TASK-{t.TaskId}",
+                t.Title,
+                t.StatusId,
+                StatusName = t.Status?.DisplayName ?? t.TaskStatus,
+                StatusCategory = t.Status?.Category ?? "Todo",
+                PriorityName = t.Priority?.Name ?? t.TaskPriority ?? "Medium",
+                PriorityColor = t.Priority?.ColorHex ?? "#ffab00",
+                IssueTypeName = t.IssueType?.Name ?? "Sub-task",
+                IssueTypeIcon = t.IssueType?.Icon ?? "subtask",
+                IssueTypeColor = t.IssueType?.ColorHex ?? "#4a90e2",
+                t.UserId,
+                AssigneeName = t.User?.UserName ?? "Unassigned",
+                t.StoryPoints,
+                t.DueDate,
+                t.TimeSpentMinutes,
+                t.OriginalEstimateMinutes,
+                t.RemainingEstimateMinutes
+            }).ToList();
+
+            return Ok(subtasks);
+        }
+
+        [HttpPost("task/{id}/subtasks")]
+        public async Task<IActionResult> CreateSubtask(int id, [FromBody] CreateKanbanTaskDto dto)
+        {
+            var parent = await _context.TaskItems.FirstOrDefaultAsync(t => t.TaskId == id && !t.IsDeleted);
+            if (parent == null)
+            {
+                return NotFound(new { message = "Parent task not found." });
+            }
+
+            dto.ParentTaskId = id;
+            if (!dto.SprintId.HasValue) dto.SprintId = parent.SprintId;
+            if (!dto.EpicId.HasValue) dto.EpicId = parent.EpicId;
+
+            if (!dto.IssueTypeId.HasValue)
+            {
+                var subtaskType = await _context.IssueTypes.FirstOrDefaultAsync(it => it.Name == "Sub-task" || it.Name == "Subtask");
+                if (subtaskType != null) dto.IssueTypeId = subtaskType.Id;
+            }
+
+            return await CreateTask(dto);
+        }
+
+        [HttpGet("views/all-tasks")]
+        public async Task<IActionResult> GetAllTasksForViews(
+            [FromQuery] int? sprintId = null,
+            [FromQuery] int? epicId = null,
+            [FromQuery] int? assigneeId = null,
+            [FromQuery] string? priority = null,
+            [FromQuery] string? issueType = null,
+            [FromQuery] string? search = null)
+        {
+            var query = _context.TaskItems
+                .Include(t => t.User)
+                .Include(t => t.Status)
+                .Include(t => t.Priority)
+                .Include(t => t.IssueType)
+                .Include(t => t.Sprint)
+                .Include(t => t.Epic)
+                .Include(t => t.ParentTask)
+                .Include(t => t.Subtasks)
+                .Include(t => t.DependenciesAsTarget)
+                .Include(t => t.DependenciesAsSource)
+                .Include(t => t.TaskLabels)
+                    .ThenInclude(tl => tl.Label)
+                .Where(t => !t.IsDeleted && !t.User.IsDeleted);
+
+            if (sprintId.HasValue && sprintId.Value > 0)
+                query = query.Where(t => t.SprintId == sprintId.Value);
+
+            if (epicId.HasValue && epicId.Value > 0)
+                query = query.Where(t => t.EpicId == epicId.Value);
+
+            if (assigneeId.HasValue && assigneeId.Value > 0)
+                query = query.Where(t => t.UserId == assigneeId.Value);
+
+            if (!string.IsNullOrWhiteSpace(priority) && priority != "All")
+                query = query.Where(t => (t.Priority != null && t.Priority.Name == priority) || t.TaskPriority == priority);
+
+            if (!string.IsNullOrWhiteSpace(issueType) && issueType != "All")
+                query = query.Where(t => t.IssueType != null && t.IssueType.Name == issueType);
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                var s = search.Trim().ToLower();
+                query = query.Where(t => t.Title.ToLower().Contains(s) ||
+                                         (t.Descriptions != null && t.Descriptions.ToLower().Contains(s)) ||
+                                         (t.JiraIssueKey != null && t.JiraIssueKey.ToLower().Contains(s)));
+            }
+
+            var tasks = await query.OrderBy(t => t.DueDate ?? DateTime.MaxValue).ThenBy(t => t.TaskId).ToListAsync();
+
+            var result = tasks.Select(t => new TaskViewItemDto
+            {
+                TaskId = t.TaskId,
+                IssueKey = !string.IsNullOrEmpty(t.JiraIssueKey) ? t.JiraIssueKey : $"TASK-{t.TaskId}",
+                Title = t.Title,
+                Descriptions = t.Descriptions,
+                StatusId = t.StatusId ?? 0,
+                StatusName = t.Status?.DisplayName ?? t.TaskStatus,
+                StatusCategory = t.Status?.Category ?? "Todo",
+                StatusColor = t.Status?.ColorHex ?? "#6c757d",
+                PriorityName = t.Priority?.Name ?? t.TaskPriority ?? "Medium",
+                PriorityColor = t.Priority?.ColorHex ?? "#ffab00",
+                IssueTypeName = t.IssueType?.Name ?? "Task",
+                IssueTypeIcon = t.IssueType?.Icon ?? "task",
+                IssueTypeColor = t.IssueType?.ColorHex ?? "#4a90e2",
+                StoryPoints = t.StoryPoints,
+                DueDate = t.DueDate,
+                CreatedDate = t.CreatedDate,
+                UserId = t.UserId,
+                UserName = t.User?.UserName ?? "Unassigned",
+                UserEmail = t.User?.Email,
+                SprintId = t.SprintId,
+                SprintName = t.Sprint?.Name,
+                SprintStartDate = t.Sprint?.StartDate,
+                SprintEndDate = t.Sprint?.EndDate,
+                EpicId = t.EpicId,
+                EpicName = t.Epic?.Name,
+                EpicColor = t.Epic?.ColorHex,
+                ParentTaskId = t.ParentTaskId,
+                ParentTaskTitle = t.ParentTask?.Title,
+                SubtaskCount = t.Subtasks.Count(st => !st.IsDeleted),
+                SubtaskCompletedCount = t.Subtasks.Count(st => !st.IsDeleted && st.Status != null && st.Status.Category == "Done"),
+                OriginalEstimateMinutes = t.OriginalEstimateMinutes,
+                RemainingEstimateMinutes = t.RemainingEstimateMinutes,
+                TimeSpentMinutes = t.TimeSpentMinutes,
+                BlockedByTaskIds = t.DependenciesAsTarget.Where(d => d.DependencyType == "Blocks").Select(d => d.SourceTaskId).ToList(),
+                BlocksTaskIds = t.DependenciesAsSource.Where(d => d.DependencyType == "Blocks").Select(d => d.TargetTaskId).ToList(),
+                Labels = t.TaskLabels.Select(tl => tl.Label.Name).ToList()
+            }).ToList();
+
+            return Ok(result);
         }
 
         [HttpDelete("task/{id}")]
@@ -582,6 +866,17 @@ namespace TaskManagementAPI.Controllers
             task.UpdatedBy = currentUserId;
 
             await _context.SaveChangesAsync();
+
+            await _activityLog.LogActivityAsync(
+                task.TaskId,
+                currentUserId,
+                "Deleted",
+                null,
+                null,
+                null,
+                "Task deleted"
+            );
+
             return Ok(new { message = "Task deleted successfully." });
         }
     }

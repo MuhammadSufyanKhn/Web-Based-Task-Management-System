@@ -34,11 +34,21 @@ const ProjectSettings = () => {
         userEmail: '',
         apiToken: '',
         projectKey: '',
-        isSyncEnabled: false,
-        lastSyncDate: null
+        autoSync: false,
+        isConfigured: false,
+        connectionStatus: 'Disconnected',
+        lastSyncedAt: null,
+        lastSyncError: null,
+        webhookUrl: '',
+        maskedApiToken: ''
     });
+    const [jiraLogs, setJiraLogs] = useState([]);
     const [jiraLoading, setJiraLoading] = useState(false);
     const [jiraMessage, setJiraMessage] = useState('');
+    const [testingConnection, setTestingConnection] = useState(false);
+    const [syncingNow, setSyncingNow] = useState(false);
+    const [testResult, setTestResult] = useState(null);
+    const [syncResult, setSyncResult] = useState(null);
 
     const fetchConfig = async () => {
         try {
@@ -63,8 +73,26 @@ const ProjectSettings = () => {
     const fetchJiraSettings = async () => {
         try {
             setJiraLoading(true);
-            const res = await api.get('/projectconfig/jira');
-            setJiraConfig(res.data);
+            const [configRes, logsRes] = await Promise.all([
+                api.get('/jira/config').catch(() => ({ data: null })),
+                api.get('/jira/logs').catch(() => ({ data: [] }))
+            ]);
+            if (configRes.data) {
+                setJiraConfig({
+                    jiraBaseUrl: configRes.data.jiraBaseUrl || '',
+                    userEmail: configRes.data.userEmail || '',
+                    apiToken: '',
+                    projectKey: configRes.data.projectKey || '',
+                    autoSync: !!configRes.data.autoSync,
+                    isConfigured: !!configRes.data.isConfigured,
+                    connectionStatus: configRes.data.connectionStatus || 'Disconnected',
+                    lastSyncedAt: configRes.data.lastSyncedAt || null,
+                    lastSyncError: configRes.data.lastSyncError || null,
+                    webhookUrl: configRes.data.webhookUrl || '',
+                    maskedApiToken: configRes.data.maskedApiToken || ''
+                });
+            }
+            setJiraLogs(logsRes.data || []);
         } catch (err) {
             console.error('Failed to load Jira settings', err);
         } finally {
@@ -202,11 +230,67 @@ const ProjectSettings = () => {
         try {
             setJiraLoading(true);
             setJiraMessage('');
-            const res = await api.put('/projectconfig/jira', jiraConfig);
-            setJiraConfig(res.data);
-            setJiraMessage('Jira configuration updated successfully.');
+            setTestResult(null);
+            await api.post('/jira/config', {
+                jiraBaseUrl: jiraConfig.jiraBaseUrl,
+                userEmail: jiraConfig.userEmail,
+                apiToken: jiraConfig.apiToken || null,
+                projectKey: jiraConfig.projectKey,
+                autoSync: jiraConfig.autoSync
+            });
+            setJiraMessage('Jira configuration saved successfully.');
+            await fetchJiraSettings();
         } catch (err) {
-            alert(err.response?.data?.message || err.response?.data || 'Failed to update Jira settings.');
+            alert(err.response?.data?.message || 'Failed to update Jira settings.');
+        } finally {
+            setJiraLoading(false);
+        }
+    };
+
+    const handleTestConnection = async () => {
+        try {
+            setTestingConnection(true);
+            setTestResult(null);
+            const res = await api.post('/jira/test');
+            setTestResult({ success: true, message: res.data.message || 'Connected successfully to Jira Cloud!' });
+            await fetchJiraSettings();
+        } catch (err) {
+            setTestResult({ success: false, message: err.response?.data?.message || 'Connection test failed. Check URL, email and API token.' });
+        } finally {
+            setTestingConnection(false);
+        }
+    };
+
+    const handleSyncNow = async () => {
+        try {
+            setSyncingNow(true);
+            setSyncResult(null);
+            const res = await api.post('/jira/sync');
+            setSyncResult({
+                success: true,
+                message: res.data.message || 'Synchronization completed.',
+                pushed: res.data.pushed,
+                imported: res.data.imported
+            });
+            await fetchJiraSettings();
+        } catch (err) {
+            setSyncResult({ success: false, message: err.response?.data?.message || 'Synchronization failed.' });
+        } finally {
+            setSyncingNow(false);
+        }
+    };
+
+    const handleDisconnectJira = async () => {
+        if (!window.confirm('Are you sure you want to disconnect Jira Cloud? Stored credentials will be cleared.')) return;
+        try {
+            setJiraLoading(true);
+            await api.post('/jira/disconnect');
+            setJiraMessage('Jira integration disconnected.');
+            setTestResult(null);
+            setSyncResult(null);
+            await fetchJiraSettings();
+        } catch (err) {
+            alert(err.response?.data?.message || 'Failed to disconnect Jira.');
         } finally {
             setJiraLoading(false);
         }
@@ -895,25 +979,32 @@ const ProjectSettings = () => {
                                         display: 'flex',
                                         justifyContent: 'space-between',
                                         alignItems: 'center',
-                                        marginBottom: '16px'
+                                        marginBottom: '20px'
                                     }}>
                                         <div>
-                                            <h2 style={{ margin: '0 0 6px 0', fontSize: '20px', color: '#172b4d' }}>
-                                                Jira Cloud Integration
+                                            <h2 style={{ margin: '0 0 6px 0', fontSize: '20px', color: '#172b4d', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                <span>🔗</span> Jira Cloud Integration
                                             </h2>
                                             <p style={{ margin: 0, fontSize: '13px', color: '#6b778c' }}>
-                                                Configure connection parameters for synchronization with Atlassian Jira Cloud.
+                                                Bidirectional synchronization with Atlassian Jira Cloud REST API v3.
                                             </p>
                                         </div>
-                                        <div style={{
-                                            padding: '6px 12px',
-                                            borderRadius: '20px',
-                                            backgroundColor: jiraConfig.isSyncEnabled ? '#e3fcef' : '#f4f5f7',
-                                            color: jiraConfig.isSyncEnabled ? '#006644' : '#6b778c',
-                                            fontSize: '12px',
-                                            fontWeight: '700'
-                                        }}>
-                                            {jiraConfig.isSyncEnabled ? '● Sync Enabled' : '○ Sync Inactive'}
+                                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                            <div style={{
+                                                padding: '6px 12px',
+                                                borderRadius: '20px',
+                                                backgroundColor: jiraConfig.connectionStatus === 'Connected' ? '#e3fcef' : '#f4f5f7',
+                                                color: jiraConfig.connectionStatus === 'Connected' ? '#006644' : '#6b778c',
+                                                fontSize: '12px',
+                                                fontWeight: '700'
+                                            }}>
+                                                {jiraConfig.connectionStatus === 'Connected' ? '● Connected' : '○ Disconnected'}
+                                            </div>
+                                            {jiraConfig.autoSync && (
+                                                <span style={{ fontSize: '11px', backgroundColor: '#deebff', color: '#0747a6', padding: '3px 8px', borderRadius: '10px', fontWeight: '700' }}>
+                                                    AutoSync Active
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
@@ -932,21 +1023,125 @@ const ProjectSettings = () => {
                                         </div>
                                     )}
 
-                                    <div style={{
-                                        backgroundColor: '#ebf2ff',
-                                        border: '1px solid #b3d4ff',
-                                        borderRadius: '8px',
-                                        padding: '16px',
-                                        marginBottom: '24px'
-                                    }}>
-                                        <div style={{ fontWeight: '700', fontSize: '14px', color: '#0052cc', marginBottom: '6px' }}>
-                                            ℹ️ Prepared for Next Phase
+                                    {testResult && (
+                                        <div style={{
+                                            padding: '12px 16px',
+                                            backgroundColor: testResult.success ? '#e3fcef' : 'rgba(239, 68, 68, 0.1)',
+                                            color: testResult.success ? '#006644' : '#ef4444',
+                                            borderRadius: '6px',
+                                            border: `1px solid ${testResult.success ? '#abf5d1' : '#fca5a5'}`,
+                                            marginBottom: '20px',
+                                            fontSize: '13px',
+                                            fontWeight: '600'
+                                        }}>
+                                            {testResult.success ? '✓' : '⚠️'} {testResult.message}
                                         </div>
-                                        <div style={{ fontSize: '13px', color: '#172b4d', lineHeight: '1.5' }}>
-                                            The database tables and local hierarchy mapping are fully prepared. Storing your Jira API credentials allows the system to validate connectivity. Live bidirectional webhook synchronization will execute in Phase 4.
+                                    )}
+
+                                    {syncResult && (
+                                        <div style={{
+                                            padding: '12px 16px',
+                                            backgroundColor: syncResult.success ? '#e3fcef' : 'rgba(239, 68, 68, 0.1)',
+                                            color: syncResult.success ? '#006644' : '#ef4444',
+                                            borderRadius: '6px',
+                                            border: `1px solid ${syncResult.success ? '#abf5d1' : '#fca5a5'}`,
+                                            marginBottom: '20px',
+                                            fontSize: '13px',
+                                            fontWeight: '600'
+                                        }}>
+                                            {syncResult.success ? '✓' : '⚠️'} {syncResult.message}
+                                            {syncResult.success && (
+                                                <div style={{ fontSize: '12px', fontWeight: 'normal', marginTop: '4px' }}>
+                                                    Pushed to Jira: <strong>{syncResult.pushed || 0}</strong> | Imported from Jira: <strong>{syncResult.imported || 0}</strong>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    {/* Action Bar (Test Connection, Sync Now, Disconnect) */}
+                                    <div style={{
+                                        display: 'flex',
+                                        flexWrap: 'wrap',
+                                        gap: '12px',
+                                        padding: '16px',
+                                        backgroundColor: '#f8fafc',
+                                        border: '1px solid #e2e8f0',
+                                        borderRadius: '8px',
+                                        marginBottom: '24px',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between'
+                                    }}>
+                                        <div>
+                                            <div style={{ fontSize: '13px', fontWeight: '700', color: '#334155' }}>
+                                                Integration Actions
+                                            </div>
+                                            <div style={{ fontSize: '12px', color: '#64748b' }}>
+                                                {jiraConfig.lastSyncedAt
+                                                    ? `Last synced: ${new Date(jiraConfig.lastSyncedAt).toLocaleString()}`
+                                                    : 'Never synced'}
+                                            </div>
+                                        </div>
+
+                                        <div style={{ display: 'flex', gap: '10px' }}>
+                                            <button
+                                                type="button"
+                                                onClick={handleTestConnection}
+                                                disabled={testingConnection || jiraLoading}
+                                                style={{
+                                                    padding: '8px 16px',
+                                                    backgroundColor: '#ffffff',
+                                                    border: '1px solid #cbd5e1',
+                                                    borderRadius: '6px',
+                                                    color: '#334155',
+                                                    fontWeight: '600',
+                                                    fontSize: '13px',
+                                                    cursor: testingConnection ? 'not-allowed' : 'pointer'
+                                                }}
+                                            >
+                                                {testingConnection ? 'Testing...' : '⚡ Test Connection'}
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                onClick={handleSyncNow}
+                                                disabled={syncingNow || jiraLoading}
+                                                style={{
+                                                    padding: '8px 16px',
+                                                    backgroundColor: '#0284c7',
+                                                    border: 'none',
+                                                    borderRadius: '6px',
+                                                    color: '#ffffff',
+                                                    fontWeight: '600',
+                                                    fontSize: '13px',
+                                                    cursor: syncingNow ? 'not-allowed' : 'pointer'
+                                                }}
+                                            >
+                                                {syncingNow ? 'Syncing...' : '🔄 Sync Now'}
+                                            </button>
+
+                                            {jiraConfig.isConfigured && (
+                                                <button
+                                                    type="button"
+                                                    onClick={handleDisconnectJira}
+                                                    disabled={jiraLoading}
+                                                    style={{
+                                                        padding: '8px 14px',
+                                                        backgroundColor: 'transparent',
+                                                        border: '1px solid #fca5a5',
+                                                        borderRadius: '6px',
+                                                        color: '#ef4444',
+                                                        fontWeight: '600',
+                                                        fontSize: '13px',
+                                                        cursor: 'pointer'
+                                                    }}
+                                                >
+                                                    Disconnect
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
 
+                                    {/* Configuration Form */}
                                     <form onSubmit={handleSaveJira} style={{
                                         backgroundColor: '#fafbfc',
                                         padding: '24px',
@@ -954,15 +1149,17 @@ const ProjectSettings = () => {
                                         border: '1px solid #ebecf0',
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        gap: '20px'
+                                        gap: '20px',
+                                        marginBottom: '30px'
                                     }}>
                                         <div>
                                             <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
-                                                Jira Base URL
+                                                Jira Base URL <span style={{ color: '#ef4444' }}>*</span>
                                             </label>
                                             <input
                                                 type="url"
-                                                placeholder="https://your-company.atlassian.net"
+                                                required
+                                                placeholder="https://your-domain.atlassian.net"
                                                 value={jiraConfig.jiraBaseUrl}
                                                 onChange={(e) => setJiraConfig({ ...jiraConfig, jiraBaseUrl: e.target.value })}
                                                 style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
@@ -973,10 +1170,11 @@ const ProjectSettings = () => {
                                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                                             <div>
                                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
-                                                    User Email
+                                                    User Email <span style={{ color: '#ef4444' }}>*</span>
                                                 </label>
                                                 <input
                                                     type="email"
+                                                    required
                                                     placeholder="developer@your-company.com"
                                                     value={jiraConfig.userEmail}
                                                     onChange={(e) => setJiraConfig({ ...jiraConfig, userEmail: e.target.value })}
@@ -987,10 +1185,11 @@ const ProjectSettings = () => {
 
                                             <div>
                                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
-                                                    Jira Project Key
+                                                    Jira Project Key <span style={{ color: '#ef4444' }}>*</span>
                                                 </label>
                                                 <input
                                                     type="text"
+                                                    required
                                                     placeholder="e.g. TMS, KAN, PROJ"
                                                     value={jiraConfig.projectKey}
                                                     onChange={(e) => setJiraConfig({ ...jiraConfig, projectKey: e.target.value.toUpperCase() })}
@@ -1002,11 +1201,11 @@ const ProjectSettings = () => {
 
                                         <div>
                                             <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
-                                                Jira API Token
+                                                Jira API Token {jiraConfig.maskedApiToken && <span style={{ color: '#10b981', fontSize: '11px', fontWeight: 'normal' }}>({jiraConfig.maskedApiToken} configured)</span>}
                                             </label>
                                             <input
                                                 type="password"
-                                                placeholder={jiraConfig.apiToken ? "••••••••" : "Paste your Atlassian API token"}
+                                                placeholder={jiraConfig.maskedApiToken ? "Enter new token to overwrite existing" : "Paste your Atlassian API token"}
                                                 value={jiraConfig.apiToken}
                                                 onChange={(e) => setJiraConfig({ ...jiraConfig, apiToken: e.target.value })}
                                                 style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
@@ -1017,15 +1216,48 @@ const ProjectSettings = () => {
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '6px' }}>
                                             <input
                                                 type="checkbox"
-                                                id="syncToggle"
-                                                checked={jiraConfig.isSyncEnabled}
-                                                onChange={(e) => setJiraConfig({ ...jiraConfig, isSyncEnabled: e.target.checked })}
+                                                id="autoSyncToggle"
+                                                checked={jiraConfig.autoSync}
+                                                onChange={(e) => setJiraConfig({ ...jiraConfig, autoSync: e.target.checked })}
                                                 style={{ width: '18px', height: '18px', cursor: 'pointer' }}
                                             />
-                                            <label htmlFor="syncToggle" style={{ fontSize: '14px', fontWeight: '600', color: '#172b4d', cursor: 'pointer' }}>
-                                                Enable Sync Engine for this Workspace
+                                            <label htmlFor="autoSyncToggle" style={{ fontSize: '14px', fontWeight: '600', color: '#172b4d', cursor: 'pointer' }}>
+                                                Enable Auto-Sync (synchronize updates automatically when tasks are changed)
                                             </label>
                                         </div>
+
+                                        {jiraConfig.webhookUrl && (
+                                            <div style={{
+                                                padding: '12px 16px',
+                                                backgroundColor: '#f1f5f9',
+                                                borderRadius: '6px',
+                                                border: '1px solid #e2e8f0',
+                                                fontSize: '12px'
+                                            }}>
+                                                <div style={{ fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
+                                                    Webhook Endpoint URL (Jira System Webhooks)
+                                                </div>
+                                                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                                    <code style={{ flex: 1, backgroundColor: '#ffffff', padding: '6px 10px', borderRadius: '4px', border: '1px solid #cbd5e1', color: '#475569' }}>
+                                                        {jiraConfig.webhookUrl}
+                                                    </code>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => navigator.clipboard.writeText(jiraConfig.webhookUrl)}
+                                                        style={{
+                                                            padding: '6px 12px',
+                                                            backgroundColor: '#ffffff',
+                                                            border: '1px solid #cbd5e1',
+                                                            borderRadius: '4px',
+                                                            fontSize: '12px',
+                                                            cursor: 'pointer'
+                                                        }}
+                                                    >
+                                                        Copy
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
 
                                         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
                                             <button
@@ -1042,10 +1274,66 @@ const ProjectSettings = () => {
                                                     cursor: jiraLoading ? 'not-allowed' : 'pointer'
                                                 }}
                                             >
-                                                {jiraLoading ? 'Saving Settings...' : 'Save Jira Configuration'}
+                                                {jiraLoading ? 'Saving...' : 'Save Jira Settings'}
                                             </button>
                                         </div>
                                     </form>
+
+                                    {/* Sync Activity Logs Table */}
+                                    <div>
+                                        <h3 style={{ margin: '0 0 12px 0', fontSize: '16px', color: '#172b4d' }}>
+                                            Recent Jira Synchronization Logs
+                                        </h3>
+                                        {jiraLogs.length === 0 ? (
+                                            <div style={{ padding: '24px', textAlign: 'center', backgroundColor: '#f8fafc', borderRadius: '6px', color: '#94a3b8', fontSize: '13px' }}>
+                                                No sync logs recorded yet. Use "Sync Now" to perform your first synchronization.
+                                            </div>
+                                        ) : (
+                                            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+                                                <thead>
+                                                    <tr style={{ textAlign: 'left', borderBottom: '2px solid #ebecf0', color: '#5e6c84' }}>
+                                                        <th style={{ padding: '10px' }}>Time</th>
+                                                        <th style={{ padding: '10px' }}>Type</th>
+                                                        <th style={{ padding: '10px' }}>Status</th>
+                                                        <th style={{ padding: '10px' }}>Pushed</th>
+                                                        <th style={{ padding: '10px' }}>Imported</th>
+                                                        <th style={{ padding: '10px' }}>Initiated By</th>
+                                                        <th style={{ padding: '10px' }}>Details</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {jiraLogs.map(log => (
+                                                        <tr key={log.id} style={{ borderBottom: '1px solid #ebecf0' }}>
+                                                            <td style={{ padding: '10px', color: '#64748b' }}>
+                                                                {new Date(log.startedAt).toLocaleString()}
+                                                            </td>
+                                                            <td style={{ padding: '10px', fontWeight: '600' }}>
+                                                                {log.syncType}
+                                                            </td>
+                                                            <td style={{ padding: '10px' }}>
+                                                                <span style={{
+                                                                    padding: '2px 8px',
+                                                                    borderRadius: '10px',
+                                                                    fontSize: '11px',
+                                                                    fontWeight: '700',
+                                                                    backgroundColor: log.status === 'Success' ? '#e3fcef' : 'rgba(239, 68, 68, 0.1)',
+                                                                    color: log.status === 'Success' ? '#006644' : '#ef4444'
+                                                                }}>
+                                                                    {log.status}
+                                                                </span>
+                                                            </td>
+                                                            <td style={{ padding: '10px' }}>{log.tasksPushed}</td>
+                                                            <td style={{ padding: '10px' }}>{log.tasksImported}</td>
+                                                            <td style={{ padding: '10px', color: '#64748b' }}>{log.initiatedBy || 'System'}</td>
+                                                            <td style={{ padding: '10px', color: log.errorMessage ? '#ef4444' : '#64748b', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={log.errorMessage || 'Completed successfully'}>
+                                                                {log.errorMessage || 'Success'}
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        )}
+                                    </div>
                                 </div>
                             )}
                         </>

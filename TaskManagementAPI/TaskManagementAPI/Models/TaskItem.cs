@@ -74,8 +74,17 @@ namespace TaskManagerAPI.Models
         [ForeignKey("EpicId")]
         public Epic? Epic { get; set; }
 
+        // Time Tracking Attributes
+        public int? OriginalEstimateMinutes { get; set; }
+        public int? RemainingEstimateMinutes { get; set; }
+        public int TimeSpentMinutes { get; set; } = 0;
+
         // Navigation Collections
         public ICollection<TaskItem> Subtasks { get; set; } = new List<TaskItem>();
         public ICollection<TaskLabel> TaskLabels { get; set; } = new List<TaskLabel>();
+        public ICollection<TaskTimeLog> TaskTimeLogs { get; set; } = new List<TaskTimeLog>();
+        public ICollection<TaskActivityLog> TaskActivityLogs { get; set; } = new List<TaskActivityLog>();
+        public ICollection<TaskDependency> DependenciesAsSource { get; set; } = new List<TaskDependency>();
+        public ICollection<TaskDependency> DependenciesAsTarget { get; set; } = new List<TaskDependency>();
     }
 }

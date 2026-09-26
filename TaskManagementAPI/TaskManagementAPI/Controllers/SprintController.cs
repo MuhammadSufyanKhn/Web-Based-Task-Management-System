@@ -15,11 +15,16 @@ namespace TaskManagementAPI.Controllers
     {
         private readonly AppDbContext _context;
         private readonly ILogger<SprintController> _logger;
+        private readonly Services.INotificationService _notificationService;
 
-        public SprintController(AppDbContext context, ILogger<SprintController> logger)
+        public SprintController(
+            AppDbContext context,
+            ILogger<SprintController> logger,
+            Services.INotificationService? notificationService = null)
         {
             _context = context;
             _logger = logger;
+            _notificationService = notificationService ?? new Services.NotificationService(context);
         }
 
         private int GetCurrentUserId()
@@ -206,6 +211,16 @@ namespace TaskManagementAPI.Controllers
             await _context.SaveChangesAsync();
             _logger.LogInformation("Sprint {SprintId} started with dates {Start} - {End}", sprint.Id, sprint.StartDate, sprint.EndDate);
 
+            var assigneeIds = await _context.TaskItems
+                .Where(t => t.SprintId == sprint.Id && !t.IsDeleted)
+                .Select(t => t.UserId)
+                .Distinct()
+                .ToListAsync();
+            if (assigneeIds.Count > 0)
+            {
+                await _notificationService.NotifySprintStartedAsync(sprint.Id, sprint.Name, assigneeIds);
+            }
+
             return Ok(new { message = "Sprint started successfully." });
         }
 
@@ -247,6 +262,16 @@ namespace TaskManagementAPI.Controllers
 
             await _context.SaveChangesAsync();
             _logger.LogInformation("Sprint {SprintId} completed. Moved {Count} unfinished issues to sprint {Target}", sprint.Id, incompleteTasks.Count, targetSprintId?.ToString() ?? "Backlog");
+
+            var sprintMembers = sprint.Tasks
+                .Where(t => !t.IsDeleted)
+                .Select(t => t.UserId)
+                .Distinct()
+                .ToList();
+            if (sprintMembers.Count > 0)
+            {
+                await _notificationService.NotifySprintCompletedAsync(sprint.Id, sprint.Name, sprintMembers);
+            }
 
             return Ok(new
             {
