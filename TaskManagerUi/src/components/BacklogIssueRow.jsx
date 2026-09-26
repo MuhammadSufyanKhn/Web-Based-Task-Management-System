@@ -94,19 +94,19 @@ const BacklogIssueRow = ({
                 display: 'flex',
                 alignItems: 'center',
                 padding: '10px 14px',
-                backgroundColor: '#1e293b',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                backgroundColor: '#ffffff',
+                borderBottom: '1px solid #e2edfb',
                 cursor: canMove ? 'grab' : 'not-allowed',
                 transition: 'background-color 0.15s ease',
                 userSelect: 'none',
                 gap: '12px',
                 opacity: canMove ? 1 : 0.85
             }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#253349'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1e293b'}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f0f5fd'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
         >
             {/* Drag Handle */}
-            <span style={{ color: canMove ? '#64748b' : '#475569', cursor: canMove ? 'grab' : 'not-allowed', fontSize: '14px', letterSpacing: '-1px' }}>
+            <span style={{ color: canMove ? '#64748b' : '#94a3b8', cursor: canMove ? 'grab' : 'not-allowed', fontSize: '14px', letterSpacing: '-1px' }}>
                 ⋮⋮
             </span>
 
@@ -119,7 +119,7 @@ const BacklogIssueRow = ({
             <span style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#94a3b8',
+                color: '#1d4ed8',
                 minWidth: '65px'
             }}>
                 {issue.issueKey}
@@ -131,8 +131,8 @@ const BacklogIssueRow = ({
                     title={`Restricted: Assigned to ${issue.userName}. Only the task owner or an administrator can move this task.`}
                     style={{
                         fontSize: '10px',
-                        color: '#fbbf24',
-                        backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                        color: '#b45309',
+                        backgroundColor: 'rgba(245, 158, 11, 0.12)',
                         border: '1px solid rgba(245, 158, 11, 0.3)',
                         borderRadius: '4px',
                         padding: '1px 5px',
@@ -146,8 +146,8 @@ const BacklogIssueRow = ({
             {/* Summary / Title */}
             <span style={{
                 fontSize: '14px',
-                fontWeight: '500',
-                color: '#f8fafc',
+                fontWeight: '600',
+                color: '#0f172a',
                 flex: 1,
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
@@ -159,9 +159,9 @@ const BacklogIssueRow = ({
             {/* Epic Badge */}
             {issue.epicName && (
                 <span style={{
-                    backgroundColor: issue.epicColor ? `${issue.epicColor}22` : 'rgba(99, 102, 241, 0.15)',
-                    color: issue.epicColor || '#a5b4fc',
-                    border: `1px solid ${issue.epicColor || '#6366f1'}55`,
+                    backgroundColor: issue.epicColor ? `${issue.epicColor}18` : 'rgba(29, 78, 216, 0.08)',
+                    color: issue.epicColor || '#1d4ed8',
+                    border: `1px solid ${issue.epicColor || '#1d4ed8'}40`,
                     borderRadius: '4px',
                     padding: '2px 8px',
                     fontSize: '11px',
@@ -175,9 +175,9 @@ const BacklogIssueRow = ({
             {/* Component Badge */}
             {issue.componentName && (
                 <span style={{
-                    backgroundColor: 'rgba(6, 182, 212, 0.15)',
-                    color: '#22d3ee',
-                    border: '1px solid rgba(6, 182, 212, 0.3)',
+                    backgroundColor: 'rgba(6, 182, 212, 0.12)',
+                    color: '#0e7490',
+                    border: '1px solid rgba(6, 182, 212, 0.28)',
                     borderRadius: '4px',
                     padding: '2px 6px',
                     fontSize: '11px',
@@ -215,9 +215,9 @@ const BacklogIssueRow = ({
                 minWidth: '22px',
                 height: '22px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                color: '#e2e8f0',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backgroundColor: '#dbeafe',
+                color: '#1e40af',
+                border: '1px solid #bfdbfe',
                 fontSize: '11px',
                 fontWeight: '700',
                 display: 'flex',
@@ -234,7 +234,7 @@ const BacklogIssueRow = ({
                     width: '24px',
                     height: '24px',
                     borderRadius: '50%',
-                    backgroundColor: '#6366f1',
+                    backgroundColor: '#1d4ed8',
                     color: '#ffffff',
                     fontSize: '10px',
                     fontWeight: '700',
@@ -242,7 +242,7 @@ const BacklogIssueRow = ({
                     alignItems: 'center',
                     justifyContent: 'center',
                     textTransform: 'uppercase',
-                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                    border: '1px solid #ffffff'
                 }}
             >
                 {issue.userName ? issue.userName.slice(0, 2) : '??'}

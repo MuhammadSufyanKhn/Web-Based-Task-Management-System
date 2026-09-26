@@ -28,6 +28,8 @@ namespace TaskManagerAPI.Models
         public bool IsSyncEnabled { get; set; } = true;
 
         public DateTime? LastSyncDate { get; set; }
+
+        [NotMapped]
         public DateTime? LastSyncedAt { get => LastSyncDate; set => LastSyncDate = value; }
 
         [MaxLength(50)]

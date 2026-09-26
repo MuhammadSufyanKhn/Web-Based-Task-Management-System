@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../Api/Axios';
-import AppNavbar from '../components/AppNavbar';
 
 const ProjectSettings = () => {
     const navigate = useNavigate();
@@ -79,17 +78,17 @@ const ProjectSettings = () => {
             ]);
             if (configRes.data) {
                 setJiraConfig({
-                    jiraBaseUrl: configRes.data.jiraBaseUrl || '',
-                    userEmail: configRes.data.userEmail || '',
+                    jiraBaseUrl: configRes.data.jiraBaseUrl || configRes.data.jiraUrl || '',
+                    userEmail: configRes.data.userEmail || configRes.data.email || '',
                     apiToken: '',
                     projectKey: configRes.data.projectKey || '',
                     autoSync: !!configRes.data.autoSync,
-                    isConfigured: !!configRes.data.isConfigured,
+                    isConfigured: !!configRes.data.isConfigured || !!configRes.data.hasApiToken,
                     connectionStatus: configRes.data.connectionStatus || 'Disconnected',
                     lastSyncedAt: configRes.data.lastSyncedAt || null,
                     lastSyncError: configRes.data.lastSyncError || null,
                     webhookUrl: configRes.data.webhookUrl || '',
-                    maskedApiToken: configRes.data.maskedApiToken || ''
+                    maskedApiToken: configRes.data.maskedApiToken || (configRes.data.hasApiToken ? '••••••••' : '')
                 });
             }
             setJiraLogs(logsRes.data || []);
@@ -297,80 +296,58 @@ const ProjectSettings = () => {
     };
 
     return (
-        <div style={{
-            minHeight: '100vh',
-            backgroundColor: '#0f172a',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
-            <AppNavbar />
-            {/* Top Bar */}
-            <header style={{
-                height: '56px',
-                backgroundColor: '#172b4d',
-                color: '#ffffff',
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100%', backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}>
+            {/* Page Header */}
+            <div style={{
+                padding: '20px 32px',
+                backgroundColor: 'var(--bg-surface)',
+                borderBottom: '1px solid var(--bg-border)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '0 24px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                flexWrap: 'wrap',
+                gap: '12px'
             }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '18px', fontWeight: '700' }}>
-                    <span>⚙️</span> Project Settings & Configuration
+                <div>
+                    <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.3px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span>⚙️</span> Project Settings & Configuration
+                    </h1>
+                    <p style={{ fontSize: '13px', color: 'var(--text-tertiary)', margin: '4px 0 0 0' }}>
+                        Configure board columns, issue types, priorities, team access, and Jira synchronization
+                    </p>
                 </div>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <Link
-                        to="/kanban"
-                        style={{
-                            color: '#ffffff',
-                            textDecoration: 'none',
-                            padding: '6px 14px',
-                            backgroundColor: '#0052cc',
-                            borderRadius: '4px',
-                            fontSize: '13px',
-                            fontWeight: '600'
-                        }}
-                    >
-                        📋 Open Kanban Board
-                    </Link>
-                    <Link
-                        to="/Admin-dashboard"
-                        style={{
-                            color: '#ffffff',
-                            textDecoration: 'none',
-                            padding: '6px 14px',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            borderRadius: '4px',
-                            fontSize: '13px',
-                            fontWeight: '600'
-                        }}
-                    >
-                        Admin Dashboard
-                    </Link>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span className="badge badge-accent" style={{ padding: '4px 10px', fontSize: '12px' }}>
+                        🛡️ Administrator Settings
+                    </span>
                 </div>
-            </header>
+            </div>
 
             {/* Content Container */}
             <div style={{
-                maxWidth: '1100px',
+                maxWidth: '1440px',
                 width: '100%',
-                margin: '30px auto',
-                backgroundColor: '#ffffff',
-                borderRadius: '10px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                overflow: 'hidden',
+                margin: '28px auto',
+                padding: '0 24px',
                 display: 'flex',
-                minHeight: '600px'
+                gap: '24px',
+                alignItems: 'flex-start',
+                boxSizing: 'border-box'
             }}>
                 {/* Left Tabs Menu */}
                 <div style={{
-                    width: '240px',
-                    backgroundColor: '#fafbfc',
-                    borderRight: '1px solid #ebecf0',
-                    padding: '20px 0'
+                    width: '260px',
+                    flexShrink: 0,
+                    backgroundColor: 'var(--bg-surface)',
+                    borderRadius: '12px',
+                    border: '1px solid var(--bg-border)',
+                    boxShadow: 'var(--shadow-card)',
+                    padding: '16px 10px',
+                    position: 'sticky',
+                    top: '20px'
                 }}>
-                    <div style={{ padding: '0 20px 15px 20px', fontSize: '12px', fontWeight: '700', color: '#6b778c', textTransform: 'uppercase' }}>
-                        Settings
+                    <div style={{ padding: '4px 12px 12px 12px', fontSize: '11px', fontWeight: '700', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+                        Configuration
                     </div>
                     {[
                         { id: 'statuses', label: 'Columns & Statuses', icon: '📋' },
@@ -380,75 +357,90 @@ const ProjectSettings = () => {
                         { id: 'components', label: 'Components', icon: '📦' },
                         { id: 'members', label: 'Members & Roles', icon: '👥' },
                         { id: 'jira', label: 'Jira Settings', icon: '🔗' }
-                    ].map(tab => (
-                        <div
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            style={{
-                                padding: '12px 20px',
-                                fontSize: '14px',
-                                fontWeight: activeTab === tab.id ? '700' : '500',
-                                color: activeTab === tab.id ? '#0052cc' : '#42526e',
-                                backgroundColor: activeTab === tab.id ? '#ebf2ff' : 'transparent',
-                                borderLeft: activeTab === tab.id ? '3px solid #0052cc' : '3px solid transparent',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '8px'
-                            }}
-                        >
-                            <span>{tab.icon}</span>
-                            <span>{tab.label}</span>
-                        </div>
-                    ))}
+                    ].map(tab => {
+                        const isActive = activeTab === tab.id;
+                        return (
+                            <div
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                style={{
+                                    padding: '10px 14px',
+                                    fontSize: '13.5px',
+                                    fontWeight: isActive ? '700' : '500',
+                                    color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                                    backgroundColor: isActive ? 'var(--accent-subtle)' : 'transparent',
+                                    borderLeft: isActive ? '3px solid var(--accent)' : '3px solid transparent',
+                                    borderRadius: '8px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '10px',
+                                    marginBottom: '3px',
+                                    transition: 'all 0.15s ease'
+                                }}
+                            >
+                                <span style={{ fontSize: '15px' }}>{tab.icon}</span>
+                                <span>{tab.label}</span>
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {/* Right Tab Content */}
-                <div style={{ flex: 1, padding: '30px', overflowY: 'auto' }}>
+                <div style={{
+                    flex: 1,
+                    minWidth: 0,
+                    backgroundColor: 'var(--bg-surface)',
+                    borderRadius: '12px',
+                    border: '1px solid var(--bg-border)',
+                    boxShadow: 'var(--shadow-card)',
+                    padding: '32px',
+                    boxSizing: 'border-box'
+                }}>
                     {loading ? (
-                        <div style={{ color: '#6b778c', textAlign: 'center', marginTop: '60px' }}>Loading configuration...</div>
+                        <div style={{ color: 'var(--text-tertiary)', textAlign: 'center', padding: '60px 0' }}>Loading configuration...</div>
                     ) : (
                         <>
                             {/* TAB 1: STATUSES */}
                             {activeTab === 'statuses' && (
                                 <div>
-                                    <h2 style={{ margin: '0 0 8px 0', fontSize: '20px', color: '#172b4d' }}>Board Columns & Statuses</h2>
-                                    <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: '#6b778c' }}>
+                                    <h2 style={{ margin: '0 0 6px 0', fontSize: '20px', fontWeight: '800', color: 'var(--text-primary)', letterSpacing: '-0.3px' }}>Board Columns & Statuses</h2>
+                                    <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: 'var(--text-tertiary)' }}>
                                         Configure the workflow stages and columns shown on your Kanban board.
                                     </p>
 
                                     <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '30px' }}>
                                         <thead>
-                                            <tr style={{ textAlign: 'left', borderBottom: '2px solid #ebecf0', color: '#5e6c84', fontSize: '13px' }}>
-                                                <th style={{ padding: '10px' }}>Order</th>
-                                                <th style={{ padding: '10px' }}>Display Name</th>
-                                                <th style={{ padding: '10px' }}>System Key</th>
-                                                <th style={{ padding: '10px' }}>Category</th>
-                                                <th style={{ padding: '10px' }}>Color</th>
-                                                <th style={{ padding: '10px' }}>Actions</th>
+                                            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--bg-border)', backgroundColor: 'var(--bg-subtle)', color: 'var(--text-secondary)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                                <th style={{ padding: '10px 14px' }}>Order</th>
+                                                <th style={{ padding: '10px 14px' }}>Display Name</th>
+                                                <th style={{ padding: '10px 14px' }}>System Key</th>
+                                                <th style={{ padding: '10px 14px' }}>Category</th>
+                                                <th style={{ padding: '10px 14px' }}>Color</th>
+                                                <th style={{ padding: '10px 14px' }}>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {config.statuses.map(s => (
-                                                <tr key={s.id} style={{ borderBottom: '1px solid #ebecf0', fontSize: '14px' }}>
-                                                    <td style={{ padding: '12px 10px', fontWeight: 'bold' }}>{s.orderIndex}</td>
-                                                    <td style={{ padding: '12px 10px', fontWeight: '600', color: '#172b4d' }}>
-                                                        {s.displayName} {s.isDefault && <span style={{ fontSize: '11px', color: '#0052cc' }}>(Default)</span>}
+                                                <tr key={s.id} style={{ borderBottom: '1px solid var(--bg-border-subtle)', fontSize: '13px' }}>
+                                                    <td style={{ padding: '12px 14px', fontWeight: '700', color: 'var(--text-secondary)' }}>{s.orderIndex}</td>
+                                                    <td style={{ padding: '12px 14px', fontWeight: '600', color: 'var(--text-primary)' }}>
+                                                        {s.displayName} {s.isDefault && <span style={{ fontSize: '11px', color: 'var(--accent)', fontWeight: '700' }}>(Default)</span>}
                                                     </td>
-                                                    <td style={{ padding: '12px 10px', color: '#6b778c' }}><code>{s.name}</code></td>
-                                                    <td style={{ padding: '12px 10px' }}>
+                                                    <td style={{ padding: '12px 14px', color: 'var(--text-tertiary)' }}><code>{s.name}</code></td>
+                                                    <td style={{ padding: '12px 14px' }}>
                                                         <span style={{
                                                             padding: '2px 8px',
                                                             borderRadius: '10px',
                                                             fontSize: '11px',
-                                                            fontWeight: '600',
-                                                            backgroundColor: s.category === 'Done' ? '#e3fcef' : '#deebff',
-                                                            color: s.category === 'Done' ? '#006644' : '#0747a6'
+                                                            fontWeight: '700',
+                                                            backgroundColor: s.category === 'Done' ? 'rgba(22, 163, 74, 0.12)' : 'rgba(2, 132, 199, 0.12)',
+                                                            color: s.category === 'Done' ? 'var(--success-text)' : 'var(--accent)'
                                                         }}>
                                                             {s.category}
                                                         </span>
                                                     </td>
-                                                    <td style={{ padding: '12px 10px' }}>
+                                                    <td style={{ padding: '12px 14px' }}>
                                                         <span style={{
                                                             display: 'inline-block',
                                                             width: '18px',
@@ -456,23 +448,15 @@ const ProjectSettings = () => {
                                                             borderRadius: '4px',
                                                             backgroundColor: s.colorHex,
                                                             verticalAlign: 'middle',
-                                                            marginRight: '6px'
+                                                            marginRight: '8px',
+                                                            boxShadow: '0 1px 3px rgba(0,0,0,0.15)'
                                                         }} />
-                                                        {s.colorHex}
+                                                        <span style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{s.colorHex}</span>
                                                     </td>
-                                                    <td style={{ padding: '12px 10px' }}>
+                                                    <td style={{ padding: '12px 14px' }}>
                                                         <button
                                                             onClick={() => handleDeleteStatus(s.id)}
-                                                            style={{
-                                                                backgroundColor: '#ffebe6',
-                                                                color: '#de350b',
-                                                                border: 'none',
-                                                                borderRadius: '4px',
-                                                                padding: '4px 8px',
-                                                                cursor: 'pointer',
-                                                                fontSize: '12px',
-                                                                fontWeight: '600'
-                                                            }}
+                                                            className="btn btn-danger btn-sm"
                                                         >
                                                             Delete
                                                         </button>
@@ -484,15 +468,15 @@ const ProjectSettings = () => {
 
                                     {/* Add Status Form */}
                                     <form onSubmit={handleAddStatus} style={{
-                                        backgroundColor: '#fafbfc',
-                                        padding: '18px',
-                                        borderRadius: '8px',
-                                        border: '1px solid #ebecf0'
+                                        backgroundColor: 'var(--bg-subtle)',
+                                        padding: '20px',
+                                        borderRadius: '10px',
+                                        border: '1px solid var(--bg-border)'
                                     }}>
-                                        <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#172b4d' }}>+ Add New Column / Status</h4>
+                                        <h4 style={{ margin: '0 0 14px 0', fontSize: '14px', fontWeight: '700', color: 'var(--text-primary)' }}>+ Add New Column / Status</h4>
                                         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
-                                            <div style={{ flex: '1 1 180px' }}>
-                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                            <div style={{ flex: '1 1 200px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '4px' }}>
                                                     Display Name
                                                 </label>
                                                 <input
@@ -501,18 +485,18 @@ const ProjectSettings = () => {
                                                     placeholder="e.g. In QA / Testing"
                                                     value={newStatus.displayName}
                                                     onChange={(e) => setNewStatus({ ...newStatus, displayName: e.target.value })}
-                                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                    style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--bg-border)', backgroundColor: '#ffffff', color: 'var(--text-primary)', boxSizing: 'border-box' }}
                                                 />
                                             </div>
 
-                                            <div style={{ width: '140px' }}>
-                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                            <div style={{ width: '150px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '4px' }}>
                                                     Category
                                                 </label>
                                                 <select
                                                     value={newStatus.category}
                                                     onChange={(e) => setNewStatus({ ...newStatus, category: e.target.value })}
-                                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                    style={{ width: '100%', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--bg-border)', backgroundColor: '#ffffff', color: 'var(--text-primary)', boxSizing: 'border-box' }}
                                                 >
                                                     <option value="Todo">Todo</option>
                                                     <option value="InProgress">InProgress</option>
@@ -520,29 +504,22 @@ const ProjectSettings = () => {
                                                 </select>
                                             </div>
 
-                                            <div style={{ width: '110px' }}>
-                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                            <div style={{ width: '100px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '4px' }}>
                                                     Color
                                                 </label>
                                                 <input
                                                     type="color"
                                                     value={newStatus.colorHex}
                                                     onChange={(e) => setNewStatus({ ...newStatus, colorHex: e.target.value })}
-                                                    style={{ width: '100%', height: '36px', padding: '2px', borderRadius: '4px', border: '1px solid #dfe1e6', cursor: 'pointer' }}
+                                                    style={{ width: '100%', height: '36px', padding: '2px', borderRadius: '6px', border: '1px solid var(--bg-border)', cursor: 'pointer', backgroundColor: '#ffffff' }}
                                                 />
                                             </div>
 
                                             <button
                                                 type="submit"
-                                                style={{
-                                                    backgroundColor: '#0052cc',
-                                                    color: '#ffffff',
-                                                    border: 'none',
-                                                    borderRadius: '4px',
-                                                    padding: '9px 18px',
-                                                    fontWeight: '600',
-                                                    cursor: 'pointer'
-                                                }}
+                                                className="btn btn-primary"
+                                                style={{ height: '36px' }}
                                             >
                                                 Add Column
                                             </button>
@@ -1107,7 +1084,7 @@ const ProjectSettings = () => {
                                                 disabled={syncingNow || jiraLoading}
                                                 style={{
                                                     padding: '8px 16px',
-                                                    backgroundColor: '#0284c7',
+                                                    backgroundColor: '#305CDE',
                                                     border: 'none',
                                                     borderRadius: '6px',
                                                     color: '#ffffff',
@@ -1264,7 +1241,7 @@ const ProjectSettings = () => {
                                                 type="submit"
                                                 disabled={jiraLoading}
                                                 style={{
-                                                    backgroundColor: '#0052cc',
+                                                    backgroundColor: '#305CDE',
                                                     color: '#ffffff',
                                                     border: 'none',
                                                     borderRadius: '6px',
@@ -1345,3 +1322,5 @@ const ProjectSettings = () => {
 };
 
 export default ProjectSettings;
+
+

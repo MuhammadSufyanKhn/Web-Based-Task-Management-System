@@ -43,29 +43,29 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
             padding: '20px'
         }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
             <div style={{
-                backgroundColor: '#111827',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#ffffff',
+                border: '1px solid #cbdcf7',
                 borderRadius: '12px',
                 width: '100%',
                 maxWidth: '520px',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                boxShadow: '0 20px 48px rgba(15, 23, 42, 0.16)',
                 overflow: 'hidden',
-                color: '#f8fafc'
+                color: '#0f172a'
             }}>
                 <div style={{
                     padding: '16px 20px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #cbdcf7',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#161f30'
+                    backgroundColor: '#f8fafd'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#f8fafc' }}>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                         🏁 Complete Sprint: {sprint.name}
                     </h3>
                     <button
                         onClick={onClose}
-                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#94a3b8' }}
+                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#64748b' }}
                     >
                         ✕
                     </button>
@@ -74,9 +74,9 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
                 {error && (
                     <div style={{
                         padding: '10px 20px',
-                        backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                        borderBottom: '1px solid rgba(239, 68, 68, 0.3)',
-                        color: '#f87171',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        borderBottom: '1px solid rgba(239, 68, 68, 0.25)',
+                        color: '#dc2626',
                         fontSize: '13px',
                         fontWeight: '600'
                     }}>
@@ -86,32 +86,32 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
 
                 <form onSubmit={handleComplete} style={{ padding: '20px' }}>
                     <div style={{
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        border: '1px solid rgba(16, 185, 129, 0.25)',
+                        backgroundColor: '#ecfdf5',
+                        border: '1px solid #a7f3d0',
                         padding: '12px 14px',
                         borderRadius: '6px',
                         marginBottom: '16px',
                         fontSize: '13px',
-                        color: '#34d399'
+                        color: '#047857'
                     }}>
-                        ✓ <strong style={{ color: '#f8fafc' }}>{completedCount} completed issues</strong> will be closed.
+                        ✓ <strong style={{ color: '#065f46' }}>{completedCount} completed issues</strong> will be closed.
                     </div>
 
                     {incompleteCount > 0 && (
                         <div style={{ marginBottom: '20px' }}>
                             <div style={{
-                                backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                                border: '1px solid rgba(245, 158, 11, 0.25)',
+                                backgroundColor: '#fffbeb',
+                                border: '1px solid #fde68a',
                                 padding: '12px 14px',
                                 borderRadius: '6px',
                                 marginBottom: '14px',
                                 fontSize: '13px',
-                                color: '#fbbf24'
+                                color: '#b45309'
                             }}>
-                                ⚠️ <strong style={{ color: '#f8fafc' }}>{incompleteCount} incomplete issues</strong> remain in this sprint.
+                                ⚠️ <strong style={{ color: '#92400e' }}>{incompleteCount} incomplete issues</strong> remain in this sprint.
                             </div>
 
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#243c5a', marginBottom: '6px' }}>
                                 Move open issues to:
                             </label>
                             <select
@@ -121,9 +121,9 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
                                     width: '100%',
                                     padding: '8px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbdcf7',
                                     fontSize: '13px'
                                 }}
                             >
@@ -137,17 +137,18 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
                         </div>
                     )}
 
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid #cbdcf7', paddingTop: '16px' }}>
                         <button
                             type="button"
                             onClick={onClose}
                             style={{
                                 padding: '8px 16px',
                                 backgroundColor: 'transparent',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                border: '1px solid #cbdcf7',
                                 borderRadius: '6px',
-                                color: '#94a3b8',
-                                cursor: 'pointer'
+                                color: '#64748b',
+                                cursor: 'pointer',
+                                fontWeight: '600'
                             }}
                         >
                             Cancel
@@ -157,13 +158,14 @@ const CompleteSprintModal = ({ sprint, futureSprints, onClose, onSprintCompleted
                             disabled={loading}
                             style={{
                                 padding: '8px 20px',
-                                backgroundColor: '#059669',
+                                backgroundColor: '#16a34a',
                                 color: '#ffffff',
                                 border: 'none',
                                 borderRadius: '6px',
-                                fontWeight: '600',
+                                fontWeight: '700',
                                 cursor: 'pointer',
-                                opacity: loading ? 0.7 : 1
+                                opacity: loading ? 0.7 : 1,
+                                boxShadow: '0 2px 6px rgba(22, 163, 74, 0.3)'
                             }}
                         >
                             {loading ? 'Completing...' : 'Complete Sprint'}

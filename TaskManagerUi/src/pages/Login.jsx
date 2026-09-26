@@ -47,7 +47,7 @@ const Login = () => {
             left: 0,
             display: 'flex',
             flexDirection: 'row',
-            backgroundColor: '#0b0f19',
+            backgroundColor: '#f8fafd',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             overflowY: 'auto'
         }} className="auth-split-container">
@@ -64,40 +64,48 @@ const Login = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '40px 24px',
-                backgroundColor: '#0b1120',
+                backgroundColor: '#f8fafd',
                 position: 'relative'
             }}>
-                <div style={{
+                <div className="auth-card-animate" style={{
                     width: '100%',
                     maxWidth: '440px',
-                    backgroundColor: '#111827',
+                    backgroundColor: '#ffffff',
                     borderRadius: '16px',
-                    padding: '40px 36px',
-                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    padding: '36px 36px',
+                    boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 1px rgba(15, 23, 42, 0.15)',
+                    border: '1px solid #cbdcf7',
                     boxSizing: 'border-box'
                 }}>
+                    {/* Navigation Toggle Tabs */}
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                        <div className="auth-toggle-tab">
+                            <Link to="/login" className="active">Sign In</Link>
+                            <Link to="/register">Create Account</Link>
+                        </div>
+                    </div>
+
                     {/* Header */}
-                    <div style={{ marginBottom: '28px', textAlign: 'center' }}>
+                    <div style={{ marginBottom: '24px', textAlign: 'center' }}>
                         <div style={{
                             width: '44px',
                             height: '44px',
                             borderRadius: '12px',
-                            background: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+                            background: 'linear-gradient(135deg, #305CDE, #2448b8)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            margin: '0 auto 16px auto',
+                            margin: '0 auto 14px auto',
                             fontSize: '22px',
                             color: '#ffffff',
-                            boxShadow: '0 4px 12px rgba(59, 130, 246, 0.35)'
+                            boxShadow: '0 4px 12px rgba(48, 92, 222, 0.35)'
                         }}>
                             ⚡
                         </div>
                         <h2 style={{
-                            fontSize: '26px',
+                            fontSize: '24px',
                             fontWeight: '700',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             margin: '0 0 6px 0',
                             letterSpacing: '-0.3px'
                         }}>
@@ -105,7 +113,7 @@ const Login = () => {
                         </h2>
                         <p style={{
                             fontSize: '14px',
-                            color: '#94a3b8',
+                            color: '#64748b',
                             margin: 0
                         }}>
                             Enter your credentials to access your workspace
@@ -115,15 +123,15 @@ const Login = () => {
                     {/* Inline Error State */}
                     {errorMessage && (
                         <div style={{
-                            backgroundColor: 'rgba(239, 68, 68, 0.12)',
-                            border: '1px solid rgba(239, 68, 68, 0.3)',
+                            backgroundColor: '#fef2f2',
+                            border: '1px solid #fecaca',
                             borderRadius: '8px',
                             padding: '12px 14px',
                             marginBottom: '20px',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '10px',
-                            color: '#f87171',
+                            color: '#b91c1c',
                             fontSize: '13px'
                         }}>
                             <span>⚠️</span>
@@ -138,7 +146,7 @@ const Login = () => {
                                 display: 'block',
                                 fontSize: '13px',
                                 fontWeight: '600',
-                                color: '#e2e8f0',
+                                color: '#334155',
                                 marginBottom: '6px'
                             }}>
                                 Email Address
@@ -153,20 +161,20 @@ const Login = () => {
                                     width: '100%',
                                     padding: '12px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     transition: 'all 0.2s ease',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#3b82f6';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -182,7 +190,7 @@ const Login = () => {
                                 <label style={{
                                     fontSize: '13px',
                                     fontWeight: '600',
-                                    color: '#e2e8f0'
+                                    color: '#334155'
                                 }}>
                                     Password
                                 </label>
@@ -197,20 +205,20 @@ const Login = () => {
                                     width: '100%',
                                     padding: '12px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     transition: 'all 0.2s ease',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#3b82f6';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -225,14 +233,14 @@ const Login = () => {
                                 borderRadius: '10px',
                                 border: 'none',
                                 background: loading 
-                                    ? '#475569' 
-                                    : 'linear-gradient(135deg, #3b82f6, #4f46e5)',
+                                    ? '#94a3b8' 
+                                    : 'linear-gradient(135deg, #305CDE, #2448b8)',
                                 color: '#ffffff',
                                 fontSize: '15px',
                                 fontWeight: '700',
                                 cursor: loading ? 'not-allowed' : 'pointer',
                                 transition: 'all 0.2s ease',
-                                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
+                                boxShadow: '0 4px 14px rgba(48, 92, 222, 0.35)',
                                 marginTop: '6px'
                             }}
                             onMouseOver={(e) => {
@@ -250,18 +258,18 @@ const Login = () => {
                     <div style={{
                         marginTop: '28px',
                         paddingTop: '20px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderTop: '1px solid #e2e8f0',
                         textAlign: 'center',
                         fontSize: '14px',
-                        color: '#94a3b8'
+                        color: '#64748b'
                     }}>
                         Don't have an account?{' '}
                         <Link
                             to="/register"
                             style={{
-                                color: '#60a5fa',
+                                color: '#305CDE',
                                 textDecoration: 'none',
-                                fontWeight: '600'
+                                fontWeight: '700'
                             }}
                         >
                             Register

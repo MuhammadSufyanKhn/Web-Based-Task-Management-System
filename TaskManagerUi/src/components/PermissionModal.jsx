@@ -32,26 +32,26 @@ const PermissionModal = ({
         >
             <div
                 style={{
-                    backgroundColor: '#111827',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #cbdcf7',
                     borderRadius: '12px',
                     width: '100%',
                     maxWidth: '460px',
-                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.15)',
+                    boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.25)',
                     overflow: 'hidden',
                     animation: 'scaleIn 0.2s ease-out',
-                    color: '#f8fafc'
+                    color: '#0f172a'
                 }}
             >
                 {/* Header bar */}
                 <div
                     style={{
                         padding: '16px 20px',
-                        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderBottom: '1px solid #e2e8f0',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        backgroundColor: '#161f30'
+                        backgroundColor: '#f8fafd'
                     }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -60,22 +60,22 @@ const PermissionModal = ({
                                 width: '32px',
                                 height: '32px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                                color: '#f59e0b',
+                                backgroundColor: '#fef3c7',
+                                color: '#d97706',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontSize: '16px',
-                                border: '1px solid rgba(245, 158, 11, 0.3)'
+                                border: '1px solid #fde68a'
                             }}
                         >
                             🔒
                         </span>
                         <div>
-                            <div style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', color: '#f59e0b' }}>
+                            <div style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', color: '#d97706' }}>
                                 Permission Notice
                             </div>
-                            <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: '#f8fafc' }}>
+                            <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '700', color: '#1e3a8a' }}>
                                 {title}
                             </h4>
                         </div>
@@ -86,14 +86,14 @@ const PermissionModal = ({
                         style={{
                             background: 'transparent',
                             border: 'none',
-                            color: '#94a3b8',
+                            color: '#64748b',
                             fontSize: '18px',
                             cursor: 'pointer',
                             padding: '4px 8px',
                             borderRadius: '6px'
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#0f172a'; e.currentTarget.style.backgroundColor = '#f1f5f9'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = '#64748b'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                     >
                         ✕
                     </button>
@@ -105,20 +105,20 @@ const PermissionModal = ({
                         style={{
                             padding: '12px 14px',
                             borderRadius: '8px',
-                            backgroundColor: 'rgba(245, 158, 11, 0.08)',
-                            border: '1px solid rgba(245, 158, 11, 0.25)',
+                            backgroundColor: '#fffbeb',
+                            border: '1px solid #fde68a',
                             marginBottom: '16px'
                         }}
                     >
-                        <div style={{ fontSize: '13px', fontWeight: '600', color: '#fbbf24', marginBottom: '4px' }}>
+                        <div style={{ fontSize: '13px', fontWeight: '600', color: '#b45309', marginBottom: '4px' }}>
                             {message}
                         </div>
-                        <div style={{ fontSize: '12px', color: '#cbd5e1', lineHeight: '1.5' }}>
+                        <div style={{ fontSize: '12px', color: '#475569', lineHeight: '1.5' }}>
                             {details}
                         </div>
                     </div>
 
-                    <div style={{ fontSize: '12px', color: '#94a3b8', lineHeight: '1.6' }}>
+                    <div style={{ fontSize: '12px', color: '#64748b', lineHeight: '1.6' }}>
                         Standard team members may only modify and advance tasks that are directly assigned to them or created by them. If this task needs reassigning or moving, please contact an Administrator.
                     </div>
                 </div>
@@ -127,8 +127,8 @@ const PermissionModal = ({
                 <div
                     style={{
                         padding: '12px 20px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                        backgroundColor: '#161f30',
+                        borderTop: '1px solid #e2e8f0',
+                        backgroundColor: '#f8fafd',
                         display: 'flex',
                         justifyContent: 'flex-end',
                         gap: '10px'
@@ -137,7 +137,7 @@ const PermissionModal = ({
                     <button
                         onClick={onClose}
                         style={{
-                            backgroundColor: '#6366f1',
+                            backgroundColor: '#1d4ed8',
                             color: '#ffffff',
                             border: 'none',
                             borderRadius: '6px',
@@ -145,11 +145,11 @@ const PermissionModal = ({
                             fontSize: '13px',
                             fontWeight: '600',
                             cursor: 'pointer',
-                            boxShadow: '0 1px 3px rgba(99, 102, 241, 0.4)',
+                            boxShadow: '0 2px 4px rgba(29, 78, 216, 0.25)',
                             transition: 'all 0.15s ease'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#4f46e5'}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#6366f1'}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e40af'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1d4ed8'}
                     >
                         Got It
                     </button>

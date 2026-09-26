@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import api from '../Api/Axios';
-import AppNavbar from '../components/AppNavbar';
-import ViewSwitcher from '../components/ViewSwitcher';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
 
@@ -144,37 +142,35 @@ const CalendarView = () => {
     };
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#090d16', color: '#f8fafc' }}>
-            <AppNavbar />
-
+        <div style={{ minHeight: '100%', backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}>
             <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '24px 20px' }}>
-                <ViewSwitcher
-                    rightContent={
-                        <button
-                            onClick={() => {
-                                setCreateDefaultDate(null);
-                                setIsCreateModalOpen(true);
-                            }}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                padding: '8px 16px',
-                                backgroundColor: '#3b82f6',
-                                color: '#ffffff',
-                                border: 'none',
-                                borderRadius: '8px',
-                                fontSize: '13px',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
-                            }}
-                        >
-                            <span>+</span>
-                            <span>Create Issue</span>
-                        </button>
-                    }
-                />
+                {/* Page Header */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+                    <div>
+                        <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.4px' }}>Calendar</h1>
+                        <p style={{ fontSize: '13px', color: 'var(--text-tertiary)', margin: '3px 0 0 0' }}>Plan, schedule, and track issue due dates month by month</p>
+                    </div>
+                    <button
+                        onClick={() => {
+                            setCreateDefaultDate(null);
+                            setIsCreateModalOpen(true);
+                        }}
+                        className="btn btn-primary"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '8px 18px',
+                            borderRadius: '8px',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        <span>+</span>
+                        <span>Create Issue</span>
+                    </button>
+                </div>
 
                 {/* Navigation and Filters Bar */}
                 <div style={{
@@ -184,56 +180,72 @@ const CalendarView = () => {
                     flexWrap: 'wrap',
                     gap: '14px',
                     marginBottom: '20px',
-                    padding: '16px',
-                    backgroundColor: '#0f172a',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px'
+                    padding: '16px 20px',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #cbdcf7',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 16px -4px rgba(48, 92, 222, 0.08)'
                 }}>
                     {/* Month Navigator */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: '#ffffff' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                        <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '800', color: '#0f172a', letterSpacing: '-0.3px' }}>
                             {monthNames[month]} {year}
                         </h2>
 
-                        <div style={{ display: 'flex', gap: '4px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                             <button
                                 onClick={prevMonth}
+                                aria-label="Previous month"
                                 style={{
                                     padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                    color: '#ffffff',
-                                    border: 'none',
-                                    cursor: 'pointer'
+                                    borderRadius: '8px',
+                                    backgroundColor: '#f8fafd',
+                                    color: '#305CDE',
+                                    border: '1px solid #cbdcf7',
+                                    cursor: 'pointer',
+                                    fontSize: '13px',
+                                    fontWeight: '700',
+                                    transition: 'all 0.15s ease'
                                 }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#eef3fd'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f8fafd'; }}
                             >
                                 ◀
                             </button>
                             <button
                                 onClick={goToToday}
                                 style={{
-                                    padding: '6px 14px',
-                                    borderRadius: '6px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                    color: '#ffffff',
-                                    border: 'none',
+                                    padding: '6px 16px',
+                                    borderRadius: '8px',
+                                    backgroundColor: '#eef3fd',
+                                    color: '#305CDE',
+                                    border: '1px solid #c3d4f8',
                                     fontSize: '12px',
-                                    fontWeight: '600',
-                                    cursor: 'pointer'
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.15s ease'
                                 }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#305CDE'; e.currentTarget.style.color = '#ffffff'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#eef3fd'; e.currentTarget.style.color = '#305CDE'; }}
                             >
                                 Today
                             </button>
                             <button
                                 onClick={nextMonth}
+                                aria-label="Next month"
                                 style={{
                                     padding: '6px 12px',
-                                    borderRadius: '6px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                    color: '#ffffff',
-                                    border: 'none',
-                                    cursor: 'pointer'
+                                    borderRadius: '8px',
+                                    backgroundColor: '#f8fafd',
+                                    color: '#305CDE',
+                                    border: '1px solid #cbdcf7',
+                                    cursor: 'pointer',
+                                    fontSize: '13px',
+                                    fontWeight: '700',
+                                    transition: 'all 0.15s ease'
                                 }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#eef3fd'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f8fafd'; }}
                             >
                                 ▶
                             </button>
@@ -246,17 +258,20 @@ const CalendarView = () => {
                             value={sprintFilter}
                             onChange={(e) => setSprintFilter(e.target.value)}
                             style={{
-                                padding: '8px 12px',
+                                padding: '8px 14px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
-                                fontSize: '13px'
+                                backgroundColor: '#ffffff',
+                                border: '1px solid #cbdcf7',
+                                color: '#1e293b',
+                                fontSize: '13px',
+                                fontWeight: '600',
+                                outline: 'none',
+                                cursor: 'pointer'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Sprints</option>
+                            <option value="All">All Sprints</option>
                             {sprints.map(s => (
-                                <option key={s} value={s} style={{ backgroundColor: '#0f172a' }}>{s}</option>
+                                <option key={s} value={s}>{s}</option>
                             ))}
                         </select>
 
@@ -264,17 +279,20 @@ const CalendarView = () => {
                             value={assigneeFilter}
                             onChange={(e) => setAssigneeFilter(e.target.value)}
                             style={{
-                                padding: '8px 12px',
+                                padding: '8px 14px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
-                                fontSize: '13px'
+                                backgroundColor: '#ffffff',
+                                border: '1px solid #cbdcf7',
+                                color: '#1e293b',
+                                fontSize: '13px',
+                                fontWeight: '600',
+                                outline: 'none',
+                                cursor: 'pointer'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Assignees</option>
+                            <option value="All">All Assignees</option>
                             {assignees.map(([id, name]) => (
-                                <option key={id} value={id.toString()} style={{ backgroundColor: '#0f172a' }}>{name}</option>
+                                <option key={id} value={id.toString()}>{name}</option>
                             ))}
                         </select>
                     </div>
@@ -282,22 +300,25 @@ const CalendarView = () => {
 
                 {/* Calendar Grid */}
                 <div style={{
-                    backgroundColor: '#0f172a',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #cbdcf7',
                     borderRadius: '12px',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 20px -4px rgba(48, 92, 222, 0.08)'
                 }}>
                     {/* Weekday headers */}
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(7, 1fr)',
-                        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.25)',
+                        borderBottom: '1px solid #e2edfb',
+                        backgroundColor: '#f8fafd',
                         textAlign: 'center',
                         fontSize: '12px',
-                        fontWeight: '600',
-                        color: '#94a3b8',
-                        padding: '10px 0'
+                        fontWeight: '700',
+                        color: '#305CDE',
+                        letterSpacing: '0.6px',
+                        textTransform: 'uppercase',
+                        padding: '12px 0'
                     }}>
                         {daysOfWeek.map(day => (
                             <div key={day}>{day}</div>
@@ -320,44 +341,45 @@ const CalendarView = () => {
                                     onClick={() => handleDayClick(cell.dateStr)}
                                     style={{
                                         minHeight: '120px',
-                                        padding: '8px',
-                                        borderRight: (idx + 1) % 7 !== 0 ? '1px solid rgba(255, 255, 255, 0.06)' : 'none',
-                                        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                                        padding: '10px 8px',
+                                        borderRight: (idx + 1) % 7 !== 0 ? '1px solid #eef3fc' : 'none',
+                                        borderBottom: '1px solid #eef3fc',
                                         backgroundColor: !cell.isCurrentMonth
-                                            ? 'rgba(0, 0, 0, 0.25)'
+                                            ? '#f8fafd'
                                             : isToday
-                                                ? 'rgba(59, 130, 246, 0.06)'
-                                                : 'transparent',
+                                                ? '#eef4fd'
+                                                : '#ffffff',
                                         cursor: 'pointer',
-                                        transition: 'background-color 0.15s'
+                                        transition: 'background-color 0.15s ease'
                                     }}
                                     onMouseOver={(e) => {
                                         if (cell.isCurrentMonth && !isToday) {
-                                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
+                                            e.currentTarget.style.backgroundColor = '#f4f8fe';
                                         }
                                     }}
                                     onMouseOut={(e) => {
                                         if (cell.isCurrentMonth && !isToday) {
-                                            e.currentTarget.style.backgroundColor = 'transparent';
+                                            e.currentTarget.style.backgroundColor = '#ffffff';
                                         }
                                     }}
                                 >
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                                         <span style={{
                                             fontSize: '12px',
-                                            fontWeight: isToday ? '700' : '500',
+                                            fontWeight: isToday ? '800' : '600',
                                             color: isToday
-                                                ? '#3b82f6'
-                                                : cell.isCurrentMonth ? '#cbd5e1' : '#475569',
-                                            backgroundColor: isToday ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
-                                            padding: isToday ? '2px 6px' : '0',
-                                            borderRadius: '4px'
+                                                ? '#ffffff'
+                                                : cell.isCurrentMonth ? '#1e293b' : '#94a3b8',
+                                            backgroundColor: isToday ? '#305CDE' : 'transparent',
+                                            padding: isToday ? '3px 8px' : '0',
+                                            borderRadius: isToday ? '12px' : '0',
+                                            boxShadow: isToday ? '0 2px 6px rgba(48, 92, 222, 0.35)' : 'none'
                                         }}>
                                             {cell.dayNumber}
                                         </span>
 
                                         {dayTasks.length > 0 && (
-                                            <span style={{ fontSize: '10px', color: '#64748b' }}>
+                                            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '600' }}>
                                                 {dayTasks.length} {dayTasks.length === 1 ? 'task' : 'tasks'}
                                             </span>
                                         )}
@@ -375,17 +397,30 @@ const CalendarView = () => {
                                                         setSelectedTaskId(task.taskId);
                                                     }}
                                                     style={{
-                                                        padding: '4px 6px',
-                                                        borderRadius: '5px',
-                                                        backgroundColor: isOverdue ? 'rgba(239, 68, 68, 0.15)' : 'rgba(255, 255, 255, 0.06)',
-                                                        border: isOverdue ? '1px solid rgba(239, 68, 68, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)',
+                                                        padding: '5px 8px',
+                                                        borderRadius: '6px',
+                                                        backgroundColor: isOverdue ? '#fef2f2' : '#ffffff',
+                                                        border: isOverdue ? '1px solid #fecaca' : '1px solid #cbdcf7',
+                                                        borderLeft: `3px solid ${task.statusColor || '#305CDE'}`,
                                                         fontSize: '11px',
                                                         display: 'flex',
                                                         alignItems: 'center',
                                                         justifyContent: 'space-between',
                                                         gap: '4px',
                                                         cursor: 'pointer',
-                                                        overflow: 'hidden'
+                                                        overflow: 'hidden',
+                                                        boxShadow: '0 1px 3px rgba(0,0,0,0.03)',
+                                                        transition: 'all 0.15s ease'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.borderColor = '#305CDE';
+                                                        e.currentTarget.style.transform = 'translateY(-1px)';
+                                                        e.currentTarget.style.boxShadow = '0 3px 8px rgba(48, 92, 222, 0.15)';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.borderColor = isOverdue ? '#fecaca' : '#cbdcf7';
+                                                        e.currentTarget.style.transform = 'none';
+                                                        e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.03)';
                                                     }}
                                                     title={`${task.issueKey}: ${task.title} (${task.statusName})`}
                                                 >
@@ -393,17 +428,18 @@ const CalendarView = () => {
                                                         whiteSpace: 'nowrap',
                                                         overflow: 'hidden',
                                                         textOverflow: 'ellipsis',
-                                                        fontWeight: '500',
-                                                        color: isOverdue ? '#fca5a5' : '#f1f5f9'
+                                                        fontWeight: '600',
+                                                        color: isOverdue ? '#991b1b' : '#0f172a'
                                                     }}>
-                                                        {task.issueKey}: {task.title}
+                                                        <span style={{ color: '#305CDE', marginRight: '4px' }}>{task.issueKey}</span>
+                                                        {task.title}
                                                     </span>
 
                                                     <span style={{
                                                         width: '6px',
                                                         height: '6px',
                                                         borderRadius: '50%',
-                                                        backgroundColor: task.statusColor || '#3b82f6',
+                                                        backgroundColor: task.statusColor || '#305CDE',
                                                         flexShrink: 0
                                                     }} />
                                                 </div>
@@ -411,7 +447,7 @@ const CalendarView = () => {
                                         })}
 
                                         {dayTasks.length > 4 && (
-                                            <div style={{ fontSize: '10px', color: '#3b82f6', textAlign: 'center', marginTop: '2px' }}>
+                                            <div style={{ fontSize: '11px', color: '#305CDE', textAlign: 'center', marginTop: '2px', fontWeight: '700' }}>
                                                 +{dayTasks.length - 4} more
                                             </div>
                                         )}
@@ -456,3 +492,5 @@ const CalendarView = () => {
 };
 
 export default CalendarView;
+
+

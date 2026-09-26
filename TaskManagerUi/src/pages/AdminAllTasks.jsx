@@ -1,229 +1,174 @@
-import React from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+const PRIORITY_BADGE = {
+    High:    'badge-priority-high',
+    Highest: 'badge-priority-highest',
+    Medium:  'badge-priority-medium',
+    Low:     'badge-priority-low',
+    Lowest:  'badge-priority-lowest',
+};
 
 const AdminAllTasks = () => {
-  const navigate = useNavigate();
-  const [tasks, setTasks] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const [filterPriority, setFilterPriority] = React.useState("All");
-  const token = localStorage.getItem("token");
+    const navigate = useNavigate();
+    const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [filterPriority, setFilterPriority] = useState('All');
+    const [search, setSearch] = useState('');
+    const token = localStorage.getItem('token');
 
-  const fetchAllTasks = async () => {
-    try {
-      if (!token) {
-        navigate('/login');
-        return;
-      }
-      const res = await fetch(`https://localhost:7127/api/task/AllTasks`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (!res.ok) throw new Error("Failed to fetch tasks");
-      const data = await res.json();
-      setTasks(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    useEffect(() => {
+        const fetchAllTasks = async () => {
+            try {
+                if (!token) { navigate('/login'); return; }
+                const res = await fetch('https://localhost:7127/api/task/AllTasks', {
+                    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
+                });
+                if (!res.ok) throw new Error('Failed to fetch tasks');
+                setTasks(await res.json());
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchAllTasks();
+    }, [navigate, token]);
 
-  const handleDeleteTask = async (taskId) => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      try {
-        await axios.delete(`https://localhost:7127/api/Task/delete-task/${taskId}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        window.alert("Task deleted successfully!");
-        window.location.reload();
-        setTasks(tasks.filter(t => t.id !== taskId));
-      } catch (error) {
-        console.error("Error deleting task:", error);
-      }
-    }
-  };
+    const handleDelete = async (taskId) => {
+        if (!window.confirm('Delete this task?')) return;
+        try {
+            await axios.delete(`https://localhost:7127/api/Task/delete-task/${taskId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setTasks(prev => prev.filter(t => t.taskId !== taskId));
+        } catch {
+            alert('Failed to delete task.');
+        }
+    };
 
-  React.useEffect(() => {
-    fetchAllTasks();
-  }, []);
+    const filtered = tasks.filter(t => {
+        const matchesPriority = filterPriority === 'All' || t.taskPriority === filterPriority;
+        const q = search.toLowerCase();
+        const matchesSearch = !q || t.title?.toLowerCase().includes(q) || t.userName?.toLowerCase().includes(q);
+        return matchesPriority && matchesSearch;
+    });
 
-  const filteredTasks = tasks.filter((task) => {
-    if (filterPriority === "All") return true;
-    return task.taskPriority === filterPriority;
-  });
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            {/* Top bar */}
+            <div className="page-topbar">
+                <div>
+                    <div className="page-title">All Tasks</div>
+                    <div className="page-subtitle">{tasks.length} total tasks in the system</div>
+                </div>
+                <button className="btn btn-primary btn-sm" onClick={() => navigate('/kanban')}>+ New Issue</button>
+            </div>
 
-  if (loading) return <div style={{ textAlign: "center", marginTop: "50px" }}>Loading...</div>;
+            {/* Filters toolbar */}
+            <div className="toolbar">
+                <div className="search-input-wrap" style={{ width: 240 }}>
+                    <span className="search-icon">🔍</span>
+                    <input
+                        id="admin-tasks-search"
+                        type="text"
+                        className="input"
+                        placeholder="Search tasks..."
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                    />
+                </div>
+                <select
+                    id="priority-filter"
+                    className="select"
+                    style={{ width: 'auto' }}
+                    value={filterPriority}
+                    onChange={e => setFilterPriority(e.target.value)}
+                >
+                    <option value="All">All Priorities</option>
+                    <option value="Highest">Highest</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    <option value="Lowest">Lowest</option>
+                </select>
+                <span style={{ color: 'var(--text-tertiary)', fontSize: 'var(--text-base)', marginLeft: 'auto' }}>
+                    {filtered.length} result{filtered.length !== 1 ? 's' : ''}
+                </span>
+            </div>
 
-  return (
-    <div style={{
-      maxWidth: '1100px',
-      margin: '40px auto',
-      padding: '20px',
-      backgroundColor: '#fff',
-      borderRadius: '12px',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
-    }}>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <div>
-          <h2 style={{ margin: 0 }}>📋 All Tasks (Admin)</h2>
-          <p style={{ marginLeft: '5px', color: '#666', fontSize: '14px' }}>Manage all system tasks efficiently.</p>
+            {/* Table */}
+            <div style={{ flex: 1, overflowY: 'auto' }}>
+                {loading ? (
+                    <div className="empty-state">
+                        <div className="empty-icon">⏳</div>
+                        <div className="empty-title">Loading tasks…</div>
+                    </div>
+                ) : (
+                    <table className="data-table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Assigned To</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filtered.length === 0 ? (
+                                <tr>
+                                    <td colSpan={6} style={{ textAlign: 'center', padding: '40px', color: 'var(--text-tertiary)' }}>
+                                        No tasks match your filters.
+                                    </td>
+                                </tr>
+                            ) : filtered.map(task => (
+                                <tr key={task.taskId}>
+                                    <td>
+                                        <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{task.title}</div>
+                                        {task.issueKey && <div style={{ fontSize: 11, color: 'var(--text-tertiary)', marginTop: 2 }}>{task.issueKey}</div>}
+                                    </td>
+                                    <td style={{ color: 'var(--text-secondary)' }}>{task.userName || '—'}</td>
+                                    <td>
+                                        <span className={`badge ${PRIORITY_BADGE[task.taskPriority] || 'badge-default'}`}>
+                                            {task.taskPriority || '—'}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className="badge badge-default">{task.taskStatus || '—'}</span>
+                                    </td>
+                                    <td style={{ fontSize: 'var(--text-sm)', color: 'var(--text-tertiary)' }}>
+                                        {task.dueDate ? new Date(task.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '—'}
+                                    </td>
+                                    <td>
+                                        <div style={{ display: 'flex', gap: 6 }}>
+                                            <button
+                                                className="btn btn-secondary btn-sm"
+                                                id={`edit-task-${task.taskId}`}
+                                                onClick={() => navigate(`/Admin-edit-task/${task.taskId}`)}
+                                            >Edit</button>
+                                            <button
+                                                className="btn btn-ghost btn-sm"
+                                                id={`view-task-${task.taskId}`}
+                                                onClick={() => navigate(`/ViewTaskDetails/${task.taskId}`)}
+                                            >View</button>
+                                            <button
+                                                className="btn btn-danger btn-sm"
+                                                id={`delete-task-${task.taskId}`}
+                                                onClick={() => handleDelete(task.taskId)}
+                                            >Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
+            </div>
         </div>
-
-        <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-          
-          
-          <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-            <label htmlFor="filterPriority" style={{ fontWeight: 'bold', fontSize: '14px' }}>Filter Priority:</label>
-            <select
-              id="filterPriority"
-              value={filterPriority}
-              onChange={(e) => setFilterPriority(e.target.value)}
-              style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
-            >
-              <option value="All">All Priorities</option>
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
-          </div>
-
-          <div>
-            <button
-              onClick={() => navigate('/create-task')}
-              style={{
-                backgroundColor: '#218838',
-                color: 'white',
-                border: 'none',
-                padding: '8px 12px',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontWeight: 'bold'
-              }}
-            >
-              Create Task
-            </button>
-          </div>
-
-        </div>
-
-
-      </div>
-
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#f8f9fa', textAlign: 'left' }}>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Title</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Assigned to</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Assigned By</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Priority</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Status</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Due Date</th>
-            <th style={{ padding: '12px', borderBottom: '2px solid #eee' }}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredTasks.length > 0 ? (
-            filteredTasks.map((task) => (
-              <tr key={task.taskId} style={{ borderBottom: '1px solid #eee' }}>
-
-                <td style={{ padding: '12px' }}><strong>{task.title}</strong></td>
-                <td style={{ padding: '12px', color: '#555' }}>
-                  {task.userName || 'N/A'}
-                </td>
-                <td style={{ padding: '12px', color: '#555' }}>
-                  {task.assignedBy || 'N/A'}
-                </td>
-                <td style={{ padding: '12px' }}>
-                  <span style={{ fontWeight: '500' }}>{task.taskPriority}</span>
-                </td>
-                <td style={{ padding: '12px' }}>
-                  <span style={{
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    fontSize: '12px',
-                    backgroundColor: '#e9ecef'
-                  }}>
-                    {task.taskStatus}
-                  </span>
-                </td>
-                <td style={{ padding: '12px' }}>
-                  {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A'}
-                </td>
-                <td style={{ padding: '12px', display: 'flex', gap: '8px' }}>
-                  <button
-                    onClick={() => navigate(`/Admin-edit-task/${task.taskId}`)}
-                    style={{
-                      backgroundColor: '#ffc107',
-                      border: 'none',
-                      padding: '6px 12px',
-                      borderRadius: '4px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDeleteTask(task.taskId)}
-                    style={{
-                      backgroundColor: '#dc3545',
-                      color: 'white',
-                      border: 'none',
-                      padding: '6px 12px',
-                      borderRadius: '4px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => navigate(`/ViewTaskDetails/${task.taskId}`)}
-                    style={{
-                      backgroundColor: '#17a2b8',
-                      color: 'white',
-                      border: 'none',
-                      padding: '6px 12px',
-                      borderRadius: '4px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" style={{ textAlign: 'center', padding: '30px', color: '#888' }}>
-                No tasks found.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-
-      <div style={{ marginTop: '30px', textAlign: 'center' }}>
-        <Link to="/Admin-dashboard" style={{
-          color: '#1a1a40',
-          textDecoration: 'none',
-          fontSize: '14px',
-          padding: '8px 16px',
-          borderRadius: '6px',
-          border: '2px solid #1a1a40',
-          fontWeight: 'bold'
-        }}>
-          ← Back to Admin Dashboard
-        </Link>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default AdminAllTasks;

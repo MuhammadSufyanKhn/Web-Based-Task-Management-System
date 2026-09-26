@@ -45,51 +45,65 @@ const Register = () => {
             left: 0,
             display: 'flex',
             flexDirection: 'row',
-            backgroundColor: '#0b0f19',
+            backgroundColor: '#f8fafd',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
             overflowY: 'auto'
         }} className="auth-split-container">
-            {/* Split Screen - Left: Register Form */}
+            {/* Split Screen - Left: Professional Visual */}
+            <AuthHeroVisual
+                title="Collaborate at the Speed of Light"
+                subtitle="Join thousands of engineering teams utilizing modern agile sprints, real-time board sync, and deep analytical reports."
+            />
+
+            {/* Split Screen - Right: Register Form */}
             <div style={{
                 flex: '1 1 50%',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '40px 24px',
-                backgroundColor: '#0b1120',
+                backgroundColor: '#f8fafd',
                 position: 'relative'
             }}>
-                <div style={{
+                <div className="auth-card-animate" style={{
                     width: '100%',
                     maxWidth: '460px',
-                    backgroundColor: '#111827',
+                    backgroundColor: '#ffffff',
                     borderRadius: '16px',
                     padding: '36px 36px',
-                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 1px rgba(15, 23, 42, 0.15)',
+                    border: '1px solid #cbdcf7',
                     boxSizing: 'border-box'
                 }}>
+                    {/* Navigation Toggle Tabs */}
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                        <div className="auth-toggle-tab">
+                            <Link to="/login">Sign In</Link>
+                            <Link to="/register" className="active">Create Account</Link>
+                        </div>
+                    </div>
+
                     {/* Header */}
-                    <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+                    <div style={{ marginBottom: '22px', textAlign: 'center' }}>
                         <div style={{
                             width: '44px',
                             height: '44px',
                             borderRadius: '12px',
-                            background: 'linear-gradient(135deg, #10b981, #06b6d4)',
+                            background: 'linear-gradient(135deg, #305CDE, #2448b8)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             margin: '0 auto 14px auto',
                             fontSize: '22px',
                             color: '#ffffff',
-                            boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)'
+                            boxShadow: '0 4px 12px rgba(48, 92, 222, 0.35)'
                         }}>
                             🚀
                         </div>
                         <h2 style={{
-                            fontSize: '26px',
+                            fontSize: '24px',
                             fontWeight: '700',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             margin: '0 0 6px 0',
                             letterSpacing: '-0.3px'
                         }}>
@@ -97,7 +111,7 @@ const Register = () => {
                         </h2>
                         <p style={{
                             fontSize: '14px',
-                            color: '#94a3b8',
+                            color: '#64748b',
                             margin: 0
                         }}>
                             Join your team's agile workspace
@@ -107,12 +121,12 @@ const Register = () => {
                     {/* Messages */}
                     {errorMessage && (
                         <div style={{
-                            backgroundColor: 'rgba(239, 68, 68, 0.12)',
-                            border: '1px solid rgba(239, 68, 68, 0.3)',
+                            backgroundColor: '#fef2f2',
+                            border: '1px solid #fecaca',
                             borderRadius: '8px',
                             padding: '10px 14px',
                             marginBottom: '18px',
-                            color: '#f87171',
+                            color: '#b91c1c',
                             fontSize: '13px'
                         }}>
                             ⚠️ {errorMessage}
@@ -120,12 +134,12 @@ const Register = () => {
                     )}
                     {successMessage && (
                         <div style={{
-                            backgroundColor: 'rgba(16, 185, 129, 0.12)',
-                            border: '1px solid rgba(16, 185, 129, 0.3)',
+                            backgroundColor: '#ecfdf5',
+                            border: '1px solid #a7f3d0',
                             borderRadius: '8px',
                             padding: '10px 14px',
                             marginBottom: '18px',
-                            color: '#34d399',
+                            color: '#047857',
                             fontSize: '13px'
                         }}>
                             ✓ {successMessage}
@@ -139,7 +153,7 @@ const Register = () => {
                                 display: 'block',
                                 fontSize: '13px',
                                 fontWeight: '600',
-                                color: '#e2e8f0',
+                                color: '#334155',
                                 marginBottom: '6px'
                             }}>
                                 Full Name
@@ -154,19 +168,19 @@ const Register = () => {
                                     width: '100%',
                                     padding: '11px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#10b981';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -177,7 +191,7 @@ const Register = () => {
                                 display: 'block',
                                 fontSize: '13px',
                                 fontWeight: '600',
-                                color: '#e2e8f0',
+                                color: '#334155',
                                 marginBottom: '6px'
                             }}>
                                 Email Address
@@ -192,19 +206,19 @@ const Register = () => {
                                     width: '100%',
                                     padding: '11px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#10b981';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -215,7 +229,7 @@ const Register = () => {
                                 display: 'block',
                                 fontSize: '13px',
                                 fontWeight: '600',
-                                color: '#e2e8f0',
+                                color: '#334155',
                                 marginBottom: '6px'
                             }}>
                                 Password
@@ -230,19 +244,19 @@ const Register = () => {
                                     width: '100%',
                                     padding: '11px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#10b981';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -253,7 +267,7 @@ const Register = () => {
                                 display: 'block',
                                 fontSize: '13px',
                                 fontWeight: '600',
-                                color: '#e2e8f0',
+                                color: '#334155',
                                 marginBottom: '6px'
                             }}>
                                 Confirm Password
@@ -267,19 +281,19 @@ const Register = () => {
                                     width: '100%',
                                     padding: '11px 14px',
                                     borderRadius: '10px',
-                                    border: '1px solid #334155',
-                                    backgroundColor: '#1e293b',
-                                    color: '#ffffff',
+                                    border: '1px solid #cbdcf7',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
                                     fontSize: '14px',
                                     outline: 'none',
                                     boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => {
-                                    e.target.style.borderColor = '#10b981';
-                                    e.target.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.2)';
+                                    e.target.style.borderColor = '#305CDE';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(48, 92, 222, 0.18)';
                                 }}
                                 onBlur={(e) => {
-                                    e.target.style.borderColor = '#334155';
+                                    e.target.style.borderColor = '#cbdcf7';
                                     e.target.style.boxShadow = 'none';
                                 }}
                             />
@@ -294,14 +308,14 @@ const Register = () => {
                                 borderRadius: '10px',
                                 border: 'none',
                                 background: loading 
-                                    ? '#475569' 
-                                    : 'linear-gradient(135deg, #10b981, #0d9488)',
+                                    ? '#94a3b8' 
+                                    : 'linear-gradient(135deg, #305CDE, #2448b8)',
                                 color: '#ffffff',
                                 fontSize: '15px',
                                 fontWeight: '700',
                                 cursor: loading ? 'not-allowed' : 'pointer',
                                 transition: 'all 0.2s ease',
-                                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                                boxShadow: '0 4px 14px rgba(48, 92, 222, 0.35)',
                                 marginTop: '4px'
                             }}
                             onMouseOver={(e) => {
@@ -319,18 +333,18 @@ const Register = () => {
                     <div style={{
                         marginTop: '24px',
                         paddingTop: '18px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderTop: '1px solid #e2e8f0',
                         textAlign: 'center',
                         fontSize: '14px',
-                        color: '#94a3b8'
+                        color: '#64748b'
                     }}>
                         Already have an account?{' '}
                         <Link
                             to="/login"
                             style={{
-                                color: '#38bdf8',
+                                color: '#305CDE',
                                 textDecoration: 'none',
-                                fontWeight: '600'
+                                fontWeight: '700'
                             }}
                         >
                             Login
@@ -338,12 +352,6 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Split Screen - Right: Professional Visual */}
-            <AuthHeroVisual
-                title="Collaborate at the Speed of Light"
-                subtitle="Join thousands of engineering teams utilizing modern agile sprints, real-time board sync, and deep analytical reports."
-            />
         </div>
     );
 };

@@ -1,257 +1,217 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import api from '../Api/Axios';
 
 const Profile = () => {
     const [user, setUser] = useState({ userName: '', email: '', password: '' });
     const [isEditing, setIsEditing] = useState(false);
+    const [saving, setSaving] = useState(false);
+    const [successMsg, setSuccessMsg] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target; // Fixed: using 'name' instead of 'userName' to match input names
-        setUser((prevUser) => ({ ...prevUser, [name]: value }));
-    };
+    // Get role from token
+    const token = localStorage.getItem('token');
+    let userRole = 'User';
+    let userInitials = 'U';
+    if (token) {
+        try {
+            const d = jwtDecode(token);
+            userRole = d['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || 'User';
+        } catch { /* ignore */ }
+    }
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token === null) {
-            navigate('/login');
-            return;
-        }
+        if (!token) { navigate('/login'); return; }
+        api.get('/user/Profile')
+            .then(res => {
+                const name = res.data.userName || '';
+                setUser({ userName: name, email: res.data.email || '', password: '' });
+                userInitials = name.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase() || 'U';
+            })
+            .catch(err => console.error('Error fetching profile', err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-        axios.get('https://localhost:7127/api/user/Profile', {
-            headers: { Authorization: `Bearer ${token}` }
-        }).then(res => {
-            setUser({
-                userName: res.data.userName || '',
-                email: res.data.email || '',
-                password: ''
-            });
-        })
-            .catch(err => console.error("Error fetching profile", err));
-    }, [navigate]);
+    const initials = user.userName
+        ? user.userName.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase()
+        : userRole[0];
 
     const handleUpdate = async () => {
-        const token = localStorage.getItem('token');
+        setSaving(true);
+        setErrorMsg('');
+        setSuccessMsg('');
         try {
-            await axios.put('https://localhost:7127/api/user/Update-profile', user, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
+            await api.put('/user/Update-profile', user);
             setIsEditing(false);
-            alert("Profile Updated Successfully!");
-        } catch (err) {
-            alert("Failed to update profile");
+            setSuccessMsg('Profile updated successfully!');
+            setTimeout(() => setSuccessMsg(''), 3000);
+        } catch {
+            setErrorMsg('Failed to update profile. Please try again.');
+        } finally {
+            setSaving(false);
         }
     };
 
-    const logout = () => {
-        localStorage.clear();
-        window.location.href = "/login";
+    const handleCancel = () => {
+        setIsEditing(false);
+        setErrorMsg('');
     };
 
     return (
-        <div style={{ backgroundColor: "#f4f7f6", minHeight: "100vh", overflowX: "hidden" }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            {/* Top bar */}
+            <div className="page-topbar">
+                <div>
+                    <div className="page-title">My Profile</div>
+                    <div className="page-subtitle">Manage your account information</div>
+                </div>
+                <span className={`badge ${userRole === 'Admin' ? 'badge-danger' : 'badge-accent'}`}>
+                    {userRole === 'Admin' ? '🛡 Admin' : '👤 Team Member'}
+                </span>
+            </div>
 
-            <h2 style={{
-                textAlign: "center",
-                paddingBottom: "10px",
-                fontSize: "24px",
-                backgroundColor: "#28a745",
-                color: "white",
-                width: "100vh",
-                margin: "0 auto",
-                borderRadius: "0 0 15px 15px",
-                paddingTop: "15px"
-            }}>
-                🛠️ User Profile Management
-            </h2>
-            <div style={{
-                width: "100vw",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "30px",
-                paddingBottom: "30px"
-            }}>
-                <div style={{
-                    width: "100vh",
-                    maxWidth: "95%",
-                    background: "white",
-                    padding: "30px",
-                    borderRadius: "15px",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                    borderTop: "5px solid #28a745",
-                    boxSizing: "border-box",
-                    position: "relative",
-                    right: "0.5%",
-                }}>
-                    <h2 style={{
-                        textAlign: "center",
-                        marginBottom: "20px",
-                        borderBottom: "2px solid #eee",
-                        paddingBottom: "10px",
-                        fontSize: "22px",
-                        color: "#333"
-                    }}>
-                        👤 {isEditing ? "Edit Profile Details" : "Account Information"}
-                    </h2>
-
-                    <div>
-                        <div style={{ marginBottom: "15px" }}>
-                            <label htmlFor="userName" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
-                                Full Name
-                            </label>
-                            {isEditing ? (
-                                <input
-                                    id="userName"
-                                    name="userName"
-                                    style={{
-                                        width: "100%",
-                                        padding: "12px",
-                                        borderRadius: "6px",
-                                        border: "1px solid #ddd",
-                                        backgroundColor: "#fdfdfd",
-                                        boxSizing: "border-box"
-                                    }}
-                                    value={user.userName}
-                                    onChange={(e) => setUser({ ...user, userName: e.target.value })}
-                                />
-                            ) : (
-                                <div style={{
-                                    width: "100%",
-                                    padding: "12px",
-                                    borderRadius: "6px",
-                                    border: "1px solid #ddd",
-                                    backgroundColor: "#f9f9f9",
-                                    boxSizing: "border-box",
-                                    color: "#555"
-                                }}>{user.userName}</div>
-                            )}
+            <div className="page-content" style={{ flex: 1, overflowY: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
+                <div style={{ width: '100%', maxWidth: 520, paddingTop: 24 }}>
+                    {/* Avatar Card */}
+                    <div className="card" style={{ marginBottom: 20, padding: '28px 24px', textAlign: 'center' }}>
+                        <div style={{
+                            width: 80, height: 80, borderRadius: '50%',
+                            background: userRole === 'Admin' ? 'var(--accent)' : '#0ea5e9',
+                            color: '#fff', fontSize: 28, fontWeight: 700,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            margin: '0 auto 16px auto',
+                            boxShadow: '0 4px 16px rgba(99,102,241,0.3)'
+                        }}>
+                            {initials}
                         </div>
-
-                        <div style={{ marginBottom: "15px" }}>
-                            <label htmlFor="email" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
-                                Email Address
-                            </label>
-                            {isEditing ? (
-                                <input
-                                    id="email"
-                                    name="email"
-                                    style={{
-                                        width: "100%",
-                                        padding: "12px",
-                                        borderRadius: "6px",
-                                        border: "1px solid #ddd",
-                                        backgroundColor: "#fdfdfd",
-                                        boxSizing: "border-box"
-                                    }}
-                                    value={user.email}
-                                    onChange={(e) => setUser({ ...user, email: e.target.value })}
-                                />
-                            ) : (
-                                <div style={{
-                                    width: "100%",
-                                    padding: "12px",
-                                    borderRadius: "6px",
-                                    border: "1px solid #ddd",
-                                    backgroundColor: "#f9f9f9",
-                                    boxSizing: "border-box",
-                                    color: "#555"
-                                }}>{user.email}</div>
-                            )}
+                        <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>
+                            {user.userName || '—'}
                         </div>
+                        <div style={{ fontSize: 'var(--text-base)', color: 'var(--text-tertiary)' }}>{user.email}</div>
+                    </div>
 
-                        <div style={{ marginBottom: "25px" }}>
-                            <label htmlFor="password" style={{ fontWeight: "600", display: "block", marginBottom: "8px", color: "#444" }}>
-                                Password
-                            </label>
-                            {isEditing ? (
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Enter new password"
-                                    style={{
-                                        width: "100%",
-                                        padding: "12px",
-                                        borderRadius: "6px",
-                                        border: "1px solid #ddd",
-                                        backgroundColor: "#fdfdfd",
-                                        boxSizing: "border-box"
-                                    }}
-                                    value={user.password}
-                                    onChange={(e) => setUser({ ...user, password: e.target.value })}
-                                />
-                            ) : (
-                                <div style={{
-                                    width: "100%",
-                                    padding: "12px",
-                                    borderRadius: "6px",
-                                    border: "1px solid #ddd",
-                                    backgroundColor: "#f9f9f9",
-                                    boxSizing: "border-box",
-                                    color: "#555"
-                                }}>********</div>
-                            )}
+                    {/* Success / Error banners */}
+                    {successMsg && (
+                        <div className="alert alert-success" style={{ marginBottom: 16 }}>
+                            <span>✓</span><span>{successMsg}</span>
                         </div>
-
-                        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                            <button
-                                style={{
-                                    width: "100%",
-                                    padding: "14px",
-                                    backgroundColor: isEditing ? "#2ecc71" : "#3498db",
-                                    color: "white",
-                                    border: "none",
-                                    borderRadius: "8px",
-                                    cursor: "pointer",
-                                    fontWeight: "bold",
-                                    fontSize: "16px",
-                                    boxSizing: "border-box",
-                                    transition: "background 0.3s"
-                                }}
-                                onClick={() => isEditing ? handleUpdate() : setIsEditing(true)}
-                            >
-                                {isEditing ? "💾 Save Profile Changes" : "✏️ Edit Profile"}
-                            </button>
-
-                            {!isEditing && (
-                                <button
-                                    style={{
-                                        width: "100%",
-                                        padding: "14px",
-                                        backgroundColor: "#e74c3c",
-                                        color: "white",
-                                        border: "none",
-                                        borderRadius: "8px",
-                                        cursor: "pointer",
-                                        fontWeight: "bold",
-                                        fontSize: "16px",
-                                        boxSizing: "border-box"
-                                    }}
-                                    onClick={logout}
-                                >
-                                    🚪 Logout
-                                </button>
-                            )}
+                    )}
+                    {errorMsg && (
+                        <div className="alert alert-error" style={{ marginBottom: 16 }}>
+                            <span>⚠</span><span>{errorMsg}</span>
                         </div>
+                    )}
 
-                        <button
-                            onClick={() => navigate('/dashboard')}
-                            style={{
-                                display: "block",
-                                textAlign: "center",
-                                marginTop: "20px",
-                                color: "#888",
-                                textDecoration: "underline",
-                                fontSize: "14px",
-                                cursor: "pointer",
-                                background: "none",
-                                border: "none",
-                                width: "100%"
-                            }}
-                        >
-                            Cancel & Go Back
-                        </button>
+                    {/* Form Card */}
+                    <div className="card">
+                        <div className="card-header">
+                            <span className="card-title">{isEditing ? 'Edit Profile' : 'Account Information'}</span>
+                        </div>
+                        <div className="card-body" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                            {/* Full Name */}
+                            <div className="form-group">
+                                <label className="form-label" htmlFor="profile-name">Full Name</label>
+                                {isEditing ? (
+                                    <input
+                                        id="profile-name"
+                                        className="input"
+                                        name="userName"
+                                        value={user.userName}
+                                        onChange={e => setUser({ ...user, userName: e.target.value })}
+                                        autoFocus
+                                    />
+                                ) : (
+                                    <div style={{
+                                        padding: '9px 12px',
+                                        background: 'var(--bg-elevated)',
+                                        borderRadius: 'var(--radius-md)',
+                                        color: 'var(--text-primary)',
+                                        fontSize: 'var(--text-md)',
+                                        border: '1px solid var(--bg-border)'
+                                    }}>
+                                        {user.userName || '—'}
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Email */}
+                            <div className="form-group">
+                                <label className="form-label" htmlFor="profile-email">Email Address</label>
+                                {isEditing ? (
+                                    <input
+                                        id="profile-email"
+                                        className="input"
+                                        name="email"
+                                        type="email"
+                                        value={user.email}
+                                        onChange={e => setUser({ ...user, email: e.target.value })}
+                                    />
+                                ) : (
+                                    <div style={{
+                                        padding: '9px 12px',
+                                        background: 'var(--bg-elevated)',
+                                        borderRadius: 'var(--radius-md)',
+                                        color: 'var(--text-secondary)',
+                                        fontSize: 'var(--text-md)',
+                                        border: '1px solid var(--bg-border)'
+                                    }}>
+                                        {user.email || '—'}
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Password (only when editing) */}
+                            {isEditing && (
+                                <div className="form-group">
+                                    <label className="form-label" htmlFor="profile-password">New Password</label>
+                                    <input
+                                        id="profile-password"
+                                        className="input"
+                                        type="password"
+                                        name="password"
+                                        placeholder="Leave blank to keep current"
+                                        value={user.password}
+                                        onChange={e => setUser({ ...user, password: e.target.value })}
+                                    />
+                                    <span className="form-hint">Only fill in if you want to change your password.</span>
+                                </div>
+                            )}
+
+                            {/* Actions */}
+                            <div style={{ display: 'flex', gap: 8, paddingTop: 4 }}>
+                                {isEditing ? (
+                                    <>
+                                        <button
+                                            className="btn btn-primary"
+                                            onClick={handleUpdate}
+                                            disabled={saving}
+                                            id="save-profile-btn"
+                                            style={{ flex: 1 }}
+                                        >
+                                            {saving ? 'Saving…' : '✓ Save Changes'}
+                                        </button>
+                                        <button
+                                            className="btn btn-secondary"
+                                            onClick={handleCancel}
+                                            id="cancel-edit-btn"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </>
+                                ) : (
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={() => setIsEditing(true)}
+                                        id="edit-profile-btn"
+                                        style={{ flex: 1 }}
+                                    >
+                                        ✏️ Edit Profile
+                                    </button>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

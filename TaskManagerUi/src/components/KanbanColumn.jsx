@@ -70,13 +70,13 @@ const KanbanColumn = ({
             style={{
                 flex: '0 0 310px',
                 width: '310px',
-                backgroundColor: isDragOver ? 'rgba(99, 102, 241, 0.08)' : '#161f30',
+                backgroundColor: isDragOver ? 'rgba(29, 78, 216, 0.08)' : '#f0f5fd',
                 borderRadius: '10px',
                 display: 'flex',
                 flexDirection: 'column',
                 maxHeight: 'calc(100vh - 190px)',
-                border: isDragOver ? '2px dashed #6366f1' : '1px solid rgba(255, 255, 255, 0.06)',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+                border: isDragOver ? '2px dashed #1d4ed8' : '1px solid #cbdcf7',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
                 transition: 'background-color 0.2s, border-color 0.2s',
                 boxSizing: 'border-box'
             }}
@@ -90,22 +90,22 @@ const KanbanColumn = ({
                 borderTop: `4px solid ${accentColor}`,
                 borderTopLeftRadius: '8px',
                 borderTopRightRadius: '8px',
-                backgroundColor: 'rgba(255, 255, 255, 0.02)'
+                backgroundColor: 'rgba(255, 255, 255, 0.85)'
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{
                         fontSize: '13px',
                         fontWeight: '700',
-                        color: '#f1f5f9',
+                        color: '#0f172a',
                         textTransform: 'uppercase',
                         letterSpacing: '0.6px'
                     }}>
                         {column.displayName}
                     </span>
                     <span style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                        color: '#94a3b8',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        backgroundColor: '#dbeafe',
+                        color: '#1e40af',
+                        border: '1px solid #bfdbfe',
                         borderRadius: '10px',
                         padding: '2px 8px',
                         fontSize: '11px',
@@ -121,7 +121,7 @@ const KanbanColumn = ({
                     style={{
                         background: 'transparent',
                         border: 'none',
-                        color: '#94a3b8',
+                        color: '#64748b',
                         cursor: 'pointer',
                         fontSize: '18px',
                         padding: '2px 6px',
@@ -131,12 +131,12 @@ const KanbanColumn = ({
                         transition: 'all 0.15s ease'
                     }}
                     onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                        e.target.style.color = '#ffffff';
+                        e.target.style.backgroundColor = '#dbeafe';
+                        e.target.style.color = '#1d4ed8';
                     }}
                     onMouseLeave={(e) => {
                         e.target.style.backgroundColor = 'transparent';
-                        e.target.style.color = '#94a3b8';
+                        e.target.style.color = '#64748b';
                     }}
                 >
                     +
@@ -157,10 +157,10 @@ const KanbanColumn = ({
                         {dragOverIndex === idx && (
                             <div style={{
                                 height: '4px',
-                                backgroundColor: '#6366f1',
+                                backgroundColor: '#1d4ed8',
                                 borderRadius: '2px',
                                 marginBottom: '8px',
-                                boxShadow: '0 0 8px rgba(99, 102, 241, 0.6)'
+                                boxShadow: '0 0 8px rgba(29, 78, 216, 0.5)'
                             }} />
                         )}
                         <KanbanCard
@@ -202,7 +202,7 @@ const KanbanColumn = ({
                         backgroundColor: 'transparent',
                         border: 'none',
                         borderRadius: '6px',
-                        color: '#94a3b8',
+                        color: '#475569',
                         fontSize: '13px',
                         fontWeight: '600',
                         cursor: 'pointer',
@@ -213,12 +213,12 @@ const KanbanColumn = ({
                         transition: 'all 0.15s ease'
                     }}
                     onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
-                        e.currentTarget.style.color = '#f8fafc';
+                        e.currentTarget.style.backgroundColor = '#dbeafe';
+                        e.currentTarget.style.color = '#1d4ed8';
                     }}
                     onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.color = '#94a3b8';
+                        e.currentTarget.style.color = '#475569';
                     }}
                 >
                     <span style={{ fontSize: '15px' }}>+</span> Create issue

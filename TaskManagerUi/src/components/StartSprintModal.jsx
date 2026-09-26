@@ -63,29 +63,29 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
             padding: '20px'
         }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
             <div style={{
-                backgroundColor: '#111827',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#ffffff',
+                border: '1px solid #cbdcf7',
                 borderRadius: '12px',
                 width: '100%',
                 maxWidth: '520px',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                boxShadow: '0 20px 48px rgba(15, 23, 42, 0.16)',
                 overflow: 'hidden',
-                color: '#f8fafc'
+                color: '#0f172a'
             }}>
                 <div style={{
                     padding: '16px 20px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #cbdcf7',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#161f30'
+                    backgroundColor: '#f8fafd'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#f8fafc' }}>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                         ⚡ Start Sprint: {sprint.name}
                     </h3>
                     <button
                         onClick={onClose}
-                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#94a3b8' }}
+                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#64748b' }}
                     >
                         ✕
                     </button>
@@ -121,9 +121,9 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                                 width: '100%',
                                 padding: '8px 10px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbdcf7',
                                 fontSize: '13px'
                             }}
                         >
@@ -137,7 +137,7 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
 
                     <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#243c5a', marginBottom: '4px' }}>
                                 Start Date
                             </label>
                             <input
@@ -149,9 +149,9 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                                     width: '100%',
                                     padding: '8px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbdcf7',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -159,7 +159,7 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                         </div>
 
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#243c5a', marginBottom: '4px' }}>
                                 End Date
                             </label>
                             <input
@@ -171,9 +171,9 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                                     width: '100%',
                                     padding: '8px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbdcf7',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -182,7 +182,7 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                     </div>
 
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#243c5a', marginBottom: '4px' }}>
                             Sprint Goal
                         </label>
                         <textarea
@@ -194,9 +194,9 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                                 width: '100%',
                                 padding: '8px 10px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbdcf7',
                                 fontSize: '13px',
                                 boxSizing: 'border-box',
                                 fontFamily: 'inherit'
@@ -204,17 +204,18 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                         />
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid #cbdcf7', paddingTop: '16px' }}>
                         <button
                             type="button"
                             onClick={onClose}
                             style={{
                                 padding: '8px 16px',
                                 backgroundColor: 'transparent',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                border: '1px solid #cbdcf7',
                                 borderRadius: '6px',
-                                color: '#94a3b8',
-                                cursor: 'pointer'
+                                color: '#64748b',
+                                cursor: 'pointer',
+                                fontWeight: '600'
                             }}
                         >
                             Cancel
@@ -224,12 +225,13 @@ const StartSprintModal = ({ sprint, onClose, onSprintStarted }) => {
                             disabled={loading}
                             style={{
                                 padding: '8px 20px',
-                                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                background: '#1d4ed8',
                                 color: '#ffffff',
                                 border: 'none',
                                 borderRadius: '6px',
-                                fontWeight: '600',
+                                fontWeight: '700',
                                 cursor: 'pointer',
+                                boxShadow: '0 2px 6px rgba(29, 78, 216, 0.3)',
                                 opacity: loading ? 0.7 : 1
                             }}
                         >

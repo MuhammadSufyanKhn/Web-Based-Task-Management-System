@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using TaskManagementAPI.Data;
 using TaskManagementAPI.Models.DTOS;
 using TaskManagementAPI.Services;
+using TaskManagerAPI.Models;
 
 namespace TaskManagementAPI.Controllers
 {
@@ -37,29 +38,131 @@ namespace TaskManagementAPI.Controllers
         public async Task<IActionResult> GetConfig()
         {
             var settings = await _context.JiraSettings.OrderByDescending(s => s.Id).FirstOrDefaultAsync();
+            var webhookUrl = $"{Request.Scheme}://{Request.Host}/api/jira/webhook";
+
             if (settings == null)
             {
                 return Ok(new JiraConfigDto
                 {
                     JiraUrl = "",
+                    JiraBaseUrl = "",
                     ProjectKey = "",
                     Email = "",
+                    UserEmail = "",
                     AutoSync = false,
                     ConnectionStatus = "Disconnected",
-                    HasApiToken = false
+                    HasApiToken = false,
+                    IsConfigured = false,
+                    MaskedApiToken = "",
+                    WebhookUrl = webhookUrl
                 });
             }
+
+            var hasToken = !string.IsNullOrEmpty(settings.ApiToken);
+            return Ok(new JiraConfigDto
+            {
+                JiraUrl = settings.JiraBaseUrl,
+                JiraBaseUrl = settings.JiraBaseUrl,
+                ProjectKey = settings.ProjectKey,
+                Email = settings.UserEmail,
+                UserEmail = settings.UserEmail,
+                AutoSync = settings.AutoSync,
+                ConnectionStatus = settings.ConnectionStatus ?? (hasToken ? "Connected" : "Disconnected"),
+                LastSyncedAt = settings.LastSyncDate,
+                LastSyncError = settings.LastSyncError,
+                HasApiToken = hasToken,
+                IsConfigured = hasToken && !string.IsNullOrWhiteSpace(settings.JiraBaseUrl),
+                MaskedApiToken = hasToken ? "••••••••" : "",
+                WebhookUrl = webhookUrl
+            });
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost("config")]
+        [HttpPut("config")]
+        public async Task<IActionResult> SaveConfig([FromBody] JiraConfigDto? dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest(new { message = "Invalid configuration payload." });
+            }
+
+            var url = !string.IsNullOrWhiteSpace(dto.JiraBaseUrl) ? dto.JiraBaseUrl : dto.JiraUrl;
+            var email = !string.IsNullOrWhiteSpace(dto.UserEmail) ? dto.UserEmail : dto.Email;
+
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return BadRequest(new { message = "Jira Base URL is required." });
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return BadRequest(new { message = "User Email is required." });
+            }
+
+            if (string.IsNullOrWhiteSpace(dto.ProjectKey))
+            {
+                return BadRequest(new { message = "Jira Project Key is required." });
+            }
+
+            var currentUserId = GetCurrentUserId();
+            var settings = await _context.JiraSettings.OrderByDescending(s => s.Id).FirstOrDefaultAsync();
+
+            if (settings == null)
+            {
+                settings = new JiraSetting
+                {
+                    JiraBaseUrl = url.Trim(),
+                    UserEmail = email.Trim(),
+                    ApiToken = dto.ApiToken?.Trim() ?? "",
+                    ProjectKey = dto.ProjectKey.Trim().ToUpper(),
+                    AutoSync = dto.AutoSync,
+                    IsSyncEnabled = dto.AutoSync,
+                    ConnectionStatus = string.IsNullOrWhiteSpace(dto.ApiToken) ? "Disconnected" : "Connected",
+                    CreatedDate = DateTime.Now,
+                    UpdatedBy = currentUserId
+                };
+                _context.JiraSettings.Add(settings);
+            }
+            else
+            {
+                settings.JiraBaseUrl = url.Trim();
+                settings.UserEmail = email.Trim();
+                if (!string.IsNullOrWhiteSpace(dto.ApiToken) && !dto.ApiToken.Contains("••••"))
+                {
+                    settings.ApiToken = dto.ApiToken.Trim();
+                }
+                settings.ProjectKey = dto.ProjectKey.Trim().ToUpper();
+                settings.AutoSync = dto.AutoSync;
+                settings.IsSyncEnabled = dto.AutoSync;
+                if (!string.IsNullOrWhiteSpace(settings.ApiToken))
+                {
+                    settings.ConnectionStatus = "Connected";
+                }
+                settings.UpdatedDate = DateTime.Now;
+                settings.UpdatedBy = currentUserId;
+            }
+
+            await _context.SaveChangesAsync();
+
+            var webhookUrl = $"{Request.Scheme}://{Request.Host}/api/jira/webhook";
+            var hasToken = !string.IsNullOrEmpty(settings.ApiToken);
 
             return Ok(new JiraConfigDto
             {
                 JiraUrl = settings.JiraBaseUrl,
+                JiraBaseUrl = settings.JiraBaseUrl,
                 ProjectKey = settings.ProjectKey,
                 Email = settings.UserEmail,
+                UserEmail = settings.UserEmail,
                 AutoSync = settings.AutoSync,
-                ConnectionStatus = settings.ConnectionStatus ?? (string.IsNullOrEmpty(settings.ApiToken) ? "Disconnected" : "Connected"),
-                LastSyncedAt = settings.LastSyncedAt ?? settings.LastSyncDate,
+                ConnectionStatus = settings.ConnectionStatus ?? (hasToken ? "Connected" : "Disconnected"),
+                LastSyncedAt = settings.LastSyncDate,
                 LastSyncError = settings.LastSyncError,
-                HasApiToken = !string.IsNullOrEmpty(settings.ApiToken)
+                HasApiToken = hasToken,
+                IsConfigured = hasToken,
+                MaskedApiToken = hasToken ? "••••••••" : "",
+                WebhookUrl = webhookUrl
             });
         }
 
@@ -67,9 +170,12 @@ namespace TaskManagementAPI.Controllers
         [HttpPost("test")]
         public async Task<IActionResult> TestConnection([FromBody] JiraConfigDto? dto)
         {
+            var url = !string.IsNullOrWhiteSpace(dto?.JiraBaseUrl) ? dto.JiraBaseUrl : dto?.JiraUrl;
+            var email = !string.IsNullOrWhiteSpace(dto?.UserEmail) ? dto.UserEmail : dto?.Email;
+
             var result = await _jiraService.TestConnectionAsync(
-                dto?.JiraUrl,
-                dto?.Email,
+                url,
+                email,
                 dto?.ApiToken,
                 dto?.ProjectKey
             );

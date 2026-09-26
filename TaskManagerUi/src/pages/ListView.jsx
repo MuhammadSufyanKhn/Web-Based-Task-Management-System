@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import api from '../Api/Axios';
 import { jwtDecode } from 'jwt-decode';
-import AppNavbar from '../components/AppNavbar';
-import ViewSwitcher from '../components/ViewSwitcher';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
 import PermissionModal from '../components/PermissionModal';
@@ -128,37 +126,35 @@ const ListView = () => {
     };
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#090d16', color: '#f8fafc' }}>
-            <AppNavbar />
-
+        <div style={{ minHeight: '100%', backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}>
             <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '24px 20px' }}>
-                <ViewSwitcher
-                    rightContent={
-                        <button
-                            onClick={() => {
-                                setCreateParentTaskId(null);
-                                setIsCreateModalOpen(true);
-                            }}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                padding: '8px 16px',
-                                backgroundColor: '#3b82f6',
-                                color: '#ffffff',
-                                border: 'none',
-                                borderRadius: '8px',
-                                fontSize: '13px',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
-                            }}
-                        >
-                            <span>+</span>
-                            <span>Create Issue</span>
-                        </button>
-                    }
-                />
+                {/* Page Header */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+                    <div>
+                        <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.4px' }}>List</h1>
+                        <p style={{ fontSize: '13px', color: 'var(--text-tertiary)', margin: '3px 0 0 0' }}>Search, filter, and manage all project issues and subtasks</p>
+                    </div>
+                    <button
+                        onClick={() => {
+                            setCreateParentTaskId(null);
+                            setIsCreateModalOpen(true);
+                        }}
+                        className="btn btn-primary"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '8px 18px',
+                            borderRadius: '8px',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        <span>+</span>
+                        <span>Create Issue</span>
+                    </button>
+                </div>
 
                 {/* Header & Filter Bar */}
                 <div style={{
@@ -168,10 +164,11 @@ const ListView = () => {
                     flexWrap: 'wrap',
                     gap: '14px',
                     marginBottom: '20px',
-                    padding: '16px',
-                    backgroundColor: '#0f172a',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px'
+                    padding: '14px 18px',
+                    backgroundColor: 'var(--bg-surface)',
+                    border: '1px solid var(--bg-border)',
+                    borderRadius: '10px',
+                    boxShadow: 'var(--shadow-card)'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', flex: 1 }}>
                         {/* Search Input */}
@@ -185,15 +182,15 @@ const ListView = () => {
                                     width: '100%',
                                     padding: '8px 12px 8px 32px',
                                     borderRadius: '8px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                                    color: '#ffffff',
+                                    backgroundColor: 'var(--bg-elevated)',
+                                    border: '1px solid var(--bg-border)',
+                                    color: 'var(--text-primary)',
                                     fontSize: '13px',
                                     outline: 'none',
                                     boxSizing: 'border-box'
                                 }}
                             />
-                            <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#64748b', fontSize: '13px' }}>
+                            <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-tertiary)', fontSize: '13px' }}>
                                 🔍
                             </span>
                         </div>
@@ -205,15 +202,15 @@ const ListView = () => {
                             style={{
                                 padding: '8px 12px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
+                                backgroundColor: 'var(--bg-elevated)',
+                                border: '1px solid var(--bg-border)',
+                                color: 'var(--text-primary)',
                                 fontSize: '13px'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Sprints</option>
+                            <option value="All">All Sprints</option>
                             {sprints.map(s => (
-                                <option key={s} value={s} style={{ backgroundColor: '#0f172a' }}>{s}</option>
+                                <option key={s} value={s}>{s}</option>
                             ))}
                         </select>
 
@@ -224,15 +221,15 @@ const ListView = () => {
                             style={{
                                 padding: '8px 12px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
+                                backgroundColor: 'var(--bg-elevated)',
+                                border: '1px solid var(--bg-border)',
+                                color: 'var(--text-primary)',
                                 fontSize: '13px'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Assignees</option>
+                            <option value="All">All Assignees</option>
                             {assignees.map(([id, name]) => (
-                                <option key={id} value={id.toString()} style={{ backgroundColor: '#0f172a' }}>{name}</option>
+                                <option key={id} value={id.toString()}>{name}</option>
                             ))}
                         </select>
 
@@ -243,15 +240,15 @@ const ListView = () => {
                             style={{
                                 padding: '8px 12px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
+                                backgroundColor: 'var(--bg-elevated)',
+                                border: '1px solid var(--bg-border)',
+                                color: 'var(--text-primary)',
                                 fontSize: '13px'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Types</option>
+                            <option value="All">All Types</option>
                             {issueTypes.map(t => (
-                                <option key={t} value={t} style={{ backgroundColor: '#0f172a' }}>{t}</option>
+                                <option key={t} value={t}>{t}</option>
                             ))}
                         </select>
 
@@ -262,27 +259,27 @@ const ListView = () => {
                             style={{
                                 padding: '8px 12px',
                                 borderRadius: '8px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
-                                color: '#ffffff',
+                                backgroundColor: 'var(--bg-elevated)',
+                                border: '1px solid var(--bg-border)',
+                                color: 'var(--text-primary)',
                                 fontSize: '13px'
                             }}
                         >
-                            <option value="All" style={{ backgroundColor: '#0f172a' }}>All Priorities</option>
+                            <option value="All">All Priorities</option>
                             {priorities.map(p => (
-                                <option key={p} value={p} style={{ backgroundColor: '#0f172a' }}>{p}</option>
+                                <option key={p} value={p}>{p}</option>
                             ))}
                         </select>
                     </div>
 
-                    <div style={{ color: '#94a3b8', fontSize: '13px' }}>
-                        Showing <strong style={{ color: '#ffffff' }}>{rootTasks.length}</strong> issues
+                    <div style={{ color: 'var(--text-tertiary)', fontSize: '13px' }}>
+                        Showing <strong style={{ color: 'var(--text-primary)' }}>{rootTasks.length}</strong> issues
                     </div>
                 </div>
 
                 {/* Tasks Table */}
                 {loading ? (
-                    <div style={{ textAlign: 'center', padding: '60px 0', color: '#94a3b8' }}>
+                    <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--text-tertiary)' }}>
                         <div style={{ fontSize: '28px', marginBottom: '8px' }}>⚡</div>
                         <div>Loading issue list...</div>
                     </div>
@@ -290,32 +287,33 @@ const ListView = () => {
                     <div style={{
                         textAlign: 'center',
                         padding: '60px 20px',
-                        backgroundColor: '#0f172a',
+                        backgroundColor: 'var(--bg-surface)',
                         borderRadius: '12px',
-                        border: '1px dashed rgba(255, 255, 255, 0.12)',
-                        color: '#94a3b8'
+                        border: '1px dashed var(--bg-border)',
+                        color: 'var(--text-tertiary)'
                     }}>
                         <div style={{ fontSize: '32px', marginBottom: '10px' }}>📑</div>
-                        <h3 style={{ margin: '0 0 6px 0', color: '#ffffff' }}>No issues found</h3>
+                        <h3 style={{ margin: '0 0 6px 0', color: 'var(--text-primary)' }}>No issues found</h3>
                         <p style={{ margin: 0, fontSize: '13px' }}>Try adjusting your filters or search query.</p>
                     </div>
                 ) : (
                     <div style={{
-                        backgroundColor: '#0f172a',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        backgroundColor: 'var(--bg-surface)',
+                        border: '1px solid var(--bg-border)',
                         borderRadius: '12px',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        boxShadow: 'var(--shadow-card)'
                     }}>
                         <div style={{ overflowX: 'auto' }}>
                             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '13px' }}>
                                 <thead>
                                     <tr style={{
-                                        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                                        color: '#94a3b8',
+                                        borderBottom: '1px solid var(--bg-border)',
+                                        color: 'var(--text-secondary)',
                                         fontSize: '11px',
                                         textTransform: 'uppercase',
                                         letterSpacing: '0.6px',
-                                        backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                                        backgroundColor: 'var(--bg-subtle)'
                                     }}>
                                         <th style={{ padding: '12px 16px', width: '36px' }}></th>
                                         <th style={{ padding: '12px 16px', width: '80px' }}>Type</th>
@@ -344,12 +342,12 @@ const ListView = () => {
                                                 <tr
                                                     onClick={() => handleTaskClick(task)}
                                                     style={{
-                                                        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                                                        borderBottom: '1px solid var(--bg-border-subtle)',
                                                         cursor: 'pointer',
                                                         backgroundColor: 'transparent',
                                                         transition: 'background-color 0.15s ease'
                                                     }}
-                                                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'}
+                                                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-elevated)'}
                                                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                                 >
                                                     {/* Expand Toggle */}
@@ -392,22 +390,22 @@ const ListView = () => {
                                                     </td>
 
                                                     {/* Key */}
-                                                    <td style={{ padding: '12px 16px', fontWeight: '600', color: '#60a5fa' }}>
+                                                    <td style={{ padding: '12px 16px', fontWeight: '700', color: 'var(--accent)' }}>
                                                         {task.issueKey}
                                                     </td>
 
                                                     {/* Title & Subtask Badge */}
                                                     <td style={{ padding: '12px 16px' }}>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                            <span style={{ fontWeight: '500', color: '#ffffff' }}>{task.title}</span>
+                                                            <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{task.title}</span>
                                                             {task.subtaskCount > 0 && (
                                                                 <span style={{
                                                                     padding: '2px 6px',
                                                                     borderRadius: '4px',
                                                                     fontSize: '10px',
-                                                                    backgroundColor: 'rgba(99, 102, 241, 0.15)',
-                                                                    color: '#a5b4fc',
-                                                                    border: '1px solid rgba(99, 102, 241, 0.3)'
+                                                                    backgroundColor: 'rgba(2, 132, 199, 0.12)',
+                                                                    color: 'var(--accent)',
+                                                                    border: '1px solid rgba(2, 132, 199, 0.25)'
                                                                 }}>
                                                                     {task.subtaskCompletedCount}/{task.subtaskCount} done
                                                                 </span>
@@ -417,15 +415,15 @@ const ListView = () => {
                                                                     padding: '2px 6px',
                                                                     borderRadius: '4px',
                                                                     fontSize: '10px',
-                                                                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                                                                    color: '#f87171',
-                                                                    border: '1px solid rgba(239, 68, 68, 0.3)'
+                                                                    backgroundColor: 'rgba(220, 38, 38, 0.12)',
+                                                                    color: 'var(--danger-text)',
+                                                                    border: '1px solid rgba(220, 38, 38, 0.25)'
                                                                 }} title="Blocked by other issues">
                                                                     ⛔ Blocked
                                                                 </span>
                                                             )}
                                                             {!canModify && (
-                                                                <span style={{ fontSize: '11px', color: '#f59e0b' }} title="Restricted: Read-only">
+                                                                <span style={{ fontSize: '11px', color: 'var(--warning-text)' }} title="Restricted: Read-only">
                                                                     🔒
                                                                 </span>
                                                             )}
@@ -439,9 +437,9 @@ const ListView = () => {
                                                             borderRadius: '6px',
                                                             fontSize: '11px',
                                                             fontWeight: '600',
-                                                            backgroundColor: `${task.statusColor || '#64748b'}25`,
-                                                            color: task.statusColor || '#94a3b8',
-                                                            border: `1px solid ${task.statusColor || '#64748b'}50`
+                                                            backgroundColor: `${task.statusColor || '#64748b'}20`,
+                                                            color: task.statusColor || 'var(--text-secondary)',
+                                                            border: `1px solid ${task.statusColor || '#64748b'}40`
                                                         }}>
                                                             {task.statusName}
                                                         </span>
@@ -453,8 +451,8 @@ const ListView = () => {
                                                             padding: '2px 6px',
                                                             borderRadius: '4px',
                                                             fontSize: '11px',
-                                                            color: task.priorityColor || '#ffab00',
-                                                            fontWeight: '500'
+                                                            color: task.priorityColor || '#d97706',
+                                                            fontWeight: '600'
                                                         }}>
                                                             {task.priorityName}
                                                         </span>
@@ -467,42 +465,42 @@ const ListView = () => {
                                                                 width: '24px',
                                                                 height: '24px',
                                                                 borderRadius: '50%',
-                                                                backgroundColor: '#3b82f6',
+                                                                backgroundColor: 'var(--accent)',
                                                                 display: 'flex',
                                                                 alignItems: 'center',
                                                                 justifyContent: 'center',
                                                                 fontSize: '11px',
-                                                                fontWeight: '600',
+                                                                fontWeight: '700',
                                                                 color: '#ffffff'
                                                             }}>
                                                                 {task.userName ? task.userName[0].toUpperCase() : 'U'}
                                                             </div>
-                                                            <span style={{ color: '#e2e8f0', fontSize: '12px' }}>
+                                                            <span style={{ color: 'var(--text-primary)', fontSize: '12px', fontWeight: '500' }}>
                                                                 {task.userName || 'Unassigned'}
                                                             </span>
                                                         </div>
                                                     </td>
 
                                                     {/* Sprint */}
-                                                    <td style={{ padding: '12px 16px', color: '#94a3b8', fontSize: '12px' }}>
+                                                    <td style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: '12px' }}>
                                                         {task.sprintName || '—'}
                                                     </td>
 
                                                     {/* Story Points */}
-                                                    <td style={{ padding: '12px 16px', textAlign: 'center', color: '#cbd5e1' }}>
+                                                    <td style={{ padding: '12px 16px', textAlign: 'center', color: 'var(--text-primary)', fontWeight: '600' }}>
                                                         {task.storyPoints ?? '—'}
                                                     </td>
 
                                                     {/* Time Tracking */}
-                                                    <td style={{ padding: '12px 16px', color: '#94a3b8', fontSize: '12px' }}>
-                                                        <span style={{ color: '#10b981' }}>{formatMinutes(task.timeSpentMinutes)}</span>
+                                                    <td style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: '12px' }}>
+                                                        <span style={{ color: 'var(--success-text)', fontWeight: '600' }}>{formatMinutes(task.timeSpentMinutes)}</span>
                                                         {task.remainingEstimateMinutes ? (
                                                             <span> / {formatMinutes(task.remainingEstimateMinutes)}</span>
                                                         ) : null}
                                                     </td>
 
                                                     {/* Due Date */}
-                                                    <td style={{ padding: '12px 16px', color: '#94a3b8', fontSize: '12px' }}>
+                                                    <td style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: '12px' }}>
                                                         {task.dueDate ? new Date(task.dueDate).toLocaleDateString() : '—'}
                                                     </td>
 
@@ -514,10 +512,11 @@ const ListView = () => {
                                                                 padding: '3px 8px',
                                                                 borderRadius: '4px',
                                                                 fontSize: '11px',
-                                                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                                                color: '#94a3b8',
-                                                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                                                cursor: 'pointer'
+                                                                backgroundColor: 'var(--bg-elevated)',
+                                                                color: 'var(--text-secondary)',
+                                                                border: '1px solid var(--bg-border)',
+                                                                cursor: 'pointer',
+                                                                fontWeight: '600'
                                                             }}
                                                             title="Add Subtask"
                                                         >
@@ -532,30 +531,30 @@ const ListView = () => {
                                                         key={`st-${st.taskId}`}
                                                         onClick={() => handleTaskClick(st)}
                                                         style={{
-                                                            borderBottom: '1px solid rgba(255, 255, 255, 0.03)',
-                                                            backgroundColor: 'rgba(0, 0, 0, 0.18)',
+                                                            borderBottom: '1px solid var(--bg-border-subtle)',
+                                                            backgroundColor: 'var(--bg-overlay)',
                                                             cursor: 'pointer'
                                                         }}
-                                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)'}
-                                                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.18)'}
+                                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-elevated)'}
+                                                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-overlay)'}
                                                     >
-                                                        <td style={{ padding: '10px 8px 10px 24px', color: '#64748b' }}>↳</td>
+                                                        <td style={{ padding: '10px 8px 10px 24px', color: 'var(--text-tertiary)' }}>↳</td>
                                                         <td style={{ padding: '10px 16px' }}>
                                                             <span style={{
                                                                 fontSize: '10px',
                                                                 padding: '1px 6px',
                                                                 borderRadius: '4px',
-                                                                backgroundColor: 'rgba(99, 102, 241, 0.15)',
-                                                                color: '#818cf8',
+                                                                backgroundColor: 'rgba(2, 132, 199, 0.12)',
+                                                                color: 'var(--accent)',
                                                                 fontWeight: '600'
                                                             }}>
                                                                 Sub-task
                                                             </span>
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', color: '#93c5fd', fontSize: '12px' }}>
+                                                        <td style={{ padding: '10px 16px', color: 'var(--accent)', fontSize: '12px', fontWeight: '600' }}>
                                                             {st.issueKey}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', paddingLeft: '32px', color: '#cbd5e1' }}>
+                                                        <td style={{ padding: '10px 16px', paddingLeft: '32px', color: 'var(--text-primary)', fontWeight: '500' }}>
                                                             {st.title}
                                                         </td>
                                                         <td style={{ padding: '10px 16px' }}>
@@ -564,7 +563,7 @@ const ListView = () => {
                                                                 borderRadius: '4px',
                                                                 fontSize: '10px',
                                                                 backgroundColor: `${st.statusColor || '#64748b'}20`,
-                                                                color: st.statusColor || '#94a3b8'
+                                                                color: st.statusColor || 'var(--text-secondary)'
                                                             }}>
                                                                 {st.statusName}
                                                             </span>
@@ -572,19 +571,19 @@ const ListView = () => {
                                                         <td style={{ padding: '10px 16px', fontSize: '11px', color: st.priorityColor }}>
                                                             {st.priorityName}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', fontSize: '12px', color: '#94a3b8' }}>
+                                                        <td style={{ padding: '10px 16px', fontSize: '12px', color: 'var(--text-secondary)' }}>
                                                             {st.userName || 'Unassigned'}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', fontSize: '12px', color: '#64748b' }}>
+                                                        <td style={{ padding: '10px 16px', fontSize: '12px', color: 'var(--text-tertiary)' }}>
                                                             {st.sprintName || '—'}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', textAlign: 'center', color: '#64748b' }}>
+                                                        <td style={{ padding: '10px 16px', textAlign: 'center', color: 'var(--text-secondary)' }}>
                                                             {st.storyPoints ?? '—'}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', fontSize: '11px', color: '#10b981' }}>
+                                                        <td style={{ padding: '10px 16px', fontSize: '11px', color: 'var(--success-text)' }}>
                                                             {formatMinutes(st.timeSpentMinutes)}
                                                         </td>
-                                                        <td style={{ padding: '10px 16px', fontSize: '11px', color: '#64748b' }}>
+                                                        <td style={{ padding: '10px 16px', fontSize: '11px', color: 'var(--text-tertiary)' }}>
                                                             {st.dueDate ? new Date(st.dueDate).toLocaleDateString() : '—'}
                                                         </td>
                                                         <td></td>
@@ -641,3 +640,5 @@ const ListView = () => {
 };
 
 export default ListView;
+
+

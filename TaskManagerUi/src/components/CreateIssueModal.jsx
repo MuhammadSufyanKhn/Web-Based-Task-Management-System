@@ -151,27 +151,27 @@ const CreateIssueModal = ({
             if (e.target === e.currentTarget) onClose();
         }}>
             <div style={{
-                backgroundColor: '#111827',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#ffffff',
+                border: '1px solid #cbdcf7',
                 borderRadius: '12px',
                 width: '100%',
                 maxWidth: '680px',
                 maxHeight: '90vh',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                boxShadow: '0 20px 48px rgba(15, 23, 42, 0.16)',
                 overflow: 'hidden',
-                color: '#f8fafc'
+                color: '#0f172a'
             }}>
                 <div style={{
                     padding: '16px 24px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #cbdcf7',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#161f30'
+                    backgroundColor: '#f8fafd'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span>✨</span> Create Issue
                     </h3>
                     <button
@@ -181,12 +181,12 @@ const CreateIssueModal = ({
                             border: 'none',
                             fontSize: '18px',
                             cursor: 'pointer',
-                            color: '#94a3b8',
+                            color: '#64748b',
                             padding: '4px 8px',
                             borderRadius: '6px'
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = '#0f172a'; e.currentTarget.style.backgroundColor = '#f1f5f9'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = '#64748b'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                     >
                         ✕
                     </button>
@@ -601,16 +601,16 @@ const CreateIssueModal = ({
                     </div>
 
                     {/* Footer Buttons */}
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', borderTop: '1px solid #cbdcf7', paddingTop: '16px' }}>
                         <button
                             type="button"
                             onClick={onClose}
                             style={{
                                 padding: '8px 16px',
                                 backgroundColor: 'transparent',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                border: '1px solid #cbdcf7',
                                 borderRadius: '6px',
-                                color: '#94a3b8',
+                                color: '#64748b',
                                 fontWeight: '600',
                                 cursor: 'pointer'
                             }}
@@ -623,13 +623,13 @@ const CreateIssueModal = ({
                             disabled={loading}
                             style={{
                                 padding: '8px 20px',
-                                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                background: '#1d4ed8',
                                 color: '#ffffff',
                                 border: 'none',
                                 borderRadius: '6px',
-                                fontWeight: '600',
+                                fontWeight: '700',
                                 cursor: 'pointer',
-                                boxShadow: '0 2px 6px rgba(99, 102, 241, 0.35)',
+                                boxShadow: '0 2px 6px rgba(29, 78, 216, 0.3)',
                                 opacity: loading ? 0.7 : 1
                             }}
                         >

@@ -463,26 +463,26 @@ const TaskDetailModal = ({
             if (e.target === e.currentTarget) onClose();
         }}>
             <div style={{
-                backgroundColor: '#111827',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#ffffff',
+                border: '1px solid #cbdcf7',
                 borderRadius: '14px',
                 width: '100%',
                 maxWidth: '1020px',
                 maxHeight: '92vh',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
+                boxShadow: '0 20px 48px rgba(15, 23, 42, 0.16)',
                 overflow: 'hidden',
-                color: '#f8fafc'
+                color: '#0f172a'
             }}>
                 {/* Header */}
                 <div style={{
                     padding: '16px 24px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #cbdcf7',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#161f30'
+                    backgroundColor: '#f8fafd'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <span style={{ fontSize: '18px' }}>
@@ -579,14 +579,15 @@ const TaskDetailModal = ({
                             onClick={handleSave}
                             disabled={!canEdit || saving || loading}
                             style={{
-                                background: canEdit ? '#3b82f6' : 'rgba(255, 255, 255, 0.08)',
-                                color: canEdit ? '#ffffff' : '#64748b',
+                                background: canEdit ? '#1d4ed8' : '#e2edfb',
+                                color: canEdit ? '#ffffff' : '#94a9be',
                                 border: 'none',
                                 borderRadius: '6px',
                                 padding: '6px 16px',
                                 fontSize: '12px',
-                                fontWeight: '600',
-                                cursor: canEdit ? 'pointer' : 'not-allowed'
+                                fontWeight: '700',
+                                cursor: canEdit ? 'pointer' : 'not-allowed',
+                                boxShadow: canEdit ? '0 1px 3px rgba(29, 78, 216, 0.2)' : 'none'
                             }}
                         >
                             {saving ? 'Saving...' : 'Save'}
@@ -599,7 +600,7 @@ const TaskDetailModal = ({
                                 border: 'none',
                                 fontSize: '18px',
                                 cursor: 'pointer',
-                                color: '#94a3b8'
+                                color: '#64748b'
                             }}
                         >
                             ✕
@@ -613,8 +614,8 @@ const TaskDetailModal = ({
                     alignItems: 'center',
                     gap: '4px',
                     padding: '0 24px',
-                    backgroundColor: '#0f172a',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    backgroundColor: '#f8fafd',
+                    borderBottom: '1px solid #cbdcf7',
                     overflowX: 'auto'
                 }}>
                     {navTabs.map(tab => {
@@ -630,9 +631,9 @@ const TaskDetailModal = ({
                                     padding: '12px 14px',
                                     background: 'transparent',
                                     border: 'none',
-                                    borderBottom: isTabActive ? '2px solid #3b82f6' : '2px solid transparent',
-                                    color: isTabActive ? '#ffffff' : '#94a3b8',
-                                    fontWeight: isTabActive ? '600' : '500',
+                                    borderBottom: isTabActive ? '2px solid #1d4ed8' : '2px solid transparent',
+                                    color: isTabActive ? '#1d4ed8' : '#64748b',
+                                    fontWeight: isTabActive ? '700' : '500',
                                     fontSize: '13px',
                                     cursor: 'pointer',
                                     whiteSpace: 'nowrap'
@@ -1275,21 +1276,21 @@ const TaskDetailModal = ({
                         </div>
 
                         {/* RIGHT SIDEBAR PROPERTIES */}
-                        <div style={{ flex: '1 1 35%', padding: '24px', backgroundColor: '#161f30', overflowY: 'auto' }}>
-                            <h4 style={{ margin: '0 0 16px 0', fontSize: '12px', textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '0.6px', fontWeight: '700' }}>
+                        <div style={{ flex: '1 1 35%', padding: '24px', backgroundColor: '#f8fafd', borderLeft: '1px solid #cbdcf7', overflowY: 'auto' }}>
+                            <h4 style={{ margin: '0 0 16px 0', fontSize: '12px', textTransform: 'uppercase', color: '#1e3a8a', letterSpacing: '0.6px', fontWeight: '700' }}>
                                 Issue Properties
                             </h4>
 
                             {/* Status */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>
                                     Status
                                 </label>
                                 <select
                                     value={form.statusId}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, statusId: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', cursor: canEdit ? 'pointer' : 'not-allowed' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', cursor: canEdit ? 'pointer' : 'not-allowed' }}
                                 >
                                     {localStatuses.map(s => (
                                         <option key={s.id} value={s.id}>{s.displayName}</option>
@@ -1299,7 +1300,7 @@ const TaskDetailModal = ({
 
                             {/* Issue Type */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>
                                     Issue Type
                                 </label>
                                 <select
@@ -1309,7 +1310,7 @@ const TaskDetailModal = ({
                                         const opt = ISSUE_TYPE_OPTIONS.find(i => i.name === e.target.selectedOptions[0].text);
                                         setForm({ ...form, issueTypeId: e.target.value, issueTypeName: opt?.name || 'Task' });
                                     }}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', cursor: canEdit ? 'pointer' : 'not-allowed' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', cursor: canEdit ? 'pointer' : 'not-allowed' }}
                                 >
                                     {ISSUE_TYPE_OPTIONS.map((item, idx) => (
                                         <option key={idx} value={idx + 1}>{item.name}</option>
@@ -1320,16 +1321,16 @@ const TaskDetailModal = ({
                             {/* Assignee */}
                             <div style={{ marginBottom: '14px' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                                    <label style={{ fontSize: '12px', fontWeight: '600', color: '#94a3b8' }}>Assignee</label>
+                                    <label style={{ fontSize: '12px', fontWeight: '600', color: '#334155' }}>Assignee</label>
                                     {!canReassign && (
-                                        <span style={{ fontSize: '10px', color: '#fbbf24' }}>🔒 Admin only</span>
+                                        <span style={{ fontSize: '10px', color: '#d97706', fontWeight: '600' }}>🔒 Admin only</span>
                                     )}
                                 </div>
                                 <select
                                     value={form.userId}
                                     disabled={!canReassign}
                                     onChange={(e) => setForm({ ...form, userId: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canReassign ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', cursor: canReassign ? 'pointer' : 'not-allowed' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canReassign ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', cursor: canReassign ? 'pointer' : 'not-allowed' }}
                                 >
                                     <option value="">Unassigned</option>
                                     {localMembers.map(m => (
@@ -1340,12 +1341,12 @@ const TaskDetailModal = ({
 
                             {/* Priority */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>Priority</label>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>Priority</label>
                                 <select
                                     value={form.priorityId}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, priorityId: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', cursor: canEdit ? 'pointer' : 'not-allowed' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', cursor: canEdit ? 'pointer' : 'not-allowed' }}
                                 >
                                     {PRIORITY_OPTIONS.map((p, idx) => (
                                         <option key={idx} value={idx + 1}>{p.icon} {p.name}</option>
@@ -1355,20 +1356,20 @@ const TaskDetailModal = ({
 
                             {/* Story Points */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>Story Points</label>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>Story Points</label>
                                 <input
                                     type="number"
                                     min="0"
                                     value={form.storyPoints}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, storyPoints: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', boxSizing: 'border-box' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', boxSizing: 'border-box' }}
                                 />
                             </div>
 
                             {/* Original Estimate */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>
                                     Original Estimate (minutes)
                                 </label>
                                 <input
@@ -1378,30 +1379,30 @@ const TaskDetailModal = ({
                                     value={form.originalEstimateMinutes}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, originalEstimateMinutes: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', boxSizing: 'border-box' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', boxSizing: 'border-box' }}
                                 />
                             </div>
 
                             {/* Due Date */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>Due Date</label>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>Due Date</label>
                                 <input
                                     type="date"
                                     value={form.dueDate}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc', boxSizing: 'border-box' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a', boxSizing: 'border-box' }}
                                 />
                             </div>
 
                             {/* Sprint */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>Sprint</label>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>Sprint</label>
                                 <select
                                     value={form.sprintId}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, sprintId: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a' }}
                                 >
                                     <option value="">Backlog (No Sprint)</option>
                                     {sprintsList.map(s => (
@@ -1412,12 +1413,12 @@ const TaskDetailModal = ({
 
                             {/* Epic */}
                             <div style={{ marginBottom: '14px' }}>
-                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#94a3b8', marginBottom: '4px' }}>Epic</label>
+                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#334155', marginBottom: '4px' }}>Epic</label>
                                 <select
                                     value={form.epicId}
                                     disabled={!canEdit}
                                     onChange={(e) => setForm({ ...form, epicId: e.target.value })}
-                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.12)', backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)', fontSize: '13px', color: '#f8fafc' }}
+                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '6px', border: '1px solid #cbdcf7', backgroundColor: canEdit ? '#ffffff' : '#f1f5f9', fontSize: '13px', color: '#0f172a' }}
                                 >
                                     <option value="">None (No Epic)</option>
                                     {epicsList.map(ep => (
@@ -1427,7 +1428,7 @@ const TaskDetailModal = ({
                             </div>
 
                             {/* Audit Dates */}
-                            <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', fontSize: '11px', color: '#64748b' }}>
+                            <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid #e2e8f0', fontSize: '11px', color: '#64748b' }}>
                                 <div>Created: {form.createdDate ? new Date(form.createdDate).toLocaleDateString() : 'N/A'}</div>
                                 {form.updatedDate && (
                                     <div style={{ marginTop: '4px' }}>

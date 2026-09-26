@@ -7,7 +7,6 @@ import BurndownChart from '../components/charts/BurndownChart';
 import VelocityBarChart from '../components/charts/VelocityBarChart';
 import BreakdownBarChart from '../components/charts/BreakdownBarChart';
 import DonutChart from '../components/charts/DonutChart';
-import AppNavbar from '../components/AppNavbar';
 
 const ISSUE_TYPE_ICONS = {
     Bug: '🐞',
@@ -155,105 +154,30 @@ const ProjectReports = () => {
         <div style={{
             display: 'flex',
             flexDirection: 'column',
-            height: '100vh',
-            width: '100vw',
-            overflow: 'hidden',
-            backgroundColor: '#fafbfc',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+                                    overflow: 'hidden',
+            fontFamily: 'var(--font-sans)',
+            backgroundColor: 'var(--bg-base)'
         }}>
-            <AppNavbar />
             {/* Top Navigation Header */}
             <header style={{
                 height: '56px',
-                backgroundColor: '#0c66e4',
-                color: '#ffffff',
+                backgroundColor: 'var(--bg-surface)',
+                color: 'var(--text-primary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '0 24px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
+                borderBottom: '1px solid var(--bg-border)',
+                boxShadow: 'var(--shadow-sm)',
                 zIndex: 10,
                 flexShrink: 0
             }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '800', fontSize: '18px', letterSpacing: '0.5px' }}>
-                        <span>📊</span> Project Reports & Analytics
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '800', fontSize: '18px', letterSpacing: '-0.3px', color: 'var(--text-primary)' }}>
+                        <span style={{ fontSize: '20px' }}>📊</span> Project Reports & Analytics
                     </div>
-                    <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px' }}>|</span>
-                    <span style={{ fontSize: '14px', fontWeight: '500', color: '#e9f2ff' }}>Task Management System</span>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <Link
-                        to="/kanban"
-                        style={{
-                            color: '#ffffff',
-                            textDecoration: 'none',
-                            fontSize: '13px',
-                            fontWeight: '600',
-                            padding: '6px 12px',
-                            borderRadius: '4px',
-                            backgroundColor: 'rgba(255,255,255,0.15)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px'
-                        }}
-                    >
-                        📋 Kanban Board
-                    </Link>
-
-                    <Link
-                        to="/backlog"
-                        style={{
-                            color: '#ffffff',
-                            textDecoration: 'none',
-                            fontSize: '13px',
-                            fontWeight: '600',
-                            padding: '6px 12px',
-                            borderRadius: '4px',
-                            backgroundColor: '#2c3e50',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px'
-                        }}
-                    >
-                        📖 Backlog & Sprints
-                    </Link>
-
-                    {userRole === 'Admin' && (
-                        <Link
-                            to="/project-settings"
-                            style={{
-                                color: '#ffffff',
-                                textDecoration: 'none',
-                                fontSize: '13px',
-                                fontWeight: '600',
-                                padding: '6px 12px',
-                                borderRadius: '4px',
-                                border: '1px solid rgba(255,255,255,0.3)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px'
-                            }}
-                        >
-                            ⚙️ Project Settings
-                        </Link>
-                    )}
-
-                    <Link
-                        to={userRole === 'Admin' ? '/Admin-dashboard' : '/dashboard'}
-                        style={{
-                            color: '#ffffff',
-                            textDecoration: 'none',
-                            fontSize: '13px',
-                            fontWeight: '600',
-                            padding: '6px 12px',
-                            borderRadius: '4px',
-                            backgroundColor: 'rgba(255,255,255,0.12)'
-                        }}
-                    >
-                        ← Exit
-                    </Link>
+                    <span style={{ color: 'var(--bg-border)', fontSize: '16px' }}>|</span>
+                    <span style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-tertiary)' }}>Task Management System</span>
                 </div>
             </header>
 
@@ -1294,3 +1218,5 @@ const ProjectReports = () => {
 };
 
 export default ProjectReports;
+
+

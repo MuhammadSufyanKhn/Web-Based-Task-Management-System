@@ -5,7 +5,6 @@ import api from '../Api/Axios';
 import KanbanColumn from '../components/KanbanColumn';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
-import AppNavbar from '../components/AppNavbar';
 import PermissionModal from '../components/PermissionModal';
 
 const KanbanBoard = () => {
@@ -206,28 +205,9 @@ const KanbanBoard = () => {
     };
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100vh',
-            width: '100vw',
-            overflow: 'hidden',
-            backgroundColor: '#0b0f19',
-            color: '#f8fafc',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
-        }}>
-            <AppNavbar />
-
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', flex: 1, overflow: 'hidden' }}>
             {/* Filter and Control Toolbar */}
-            <div style={{
-                padding: '12px 24px',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                display: 'flex',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '12px',
-                backgroundColor: '#0f172a'
-            }}>
+            <div className="toolbar" style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #d4e4f8', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                 {/* Search */}
                 <div style={{ position: 'relative', width: '220px' }}>
                     <input
@@ -238,11 +218,11 @@ const KanbanBoard = () => {
                         style={{
                             width: '100%',
                             padding: '7px 12px 7px 32px',
-                            backgroundColor: '#1e293b',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            backgroundColor: '#ffffff',
+                            border: '1px solid #d4e4f8',
                             borderRadius: '6px',
                             fontSize: '13px',
-                            color: '#f8fafc',
+                            color: '#0d233a',
                             outline: 'none',
                             boxSizing: 'border-box'
                         }}
@@ -258,9 +238,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 12px',
                         borderRadius: '6px',
-                        border: onlyMyTasks ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.12)',
-                        backgroundColor: onlyMyTasks ? 'rgba(99, 102, 241, 0.2)' : '#1e293b',
-                        color: onlyMyTasks ? '#a5b4fc' : '#cbd5e1',
+                        border: onlyMyTasks ? '1px solid #0284c7' : '1px solid #d4e4f8',
+                        backgroundColor: onlyMyTasks ? '#dbeafe' : '#ffffff',
+                        color: onlyMyTasks ? '#0284c7' : '#2b4764',
                         fontWeight: '600',
                         fontSize: '13px',
                         cursor: 'pointer',
@@ -280,10 +260,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        border: '1px solid #d4e4f8',
                         fontSize: '13px',
-                        color: '#cbd5e1',
-                        backgroundColor: '#1e293b'
+                        color: '#0d233a',
+                        backgroundColor: '#ffffff'
                     }}
                 >
                     <option value="">All Assignees</option>
@@ -299,10 +279,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        border: '1px solid #d4e4f8',
                         fontSize: '13px',
-                        color: '#cbd5e1',
-                        backgroundColor: '#1e293b'
+                        color: '#0d233a',
+                        backgroundColor: '#ffffff'
                     }}
                 >
                     <option value="All">All Priorities</option>
@@ -318,10 +298,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        border: '1px solid #d4e4f8',
                         fontSize: '13px',
-                        color: '#cbd5e1',
-                        backgroundColor: '#1e293b'
+                        color: '#0d233a',
+                        backgroundColor: '#ffffff'
                     }}
                 >
                     <option value="All">All Issue Types</option>
@@ -337,10 +317,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        border: '1px solid #d4e4f8',
                         fontSize: '13px',
-                        color: '#cbd5e1',
-                        backgroundColor: '#1e293b'
+                        color: '#0d233a',
+                        backgroundColor: '#ffffff'
                     }}
                 >
                     <option value="All">All Labels</option>
@@ -356,10 +336,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: selectedSprint !== 'all' ? '1px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.12)',
+                        border: selectedSprint !== 'all' ? '1px solid #0284c7' : '1px solid #d4e4f8',
                         fontSize: '13px',
-                        color: selectedSprint !== 'all' ? '#a5b4fc' : '#cbd5e1',
-                        backgroundColor: '#1e293b',
+                        color: selectedSprint !== 'all' ? '#0284c7' : '#0d233a',
+                        backgroundColor: selectedSprint !== 'all' ? '#e0f2fe' : '#ffffff',
                         fontWeight: selectedSprint !== 'all' ? '600' : 'normal'
                     }}
                 >
@@ -387,13 +367,14 @@ const KanbanBoard = () => {
                         style={{
                             background: 'transparent',
                             border: 'none',
-                            color: '#818cf8',
+                            color: '#0284c7',
                             cursor: 'pointer',
                             fontSize: '13px',
-                            fontWeight: '600'
+                            fontWeight: '600',
+                            padding: '4px 8px'
                         }}
                     >
-                        Clear Filters
+                        ✕ Clear
                     </button>
                 )}
 
@@ -402,20 +383,21 @@ const KanbanBoard = () => {
                         onClick={fetchBoard}
                         title="Refresh board"
                         style={{
-                            background: '#1e293b',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            background: '#f0f7ff',
+                            border: '1px solid #d4e4f8',
                             borderRadius: '6px',
                             padding: '6px 12px',
                             fontSize: '13px',
                             cursor: 'pointer',
-                            color: '#cbd5e1',
+                            color: '#0284c7',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '6px',
+                            fontWeight: '600',
                             transition: 'all 0.15s ease'
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#ffffff'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#1e293b'; e.currentTarget.style.color = '#cbd5e1'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#dbeafe'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f0f7ff'; }}
                     >
                         <span>🔄</span> Refresh
                     </button>
@@ -426,7 +408,7 @@ const KanbanBoard = () => {
                             setCreateModalOpen(true);
                         }}
                         style={{
-                            background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                            background: '#0284c7',
                             color: '#ffffff',
                             border: 'none',
                             borderRadius: '6px',
@@ -434,11 +416,11 @@ const KanbanBoard = () => {
                             fontSize: '13px',
                             fontWeight: '700',
                             cursor: 'pointer',
-                            boxShadow: '0 2px 6px rgba(99, 102, 241, 0.35)',
+                            boxShadow: '0 2px 6px rgba(2, 132, 199, 0.3)',
                             transition: 'all 0.15s ease'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0369a1'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0284c7'}
                     >
                         + Create Issue
                     </button>
@@ -448,36 +430,36 @@ const KanbanBoard = () => {
             {/* Active Sprint Banner */}
             {activeSprint && (selectedSprint === 'active' || selectedSprint === String(activeSprint.id) || selectedSprint === 'all') && (
                 <div style={{
-                    padding: '8px 24px',
-                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                    borderBottom: '1px solid rgba(99, 102, 241, 0.25)',
+                    padding: '10px 24px',
+                    backgroundColor: '#eaf2fe',
+                    borderBottom: '1px solid #bfdbfe',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     fontSize: '13px',
-                    color: '#e2e8f0'
+                    color: '#1e3a8a'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                         <span style={{
-                            backgroundColor: '#6366f1',
+                            backgroundColor: '#1d4ed8',
                             color: '#ffffff',
-                            padding: '2px 8px',
+                            padding: '3px 10px',
                             borderRadius: '12px',
                             fontWeight: '700',
                             fontSize: '11px',
-                            letterSpacing: '0.3px',
+                            letterSpacing: '0.4px',
                             textTransform: 'uppercase'
                         }}>
                             ⚡ Active Sprint
                         </span>
-                        <strong style={{ fontSize: '13px', color: '#f8fafc' }}>{activeSprint.name}</strong>
+                        <strong style={{ fontSize: '14px', color: '#1e3a8a', fontWeight: '800' }}>{activeSprint.name}</strong>
                         {activeSprint.goal && (
-                            <span style={{ color: '#94a3b8', fontStyle: 'italic', fontSize: '12px' }}>
+                            <span style={{ color: '#2563eb', fontStyle: 'italic', fontSize: '13px', fontWeight: '500' }}>
                                 &ldquo;{activeSprint.goal}&rdquo;
                             </span>
                         )}
                         {activeSprint.endDate && (
-                            <span style={{ color: '#64748b', fontSize: '12px' }}>
+                            <span style={{ color: '#475569', fontSize: '12px', fontWeight: '500' }}>
                                 (Ends {new Date(activeSprint.endDate).toLocaleDateString()})
                             </span>
                         )}
@@ -485,10 +467,10 @@ const KanbanBoard = () => {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                             <span style={{
-                                width: '22px',
-                                height: '22px',
+                                width: '24px',
+                                height: '24px',
                                 borderRadius: '50%',
-                                backgroundColor: '#6366f1',
+                                backgroundColor: '#1d4ed8',
                                 color: '#ffffff',
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -498,7 +480,7 @@ const KanbanBoard = () => {
                             }}>
                                 {activeSprint.issues?.reduce((acc, i) => acc + (i.storyPoints || 0), 0) || 0}
                             </span>
-                            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Story Points</span>
+                            <span style={{ fontSize: '12px', color: '#1e3a8a', fontWeight: '700' }}>Story Points</span>
                         </div>
                     </div>
                 </div>
@@ -508,9 +490,9 @@ const KanbanBoard = () => {
             {error && (
                 <div style={{
                     padding: '10px 24px',
-                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                    borderBottom: '1px solid rgba(239, 68, 68, 0.3)',
-                    color: '#f87171',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    borderBottom: '1px solid rgba(239, 68, 68, 0.25)',
+                    color: '#dc2626',
                     fontSize: '13px',
                     fontWeight: '600'
                 }}>
@@ -526,7 +508,7 @@ const KanbanBoard = () => {
                 gap: '16px',
                 overflowX: 'auto',
                 overflowY: 'hidden',
-                backgroundColor: '#0b0f19'
+                backgroundColor: '#f8fafd'
             }}>
                 {loading ? (
                     <div style={{
@@ -594,3 +576,4 @@ const KanbanBoard = () => {
 };
 
 export default KanbanBoard;
+

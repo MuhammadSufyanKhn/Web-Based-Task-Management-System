@@ -39,7 +39,7 @@ namespace TaskManagementAPI.Data
             modelBuilder.Entity<Label>().ToTable("Labels");
             modelBuilder.Entity<ProjectComponent>().ToTable("ProjectComponents");
             modelBuilder.Entity<WorkflowTransition>().ToTable("WorkflowTransitions");
-            modelBuilder.Entity<JiraSetting>().ToTable("JiraSettings");
+            modelBuilder.Entity<JiraSetting>().ToTable("JiraSettings").Ignore(j => j.LastSyncedAt);
             modelBuilder.Entity<Sprint>().ToTable("Sprints");
             modelBuilder.Entity<Epic>().ToTable("Epics");
             modelBuilder.Entity<TaskTimeLog>().ToTable("TaskTimeLogs");

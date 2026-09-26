@@ -24,97 +24,78 @@ import ListView from './pages/ListView';
 import CalendarView from './pages/CalendarView';
 import TimelineView from './pages/TimelineView';
 import GanttView from './pages/GanttView';
+import AppNavbar from './components/AppNavbar';
 
+// Auth guard
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
+    if (!token) return <Navigate to="/login" replace />;
+    return children;
+};
+ProtectedRoute.propTypes = { children: PropTypes.node.isRequired };
 
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-};
-ProtectedRoute.propTypes = {
-  children: PropTypes.node.isRequired
-};
+// Pages that use the sidebar shell layout
+const WithSidebar = ({ children }) => (
+    <div className="app-shell">
+        <AppNavbar />
+        <main className="app-main">
+            {children}
+        </main>
+    </div>
+);
+WithSidebar.propTypes = { children: PropTypes.node.isRequired };
+
+const ProtectedWithSidebar = ({ children }) => (
+    <ProtectedRoute>
+        <WithSidebar>{children}</WithSidebar>
+    </ProtectedRoute>
+);
+ProtectedWithSidebar.propTypes = { children: PropTypes.node.isRequired };
+
+// Pages that are full-screen (auth pages) — no sidebar
+const Standalone = ({ children }) => (
+    <div style={{ width: '100%' }}>{children}</div>
+);
+Standalone.propTypes = { children: PropTypes.node.isRequired };
 
 function App() {
-  return (
-    <Router>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+    return (
+        <Router>
+            <Routes>
+                {/* Auth routes — no sidebar */}
+                <Route path="/"        element={<Navigate to="/login" />} />
+                <Route path="/login"    element={<Standalone><Login /></Standalone>} />
+                <Route path="/register" element={<Standalone><Register /></Standalone>} />
 
-          {/* Views: Kanban Board, List, Calendar, Timeline, Gantt, Backlog, Reports & Settings */}
-          <Route path="/kanban" element={
-            <ProtectedRoute> <KanbanBoard /> </ProtectedRoute>
-          } />
-          <Route path="/list" element={
-            <ProtectedRoute> <ListView /> </ProtectedRoute>
-          } />
-          <Route path="/calendar" element={
-            <ProtectedRoute> <CalendarView /> </ProtectedRoute>
-          } />
-          <Route path="/timeline" element={
-            <ProtectedRoute> <TimelineView /> </ProtectedRoute>
-          } />
-          <Route path="/gantt" element={
-            <ProtectedRoute> <GanttView /> </ProtectedRoute>
-          } />
-          <Route path="/backlog" element={
-            <ProtectedRoute> <Backlog /> </ProtectedRoute>
-          } />
-          <Route path="/reports" element={
-            <ProtectedRoute> <ProjectReports /> </ProtectedRoute>
-          } />
-          <Route path="/project-settings" element={
-            <ProtectedRoute> <ProjectSettings /> </ProtectedRoute>
-          } />
+                {/* Project views — with sidebar */}
+                <Route path="/kanban"   element={<ProtectedWithSidebar><KanbanBoard /></ProtectedWithSidebar>} />
+                <Route path="/list"     element={<ProtectedWithSidebar><ListView /></ProtectedWithSidebar>} />
+                <Route path="/calendar" element={<ProtectedWithSidebar><CalendarView /></ProtectedWithSidebar>} />
+                <Route path="/timeline" element={<ProtectedWithSidebar><TimelineView /></ProtectedWithSidebar>} />
+                <Route path="/gantt"    element={<ProtectedWithSidebar><GanttView /></ProtectedWithSidebar>} />
+                <Route path="/backlog"  element={<ProtectedWithSidebar><Backlog /></ProtectedWithSidebar>} />
+                <Route path="/reports"  element={<ProtectedWithSidebar><ProjectReports /></ProtectedWithSidebar>} />
+                <Route path="/project-settings" element={<ProtectedWithSidebar><ProjectSettings /></ProtectedWithSidebar>} />
 
-          <Route path="/dashboard" element={
-            <ProtectedRoute> <Dashboard /> </ProtectedRoute>
-          } />
-          <Route path="/my-tasks" element={
-            <ProtectedRoute> <TaskList /> </ProtectedRoute>
-          } />
-          <Route path="/create-task" element={
-            <ProtectedRoute> <CreateTask /> </ProtectedRoute>
-          } />
-          <Route path="/edit-task/:id" element={
-            <ProtectedRoute> <EditTask /> </ProtectedRoute>
-          } />
-          <Route path="/profile" element={
-            <ProtectedRoute> <Profile /> </ProtectedRoute>
-          } />
-          <Route path="/ViewTaskDetails/:id" element={
-            <ProtectedRoute> <ViewTaskDetails /> </ProtectedRoute>
-          } />
-          <Route path="/view-all-tasks" element={
-            <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
-          } />
-          <Route path="/view-all-tasks/:userId" element={
-            <ProtectedRoute> <ViewAllTasks /> </ProtectedRoute>
-          } />
-          <Route path="/Admin-dashboard" element={
-            <ProtectedRoute> <AdminDashboard /> </ProtectedRoute>
-          } />
-          <Route path="/AdminAllTasks" element={
-            <ProtectedRoute> <AdminAllTasks /> </ProtectedRoute>
-          } />
-          <Route path="/AllUsersList" element={
-            <ProtectedRoute> <AllUsersList /> </ProtectedRoute>
-          } />
-          <Route path="/Admin-edit-task/:id" element={
-            <ProtectedRoute> <AdminEditTask /> </ProtectedRoute>
-          } />
-          <Route path="/Admin-edit-user/:id" element={
-            <ProtectedRoute> <AdminEditUser /> </ProtectedRoute>
-          } />
-        </Routes>
-      </div>
-    </Router>
-  );
+                {/* User routes — with sidebar */}
+                <Route path="/dashboard"    element={<ProtectedWithSidebar><Dashboard /></ProtectedWithSidebar>} />
+                <Route path="/my-tasks"     element={<ProtectedWithSidebar><TaskList /></ProtectedWithSidebar>} />
+                <Route path="/create-task"  element={<ProtectedWithSidebar><CreateTask /></ProtectedWithSidebar>} />
+                <Route path="/edit-task/:id" element={<ProtectedWithSidebar><EditTask /></ProtectedWithSidebar>} />
+                <Route path="/profile"      element={<ProtectedWithSidebar><Profile /></ProtectedWithSidebar>} />
+                <Route path="/ViewTaskDetails/:id" element={<ProtectedWithSidebar><ViewTaskDetails /></ProtectedWithSidebar>} />
+                <Route path="/view-all-tasks"      element={<ProtectedWithSidebar><ViewAllTasks /></ProtectedWithSidebar>} />
+                <Route path="/view-all-tasks/:userId" element={<ProtectedWithSidebar><ViewAllTasks /></ProtectedWithSidebar>} />
+
+                {/* Admin routes — with sidebar */}
+                <Route path="/Admin-dashboard" element={<ProtectedWithSidebar><AdminDashboard /></ProtectedWithSidebar>} />
+                <Route path="/AdminAllTasks"   element={<ProtectedWithSidebar><AdminAllTasks /></ProtectedWithSidebar>} />
+                <Route path="/AllUsersList"    element={<ProtectedWithSidebar><AllUsersList /></ProtectedWithSidebar>} />
+                <Route path="/Admin-edit-task/:id" element={<ProtectedWithSidebar><AdminEditTask /></ProtectedWithSidebar>} />
+                <Route path="/Admin-edit-user/:id" element={<ProtectedWithSidebar><AdminEditUser /></ProtectedWithSidebar>} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

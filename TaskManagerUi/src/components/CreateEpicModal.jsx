@@ -55,29 +55,29 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
             padding: '20px'
         }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
             <div style={{
-                backgroundColor: '#111827',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                backgroundColor: '#ffffff',
+                border: '1px solid #cbdcf7',
                 borderRadius: '12px',
                 width: '100%',
                 maxWidth: '520px',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.25)',
                 overflow: 'hidden',
-                color: '#f8fafc'
+                color: '#0f172a'
             }}>
                 <div style={{
                     padding: '16px 20px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #e2e8f0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#161f30'
+                    backgroundColor: '#f8fafd'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#f8fafc' }}>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#1e3a8a' }}>
                         ⚡ Create Epic
                     </h3>
                     <button
                         onClick={onClose}
-                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#94a3b8' }}
+                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#64748b' }}
                     >
                         ✕
                     </button>
@@ -86,9 +86,9 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                 {error && (
                     <div style={{
                         padding: '10px 20px',
-                        backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                        borderBottom: '1px solid rgba(239, 68, 68, 0.3)',
-                        color: '#f87171',
+                        backgroundColor: '#fef2f2',
+                        borderBottom: '1px solid #fecaca',
+                        color: '#b91c1c',
                         fontSize: '13px',
                         fontWeight: '600'
                     }}>
@@ -98,7 +98,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
 
                 <form onSubmit={handleSubmit} style={{ padding: '20px' }}>
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                             Epic Name <span style={{ color: '#ef4444' }}>*</span>
                         </label>
                         <input
@@ -111,9 +111,9 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                                 width: '100%',
                                 padding: '8px 10px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbdcf7',
                                 fontSize: '14px',
                                 boxSizing: 'border-box'
                             }}
@@ -121,7 +121,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                     </div>
 
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                             Summary / Goal
                         </label>
                         <textarea
@@ -133,9 +133,9 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                                 width: '100%',
                                 padding: '8px 10px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbdcf7',
                                 fontSize: '13px',
                                 boxSizing: 'border-box',
                                 fontFamily: 'inherit'
@@ -144,7 +144,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                     </div>
 
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#334155', marginBottom: '6px' }}>
                             Epic Color
                         </label>
                         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -158,7 +158,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                                         borderRadius: '6px',
                                         backgroundColor: c,
                                         cursor: 'pointer',
-                                        border: colorHex === c ? '2px solid #ffffff' : '2px solid transparent',
+                                        border: colorHex === c ? '2px solid #1d4ed8' : '2px solid transparent',
                                         boxShadow: colorHex === c ? `0 0 8px ${c}` : 'none',
                                         transition: 'transform 0.1s ease',
                                         transform: colorHex === c ? 'scale(1.15)' : 'scale(1)'
@@ -170,7 +170,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
 
                     <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                                 Start Date
                             </label>
                             <input
@@ -181,9 +181,9 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                                     width: '100%',
                                     padding: '8px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbdcf7',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -191,7 +191,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                         </div>
 
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#334155', marginBottom: '4px' }}>
                                 Due Date
                             </label>
                             <input
@@ -202,9 +202,9 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                                     width: '100%',
                                     padding: '8px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbdcf7',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -212,17 +212,18 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid #e2e8f0', paddingTop: '16px' }}>
                         <button
                             type="button"
                             onClick={onClose}
                             style={{
                                 padding: '8px 16px',
-                                backgroundColor: 'transparent',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#f1f5f9',
+                                border: '1px solid #cbdcf7',
                                 borderRadius: '6px',
-                                color: '#94a3b8',
-                                cursor: 'pointer'
+                                color: '#475569',
+                                cursor: 'pointer',
+                                fontWeight: '600'
                             }}
                         >
                             Cancel
@@ -232,7 +233,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
                             disabled={loading}
                             style={{
                                 padding: '8px 20px',
-                                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
                                 color: '#ffffff',
                                 border: 'none',
                                 borderRadius: '6px',

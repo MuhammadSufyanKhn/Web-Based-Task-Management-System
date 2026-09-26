@@ -114,14 +114,19 @@ namespace TaskManagementAPI.Models.DTOS
     public class JiraConfigDto
     {
         public string JiraUrl { get; set; } = string.Empty;
+        public string? JiraBaseUrl { get; set; }
         public string ProjectKey { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public string? UserEmail { get; set; }
         public string? ApiToken { get; set; }
         public bool AutoSync { get; set; }
         public string ConnectionStatus { get; set; } = "Disconnected";
         public DateTime? LastSyncedAt { get; set; }
         public string? LastSyncError { get; set; }
         public bool HasApiToken { get; set; }
+        public bool IsConfigured { get; set; }
+        public string? MaskedApiToken { get; set; }
+        public string? WebhookUrl { get; set; }
     }
 
     public class JiraTestConnectionResultDto

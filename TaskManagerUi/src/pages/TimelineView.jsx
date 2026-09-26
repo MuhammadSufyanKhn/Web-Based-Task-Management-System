@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import api from '../Api/Axios';
-import AppNavbar from '../components/AppNavbar';
-import ViewSwitcher from '../components/ViewSwitcher';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
 
@@ -106,34 +104,32 @@ const TimelineView = () => {
     }, [tasks, groupBy]);
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#090d16', color: '#f8fafc' }}>
-            <AppNavbar />
-
+        <div style={{ minHeight: '100%', backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}>
             <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '24px 20px' }}>
-                <ViewSwitcher
-                    rightContent={
-                        <button
-                            onClick={() => setIsCreateModalOpen(true)}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                padding: '8px 16px',
-                                backgroundColor: '#3b82f6',
-                                color: '#ffffff',
-                                border: 'none',
-                                borderRadius: '8px',
-                                fontSize: '13px',
-                                fontWeight: '600',
-                                cursor: 'pointer',
-                                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
-                            }}
-                        >
-                            <span>+</span>
-                            <span>Create Issue</span>
-                        </button>
-                    }
-                />
+                {/* Page Header */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+                    <div>
+                        <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.4px' }}>Timeline</h1>
+                        <p style={{ fontSize: '13px', color: 'var(--text-tertiary)', margin: '3px 0 0 0' }}>Visualize issue schedules, milestones, and sprint roadmaps</p>
+                    </div>
+                    <button
+                        onClick={() => setIsCreateModalOpen(true)}
+                        className="btn btn-primary"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '8px 18px',
+                            borderRadius: '8px',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        <span>+</span>
+                        <span>Create Issue</span>
+                    </button>
+                </div>
 
                 {/* Toolbar */}
                 <div style={{
@@ -143,42 +139,46 @@ const TimelineView = () => {
                     flexWrap: 'wrap',
                     gap: '14px',
                     marginBottom: '20px',
-                    padding: '16px',
-                    backgroundColor: '#0f172a',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '12px'
+                    padding: '16px 20px',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #cbdcf7',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 16px -4px rgba(48, 92, 222, 0.08)'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <h2 style={{ margin: 0, fontSize: '18px', fontWeight: '700', color: '#ffffff' }}>
+                        <h2 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#0f172a', letterSpacing: '-0.3px' }}>
                             Roadmap & Timeline
                         </h2>
-                        <span style={{ fontSize: '12px', color: '#94a3b8' }}>
+                        <span style={{ fontSize: '12px', color: '#64748b', fontWeight: '500' }}>
                             (Weekly Scale)
                         </span>
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontSize: '13px', color: '#94a3b8' }}>Group by:</span>
+                        <span style={{ fontSize: '13px', color: '#475569', fontWeight: '600' }}>Group by:</span>
                         <div style={{
                             display: 'flex',
-                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                            padding: '3px',
-                            borderRadius: '8px'
+                            backgroundColor: '#f1f5fd',
+                            padding: '4px',
+                            borderRadius: '10px',
+                            border: '1px solid #cbdcf7'
                         }}>
                             {['sprint', 'epic', 'assignee'].map(type => (
                                 <button
                                     key={type}
                                     onClick={() => setGroupBy(type)}
                                     style={{
-                                        padding: '5px 12px',
-                                        borderRadius: '6px',
+                                        padding: '6px 14px',
+                                        borderRadius: '7px',
                                         border: 'none',
                                         fontSize: '12px',
-                                        fontWeight: groupBy === type ? '600' : '500',
-                                        color: groupBy === type ? '#ffffff' : '#94a3b8',
-                                        backgroundColor: groupBy === type ? '#3b82f6' : 'transparent',
+                                        fontWeight: groupBy === type ? '700' : '600',
+                                        color: groupBy === type ? '#ffffff' : '#475569',
+                                        backgroundColor: groupBy === type ? '#305CDE' : 'transparent',
                                         cursor: 'pointer',
-                                        textTransform: 'capitalize'
+                                        textTransform: 'capitalize',
+                                        boxShadow: groupBy === type ? '0 2px 6px rgba(48, 92, 222, 0.35)' : 'none',
+                                        transition: 'all 0.15s ease'
                                     }}
                                 >
                                     {type}
@@ -190,27 +190,28 @@ const TimelineView = () => {
 
                 {/* Timeline Visualization Container */}
                 {loading ? (
-                    <div style={{ textAlign: 'center', padding: '60px 0', color: '#94a3b8' }}>
+                    <div style={{ textAlign: 'center', padding: '60px 0', color: '#64748b' }}>
                         <div style={{ fontSize: '28px', marginBottom: '8px' }}>⚡</div>
                         <div>Loading timeline roadmap...</div>
                     </div>
                 ) : (
                     <div style={{
-                        backgroundColor: '#0f172a',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbdcf7',
                         borderRadius: '12px',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 20px -4px rgba(48, 92, 222, 0.08)'
                     }}>
                         {/* Timeline Header scale */}
                         <div style={{
                             display: 'flex',
-                            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                            borderBottom: '1px solid #cbdcf7',
+                            backgroundColor: '#f8fafd',
                             padding: '12px 0',
                             position: 'relative'
                         }}>
                             {/* Left label space */}
-                            <div style={{ width: '220px', paddingLeft: '20px', fontWeight: '600', fontSize: '12px', color: '#94a3b8' }}>
+                            <div style={{ width: '220px', paddingLeft: '20px', fontWeight: '700', fontSize: '11px', textTransform: 'uppercase', color: '#305CDE', letterSpacing: '0.6px' }}>
                                 Group / Issue
                             </div>
 
@@ -226,7 +227,8 @@ const TimelineView = () => {
                                                 left: `${leftPct}%`,
                                                 transform: 'translateX(-50%)',
                                                 fontSize: '11px',
-                                                color: '#64748b',
+                                                color: '#305CDE',
+                                                fontWeight: '600',
                                                 whiteSpace: 'nowrap'
                                             }}
                                         >
@@ -256,26 +258,27 @@ const TimelineView = () => {
                         <div style={{ maxHeight: '720px', overflowY: 'auto' }}>
                             {groupedData.map(([groupKey, group]) => {
                                 return (
-                                    <div key={groupKey} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                                    <div key={groupKey} style={{ borderBottom: '1px solid #eef3fc' }}>
                                         {/* Group Header Banner */}
                                         <div style={{
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'space-between',
                                             padding: '10px 20px',
-                                            backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                                            backgroundColor: '#f4f8fe',
+                                            borderBottom: '1px solid #e2edfb',
                                             fontSize: '13px',
                                             fontWeight: '700',
-                                            color: '#60a5fa'
+                                            color: '#1e3a8a'
                                         }}>
                                             <span>📁 {group.title}</span>
-                                            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>
+                                            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '600' }}>
                                                 {group.tasks.length} {group.tasks.length === 1 ? 'issue' : 'issues'}
                                             </span>
                                         </div>
 
                                         {/* Task Bars */}
-                                        <div style={{ padding: '8px 0' }}>
+                                        <div style={{ padding: '6px 0' }}>
                                             {group.tasks.map(task => {
                                                 const barStyle = getBarStyles(task);
                                                 const isDone = task.statusCategory === 'Done';
@@ -287,13 +290,14 @@ const TimelineView = () => {
                                                         style={{
                                                             display: 'flex',
                                                             alignItems: 'center',
-                                                            height: '38px',
+                                                            height: '40px',
                                                             padding: '0 20px',
                                                             cursor: 'pointer',
                                                             position: 'relative',
-                                                            transition: 'background-color 0.15s'
+                                                            borderBottom: '1px solid #f8fafc',
+                                                            transition: 'background-color 0.15s ease'
                                                         }}
-                                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'}
+                                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafd'}
                                                         onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                                     >
                                                         {/* Left title info */}
@@ -305,10 +309,10 @@ const TimelineView = () => {
                                                             whiteSpace: 'nowrap',
                                                             fontSize: '12px'
                                                         }}>
-                                                            <strong style={{ color: '#93c5fd', marginRight: '6px' }}>
+                                                            <strong style={{ color: '#305CDE', marginRight: '6px' }}>
                                                                 {task.issueKey}
                                                             </strong>
-                                                            <span style={{ color: '#cbd5e1' }}>{task.title}</span>
+                                                            <span style={{ color: '#0f172a', fontWeight: '500' }}>{task.title}</span>
                                                         </div>
 
                                                         {/* Bar Chart Area */}
@@ -320,25 +324,26 @@ const TimelineView = () => {
                                                                     width: barStyle.width,
                                                                     height: '24px',
                                                                     borderRadius: '6px',
-                                                                    backgroundColor: isDone ? 'rgba(16, 185, 129, 0.25)' : 'rgba(59, 130, 246, 0.25)',
-                                                                    border: isDone ? '1px solid #10b981' : '1px solid #3b82f6',
+                                                                    backgroundColor: isDone ? '#dcfce7' : '#eef3fd',
+                                                                    border: isDone ? '1px solid #86efac' : '1px solid #305CDE',
                                                                     display: 'flex',
                                                                     alignItems: 'center',
                                                                     padding: '0 8px',
                                                                     fontSize: '11px',
-                                                                    fontWeight: '600',
-                                                                    color: '#ffffff',
-                                                                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)',
+                                                                    fontWeight: '700',
+                                                                    color: isDone ? '#15803d' : '#1e3a8a',
+                                                                    boxShadow: '0 2px 6px rgba(48, 92, 222, 0.12)',
                                                                     whiteSpace: 'nowrap',
                                                                     overflow: 'hidden',
-                                                                    textOverflow: 'ellipsis'
+                                                                    textOverflow: 'ellipsis',
+                                                                    transition: 'all 0.15s ease'
                                                                 }}
                                                             >
                                                                 <span style={{
                                                                     width: '6px',
                                                                     height: '6px',
                                                                     borderRadius: '50%',
-                                                                    backgroundColor: isDone ? '#10b981' : (task.statusColor || '#3b82f6'),
+                                                                    backgroundColor: isDone ? '#16a34a' : (task.statusColor || '#305CDE'),
                                                                     marginRight: '6px',
                                                                     flexShrink: 0
                                                                 }} />
@@ -385,3 +390,5 @@ const TimelineView = () => {
 };
 
 export default TimelineView;
+
+
