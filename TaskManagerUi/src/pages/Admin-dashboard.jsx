@@ -70,6 +70,7 @@ const AdminDashboard = () => {
             <div className="dashboard-actions">
                 <Link to="/kanban" className="action-link" style={{ backgroundColor: '#0052cc', color: '#fff' }}>📋 Kanban Board</Link>
                 <Link to="/backlog" className="action-link" style={{ backgroundColor: '#2c3e50', color: '#fff' }}>📖 Backlog & Sprints</Link>
+                <Link to="/reports" className="action-link" style={{ backgroundColor: '#403294', color: '#fff' }}>📊 Reports & Analytics</Link>
                 <Link to="/project-settings" className="action-link" style={{ backgroundColor: '#172b4d', color: '#fff' }}>⚙️ Project Settings</Link>
                 <Link to="/AdminAllTasks" className="action-link">View All Tasks</Link>
                 <Link to="/AllUsersList" className="action-link">View All Users</Link>

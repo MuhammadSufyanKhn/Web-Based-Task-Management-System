@@ -62,6 +62,21 @@ const Dashboard = () => {
                         📖 Backlog & Sprints
                     </button>
                     <button
+                        onClick={() => navigate('/reports')}
+                        style={{
+                            backgroundColor: "#172b4d",
+                            color: "white",
+                            border: "none",
+                            padding: "8px 20px",
+                            borderRadius: "6px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            cursor: "pointer"
+                        }}
+                    >
+                        📊 Reports & Analytics
+                    </button>
+                    <button
                         className="btn-profile"
                         onClick={() => navigate('/profile')}
                         style={{

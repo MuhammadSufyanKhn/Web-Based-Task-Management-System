@@ -220,6 +220,24 @@ const KanbanBoard = () => {
                         📖 Backlog & Sprints
                     </Link>
 
+                    <Link
+                        to="/reports"
+                        style={{
+                            color: '#ffffff',
+                            textDecoration: 'none',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            padding: '6px 12px',
+                            borderRadius: '4px',
+                            backgroundColor: '#172b4d',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px'
+                        }}
+                    >
+                        📊 Reports
+                    </Link>
+
                     {userRole === 'Admin' && (
                         <Link
                             to="/project-settings"

@@ -213,6 +213,24 @@ const Backlog = () => {
                     </Link>
 
                     <Link
+                        to="/reports"
+                        style={{
+                            color: '#ffffff',
+                            textDecoration: 'none',
+                            fontSize: '13px',
+                            fontWeight: '600',
+                            padding: '6px 12px',
+                            borderRadius: '4px',
+                            backgroundColor: '#172b4d',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px'
+                        }}
+                    >
+                        📊 Reports
+                    </Link>
+
+                    <Link
                         to={userRole === 'Admin' ? '/Admin-dashboard' : '/dashboard'}
                         style={{
                             color: '#ffffff',
