@@ -29,7 +29,7 @@ const CreateSprintModal = ({ onClose, onSprintCreated, defaultSprintNumber }) =>
             onSprintCreated();
             onClose();
         } catch (err) {
-            setError(err.response?.data?.message || 'Failed to create sprint.');
+            setError(err.response?.data?.message || err.userFriendlyMessage || 'Failed to create sprint.');
         } finally {
             setLoading(false);
         }
@@ -42,100 +42,182 @@ const CreateSprintModal = ({ onClose, onSprintCreated, defaultSprintNumber }) =>
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(9, 30, 66, 0.54)',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1000,
-            backdropFilter: 'blur(3px)',
+            backdropFilter: 'blur(5px)',
             padding: '20px'
         }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
             <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '10px',
+                backgroundColor: '#111827',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '12px',
                 width: '100%',
                 maxWidth: '520px',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.25)',
-                overflow: 'hidden'
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                overflow: 'hidden',
+                color: '#f8fafc'
             }}>
                 <div style={{
                     padding: '16px 20px',
-                    borderBottom: '1px solid #ebecf0',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#fafbfc'
+                    backgroundColor: '#161f30'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: '#172b4d' }}>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#f8fafc' }}>
                         🏃 Create Sprint
                     </h3>
-                    <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#6b778c' }}>✕</button>
+                    <button
+                        onClick={onClose}
+                        style={{
+                            background: 'transparent',
+                            border: 'none',
+                            fontSize: '18px',
+                            cursor: 'pointer',
+                            color: '#94a3b8'
+                        }}
+                    >
+                        ✕
+                    </button>
                 </div>
 
                 {error && (
-                    <div style={{ padding: '10px 20px', backgroundColor: '#ffebe6', color: '#de350b', fontSize: '13px' }}>
+                    <div style={{
+                        padding: '10px 20px',
+                        backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                        borderBottom: '1px solid rgba(239, 68, 68, 0.3)',
+                        color: '#f87171',
+                        fontSize: '13px',
+                        fontWeight: '600'
+                    }}>
                         ⚠️ {error}
                     </div>
                 )}
 
                 <form onSubmit={handleSubmit} style={{ padding: '20px' }}>
-                    <div style={{ marginBottom: '14px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                            Sprint Name <span style={{ color: 'red' }}>*</span>
+                    <div style={{ marginBottom: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            Sprint Name <span style={{ color: '#ef4444' }}>*</span>
                         </label>
                         <input
                             type="text"
                             required
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            style={{ width: '100%', padding: '8px 12px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                            style={{
+                                width: '100%',
+                                padding: '8px 10px',
+                                borderRadius: '6px',
+                                backgroundColor: '#1e293b',
+                                color: '#f8fafc',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                fontSize: '14px',
+                                boxSizing: 'border-box'
+                            }}
                         />
                     </div>
 
-                    <div style={{ marginBottom: '14px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
+                    <div style={{ marginBottom: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
                             Sprint Goal
                         </label>
                         <textarea
                             rows="3"
-                            placeholder="What does the team aim to achieve in this sprint?"
+                            placeholder="What do we want to achieve in this sprint?"
                             value={goal}
                             onChange={(e) => setGoal(e.target.value)}
-                            style={{ width: '100%', padding: '8px 12px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box', fontFamily: 'inherit' }}
+                            style={{
+                                width: '100%',
+                                padding: '8px 10px',
+                                borderRadius: '6px',
+                                backgroundColor: '#1e293b',
+                                color: '#f8fafc',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                fontSize: '13px',
+                                boxSizing: 'border-box',
+                                fontFamily: 'inherit'
+                            }}
                         />
                     </div>
 
                     <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                                Start Date (Optional)
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                                Start Date
                             </label>
                             <input
                                 type="date"
                                 value={startDate}
                                 onChange={(e) => setStartDate(e.target.value)}
-                                style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                style={{
+                                    width: '100%',
+                                    padding: '8px 10px',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#1e293b',
+                                    color: '#f8fafc',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    fontSize: '13px',
+                                    boxSizing: 'border-box'
+                                }}
                             />
                         </div>
+
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                                End Date (Optional)
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                                End Date
                             </label>
                             <input
                                 type="date"
                                 value={endDate}
                                 onChange={(e) => setEndDate(e.target.value)}
-                                style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                style={{
+                                    width: '100%',
+                                    padding: '8px 10px',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#1e293b',
+                                    color: '#f8fafc',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    fontSize: '13px',
+                                    boxSizing: 'border-box'
+                                }}
                             />
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
-                        <button type="button" onClick={onClose} style={{ padding: '8px 16px', background: 'none', border: '1px solid #dfe1e6', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', color: '#42526e' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            style={{
+                                padding: '8px 16px',
+                                backgroundColor: 'transparent',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                borderRadius: '6px',
+                                color: '#94a3b8',
+                                cursor: 'pointer'
+                            }}
+                        >
                             Cancel
                         </button>
-                        <button type="submit" disabled={loading} style={{ padding: '8px 20px', backgroundColor: '#0052cc', color: '#ffffff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', opacity: loading ? 0.7 : 1 }}>
-                            {loading ? 'Creating...' : 'Create Sprint'}
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            style={{
+                                padding: '8px 20px',
+                                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                color: '#ffffff',
+                                border: 'none',
+                                borderRadius: '6px',
+                                fontWeight: '600',
+                                cursor: 'pointer',
+                                opacity: loading ? 0.7 : 1
+                            }}
+                        >
+                            {loading ? 'Creating...' : 'Create'}
                         </button>
                     </div>
                 </form>

@@ -56,9 +56,10 @@ namespace TaskManagementAPI.Controllers
             {
                 statuses = new List<ProjectStatus>
                 {
-                    new ProjectStatus { Id = 1, Name = "Pending", DisplayName = "To Do", Category = "Todo", ColorHex = "#42526E", OrderIndex = 1 },
-                    new ProjectStatus { Id = 2, Name = "InProgress", DisplayName = "In Progress", Category = "InProgress", ColorHex = "#0052CC", OrderIndex = 2 },
-                    new ProjectStatus { Id = 3, Name = "Completed", DisplayName = "Done", Category = "Done", ColorHex = "#36B37E", OrderIndex = 3 }
+                    new ProjectStatus { Id = 1, Name = "Pending", DisplayName = "To Do", Category = "Todo", ColorHex = "#6366f1", OrderIndex = 1 },
+                    new ProjectStatus { Id = 2, Name = "InProgress", DisplayName = "In Progress", Category = "InProgress", ColorHex = "#8b5cf6", OrderIndex = 2 },
+                    new ProjectStatus { Id = 3, Name = "InReview", DisplayName = "In Review", Category = "InProgress", ColorHex = "#f59e0b", OrderIndex = 3 },
+                    new ProjectStatus { Id = 4, Name = "Completed", DisplayName = "Done", Category = "Done", ColorHex = "#10b981", OrderIndex = 4 }
                 };
             }
 
@@ -253,7 +254,9 @@ namespace TaskManagementAPI.Controllers
 
             if (currentUserRole != "Admin" && task.UserId != currentUserId && task.CreatedBy != currentUserId)
             {
-                return Forbid();
+                return StatusCode(StatusCodes.Status403Forbidden, new { 
+                    message = "Only the task owner or an administrator can move this task." 
+                });
             }
 
             var targetStatus = await _context.ProjectStatuses.FirstOrDefaultAsync(s => s.Id == dto.TargetStatusId);
@@ -377,7 +380,9 @@ namespace TaskManagementAPI.Controllers
 
             if (currentUserRole != "Admin" && task.UserId != currentUserId && task.CreatedBy != currentUserId)
             {
-                return Forbid();
+                return StatusCode(StatusCodes.Status403Forbidden, new { 
+                    message = "You don't have permission to edit this task. Only the task owner or an administrator can make changes." 
+                });
             }
 
             task.Title = dto.Title;
@@ -389,6 +394,12 @@ namespace TaskManagementAPI.Controllers
 
             if (dto.UserId.HasValue && dto.UserId.Value > 0)
             {
+                if (currentUserRole != "Admin" && dto.UserId.Value != task.UserId)
+                {
+                    return StatusCode(StatusCodes.Status403Forbidden, new { 
+                        message = "Only administrators can reassign tasks to other team members." 
+                    });
+                }
                 task.UserId = dto.UserId.Value;
             }
 
@@ -449,6 +460,14 @@ namespace TaskManagementAPI.Controllers
         public async Task<IActionResult> CreateTask([FromBody] CreateKanbanTaskDto dto)
         {
             var currentUserId = GetCurrentUserId();
+            var currentUserRole = GetCurrentUserRole();
+
+            if (currentUserRole != "Admin" && dto.UserId.HasValue && dto.UserId.Value > 0 && dto.UserId.Value != currentUserId)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, new { 
+                    message = "Only administrators can assign tasks to other team members." 
+                });
+            }
 
             int assignedUserId = dto.UserId.HasValue && dto.UserId.Value > 0 ? dto.UserId.Value : currentUserId;
 
@@ -537,6 +556,33 @@ namespace TaskManagementAPI.Controllers
             }
 
             return Ok(new { message = "Task created successfully.", taskId = newTask.TaskId, issueKey = newTask.JiraIssueKey });
+        }
+
+        [HttpDelete("task/{id}")]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var currentUserId = GetCurrentUserId();
+            var currentUserRole = GetCurrentUserRole();
+
+            var task = await _context.TaskItems.FirstOrDefaultAsync(t => t.TaskId == id && !t.IsDeleted);
+            if (task == null)
+            {
+                return NotFound(new { message = "Task not found." });
+            }
+
+            if (currentUserRole != "Admin" && task.UserId != currentUserId && task.CreatedBy != currentUserId)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, new { 
+                    message = "You don't have permission to delete this task. Only the task owner or an administrator can delete it." 
+                });
+            }
+
+            task.IsDeleted = true;
+            task.UpdatedDate = DateTime.Now;
+            task.UpdatedBy = currentUserId;
+
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Task deleted successfully." });
         }
     }
 }

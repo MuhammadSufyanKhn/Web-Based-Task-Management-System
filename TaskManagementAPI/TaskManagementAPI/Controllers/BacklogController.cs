@@ -232,11 +232,32 @@ namespace TaskManagementAPI.Controllers
             });
         }
 
+        private int GetCurrentUserId()
+        {
+            var claim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            return int.TryParse(claim, out var id) ? id : 0;
+        }
+
+        private string GetCurrentUserRole()
+        {
+            return User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "User";
+        }
+
         [HttpPut("move-issue")]
         public async Task<IActionResult> MoveIssue([FromBody] MoveIssueSprintDto dto)
         {
+            var currentUserId = GetCurrentUserId();
+            var currentUserRole = GetCurrentUserRole();
+
             var task = await _context.TaskItems.FindAsync(dto.TaskId);
             if (task == null) return NotFound(new { message = "Issue not found." });
+
+            if (currentUserRole != "Admin" && task.UserId != currentUserId && task.CreatedBy != currentUserId)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, new { 
+                    message = "Only the task owner or an administrator can move this task." 
+                });
+            }
 
             if (dto.TargetSprintId.HasValue && dto.TargetSprintId.Value > 0)
             {

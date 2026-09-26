@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import api from '../Api/Axios';
 
-const EPIC_COLORS = ['#8777D9', '#0052CC', '#00875A', '#FF7452', '#FFAB00', '#DE350B', '#5243AA', '#00B8D9'];
+const EPIC_COLORS = ['#8b5cf6', '#6366f1', '#10b981', '#f59e0b', '#ef4444', '#06b6d4', '#ec4899', '#3b82f6'];
 
 const CreateEpicModal = ({ onClose, onEpicCreated }) => {
     const [name, setName] = useState('');
     const [summary, setSummary] = useState('');
-    const [colorHex, setColorHex] = useState('#8777D9');
+    const [colorHex, setColorHex] = useState('#8b5cf6');
     const [startDate, setStartDate] = useState('');
     const [dueDate, setDueDate] = useState('');
     const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
             onEpicCreated();
             onClose();
         } catch (err) {
-            setError(err.response?.data?.message || 'Failed to create epic.');
+            setError(err.response?.data?.message || err.userFriendlyMessage || 'Failed to create epic.');
         } finally {
             setLoading(false);
         }
@@ -46,88 +46,122 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(9, 30, 66, 0.54)',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1000,
-            backdropFilter: 'blur(3px)',
+            backdropFilter: 'blur(5px)',
             padding: '20px'
         }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
             <div style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '10px',
+                backgroundColor: '#111827',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '12px',
                 width: '100%',
                 maxWidth: '520px',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.25)',
-                overflow: 'hidden'
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+                overflow: 'hidden',
+                color: '#f8fafc'
             }}>
                 <div style={{
                     padding: '16px 20px',
-                    borderBottom: '1px solid #ebecf0',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    backgroundColor: '#fafbfc'
+                    backgroundColor: '#161f30'
                 }}>
-                    <h3 style={{ margin: 0, fontSize: '17px', fontWeight: '700', color: '#172b4d' }}>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#f8fafc' }}>
                         ⚡ Create Epic
                     </h3>
-                    <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#6b778c' }}>✕</button>
+                    <button
+                        onClick={onClose}
+                        style={{ background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#94a3b8' }}
+                    >
+                        ✕
+                    </button>
                 </div>
 
                 {error && (
-                    <div style={{ padding: '10px 20px', backgroundColor: '#ffebe6', color: '#de350b', fontSize: '13px' }}>
+                    <div style={{
+                        padding: '10px 20px',
+                        backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                        borderBottom: '1px solid rgba(239, 68, 68, 0.3)',
+                        color: '#f87171',
+                        fontSize: '13px',
+                        fontWeight: '600'
+                    }}>
                         ⚠️ {error}
                     </div>
                 )}
 
                 <form onSubmit={handleSubmit} style={{ padding: '20px' }}>
-                    <div style={{ marginBottom: '14px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                            Epic Name <span style={{ color: 'red' }}>*</span>
+                    <div style={{ marginBottom: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            Epic Name <span style={{ color: '#ef4444' }}>*</span>
                         </label>
                         <input
                             type="text"
                             required
-                            placeholder="e.g. User Authentication & SSO"
+                            placeholder="e.g. User Authentication Overhaul"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            style={{ width: '100%', padding: '8px 12px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
-                        />
-                    </div>
-
-                    <div style={{ marginBottom: '14px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                            Summary / Goal
-                        </label>
-                        <textarea
-                            rows="3"
-                            placeholder="Provide a high-level summary of this epic..."
-                            value={summary}
-                            onChange={(e) => setSummary(e.target.value)}
-                            style={{ width: '100%', padding: '8px 12px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box', fontFamily: 'inherit' }}
+                            style={{
+                                width: '100%',
+                                padding: '8px 10px',
+                                borderRadius: '6px',
+                                backgroundColor: '#1e293b',
+                                color: '#f8fafc',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                fontSize: '14px',
+                                boxSizing: 'border-box'
+                            }}
                         />
                     </div>
 
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            Summary / Goal
+                        </label>
+                        <textarea
+                            rows="3"
+                            placeholder="High-level description of this epic initiative..."
+                            value={summary}
+                            onChange={(e) => setSummary(e.target.value)}
+                            style={{
+                                width: '100%',
+                                padding: '8px 10px',
+                                borderRadius: '6px',
+                                backgroundColor: '#1e293b',
+                                color: '#f8fafc',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                fontSize: '13px',
+                                boxSizing: 'border-box',
+                                fontFamily: 'inherit'
+                            }}
+                        />
+                    </div>
+
+                    <div style={{ marginBottom: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
                             Epic Color
                         </label>
-                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                             {EPIC_COLORS.map(c => (
                                 <div
                                     key={c}
                                     onClick={() => setColorHex(c)}
                                     style={{
-                                        width: '24px',
-                                        height: '24px',
-                                        borderRadius: '4px',
+                                        width: '28px',
+                                        height: '28px',
+                                        borderRadius: '6px',
                                         backgroundColor: c,
                                         cursor: 'pointer',
-                                        border: colorHex === c ? '2px solid #000' : '2px solid transparent',
-                                        transform: colorHex === c ? 'scale(1.15)' : 'scale(1)',
-                                        transition: 'transform 0.1s'
+                                        border: colorHex === c ? '2px solid #ffffff' : '2px solid transparent',
+                                        boxShadow: colorHex === c ? `0 0 8px ${c}` : 'none',
+                                        transition: 'transform 0.1s ease',
+                                        transform: colorHex === c ? 'scale(1.15)' : 'scale(1)'
                                     }}
                                 />
                             ))}
@@ -136,34 +170,77 @@ const CreateEpicModal = ({ onClose, onEpicCreated }) => {
 
                     <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                                Start Date (Optional)
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                                Start Date
                             </label>
                             <input
                                 type="date"
                                 value={startDate}
                                 onChange={(e) => setStartDate(e.target.value)}
-                                style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                style={{
+                                    width: '100%',
+                                    padding: '8px 10px',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#1e293b',
+                                    color: '#f8fafc',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    fontSize: '13px',
+                                    boxSizing: 'border-box'
+                                }}
                             />
                         </div>
+
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#6b778c', marginBottom: '4px' }}>
-                                Target Due Date (Optional)
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                                Due Date
                             </label>
                             <input
                                 type="date"
                                 value={dueDate}
                                 onChange={(e) => setDueDate(e.target.value)}
-                                style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                style={{
+                                    width: '100%',
+                                    padding: '8px 10px',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#1e293b',
+                                    color: '#f8fafc',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    fontSize: '13px',
+                                    boxSizing: 'border-box'
+                                }}
                             />
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
-                        <button type="button" onClick={onClose} style={{ padding: '8px 16px', background: 'none', border: '1px solid #dfe1e6', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', color: '#42526e' }}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            style={{
+                                padding: '8px 16px',
+                                backgroundColor: 'transparent',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                borderRadius: '6px',
+                                color: '#94a3b8',
+                                cursor: 'pointer'
+                            }}
+                        >
                             Cancel
                         </button>
-                        <button type="submit" disabled={loading} style={{ padding: '8px 20px', backgroundColor: '#8777D9', color: '#ffffff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: '600', opacity: loading ? 0.7 : 1 }}>
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            style={{
+                                padding: '8px 20px',
+                                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                color: '#ffffff',
+                                border: 'none',
+                                borderRadius: '6px',
+                                fontWeight: '600',
+                                cursor: 'pointer',
+                                opacity: loading ? 0.7 : 1
+                            }}
+                        >
                             {loading ? 'Creating...' : 'Create Epic'}
                         </button>
                     </div>

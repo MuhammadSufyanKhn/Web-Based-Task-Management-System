@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { jwtDecode } from 'jwt-decode';
 
 const ISSUE_TYPE_ICONS = {
     Bug: '🐞',
@@ -23,9 +24,42 @@ const BacklogIssueRow = ({
     onIssueClick,
     onDragStart,
     onDragOver,
-    onDrop
+    onDrop,
+    onPermissionDenied
 }) => {
+    // Current user context
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+    let currentUserId = null;
+    let isAdmin = false;
+    if (token) {
+        try {
+            const decoded = jwtDecode(token);
+            const role = decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] || 'User';
+            isAdmin = role === 'Admin';
+            currentUserId = parseInt(decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]);
+        } catch {
+            // Mock environments
+        }
+    }
+
+    const isOwner = currentUserId && (issue.userId === currentUserId || issue.createdBy === currentUserId);
+    const canMove = !token || isAdmin || isOwner;
+
     const handleDragStart = (e) => {
+        if (!canMove) {
+            e.preventDefault();
+            if (onPermissionDenied) {
+                onPermissionDenied({
+                    action: 'move',
+                    issue,
+                    title: "You can't move this task",
+                    message: `This task is assigned to ${issue.userName || 'another team member'}.`,
+                    details: "Only the task owner or an administrator can move this task."
+                });
+            }
+            return;
+        }
+
         e.dataTransfer.setData('text/plain', JSON.stringify({
             taskId: issue.taskId,
             sourceSprintId: issue.sprintId,
@@ -38,11 +72,11 @@ const BacklogIssueRow = ({
     const getStatusStyle = (category) => {
         switch (category) {
             case 'Done':
-                return { bg: '#e3fcef', text: '#006644', border: '#abf5d1' };
+                return { bg: 'rgba(16, 185, 129, 0.15)', text: '#34d399', border: 'rgba(16, 185, 129, 0.3)' };
             case 'InProgress':
-                return { bg: '#deebff', text: '#0747a6', border: '#b3d4ff' };
+                return { bg: 'rgba(139, 92, 246, 0.15)', text: '#c4b5fd', border: 'rgba(139, 92, 246, 0.3)' };
             default:
-                return { bg: '#dfe1e6', text: '#42526e', border: '#c1c7d0' };
+                return { bg: 'rgba(99, 102, 241, 0.15)', text: '#a5b4fc', border: 'rgba(99, 102, 241, 0.3)' };
         }
     };
 
@@ -50,27 +84,29 @@ const BacklogIssueRow = ({
 
     return (
         <div
-            draggable
+            draggable={canMove}
             onDragStart={handleDragStart}
             onDragOver={(e) => onDragOver && onDragOver(e, index)}
             onDrop={(e) => onDrop && onDrop(e, index)}
             onClick={() => onIssueClick(issue.taskId)}
+            title={!canMove ? `Restricted: Assigned to ${issue.userName || 'another team member'}. Only the task owner or an administrator can move this task.` : undefined}
             style={{
                 display: 'flex',
                 alignItems: 'center',
                 padding: '10px 14px',
-                backgroundColor: '#ffffff',
-                borderBottom: '1px solid #ebecf0',
-                cursor: 'grab',
+                backgroundColor: '#1e293b',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                cursor: canMove ? 'grab' : 'not-allowed',
                 transition: 'background-color 0.15s ease',
                 userSelect: 'none',
-                gap: '12px'
+                gap: '12px',
+                opacity: canMove ? 1 : 0.85
             }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f4f5f7'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#253349'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1e293b'}
         >
             {/* Drag Handle */}
-            <span style={{ color: '#a5adba', cursor: 'grab', fontSize: '14px', letterSpacing: '-1px' }}>
+            <span style={{ color: canMove ? '#64748b' : '#475569', cursor: canMove ? 'grab' : 'not-allowed', fontSize: '14px', letterSpacing: '-1px' }}>
                 ⋮⋮
             </span>
 
@@ -83,17 +119,35 @@ const BacklogIssueRow = ({
             <span style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#5e6c84',
+                color: '#94a3b8',
                 minWidth: '65px'
             }}>
                 {issue.issueKey}
             </span>
 
+            {/* Lock Indicator if restricted */}
+            {!canMove && (
+                <span
+                    title={`Restricted: Assigned to ${issue.userName}. Only the task owner or an administrator can move this task.`}
+                    style={{
+                        fontSize: '10px',
+                        color: '#fbbf24',
+                        backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                        border: '1px solid rgba(245, 158, 11, 0.3)',
+                        borderRadius: '4px',
+                        padding: '1px 5px',
+                        fontWeight: '600'
+                    }}
+                >
+                    🔒 Locked
+                </span>
+            )}
+
             {/* Summary / Title */}
             <span style={{
                 fontSize: '14px',
                 fontWeight: '500',
-                color: '#172b4d',
+                color: '#f8fafc',
                 flex: 1,
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
@@ -105,10 +159,10 @@ const BacklogIssueRow = ({
             {/* Epic Badge */}
             {issue.epicName && (
                 <span style={{
-                    backgroundColor: issue.epicColor ? `${issue.epicColor}22` : '#eae6ff',
-                    color: issue.epicColor || '#403294',
-                    border: `1px solid ${issue.epicColor || '#403294'}55`,
-                    borderRadius: '3px',
+                    backgroundColor: issue.epicColor ? `${issue.epicColor}22` : 'rgba(99, 102, 241, 0.15)',
+                    color: issue.epicColor || '#a5b4fc',
+                    border: `1px solid ${issue.epicColor || '#6366f1'}55`,
+                    borderRadius: '4px',
                     padding: '2px 8px',
                     fontSize: '11px',
                     fontWeight: '700',
@@ -121,9 +175,10 @@ const BacklogIssueRow = ({
             {/* Component Badge */}
             {issue.componentName && (
                 <span style={{
-                    backgroundColor: '#e6fcff',
-                    color: '#008da6',
-                    borderRadius: '3px',
+                    backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                    color: '#22d3ee',
+                    border: '1px solid rgba(6, 182, 212, 0.3)',
+                    borderRadius: '4px',
                     padding: '2px 6px',
                     fontSize: '11px',
                     fontWeight: '600',
@@ -138,7 +193,7 @@ const BacklogIssueRow = ({
                 backgroundColor: statusStyle.bg,
                 color: statusStyle.text,
                 border: `1px solid ${statusStyle.border}`,
-                borderRadius: '3px',
+                borderRadius: '4px',
                 padding: '2px 8px',
                 fontSize: '11px',
                 fontWeight: '700',
@@ -160,8 +215,9 @@ const BacklogIssueRow = ({
                 minWidth: '22px',
                 height: '22px',
                 borderRadius: '11px',
-                backgroundColor: '#dfe1e6',
-                color: '#172b4d',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                color: '#e2e8f0',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
                 fontSize: '11px',
                 fontWeight: '700',
                 display: 'flex',
@@ -178,14 +234,15 @@ const BacklogIssueRow = ({
                     width: '24px',
                     height: '24px',
                     borderRadius: '50%',
-                    backgroundColor: '#0052cc',
+                    backgroundColor: '#6366f1',
                     color: '#ffffff',
                     fontSize: '10px',
                     fontWeight: '700',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
                 }}
             >
                 {issue.userName ? issue.userName.slice(0, 2) : '??'}
@@ -200,7 +257,8 @@ BacklogIssueRow.propTypes = {
     onIssueClick: PropTypes.func.isRequired,
     onDragStart: PropTypes.func,
     onDragOver: PropTypes.func,
-    onDrop: PropTypes.func
+    onDrop: PropTypes.func,
+    onPermissionDenied: PropTypes.func
 };
 
 export default BacklogIssueRow;
