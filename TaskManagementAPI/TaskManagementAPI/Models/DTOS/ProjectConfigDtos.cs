@@ -83,4 +83,31 @@ namespace TaskManagementAPI.Models.DTOS
         public string? Description { get; set; }
         public int? LeadUserId { get; set; }
     }
+
+    public class JiraSettingsDto
+    {
+        public string JiraBaseUrl { get; set; } = string.Empty;
+        public string UserEmail { get; set; } = string.Empty;
+        public string ApiToken { get; set; } = string.Empty;
+        public string ProjectKey { get; set; } = string.Empty;
+        public bool IsSyncEnabled { get; set; } = true;
+        public DateTime? LastSyncDate { get; set; }
+    }
+
+    public class CreateOrUpdateIssueTypeDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public string Icon { get; set; } = "task";
+        public string ColorHex { get; set; } = "#4a90e2";
+        public int OrderIndex { get; set; }
+    }
+
+    public class CreateOrUpdatePriorityDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string ColorHex { get; set; } = "#ffab00";
+        public int OrderIndex { get; set; }
+        public bool IsDefault { get; set; }
+    }
 }

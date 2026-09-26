@@ -5,6 +5,7 @@ import api from '../Api/Axios';
 import KanbanColumn from '../components/KanbanColumn';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
+import AppNavbar from '../components/AppNavbar';
 
 const KanbanBoard = () => {
     const navigate = useNavigate();
@@ -162,6 +163,7 @@ const KanbanBoard = () => {
             backgroundColor: '#ffffff',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         }}>
+            <AppNavbar />
             {/* Top Navigation Bar */}
             <header style={{
                 height: '56px',

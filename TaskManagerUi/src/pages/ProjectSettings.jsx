@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../Api/Axios';
+import AppNavbar from '../components/AppNavbar';
 
 const ProjectSettings = () => {
     const navigate = useNavigate();
@@ -22,6 +23,22 @@ const ProjectSettings = () => {
     const [newLabel, setNewLabel] = useState({ name: '', colorHex: '#6554C0' });
     // New component form
     const [newComponent, setNewComponent] = useState({ name: '', description: '', leadUserId: '' });
+    // New issue type form
+    const [newIssueType, setNewIssueType] = useState({ name: '', description: '', icon: 'task', colorHex: '#4a90e2', orderIndex: 1 });
+    // New priority form
+    const [newPriority, setNewPriority] = useState({ name: '', colorHex: '#ffab00', orderIndex: 1, isDefault: false });
+
+    // Jira Settings state
+    const [jiraConfig, setJiraConfig] = useState({
+        jiraBaseUrl: '',
+        userEmail: '',
+        apiToken: '',
+        projectKey: '',
+        isSyncEnabled: false,
+        lastSyncDate: null
+    });
+    const [jiraLoading, setJiraLoading] = useState(false);
+    const [jiraMessage, setJiraMessage] = useState('');
 
     const fetchConfig = async () => {
         try {
@@ -34,6 +51,8 @@ const ProjectSettings = () => {
             setConfig(summaryRes.data);
             setMembers(membersRes.data);
             setNewStatus(prev => ({ ...prev, orderIndex: (summaryRes.data.statuses.length || 0) + 1 }));
+            setNewIssueType(prev => ({ ...prev, orderIndex: (summaryRes.data.issueTypes.length || 0) + 1 }));
+            setNewPriority(prev => ({ ...prev, orderIndex: (summaryRes.data.priorities.length || 0) + 1 }));
         } catch (err) {
             setError(err.response?.data?.message || 'Failed to load project configuration.');
         } finally {
@@ -41,8 +60,21 @@ const ProjectSettings = () => {
         }
     };
 
+    const fetchJiraSettings = async () => {
+        try {
+            setJiraLoading(true);
+            const res = await api.get('/projectconfig/jira');
+            setJiraConfig(res.data);
+        } catch (err) {
+            console.error('Failed to load Jira settings', err);
+        } finally {
+            setJiraLoading(false);
+        }
+    };
+
     useEffect(() => {
         fetchConfig();
+        fetchJiraSettings();
     }, []);
 
     // Create Status
@@ -65,6 +97,52 @@ const ProjectSettings = () => {
             fetchConfig();
         } catch (err) {
             alert(err.response?.data?.message || err.response?.data || 'Failed to delete status.');
+        }
+    };
+
+    // Create Issue Type
+    const handleAddIssueType = async (e) => {
+        e.preventDefault();
+        try {
+            await api.post('/projectconfig/issuetypes', newIssueType);
+            setNewIssueType({ name: '', description: '', icon: 'task', colorHex: '#4a90e2', orderIndex: config.issueTypes.length + 2 });
+            fetchConfig();
+        } catch (err) {
+            alert(err.response?.data?.message || err.response?.data || 'Failed to add issue type.');
+        }
+    };
+
+    // Delete Issue Type
+    const handleDeleteIssueType = async (id) => {
+        if (!window.confirm('Delete this issue type?')) return;
+        try {
+            await api.delete(`/projectconfig/issuetypes/${id}`);
+            fetchConfig();
+        } catch (err) {
+            alert(err.response?.data?.message || err.response?.data || 'Failed to delete issue type.');
+        }
+    };
+
+    // Create Priority
+    const handleAddPriority = async (e) => {
+        e.preventDefault();
+        try {
+            await api.post('/projectconfig/priorities', newPriority);
+            setNewPriority({ name: '', colorHex: '#ffab00', orderIndex: config.priorities.length + 2, isDefault: false });
+            fetchConfig();
+        } catch (err) {
+            alert(err.response?.data?.message || err.response?.data || 'Failed to add priority.');
+        }
+    };
+
+    // Delete Priority
+    const handleDeletePriority = async (id) => {
+        if (!window.confirm('Delete this priority?')) return;
+        try {
+            await api.delete(`/projectconfig/priorities/${id}`);
+            fetchConfig();
+        } catch (err) {
+            alert(err.response?.data?.message || err.response?.data || 'Failed to delete priority.');
         }
     };
 
@@ -118,13 +196,30 @@ const ProjectSettings = () => {
         }
     };
 
+    // Update Jira Settings
+    const handleSaveJira = async (e) => {
+        e.preventDefault();
+        try {
+            setJiraLoading(true);
+            setJiraMessage('');
+            const res = await api.put('/projectconfig/jira', jiraConfig);
+            setJiraConfig(res.data);
+            setJiraMessage('Jira configuration updated successfully.');
+        } catch (err) {
+            alert(err.response?.data?.message || err.response?.data || 'Failed to update Jira settings.');
+        } finally {
+            setJiraLoading(false);
+        }
+    };
+
     return (
         <div style={{
             minHeight: '100vh',
-            backgroundColor: '#f4f5f7',
+            backgroundColor: '#0f172a',
             display: 'flex',
             flexDirection: 'column'
         }}>
+            <AppNavbar />
             {/* Top Bar */}
             <header style={{
                 height: '56px',
@@ -199,7 +294,8 @@ const ProjectSettings = () => {
                         { id: 'priorities', label: 'Priorities', icon: '⚡' },
                         { id: 'labels', label: 'Labels', icon: '🔖' },
                         { id: 'components', label: 'Components', icon: '📦' },
-                        { id: 'members', label: 'Members & Roles', icon: '👥' }
+                        { id: 'members', label: 'Members & Roles', icon: '👥' },
+                        { id: 'jira', label: 'Jira Settings', icon: '🔗' }
                     ].map(tab => (
                         <div
                             key={tab.id}
@@ -378,7 +474,7 @@ const ProjectSettings = () => {
                                     <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: '#6b778c' }}>
                                         Jira-standard issue types for structuring and distinguishing work items.
                                     </p>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '30px' }}>
                                         {config.issueTypes.map(t => (
                                             <div key={t.id} style={{
                                                 display: 'flex',
@@ -398,10 +494,72 @@ const ProjectSettings = () => {
                                                         <div style={{ fontSize: '12px', color: '#6b778c' }}>{t.description || 'Standard work item type'}</div>
                                                     </div>
                                                 </div>
-                                                <span style={{ fontSize: '12px', color: '#00875a', fontWeight: '600' }}>Active</span>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                                    <span style={{ fontSize: '12px', color: '#00875a', fontWeight: '600' }}>Active</span>
+                                                    {t.id > 5 && (
+                                                        <span
+                                                            onClick={() => handleDeleteIssueType(t.id)}
+                                                            style={{ cursor: 'pointer', color: '#de350b', fontWeight: 'bold' }}
+                                                            title="Delete issue type"
+                                                        >
+                                                            ✕
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
+
+                                    {/* Add Issue Type Form */}
+                                    <form onSubmit={handleAddIssueType} style={{
+                                        backgroundColor: '#fafbfc',
+                                        padding: '18px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #ebecf0'
+                                    }}>
+                                        <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#172b4d' }}>+ Add Custom Issue Type</h4>
+                                        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+                                            <div style={{ flex: '1 1 180px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                                    Type Name
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    placeholder="e.g. Spike or Maintenance"
+                                                    value={newIssueType.name}
+                                                    onChange={(e) => setNewIssueType({ ...newIssueType, name: e.target.value })}
+                                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                />
+                                            </div>
+                                            <div style={{ flex: '1 1 200px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                                    Description
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Brief description"
+                                                    value={newIssueType.description}
+                                                    onChange={(e) => setNewIssueType({ ...newIssueType, description: e.target.value })}
+                                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                />
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                style={{
+                                                    backgroundColor: '#0052cc',
+                                                    color: '#ffffff',
+                                                    border: 'none',
+                                                    borderRadius: '4px',
+                                                    padding: '9px 18px',
+                                                    fontWeight: '600',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                Add Issue Type
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             )}
 
@@ -412,7 +570,7 @@ const ProjectSettings = () => {
                                     <p style={{ margin: '0 0 24px 0', fontSize: '13px', color: '#6b778c' }}>
                                         Priorities used to prioritize tasks on the Kanban board and issue cards.
                                     </p>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '30px' }}>
                                         {config.priorities.map(p => (
                                             <div key={p.id} style={{
                                                 display: 'flex',
@@ -433,10 +591,71 @@ const ProjectSettings = () => {
                                                     <span style={{ fontWeight: '700', fontSize: '14px', color: '#172b4d' }}>{p.name}</span>
                                                     {p.isDefault && <span style={{ fontSize: '11px', color: '#0052cc', fontWeight: '600' }}>(Default)</span>}
                                                 </div>
-                                                <span style={{ fontSize: '12px', color: '#5e6c84', fontFamily: 'monospace' }}>{p.colorHex}</span>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                                    <span style={{ fontSize: '12px', color: '#5e6c84', fontFamily: 'monospace' }}>{p.colorHex}</span>
+                                                    {p.id > 5 && (
+                                                        <span
+                                                            onClick={() => handleDeletePriority(p.id)}
+                                                            style={{ cursor: 'pointer', color: '#de350b', fontWeight: 'bold' }}
+                                                            title="Delete priority"
+                                                        >
+                                                            ✕
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
+
+                                    {/* Add Priority Form */}
+                                    <form onSubmit={handleAddPriority} style={{
+                                        backgroundColor: '#fafbfc',
+                                        padding: '18px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #ebecf0'
+                                    }}>
+                                        <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#172b4d' }}>+ Add Priority</h4>
+                                        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+                                            <div style={{ flex: '1 1 180px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                                    Priority Name
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    placeholder="e.g. Critical Urgent"
+                                                    value={newPriority.name}
+                                                    onChange={(e) => setNewPriority({ ...newPriority, name: e.target.value })}
+                                                    style={{ width: '100%', padding: '8px 10px', borderRadius: '4px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                />
+                                            </div>
+                                            <div style={{ width: '100px' }}>
+                                                <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: '#6b778c', marginBottom: '4px' }}>
+                                                    Color
+                                                </label>
+                                                <input
+                                                    type="color"
+                                                    value={newPriority.colorHex}
+                                                    onChange={(e) => setNewPriority({ ...newPriority, colorHex: e.target.value })}
+                                                    style={{ width: '100%', height: '36px', padding: '2px', borderRadius: '4px', border: '1px solid #dfe1e6', cursor: 'pointer' }}
+                                                />
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                style={{
+                                                    backgroundColor: '#0052cc',
+                                                    color: '#ffffff',
+                                                    border: 'none',
+                                                    borderRadius: '4px',
+                                                    padding: '9px 18px',
+                                                    fontWeight: '600',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                Add Priority
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             )}
 
@@ -666,6 +885,167 @@ const ProjectSettings = () => {
                                             ))}
                                         </tbody>
                                     </table>
+                                </div>
+                            )}
+
+                            {/* TAB 7: JIRA INTEGRATION CONFIGURATION */}
+                            {activeTab === 'jira' && (
+                                <div>
+                                    <div style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        marginBottom: '16px'
+                                    }}>
+                                        <div>
+                                            <h2 style={{ margin: '0 0 6px 0', fontSize: '20px', color: '#172b4d' }}>
+                                                Jira Cloud Integration
+                                            </h2>
+                                            <p style={{ margin: 0, fontSize: '13px', color: '#6b778c' }}>
+                                                Configure connection parameters for synchronization with Atlassian Jira Cloud.
+                                            </p>
+                                        </div>
+                                        <div style={{
+                                            padding: '6px 12px',
+                                            borderRadius: '20px',
+                                            backgroundColor: jiraConfig.isSyncEnabled ? '#e3fcef' : '#f4f5f7',
+                                            color: jiraConfig.isSyncEnabled ? '#006644' : '#6b778c',
+                                            fontSize: '12px',
+                                            fontWeight: '700'
+                                        }}>
+                                            {jiraConfig.isSyncEnabled ? '● Sync Enabled' : '○ Sync Inactive'}
+                                        </div>
+                                    </div>
+
+                                    {jiraMessage && (
+                                        <div style={{
+                                            padding: '12px 16px',
+                                            backgroundColor: '#e3fcef',
+                                            color: '#006644',
+                                            borderRadius: '6px',
+                                            border: '1px solid #abf5d1',
+                                            marginBottom: '20px',
+                                            fontSize: '13px',
+                                            fontWeight: '600'
+                                        }}>
+                                            ✓ {jiraMessage}
+                                        </div>
+                                    )}
+
+                                    <div style={{
+                                        backgroundColor: '#ebf2ff',
+                                        border: '1px solid #b3d4ff',
+                                        borderRadius: '8px',
+                                        padding: '16px',
+                                        marginBottom: '24px'
+                                    }}>
+                                        <div style={{ fontWeight: '700', fontSize: '14px', color: '#0052cc', marginBottom: '6px' }}>
+                                            ℹ️ Prepared for Next Phase
+                                        </div>
+                                        <div style={{ fontSize: '13px', color: '#172b4d', lineHeight: '1.5' }}>
+                                            The database tables and local hierarchy mapping are fully prepared. Storing your Jira API credentials allows the system to validate connectivity. Live bidirectional webhook synchronization will execute in Phase 4.
+                                        </div>
+                                    </div>
+
+                                    <form onSubmit={handleSaveJira} style={{
+                                        backgroundColor: '#fafbfc',
+                                        padding: '24px',
+                                        borderRadius: '8px',
+                                        border: '1px solid #ebecf0',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '20px'
+                                    }}>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
+                                                Jira Base URL
+                                            </label>
+                                            <input
+                                                type="url"
+                                                placeholder="https://your-company.atlassian.net"
+                                                value={jiraConfig.jiraBaseUrl}
+                                                onChange={(e) => setJiraConfig({ ...jiraConfig, jiraBaseUrl: e.target.value })}
+                                                style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                            />
+                                            <span style={{ fontSize: '12px', color: '#6b778c' }}>Your organization's Atlassian Cloud domain.</span>
+                                        </div>
+
+                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                            <div>
+                                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
+                                                    User Email
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    placeholder="developer@your-company.com"
+                                                    value={jiraConfig.userEmail}
+                                                    onChange={(e) => setJiraConfig({ ...jiraConfig, userEmail: e.target.value })}
+                                                    style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                />
+                                                <span style={{ fontSize: '12px', color: '#6b778c' }}>Email associated with your Atlassian account.</span>
+                                            </div>
+
+                                            <div>
+                                                <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
+                                                    Jira Project Key
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="e.g. TMS, KAN, PROJ"
+                                                    value={jiraConfig.projectKey}
+                                                    onChange={(e) => setJiraConfig({ ...jiraConfig, projectKey: e.target.value.toUpperCase() })}
+                                                    style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                                />
+                                                <span style={{ fontSize: '12px', color: '#6b778c' }}>Target project key in Jira Cloud.</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#172b4d', marginBottom: '6px' }}>
+                                                Jira API Token
+                                            </label>
+                                            <input
+                                                type="password"
+                                                placeholder={jiraConfig.apiToken ? "••••••••" : "Paste your Atlassian API token"}
+                                                value={jiraConfig.apiToken}
+                                                onChange={(e) => setJiraConfig({ ...jiraConfig, apiToken: e.target.value })}
+                                                style={{ width: '100%', padding: '10px 12px', borderRadius: '6px', border: '1px solid #dfe1e6', boxSizing: 'border-box' }}
+                                            />
+                                            <span style={{ fontSize: '12px', color: '#6b778c' }}>Generate an API token from your Atlassian Security account settings.</span>
+                                        </div>
+
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '6px' }}>
+                                            <input
+                                                type="checkbox"
+                                                id="syncToggle"
+                                                checked={jiraConfig.isSyncEnabled}
+                                                onChange={(e) => setJiraConfig({ ...jiraConfig, isSyncEnabled: e.target.checked })}
+                                                style={{ width: '18px', height: '18px', cursor: 'pointer' }}
+                                            />
+                                            <label htmlFor="syncToggle" style={{ fontSize: '14px', fontWeight: '600', color: '#172b4d', cursor: 'pointer' }}>
+                                                Enable Sync Engine for this Workspace
+                                            </label>
+                                        </div>
+
+                                        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
+                                            <button
+                                                type="submit"
+                                                disabled={jiraLoading}
+                                                style={{
+                                                    backgroundColor: '#0052cc',
+                                                    color: '#ffffff',
+                                                    border: 'none',
+                                                    borderRadius: '6px',
+                                                    padding: '11px 24px',
+                                                    fontSize: '14px',
+                                                    fontWeight: '700',
+                                                    cursor: jiraLoading ? 'not-allowed' : 'pointer'
+                                                }}
+                                            >
+                                                {jiraLoading ? 'Saving Settings...' : 'Save Jira Configuration'}
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             )}
                         </>

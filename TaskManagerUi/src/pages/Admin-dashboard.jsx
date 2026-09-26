@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import StatsCard from '../components/StatsCard';
+import AppNavbar from '../components/AppNavbar';
 
 const AdminDashboard = () => {
     const [stats, setStats] = useState({
@@ -29,9 +30,11 @@ const AdminDashboard = () => {
     if (!localStorage.getItem('token')) navigate('/login');
 
     return (
-        <div className="dashboard-main">
-            <header className="dash-header">
-                <h2>Admin Dashboard</h2>
+        <div style={{ width: '100%' }}>
+            <AppNavbar />
+            <div className="dashboard-main" style={{ maxWidth: '1400px', margin: '20px auto', padding: '0 20px' }}>
+                <header className="dash-header">
+                    <h2>Admin Dashboard</h2>
                 <button
                     onClick={() => { localStorage.removeItem('token'); navigate('/login'); }}
                     style={{
@@ -74,6 +77,7 @@ const AdminDashboard = () => {
                 <Link to="/project-settings" className="action-link" style={{ backgroundColor: '#172b4d', color: '#fff' }}>⚙️ Project Settings</Link>
                 <Link to="/AdminAllTasks" className="action-link">View All Tasks</Link>
                 <Link to="/AllUsersList" className="action-link">View All Users</Link>
+            </div>
             </div>
         </div>
     );

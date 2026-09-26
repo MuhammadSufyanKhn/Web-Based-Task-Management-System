@@ -3,6 +3,7 @@ import axios from 'axios';
 import TaskList from './Tasklist';
 import { useNavigate } from 'react-router-dom';
 import StatsCard from '../components/StatsCard';
+import AppNavbar from '../components/AppNavbar';
 
 const Dashboard = () => {
     const [stats, setStats] = useState({ pendingCount: 0, inProgressCount: 0, completedCount: 0 });
@@ -27,9 +28,11 @@ const Dashboard = () => {
     if (!localStorage.getItem('token')) navigate('/login');
 
     return (
-        <div className="dashboard-main">
-            <header className="dash-header">
-                <h2>My Task Dashboard</h2>
+        <div style={{ width: '100%' }}>
+            <AppNavbar />
+            <div className="dashboard-main" style={{ maxWidth: '1400px', margin: '20px auto', padding: '0 20px' }}>
+                <header className="dash-header">
+                    <h2>My Task Dashboard</h2>
                 <div style={{ marginLeft: "auto", display: "flex", gap: "10px" }}>
                     <button
                         onClick={() => navigate('/kanban')}
@@ -102,6 +105,7 @@ const Dashboard = () => {
             </div>
 
             <TaskList />
+            </div>
         </div>
     );
 };

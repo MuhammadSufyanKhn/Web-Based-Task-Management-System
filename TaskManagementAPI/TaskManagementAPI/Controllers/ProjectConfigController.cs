@@ -184,6 +184,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(labels);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("labels")]
         public async Task<IActionResult> CreateLabel([FromBody] CreateLabelDto dto)
         {
@@ -216,6 +217,165 @@ namespace TaskManagementAPI.Controllers
             _context.Labels.Remove(label);
             await _context.SaveChangesAsync();
             return Ok("Label deleted.");
+        }
+
+        // --- ISSUE TYPES CRUD ---
+        [Authorize(Roles = "Admin")]
+        [HttpPost("issuetypes")]
+        public async Task<IActionResult> CreateIssueType([FromBody] CreateOrUpdateIssueTypeDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Issue type name is required.");
+            var trimmed = dto.Name.Trim();
+
+            if (await _context.IssueTypes.AnyAsync(i => i.Name.ToLower() == trimmed.ToLower()))
+            {
+                return BadRequest("Issue type with this name already exists.");
+            }
+
+            var issueType = new IssueType
+            {
+                Name = trimmed,
+                Description = dto.Description,
+                Icon = string.IsNullOrWhiteSpace(dto.Icon) ? "task" : dto.Icon,
+                ColorHex = string.IsNullOrWhiteSpace(dto.ColorHex) ? "#4a90e2" : dto.ColorHex,
+                OrderIndex = dto.OrderIndex,
+                IsActive = true
+            };
+
+            _context.IssueTypes.Add(issueType);
+            await _context.SaveChangesAsync();
+            return Ok(issueType);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("issuetypes/{id}")]
+        public async Task<IActionResult> DeleteIssueType(int id)
+        {
+            var it = await _context.IssueTypes.FindAsync(id);
+            if (it == null) return NotFound("Issue type not found.");
+
+            var inUse = await _context.TaskItems.AnyAsync(t => t.IssueTypeId == id && !t.IsDeleted);
+            if (inUse) return BadRequest("Cannot delete issue type currently assigned to tasks.");
+
+            _context.IssueTypes.Remove(it);
+            await _context.SaveChangesAsync();
+            return Ok("Issue type deleted.");
+        }
+
+        // --- PRIORITIES CRUD ---
+        [Authorize(Roles = "Admin")]
+        [HttpPost("priorities")]
+        public async Task<IActionResult> CreatePriority([FromBody] CreateOrUpdatePriorityDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Priority name is required.");
+            var trimmed = dto.Name.Trim();
+
+            if (await _context.TaskPriorities.AnyAsync(p => p.Name.ToLower() == trimmed.ToLower()))
+            {
+                return BadRequest("Priority with this name already exists.");
+            }
+
+            var priority = new TaskPriority
+            {
+                Name = trimmed,
+                ColorHex = string.IsNullOrWhiteSpace(dto.ColorHex) ? "#ffab00" : dto.ColorHex,
+                OrderIndex = dto.OrderIndex,
+                IsDefault = dto.IsDefault,
+                IsActive = true
+            };
+
+            _context.TaskPriorities.Add(priority);
+            await _context.SaveChangesAsync();
+            return Ok(priority);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("priorities/{id}")]
+        public async Task<IActionResult> DeletePriority(int id)
+        {
+            var p = await _context.TaskPriorities.FindAsync(id);
+            if (p == null) return NotFound("Priority not found.");
+
+            var inUse = await _context.TaskItems.AnyAsync(t => t.PriorityId == id && !t.IsDeleted);
+            if (inUse) return BadRequest("Cannot delete priority currently assigned to tasks.");
+
+            _context.TaskPriorities.Remove(p);
+            await _context.SaveChangesAsync();
+            return Ok("Priority deleted.");
+        }
+
+        // --- JIRA SETTINGS (CONFIGURATION) ---
+        [Authorize(Roles = "Admin")]
+        [HttpGet("jira")]
+        public async Task<IActionResult> GetJiraSettings()
+        {
+            var settings = await _context.JiraSettings.OrderByDescending(s => s.Id).FirstOrDefaultAsync();
+            if (settings == null)
+            {
+                return Ok(new JiraSettingsDto
+                {
+                    JiraBaseUrl = "",
+                    UserEmail = "",
+                    ApiToken = "",
+                    ProjectKey = "",
+                    IsSyncEnabled = false,
+                    LastSyncDate = null
+                });
+            }
+
+            return Ok(new JiraSettingsDto
+            {
+                JiraBaseUrl = settings.JiraBaseUrl,
+                UserEmail = settings.UserEmail,
+                ApiToken = string.IsNullOrEmpty(settings.ApiToken) ? "" : "••••••••", // Masked for security on read
+                ProjectKey = settings.ProjectKey,
+                IsSyncEnabled = settings.IsSyncEnabled,
+                LastSyncDate = settings.LastSyncDate
+            });
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("jira")]
+        public async Task<IActionResult> UpdateJiraSettings([FromBody] JiraSettingsDto dto)
+        {
+            var settings = await _context.JiraSettings.OrderByDescending(s => s.Id).FirstOrDefaultAsync();
+            if (settings == null)
+            {
+                settings = new JiraSetting
+                {
+                    JiraBaseUrl = dto.JiraBaseUrl?.Trim() ?? "",
+                    UserEmail = dto.UserEmail?.Trim() ?? "",
+                    ApiToken = dto.ApiToken ?? "",
+                    ProjectKey = dto.ProjectKey?.Trim().ToUpper() ?? "",
+                    IsSyncEnabled = dto.IsSyncEnabled,
+                    CreatedDate = DateTime.Now
+                };
+                _context.JiraSettings.Add(settings);
+            }
+            else
+            {
+                settings.JiraBaseUrl = dto.JiraBaseUrl?.Trim() ?? "";
+                settings.UserEmail = dto.UserEmail?.Trim() ?? "";
+                // If token sent is not masked placeholder, update it
+                if (!string.IsNullOrWhiteSpace(dto.ApiToken) && !dto.ApiToken.Contains("••••"))
+                {
+                    settings.ApiToken = dto.ApiToken.Trim();
+                }
+                settings.ProjectKey = dto.ProjectKey?.Trim().ToUpper() ?? "";
+                settings.IsSyncEnabled = dto.IsSyncEnabled;
+                settings.UpdatedDate = DateTime.Now;
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok(new JiraSettingsDto
+            {
+                JiraBaseUrl = settings.JiraBaseUrl,
+                UserEmail = settings.UserEmail,
+                ApiToken = "••••••••",
+                ProjectKey = settings.ProjectKey,
+                IsSyncEnabled = settings.IsSyncEnabled,
+                LastSyncDate = settings.LastSyncDate
+            });
         }
 
         // --- COMPONENTS CRUD ---

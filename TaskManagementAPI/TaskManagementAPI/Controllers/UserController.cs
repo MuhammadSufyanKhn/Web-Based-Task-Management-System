@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -80,6 +80,13 @@ namespace TaskManagementAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetUserById(int id)
         {
+            var currentUserIdClaim = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserRole = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            if (User?.Identity?.IsAuthenticated == true && currentUserRole != "Admin" && currentUserIdClaim != id.ToString())
+            {
+                return Forbid();
+            }
+
             var user = _context.Users
                 .Where(u => u.UserId == id && u.IsDeleted == false)
                 .Select(u => new
@@ -100,6 +107,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(user);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update-user/{id}")]
         public IActionResult UpdateUser(int id, [FromBody] UpdateProfileDto request)
         {
@@ -118,6 +126,7 @@ namespace TaskManagementAPI.Controllers
             return Ok("User updated successfully.");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete-user/{id}")]
         public IActionResult DeleteUser(int id)
         {

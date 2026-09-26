@@ -135,6 +135,7 @@ namespace TaskManagementAPI.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateSprint([FromBody] CreateSprintDto dto)
         {
@@ -162,6 +163,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(new { message = "Sprint created successfully.", sprintId = sprint.Id });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSprint(int id, [FromBody] UpdateSprintDto dto)
         {
@@ -178,6 +180,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(new { message = "Sprint updated successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("{id}/start")]
         public async Task<IActionResult> StartSprint(int id, [FromBody] StartSprintDto dto)
         {
@@ -206,6 +209,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(new { message = "Sprint started successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("{id}/complete")]
         public async Task<IActionResult> CompleteSprint(int id, [FromBody] CompleteSprintDto dto)
         {
@@ -252,6 +256,7 @@ namespace TaskManagementAPI.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSprint(int id)
         {

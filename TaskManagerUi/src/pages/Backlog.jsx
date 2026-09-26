@@ -9,6 +9,7 @@ import CreateSprintModal from '../components/CreateSprintModal';
 import StartSprintModal from '../components/StartSprintModal';
 import CompleteSprintModal from '../components/CompleteSprintModal';
 import CreateEpicModal from '../components/CreateEpicModal';
+import AppNavbar from '../components/AppNavbar';
 
 const Backlog = () => {
     const navigate = useNavigate();
@@ -143,6 +144,7 @@ const Backlog = () => {
             backgroundColor: '#ffffff',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         }}>
+            <AppNavbar />
             {/* Top Navigation */}
             <header style={{
                 height: '56px',

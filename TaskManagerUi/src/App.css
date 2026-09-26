@@ -453,3 +453,15 @@
     box-shadow: 0 4px 12px rgba(26, 26, 64, 0.2);
     transform: translateY(-2px); 
 }
+
+/* Split-screen Responsive Layout */
+@media (max-width: 900px) {
+    .auth-split-container {
+        flex-direction: column !important;
+        position: relative !important;
+        min-height: 100vh !important;
+    }
+    .auth-split-container > div:first-child {
+        padding: 30px 20px !important;
+    }
+}

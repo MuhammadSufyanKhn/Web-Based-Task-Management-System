@@ -54,6 +54,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateEpic([FromBody] CreateEpicDto dto)
         {
@@ -84,6 +85,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(new { message = "Epic created successfully.", epicId = epic.Id, epicKey = epic.Key });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEpic(int id, [FromBody] UpdateEpicDto dto)
         {
@@ -101,6 +103,7 @@ namespace TaskManagementAPI.Controllers
             return Ok(new { message = "Epic updated successfully." });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEpic(int id)
         {

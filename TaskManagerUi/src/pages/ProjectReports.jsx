@@ -7,6 +7,7 @@ import BurndownChart from '../components/charts/BurndownChart';
 import VelocityBarChart from '../components/charts/VelocityBarChart';
 import BreakdownBarChart from '../components/charts/BreakdownBarChart';
 import DonutChart from '../components/charts/DonutChart';
+import AppNavbar from '../components/AppNavbar';
 
 const ISSUE_TYPE_ICONS = {
     Bug: '🐞',
@@ -160,6 +161,7 @@ const ProjectReports = () => {
             backgroundColor: '#fafbfc',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
         }}>
+            <AppNavbar />
             {/* Top Navigation Header */}
             <header style={{
                 height: '56px',
