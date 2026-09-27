@@ -1252,10 +1252,6 @@ textarea.input {
   }
 }
 
-.auth-card-animate {
-  animation: authFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 /* ── Auth Sliding Split Screen ──────────────────────────── */
 .auth-master-wrapper {
   position: fixed;
@@ -1272,13 +1268,15 @@ textarea.input {
   top: 0;
   height: 100%;
   width: 50%;
-  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
   will-change: transform;
 }
 
 .auth-hero-panel {
   left: 0;
   z-index: 10;
+  box-shadow: 0 0 50px rgba(10, 25, 47, 0.35), 0 25px 60px -15px rgba(15, 23, 42, 0.3);
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .auth-hero-panel.panel-login {
@@ -1299,6 +1297,7 @@ textarea.input {
   overflow-y: auto;
   background-color: #f8fafc;
   box-sizing: border-box;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .auth-form-panel.panel-login {
@@ -1309,7 +1308,40 @@ textarea.input {
   transform: translateX(-100%);
 }
 
-@media (max-width: 900px) {
+@keyframes authCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.auth-card-animate {
+  animation: authCardFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auth-switch-link {
+  color: #1e3a8a;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.15s ease;
+  display: inline;
+}
+
+.auth-switch-link:hover {
+  color: #2563eb;
+}
+
+@media (max-width: 768px) {
   .auth-slider-panel {
     position: relative;
     width: 100%;
@@ -1329,46 +1361,4 @@ textarea.input {
     width: 100%;
     min-height: 100vh;
   }
-}
-
-.auth-toggle-tab {
-  display: inline-flex;
-  padding: 4px;
-  background-color: #f1f5f9;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  margin-bottom: 22px;
-}
-
-.auth-toggle-tab button,
-.auth-toggle-tab a {
-  padding: 7px 22px;
-  border-radius: 7px;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-block;
-  font-family: inherit;
-}
-
-.auth-toggle-tab button.active,
-.auth-toggle-tab a.active {
-  background-color: #1e3a8a;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.35);
-}
-
-.auth-toggle-tab button:not(.active),
-.auth-toggle-tab a:not(.active) {
-  color: #64748b;
-}
-
-.auth-toggle-tab button:not(.active):hover,
-.auth-toggle-tab a:not(.active):hover {
-  color: #1e3a8a;
-  background-color: rgba(30, 58, 138, 0.08);
 }

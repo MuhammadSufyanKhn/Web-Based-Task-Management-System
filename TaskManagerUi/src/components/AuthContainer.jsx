@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import AuthHeroVisual from './AuthHeroVisual';
 
@@ -118,32 +118,12 @@ const AuthContainer = ({ initialMode = 'login' }) => {
                         maxWidth: '450px',
                         backgroundColor: '#ffffff',
                         borderRadius: '16px',
-                        padding: '36px 36px',
+                        padding: '38px 36px',
                         boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 1px rgba(15, 23, 42, 0.15)',
                         border: '1px solid #cbd5e1',
                         boxSizing: 'border-box'
                     }}
                 >
-                    {/* Sliding Toggle Tabs */}
-                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-                        <div className="auth-toggle-tab">
-                            <button
-                                type="button"
-                                onClick={switchToLogin}
-                                className={!isRegister ? 'active' : ''}
-                            >
-                                Sign In
-                            </button>
-                            <button
-                                type="button"
-                                onClick={switchToRegister}
-                                className={isRegister ? 'active' : ''}
-                            >
-                                Create Account
-                            </button>
-                        </div>
-                    </div>
-
                     {/* ── LOGIN FORM CARD ──────────────────────────── */}
                     {!isRegister ? (
                         <div>

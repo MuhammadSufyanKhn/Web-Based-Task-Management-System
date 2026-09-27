@@ -1,8 +1,4 @@
-import React from 'react';
 import AuthContainer from '../components/AuthContainer';
 
-const Login = () => {
-    return <AuthContainer initialMode="login" />;
-};
+export default AuthContainer;
 
-export default Login;

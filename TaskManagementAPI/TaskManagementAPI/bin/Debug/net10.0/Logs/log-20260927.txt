@@ -65,3 +65,39 @@
 2026-09-27 14:23:42.464 +05:00 [INF] Admin stats retrieved.
 2026-09-27 14:41:09.128 +05:00 [INF] Admin stats retrieved.
 2026-09-27 14:41:09.138 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:02:28.022 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:07:30.729 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:07:33.341 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:07:33.353 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:07:58.032 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:07:58.039 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:08:01.652 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:08:01.659 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:08:07.429 +05:00 [INF] All tasks retrieved by admin.
+2026-09-27 15:08:07.438 +05:00 [INF] All tasks retrieved by admin.
+2026-09-27 15:08:17.393 +05:00 [INF] Task with id 2138 deleted by user 5 with role Admin
+2026-09-27 15:08:18.850 +05:00 [INF] Task with id 2140 deleted by user 5 with role Admin
+2026-09-27 15:08:20.218 +05:00 [INF] Task with id 2142 deleted by user 5 with role Admin
+2026-09-27 15:08:21.411 +05:00 [INF] Task with id 2144 deleted by user 5 with role Admin
+2026-09-27 15:08:22.714 +05:00 [INF] Task with id 2146 deleted by user 5 with role Admin
+2026-09-27 15:08:24.163 +05:00 [INF] Task with id 2148 deleted by user 5 with role Admin
+2026-09-27 15:08:27.021 +05:00 [INF] Task with id 2150 deleted by user 5 with role Admin
+2026-09-27 15:08:28.647 +05:00 [INF] Task with id 2152 deleted by user 5 with role Admin
+2026-09-27 15:08:29.998 +05:00 [INF] Task with id 2154 deleted by user 5 with role Admin
+2026-09-27 15:08:31.891 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:08:31.896 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:10:00.232 +05:00 [INF] Start processing HTTP request POST https://taskmanagementsystembysufyan.atlassian.net/rest/api/3/search/jql
+2026-09-27 15:10:00.234 +05:00 [INF] Sending HTTP request POST https://taskmanagementsystembysufyan.atlassian.net/rest/api/3/search/jql
+2026-09-27 15:10:01.740 +05:00 [INF] Received HTTP response headers after 1502.7302ms - 200
+2026-09-27 15:10:01.740 +05:00 [INF] End processing HTTP request after 1514.9663ms - 200
+2026-09-27 15:10:01.995 +05:00 [INF] Start processing HTTP request GET https://taskmanagementsystembysufyan.atlassian.net/rest/api/3/issue/createmeta/SCRUM/issuetypes
+2026-09-27 15:10:01.996 +05:00 [INF] Sending HTTP request GET https://taskmanagementsystembysufyan.atlassian.net/rest/api/3/issue/createmeta/SCRUM/issuetypes
+2026-09-27 15:10:02.604 +05:00 [INF] Received HTTP response headers after 608.1611ms - 200
+2026-09-27 15:10:02.605 +05:00 [INF] End processing HTTP request after 610.0158ms - 200
+2026-09-27 15:10:02.620 +05:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-27 15:14:00.130 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:14:12.464 +05:00 [INF] Sprint 3 completed. Moved 1 unfinished issues to sprint Backlog
+2026-09-27 15:14:36.690 +05:00 [INF] All users retrieved by admin.
+2026-09-27 15:14:36.696 +05:00 [INF] All users retrieved by admin.
+2026-09-27 15:14:39.426 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:14:39.430 +05:00 [INF] Admin stats retrieved.

@@ -47,7 +47,7 @@ const AuthHeroVisual = ({ isRegister = false }) => {
             <div style={{ maxWidth: '540px', width: '100%', zIndex: 1, transition: 'all 0.4s ease' }}>
                 {/* ── MODE 1: LOGIN VISUAL ────────────────────────── */}
                 {!isRegister ? (
-                    <div style={{ animation: 'authFadeIn 0.45s ease forwards' }}>
+                    <div key="login-hero-content" style={{ animation: 'authFadeIn 0.5s ease forwards' }}>
                         {/* Brand Pill */}
                         <div style={{
                             display: 'inline-flex',
@@ -195,7 +195,7 @@ const AuthHeroVisual = ({ isRegister = false }) => {
                     </div>
                 ) : (
                     /* ── MODE 2: REGISTER VISUAL (Completely Different Visual!) ── */
-                    <div style={{ animation: 'authFadeIn 0.45s ease forwards' }}>
+                    <div key="register-hero-content" style={{ animation: 'authFadeIn 0.5s ease forwards' }}>
                         {/* Brand Pill */}
                         <div style={{
                             display: 'inline-flex',
