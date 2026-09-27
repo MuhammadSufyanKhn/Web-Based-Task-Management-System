@@ -1,6 +1,140 @@
-# 📋 Web-Based Task Management System
+# 🚀 Full-Stack Agile Task & Project Management System
 
-A full-stack application for managing users and tasks with secure JWT authentication and role-based access control. The backend is powered by **ASP.NET Core Web API** with Entity Framework Core, and the frontend is built with **React.js**.
+[![.NET Version](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![SQL Server](https://img.shields.io/badge/Database-SQL_Server-CC292B?logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
+[![Entity Framework Core](https://img.shields.io/badge/ORM-EF_Core-512BD4)](https://learn.microsoft.com/ef/core/)
+[![Tests](https://img.shields.io/badge/Tests-74_Passed-success?logo=xunit)](https://xunit.net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> An enterprise-grade, full-stack **Agile Task and Project Management Platform** inspired by Jira. Features interactive **Kanban boards**, **Sprint & Backlog planning**, **Gantt & Timeline charts**, **Time Tracking**, **Agile Burndown/Velocity Analytics**, **Jira Cloud Synchronization**, and secure **JWT Role-Based Access Control (Admin & User)**.
+
+---
+
+## 📑 Table of Contents
+
+- [Overview](#-overview)
+- [✨ Key Features](#-key-features)
+- [🏗️ System Architecture](#️-system-architecture)
+- [🔐 Role-Based Access Control (Admin vs. User)](#-role-based-access-control-admin-vs-user)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Quick Start Guide](#-quick-start-guide)
+  - [Prerequisites](#prerequisites)
+  - [1. Clone Repository](#1-clone-repository)
+  - [2. Backend Setup (.NET API)](#2-backend-setup-aspnet-core-api)
+  - [3. Frontend Setup (React + Vite)](#3-frontend-setup-reactjs--vite)
+- [🧪 Running Tests (74 Passing Tests)](#-running-tests)
+- [📡 API Endpoints Summary](#-api-endpoints-summary)
+- [💡 Common Troubleshooting & Tips](#-common-troubleshooting--tips)
+- [👨‍💻 Author](#-author)
+
+---
+
+## 📖 Overview
+
+This system was built to provide teams with a complete, modern toolset for managing software development workflows:
+- **Agile Project Management**: Plan sprints, groom the product backlog, group tasks into epics, and visualize work in multiple views (Kanban, List, Calendar, Timeline, Gantt).
+- **Time & Progress Tracking**: Log hours spent, calculate remaining estimates, and view automated Sprint Burndown and Velocity charts.
+- **Enterprise Security**: JWT-based stateless authentication, SHA-256 password hashing, audit history on every entity, and role separation between Admins and Team Members.
+- **Third-Party Integrations**: Seamless import, export, and live webhook sync with **Atlassian Jira Cloud**.
+
+---
+
+## ✨ Key Features
+
+### 📋 1. Multiple Agile Work Views
+- **Interactive Kanban Board**: Drag-and-drop task cards across configurable status columns with Work-in-Progress (WIP) limits.
+- **Backlog & Sprint Grooming**: Plan active and future sprints, set sprint goals, assign story points, and drag tasks between the backlog and sprints.
+- **Gantt Chart & Timeline Views**: Visualize scheduling, due dates, project milestones, and critical path timelines.
+- **Calendar & List Views**: Month/week calendar view and a searchable, sortable data table for high-density task review.
+
+### ⏱️ 2. Work Estimation & Time Tracking
+- Log working hours directly against tasks with notes.
+- Set original estimates and automatically calculate remaining estimates and progress bars.
+- Detailed task activity stream tracking who changed what and when.
+
+### 🔗 3. Task Relationships & Subtasks
+- **Parent & Subtask Hierarchy**: Break complex user stories down into manageable subtasks.
+- **Task Dependencies**: Link tasks with relationships (*Blocks*, *Is Blocked By*, *Relates To*) with circular dependency validation.
+
+### 📊 4. Agile Reports & Analytics
+- **Sprint Burndown Chart**: Track ideal vs. actual remaining story points day-by-day.
+- **Team Velocity Chart**: Measure historical story points completed across sprints for sprint capacity planning.
+- **Status & Priority Breakdowns**: Interactive donut and bar charts showing task distributions.
+
+### 🔄 5. Atlassian Jira Cloud Integration
+- Connect with your Jira Cloud domain using API tokens.
+- Bidirectional synchronization for issues, epics, and statuses.
+- Webhook endpoint support for instant background updates.
+
+### ⚙️ 6. Customizable Workflows & Settings
+- Configure project statuses, categories (*To Do*, *In Progress*, *Done*), and allowed workflow transitions.
+- Custom issue types (*Task*, *Bug*, *Story*, *Epic*), priorities, and color tags.
+
+### 🔔 7. In-App Notifications
+- Instant alerts for new task assignments, status changes, and sprint updates.
+
+---
+
+## 🏗️ System Architecture
+
+```
+┌────────────────────────────────────────────────────────┐
+│             React 19 Frontend (Vite)                   │
+│   • Dark Slate Design System   • Kanban / Gantt Views  │
+│   • Axios Interceptors         • Dynamic Analytics     │
+└──────────────────────────┬─────────────────────────────┘
+                           │ HTTPS REST Requests (Bearer JWT)
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│             ASP.NET Core Web API (.NET 10)             │
+│   • JWT Auth & RBAC Middleware  • 14 Specialized APIs  │
+│   • Serilog File & Console Logs • Jira Cloud Service   │
+└──────────────┬───────────────────────────┬─────────────┘
+               │                           │
+               ▼                           ▼
+┌──────────────────────────────┐   ┌─────────────────────┐
+│    SQL Server Database       │   │  Atlassian Jira     │
+│  • Entity Framework Core     │   │  Cloud REST API     │
+│  • 17 Relational Tables      │   │  (Sync & Webhooks)  │
+└──────────────────────────────┘   └─────────────────────┘
+```
+
+---
+
+## 🔐 Role-Based Access Control (Admin vs. User)
+
+The system enforces strict role-based authorization at the API middleware level via JWT claims:
+
+| Feature / Action | 👑 Admin Role | 👤 User (Team Member) Role |
+|---|:---:|:---:|
+| **View Kanban / Backlog / Sprints** | ✅ Full Access | ✅ Full Access |
+| **Create & Update Tasks** | ✅ Any task | ✅ Assigned / created tasks |
+| **Assign Tasks** | ✅ To any team member | ✅ To themselves |
+| **Delete Tasks (Soft Delete)** | ✅ Any task | ✅ Owned tasks only |
+| **Manage Sprints & Epics** | ✅ Create, Start, Complete | 👁️ View / participate |
+| **Project Settings & Workflows** | ✅ Configure statuses, WIP & Jira | ❌ Restricted |
+| **User Management** | ✅ View, edit, delete all users | ❌ Restricted |
+| **Personal Profile Management** | ✅ Update own profile | ✅ Update own profile |
+| **Time Tracking & Comments** | ✅ All tasks | ✅ Assigned tasks |
+
+> 🚫 **Unauthorized Access**: If a regular user calls an Admin endpoint, ASP.NET Core middleware returns `403 Forbidden` before executing any controller code.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies Used | Description |
+|---|---|---|
+| **Frontend** | React 19, React Router 7, Vite 8, Axios | Modern SPA with ultra-fast Vite HMR and responsive dark UI |
+| **Backend API** | ASP.NET Core Web API (C# / .NET 10) | RESTful architecture with clean separation of controllers and services |
+| **Database & ORM** | Microsoft SQL Server, Entity Framework Core | Relational database with EF Core code-first mappings and foreign keys |
+| **Authentication** | JWT (JSON Web Tokens), SHA-256 | Stateless security with role and user identity claims |
+| **Logging** | Serilog (Console & Rolling File Sink) | Structured application logging in `/Logs` |
+| **API Docs** | Swagger / OpenAPI | Interactive UI for exploring and testing endpoints |
+| **Testing** | xUnit, Moq, EF Core In-Memory, Vitest | 74 automated unit tests covering API business logic |
 
 ---
 
@@ -8,157 +142,61 @@ A full-stack application for managing users and tasks with secure JWT authentica
 
 ```
 Web-Based-Task-Management-System/
-├── TaskManagementAPI/                  # ASP.NET Core Web API (Backend)
-│   ├── Controllers/
-│   │   ├── AuthController.cs           # Register & Login endpoints
-│   │   ├── UserController.cs           # User profile & management endpoints
-│   │   └── TaskController.cs           # Task CRUD endpoints
-│   ├── Data/
-│   │   └── AppDbContext.cs             # Entity Framework Core DB context
-│   ├── Models/
-│   │   ├── Users.cs                    # User entity model
-│   │   ├── TaskItem.cs                 # Task entity model
-│   │   └── DTOS/                       # Data Transfer Objects (request/response shapes)
-│   ├── Helpers/
-│   │   ├── JwtService.cs               # JWT token generation & validation
-│   │   └── PasswordHasher.cs           # SHA-256 password hashing
-│   ├── appsettings.json                # App configuration (DB connection, JWT settings)
-│   └── TaskManagementAPI.tests/        # xUnit unit test project
-│       └── Controllers/
-│           └── UserControllerTest.cs   # All UserController unit tests
-└── TaskManagerUi/                      # React.js Frontend
+├── TaskManagementAPI/                     # BACKEND SOLUTION
+│   ├── TaskManagementAPI/                 # Web API Project
+│   │   ├── Controllers/                   # 14 REST API Controllers
+│   │   │   ├── AuthController.cs          # Register, Login & JWT generation
+│   │   │   ├── UserController.cs          # User profiles & Admin user management
+│   │   │   ├── TaskController.cs          # Core task CRUD & assignment
+│   │   │   ├── KanbanController.cs        # Kanban board columns & card movements
+│   │   │   ├── BacklogController.cs       # Backlog, Sprint & Epic grouping
+│   │   │   ├── SprintController.cs        # Sprint lifecycle (start/complete)
+│   │   │   ├── EpicController.cs          # Epic management
+│   │   │   ├── ReportsController.cs       # Burndown, Velocity & Breakdown analytics
+│   │   │   ├── TimeTrackingController.cs  # Work logs & time estimates
+│   │   │   ├── TaskDependenciesController.cs # Predecessor/successor links
+│   │   │   ├── TaskActivityController.cs  # Task audit trail & change log
+│   │   │   ├── NotificationsController.cs # User notifications
+│   │   │   ├── ProjectConfigController.cs # Custom statuses, priorities & workflows
+│   │   │   └── JiraIntegrationController.cs# Jira Cloud sync & webhooks
+│   │   ├── Data/
+│   │   │   └── AppDbContext.cs            # EF Core DbContext (17 DbSets)
+│   │   ├── Models/                        # Domain entities & DTOs
+│   │   ├── Services/                      # Background services (Jira, Notifications, Activity)
+│   │   ├── Helpers/                       # JwtService, PasswordHasher
+│   │   ├── Program.cs                     # App bootstrap, DI, CORS & middleware
+│   │   └── appsettings.json               # DB connection string & JWT config
+│   │
+│   └── TaskManagementAPI.tests/           # UNIT TEST SUITE (74 Tests)
+│       └── Controllers/                   # Isolated controller tests using Moq
+│
+└── TaskManagerUi/                         # FRONTEND (React + Vite)
     ├── src/
-    │   ├── components/                 # Reusable UI components (Navbar, TaskCard, etc.)
-    │   ├── pages/                      # Login, Register, Dashboard, Tasks pages
-    │   └── App.js                      # Root component and route definitions
-    ├── .env                            # API base URL config
-    └── package.json
+    │   ├── Api/                           # Axios client with JWT interceptors
+    │   ├── components/                    # UI Components (Kanban, Sprints, Modals)
+    │   │   └── charts/                    # Burndown, Velocity, Donut & Bar charts
+    │   ├── pages/                         # Kanban, Backlog, Gantt, Reports, Settings, etc.
+    │   ├── App.jsx                        # Application routes & Protected Route guards
+    │   └── App.css                        # Design system & dark theme styles
+    ├── vite.config.js                     # Vite build configuration
+    └── package.json                       # Dependencies and scripts
 ```
 
 ---
 
-## ✨ Features
-
-- **JWT Authentication** — Secure register and login using JSON Web Tokens. Token is stored client-side and sent with every protected request.
-- **Role-Based Access Control (RBAC)** — Two roles (`Admin` and `User`) with clearly separated permissions enforced at the API level.
-- **User Profile Management** — Users can view and update their own profile. Admins can manage all users.
-- **Task CRUD** — Full create, read, update, and delete operations on tasks with ownership rules per role.
-- **Soft Delete with Cascade** — Deleting a user does not remove them from the database. Instead, `IsDeleted = true` is set on the user and all their associated tasks automatically.
-- **Audit Tracking** — Every record in the database tracks `CreatedDate`, `UpdatedDate`, and `UpdatedBy` for full traceability.
-- **SHA-256 Password Hashing** — Passwords are hashed before storage. Plain text passwords are never saved.
-- **Unit Tested** — All controller logic is covered with xUnit tests using Moq and EF Core In-Memory Database.
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| Backend | ASP.NET Core Web API, C# | REST API and business logic |
-| ORM | Entity Framework Core | Database access and migrations |
-| Database | SQL Server | Persistent data storage |
-| Authentication | JWT (JSON Web Tokens) | Stateless auth, role claims embedded in token |
-| Password Security | SHA-256 Hashing | Secure password storage |
-| Frontend | React.js | Interactive user interface |
-| Unit Testing | xUnit, Moq, EF Core InMemory | Isolated controller testing |
-
----
-
-## 🔐 Role-Based Access Control (RBAC)
-
-The system enforces two roles: **Admin** and **User**. The role is assigned during registration and is embedded as a claim inside the JWT token. Every protected API endpoint checks this claim before allowing access.
-
----
-
-### 👑 Admin
-
-Admins have elevated privileges and can manage all users and all tasks across the entire system. This role is intended for system administrators.
-
-| Permission | Endpoint | What It Does |
-|---|---|---|
-| View any user's profile | `GET /api/user/{id}` | Fetch the profile of any registered user by their ID |
-| Update any user | `PUT /api/user/update-user/{id}` | Change the name or email of any user in the system |
-| Delete any user | `DELETE /api/user/delete-user/{id}` | Soft-deletes the user and automatically soft-deletes all their tasks |
-| View all tasks | `GET /api/task` | Returns every task in the system, not filtered by user |
-| Update any task | `PUT /api/task/{id}` | Edit the title, description, or status of any task |
-| Delete any task | `DELETE /api/task/{id}` | Soft-deletes any task regardless of who owns it |
-| Assign tasks to users | `POST /api/task` | Create a task and assign it to any user in the system |
-| View own profile | `GET /api/user/profile` | Admins can also view their own profile |
-| Update own profile | `PUT /api/user/update-profile` | Admins can update their own name and email |
-
----
-
-### 👤 User
-
-Regular users have restricted access. They can only manage their own profile and interact with tasks that belong to them. They cannot access other users' data.
-
-| Permission | Endpoint | What It Does |
-|---|---|---|
-| View own profile | `GET /api/user/profile` | Fetch their own profile information using JWT claim |
-| Update own profile | `PUT /api/user/update-profile` | Update their own name and email only |
-| Create own tasks | `POST /api/task` | Create a new task assigned to themselves |
-| View own tasks | `GET /api/task` | Returns only the tasks that belong to the logged-in user |
-| Update own tasks | `PUT /api/task/{id}` | Edit a task only if it belongs to them |
-| Delete own tasks | `DELETE /api/task/{id}` | Soft-delete a task only if it belongs to them |
-
----
-
-### 🚫 What Happens When a User Accesses an Admin Endpoint?
-
-If a regular `User` attempts to call an Admin-only endpoint, the API immediately rejects the request:
-
-```
-HTTP 403 Forbidden
-```
-
-The request never reaches the controller logic. The `[Authorize(Roles = "Admin")]` attribute on the endpoint handles this at the ASP.NET Core middleware level before any code runs.
-
----
-
-### 🔑 How Roles Work Technically
-
-1. During **registration**, a `UserRole` field (`"Admin"` or `"User"`) is saved to the `Users` table in the database.
-2. During **login**, the role is read from the database and added as a `ClaimTypes.Role` claim inside the JWT token.
-3. On every **protected request**, ASP.NET Core middleware reads the Bearer token from the `Authorization` header, validates it, extracts the role claim, and enforces the `[Authorize(Roles = "...")]` attribute on the endpoint.
-4. The user ID is also stored as a `ClaimTypes.NameIdentifier` claim so controllers can identify who is making the request without an extra database call.
-
-```
-Login Request
-     │
-     ▼
-AuthController reads UserRole from DB
-     │
-     ▼
-Role is added as a claim inside JWT token
-     │
-     ▼
-Client sends token on every request
-     │
-     ▼
-ASP.NET Core middleware validates token + checks role claim
-     │
-     ├── Role matches [Authorize(Roles = "Admin")] → ✅ Access Granted
-     └── Role does not match                        → ❌ 403 Forbidden
-```
-
----
-
-## 🚀 Getting Started
+## 🚀 Quick Start Guide
 
 ### Prerequisites
 
-Make sure you have the following installed before running the project:
-
-| Tool | Version | Download |
-|---|---|---|
-| .NET SDK | v6 or later | https://dotnet.microsoft.com/download |
-| Node.js & npm | v16 or later | https://nodejs.org/ |
-| SQL Server | Any edition | https://www.microsoft.com/en-us/sql-server |
-| EF Core CLI Tools | Latest | Run: `dotnet tool install --global dotnet-ef` |
+Ensure you have the following installed on your machine:
+- [.NET SDK (v8.0 or v10.0)](https://dotnet.microsoft.com/download)
+- [Node.js (v18 or higher) and npm](https://nodejs.org/)
+- [Microsoft SQL Server](https://www.microsoft.com/sql-server) (LocalDB, Express, or Developer edition)
+- [Git](https://git-scm.com/)
 
 ---
 
-### 1. Clone the Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/MuhammadSufyanKhn/Web-Based-Task-Management-System.git
@@ -169,200 +207,181 @@ cd Web-Based-Task-Management-System
 
 ### 2. Backend Setup (ASP.NET Core API)
 
-#### Step 1 — Configure `appsettings.json`
-
-Navigate to `TaskManagementAPI/` and open `appsettings.json`. Fill in your SQL Server connection string and JWT settings:
+#### Step A: Configure Connection String
+Open `TaskManagementAPI/TaskManagementAPI/appsettings.json` and adjust your SQL Server connection string if needed:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=TaskManagerDb;Trusted_Connection=True;TrustServerCertificate=True;"
+    "DefaultConnection": "Server=.\\SQLEXPRESS;Database=TaskManagementSystem;Trusted_Connection=True;TrustServerCertificate=True;"
   },
   "Jwt": {
-    "Key": "YourSuperSecretKeyThatIsAtLeast32CharactersLong!",
+    "Key": "your-secure-secret-key-at-least-32-characters-long!",
     "Issuer": "TaskManagerAPI",
-    "Audience": "TaskManagerClient"
+    "Audience": "TaskManagerUser"
   }
 }
 ```
+*(If using LocalDB, set `Server=(localdb)\\mssqllocaldb`)*.
 
-> ⚠️ Replace `YOUR_SERVER_NAME` with your actual SQL Server instance name, for example `localhost` or `.\SQLEXPRESS`.
-
-> ⚠️ The JWT `Key` must be at least 32 characters long or token generation will fail at runtime.
-
-#### Step 2 — Install EF Core CLI (if not already installed)
+#### Step B: Run Database Migrations
+Open a terminal in the API folder and update the database:
 
 ```bash
-dotnet tool install --global dotnet-ef
-```
-
-#### Step 3 — Apply Database Migrations
-
-```bash
-cd TaskManagementAPI
+cd TaskManagementAPI/TaskManagementAPI
 dotnet ef database update
 ```
+*This automatically creates the `TaskManagementSystem` database with all required tables.*
 
-This creates the `TaskManagerDb` database and all tables (`Users`, `TaskItems`) automatically based on the EF Core models. No manual SQL scripts needed.
-
-#### Step 4 — Run the API
-
+#### Step C: Start the API Server
 ```bash
 dotnet run
 ```
-
-The API will start. You will see output like:
-
-```
-Now listening on: https://localhost:7123
-```
-
-Open Swagger UI in your browser to explore and test all endpoints interactively:
-
-```
-https://localhost:<port>/swagger
-```
-
-> Keep this terminal open while using the frontend. The React app needs the API running to function.
+The API will start running on:
+- **API URL**: `https://localhost:7127`
+- **Swagger Documentation**: [https://localhost:7127/swagger](https://localhost:7127/swagger)
 
 ---
 
-### 3. Frontend Setup (React.js)
+### 3. Frontend Setup (React.js + Vite)
 
-Open a **new terminal window** and navigate to the frontend folder:
+Open a **new terminal window** and navigate to `TaskManagerUi`:
 
 ```bash
 cd TaskManagerUi
 ```
 
-#### Step 1 — Install Dependencies
-
+#### Step A: Install Dependencies
 ```bash
 npm install
 ```
 
-This downloads all required packages listed in `package.json`.
-
-#### Step 2 — Configure API URL
-
-Create a `.env` file inside `TaskManagerUi/` and set it to point to your running backend API:
-
-```env
-REACT_APP_API_URL=https://localhost:<port>/api
-```
-
-> Replace `<port>` with the port number shown when you ran `dotnet run`.
-
-#### Step 3 — Start the React App
-
+#### Step B: Start Development Server
 ```bash
-npm start
+npm run dev
 ```
 
-The frontend will open automatically in your browser at:
-
-```
-http://localhost:3000
-```
-
-> If you scaffolded the React app with **Vite**, use `npm run dev` instead. It will run on `http://localhost:5173`.
+The frontend will launch at:
+👉 **`http://localhost:5173`**
 
 ---
 
-## 🧪 Running Unit Tests
+### 4. Create an Account & Start Testing
 
-The test project lives inside `TaskManagementAPI/TaskManagementAPI.tests/`. Tests are completely isolated — no real database, no SQL Server, and no network connection is needed to run them.
+1. Open `http://localhost:5173` in your browser.
+2. Click **Register**:
+   - Register your first user with role **Admin** to get full access to Project Settings, User Management, and Sprint creation.
+   - Register a second user with role **User** to test team member permissions.
+3. Explore the **Kanban board**, create tasks, plan **Sprints** in the **Backlog**, log work hours, and view **Reports**!
 
-### Navigate to the solution root
+---
+
+## 🧪 Running Tests
+
+The solution includes a comprehensive unit testing suite using **xUnit**, **Moq**, and **EF Core In-Memory Database**. All business logic across controllers is tested in total isolation.
+
+### Run Backend Unit Tests
+
+From the solution directory:
 
 ```bash
-cd Web-Based-Task-Management-System
-```
-
-### Run all tests
-
-```bash
+cd TaskManagementAPI
 dotnet test
 ```
 
-Expected output:
-
-```
-Starting test execution, please wait...
-A total of 1 test files matched the specified pattern.
-
-Passed! - Failed: 0, Passed: 12, Skipped: 0, Total: 12, Duration: 1.2s
+**Result:**
+```text
+Passed!  - Failed: 0, Passed: 74, Skipped: 0, Total: 74, Duration: 1.0 s
 ```
 
-### Run tests with detailed output (see each test name)
+### Run Frontend Tests
+
+From the frontend directory:
 
 ```bash
-dotnet test --logger "console;verbosity=detailed"
+cd TaskManagerUi
+npm test
 ```
 
 ---
 
-## ✅ What Is Tested
+## 📡 API Endpoints Summary
 
-### Test Coverage Table
+All protected endpoints require an `Authorization: Bearer <token>` header obtained from the Login endpoint.
 
-| Test Method | Scenario | Expected Result |
-|---|---|---|
-| `GetProfile_UserClaimMissing_returnUnauthorized` | JWT token has no user ID claim | `401 Unauthorized` |
-| `GetProfile_UserClaimIsValid_ReturnOk` | Valid token, active user | `200 OK` with correct username and email |
-| `GetProfile_UserIsDeleted_ReturnNotFound` | User exists but `IsDeleted = true` | `404 Not Found` with message |
-| `UpdateProfile_UserIsFound_ReturnOkandUpdate` | Valid user updates their profile | `200 OK`, DB values verified |
-| `UpdateProfile_UserNotFound_ReturnNotFound` | Token user ID does not exist in DB | `404 Not Found` |
-| `GetUserById_UserExist_ReturnOk` | Valid user ID passed | `200 OK` with correct user data |
-| `GetUserById_UserNotExist_ReturnNotFound` | Non-existent user ID passed | `404 Not Found` |
-| `GetUserById_UserDeleted_ReturnNotFound` | User is soft-deleted | `404 Not Found` |
-| `UpdateUser_UserExist_ReturnOkandUpdate` | Admin updates a user by ID | `200 OK`, DB values verified |
-| `UpdateUser_UserNotExist_ReturnNotFound` | Non-existent user ID passed | `404 Not Found` with message |
-| `DeleteUser_UserExist_ReturnUserDeletedandUserTaskDeleted` | Delete user with tasks | User and all tasks soft-deleted, `UpdatedBy` set |
-| `DeleteUser_UserNotExist_ReturnUserNotFound` | Non-existent user ID passed | `404 Not Found` with message |
+### 🔑 Authentication (`/api/auth`)
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | Register new account (assigns Admin or User role) | Public |
+| `POST` | `/api/auth/login` | Login with credentials and obtain JWT token | Public |
 
+### 👥 User Management (`/api/user`)
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `GET` | `/api/user/profile` | View profile of logged-in user | All Roles |
+| `PUT` | `/api/user/update-profile` | Update own name and email | All Roles |
+| `GET` | `/api/user/{id}` | View any user by ID | Admin Only |
+| `PUT` | `/api/user/update-user/{id}`| Update any user's information | Admin Only |
+| `DELETE`| `/api/user/delete-user/{id}`| Soft-delete a user and cascade to tasks | Admin Only |
 
-## 📡 API Endpoints
+### 📋 Tasks (`/api/task`)
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `GET` | `/api/task` | Get tasks (filtered for User, all for Admin) | All Roles |
+| `POST` | `/api/task` | Create a new task or subtask | All Roles |
+| `PUT` | `/api/task/{id}` | Update task details, status, or assignee | All Roles |
+| `DELETE`| `/api/task/{id}` | Soft-delete a task | All Roles |
 
-> All endpoints except `register` and `login` require a Bearer token in the `Authorization` header:
-> ```
-> Authorization: Bearer <your_jwt_token>
-> ```
+### 📊 Kanban, Backlog & Sprints
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `GET` | `/api/kanban` | Get Kanban board grouped by status columns | All Roles |
+| `PUT` | `/api/kanban/move-task` | Drag-and-drop card to new column/position | All Roles |
+| `GET` | `/api/backlog` | Full backlog view with active/future sprint buckets | All Roles |
+| `POST` | `/api/sprint` | Create a new sprint | Admin / Manager |
+| `POST` | `/api/sprint/{id}/start` | Start an active sprint | Admin / Manager |
+| `POST` | `/api/sprint/{id}/complete`| Complete sprint and roll over incomplete tasks | Admin / Manager |
 
-### 🔓 Auth — Public (No Token Required)
+### 📈 Reports, Time & Integrations
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `GET` | `/api/reports/burndown/{sprintId}` | Daily ideal vs actual story points burndown | All Roles |
+| `GET` | `/api/reports/velocity` | Team story points completed over past sprints | All Roles |
+| `POST` | `/api/timetracking/log` | Log work time against a task | All Roles |
+| `GET` | `/api/jira/config` | Retrieve current Jira Cloud settings | Admin Only |
+| `POST` | `/api/jira/sync` | Trigger manual two-way sync with Jira Cloud | Admin Only |
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/auth/register` | Register a new account. Role (`Admin` or `User`) is assigned here |
-| `POST` | `/api/auth/login` | Login with email and password. Returns a signed JWT token |
+> 💡 *Check the interactive Swagger UI at `https://localhost:7127/swagger` for full request/response schemas.*
 
 ---
 
-### 👥 User Endpoints
+## 💡 Common Troubleshooting & Tips
 
-| Method | Endpoint | Description | Allowed Roles |
-|---|---|---|---|
-| `GET` | `/api/user/profile` | Get the logged-in user's own profile | `Admin`, `User` |
-| `PUT` | `/api/user/update-profile` | Update the logged-in user's own name/email | `Admin`, `User` |
-| `GET` | `/api/user/{id}` | Get any user's profile by their ID | `Admin` only |
-| `PUT` | `/api/user/update-user/{id}` | Update any user's name/email by their ID | `Admin` only |
-| `DELETE` | `/api/user/delete-user/{id}` | Soft-delete a user and cascade-delete all their tasks | `Admin` only |
+### 1. SQL Server Connection Error
+- **Symptom**: `Cannot open database "TaskManagementSystem" requested by the login.`
+- **Fix**: Check `Server=` in `appsettings.json`. If you use SQL Server Express, use `Server=.\\SQLEXPRESS`. If you have a default local SQL instance, use `Server=localhost`. Then run `dotnet ef database update`.
 
----
+### 2. Untrusted Localhost SSL Certificate
+- **Symptom**: Browser or Axios shows `NET::ERR_CERT_AUTHORITY_INVALID`.
+- **Fix**: Trust the .NET development certificate by running:
+  ```bash
+  dotnet dev-certs https --trust
+  ```
 
-### ✅ Task Endpoints
-
-| Method | Endpoint | Description | Allowed Roles |
-|---|---|---|---|
-| `GET` | `/api/task` | Get tasks | `User` → own tasks only. `Admin` → all tasks |
-| `POST` | `/api/task` | Create a new task | `Admin` (assign to anyone), `User` (assign to self) |
-| `PUT` | `/api/task/{id}` | Update a task | `User` → own tasks only. `Admin` → any task |
-| `DELETE` | `/api/task/{id}` | Soft-delete a task | `User` → own tasks only. `Admin` → any task |
+### 3. CORS Error in Frontend Console
+- **Symptom**: `Access to XMLHttpRequest blocked by CORS policy`.
+- **Fix**: Ensure the frontend is running on `http://localhost:5173` (Vite's default port), which is pre-configured in the API's CORS policy in `Program.cs`.
 
 ---
 
 ## 👨‍💻 Author
 
 **Muhammad Sufyan Khan**
+- **GitHub**: [@MuhammadSufyanKhn](https://github.com/MuhammadSufyanKhn)
+- **Repository**: [Web-Based-Task-Management-System](https://github.com/MuhammadSufyanKhn/Web-Based-Task-Management-System)
 
-- GitHub: [@MuhammadSufyanKhn](https://github.com/MuhammadSufyanKhn)
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — you are free to use, modify, and distribute this software for personal and commercial projects.

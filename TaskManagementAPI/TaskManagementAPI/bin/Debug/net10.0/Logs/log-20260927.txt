@@ -101,3 +101,30 @@
 2026-09-27 15:14:36.696 +05:00 [INF] All users retrieved by admin.
 2026-09-27 15:14:39.426 +05:00 [INF] Admin stats retrieved.
 2026-09-27 15:14:39.430 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:52:46.646 +05:00 [INF] Login attempt for user: Admin@gmail.com
+2026-09-27 15:52:48.792 +05:00 [INF] User Admin@gmail.com logged in successfully at "2026-09-27T15:52:48.7921663+05:00"
+2026-09-27 15:52:49.313 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:52:49.465 +05:00 [INF] Admin stats retrieved.
+2026-09-27 15:52:53.091 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:52:53.145 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:53:02.972 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:53:07.487 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:53:46.455 +05:00 [INF] Login attempt for user: sufyankhan@gmail.com
+2026-09-27 15:53:46.458 +05:00 [INF] User sufyankhan@gmail.com logged in successfully at "2026-09-27T15:53:46.4584553+05:00"
+2026-09-27 15:53:46.665 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:53:46.674 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:53:46.682 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:53:46.685 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:00.489 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:00.495 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:00.495 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:54:00.502 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:54:06.169 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:06.170 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:54:06.173 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:06.175 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:54:09.178 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-09-27 15:54:23.358 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:23.359 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
+2026-09-27 15:54:23.363 +05:00 [INF] Tasks retrieved for user 9 with role User
+2026-09-27 15:54:23.364 +05:00 [INF] Dashboard stats retrieved for user 9 with role User
