@@ -165,6 +165,10 @@ namespace TaskManagementAPI.Models.DTOS
         public string? ErrorMessage { get; set; }
         public string? TriggeredByName { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime StartedAt => CreatedDate;
+        public int TasksPushed => ItemsCreated;
+        public int TasksImported => ItemsUpdated;
+        public string? InitiatedBy => TriggeredByName;
     }
 
     // ==========================================

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import api from '../Api/Axios';
 import TaskDetailModal from '../components/TaskDetailModal';
 import CreateIssueModal from '../components/CreateIssueModal';
@@ -6,9 +6,17 @@ import CreateIssueModal from '../components/CreateIssueModal';
 const TimelineView = () => {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [groupBy, setGroupBy] = useState('sprint'); // 'sprint', 'epic', 'assignee'
+    const [groupBy, setGroupBy] = useState('sprint'); // 'sprint' | 'epic' | 'assignee' | 'status'
+    const [viewScale, setViewScale] = useState('weeks'); // 'days' | 'weeks' | 'months'
+    const [viewOffsetDays, setViewOffsetDays] = useState(0);
     const [selectedTaskId, setSelectedTaskId] = useState(null);
+    const [hoveredTask, setHoveredTask] = useState(null);
+    const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [collapsedGroups, setCollapsedGroups] = useState({});
+
+    const scrollContainerRef = useRef(null);
 
     const fetchTasks = async () => {
         try {
@@ -26,337 +34,940 @@ const TimelineView = () => {
         fetchTasks();
     }, []);
 
-    // Determine timeline date bounds (spanning roughly 30 days before and 60 days ahead)
-    const { timelineStart, timelineEnd, totalDays } = useMemo(() => {
-        const now = new Date();
-        const start = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-        const end = new Date(now.getFullYear(), now.getMonth() + 2, 28);
-        const diffTime = Math.abs(end - start);
-        const days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        return { timelineStart: start, timelineEnd: end, totalDays: days };
-    }, []);
-
-    // Generate week header marks
-    const timelineHeaders = useMemo(() => {
-        const marks = [];
-        const curr = new Date(timelineStart);
-        while (curr <= timelineEnd) {
-            marks.push(new Date(curr));
-            curr.setDate(curr.getDate() + 7);
-        }
-        return marks;
-    }, [timelineStart, timelineEnd]);
-
-    // Position helper
-    const getBarStyles = (task) => {
-        const start = task.createdDate ? new Date(task.createdDate) : new Date();
-        const due = task.dueDate ? new Date(task.dueDate) : new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
-
-        const clampedStart = Math.max(start.getTime(), timelineStart.getTime());
-        const clampedDue = Math.max(clampedStart + 24 * 60 * 60 * 1000, Math.min(due.getTime(), timelineEnd.getTime()));
-
-        const leftPct = ((clampedStart - timelineStart.getTime()) / (timelineEnd.getTime() - timelineStart.getTime())) * 100;
-        const widthPct = Math.max(2, ((clampedDue - clampedStart) / (timelineEnd.getTime() - timelineStart.getTime())) * 100);
-
-        return {
-            left: `${Math.max(0, Math.min(98, leftPct))}%`,
-            width: `${Math.min(100 - leftPct, Math.max(2.5, widthPct))}%`
-        };
-    };
-
-    // Calculate current day marker percentage
-    const todayPct = useMemo(() => {
-        const now = new Date().getTime();
-        const start = timelineStart.getTime();
-        const end = timelineEnd.getTime();
-        return Math.max(0, Math.min(100, ((now - start) / (end - start)) * 100));
-    }, [timelineStart, timelineEnd]);
+    // Filter tasks
+    const filteredTasks = useMemo(() => {
+        return tasks.filter(task => {
+            if (!searchQuery.trim()) return true;
+            const q = searchQuery.toLowerCase();
+            return (task.issueKey && task.issueKey.toLowerCase().includes(q)) ||
+                   (task.title && task.title.toLowerCase().includes(q)) ||
+                   (task.userName && task.userName.toLowerCase().includes(q)) ||
+                   (task.sprintName && task.sprintName.toLowerCase().includes(q)) ||
+                   (task.epicName && task.epicName.toLowerCase().includes(q));
+        });
+    }, [tasks, searchQuery]);
 
     // Group tasks
     const groupedData = useMemo(() => {
         const groups = {};
 
-        tasks.forEach(t => {
+        filteredTasks.forEach(t => {
             let key = 'Unassigned';
             let title = 'Unassigned';
+            let icon = '📁';
 
             if (groupBy === 'sprint') {
                 key = t.sprintName || 'Backlog';
                 title = t.sprintName || 'Backlog (No Sprint)';
+                icon = '🏃';
             } else if (groupBy === 'epic') {
                 key = t.epicName || 'No Epic';
                 title = t.epicName || 'No Epic Assigned';
+                icon = '⚡';
             } else if (groupBy === 'assignee') {
                 key = t.userName || 'Unassigned';
-                title = t.userName || 'Unassigned Tasks';
+                title = t.userName || 'Unassigned Issues';
+                icon = '👤';
+            } else if (groupBy === 'status') {
+                key = t.statusName || 'To Do';
+                title = t.statusName || 'To Do';
+                icon = '🏷️';
             }
 
             if (!groups[key]) {
                 groups[key] = {
+                    key,
                     title,
+                    icon,
                     tasks: []
                 };
             }
             groups[key].tasks.push(t);
         });
 
-        return Object.entries(groups);
-    }, [tasks, groupBy]);
+        return Object.values(groups);
+    }, [filteredTasks, groupBy]);
+
+    // Calculate metrics
+    const metrics = useMemo(() => {
+        const total = filteredTasks.length;
+        const done = filteredTasks.filter(t => t.statusCategory === 'Done').length;
+        const inProgress = filteredTasks.filter(t => t.statusCategory === 'InProgress').length;
+        const todo = filteredTasks.filter(t => t.statusCategory === 'Todo').length;
+        return { total, done, inProgress, todo };
+    }, [filteredTasks]);
+
+    // Timeline Boundaries and columns
+    const baseDate = useMemo(() => {
+        const d = new Date();
+        d.setDate(d.getDate() + viewOffsetDays);
+        d.setHours(0, 0, 0, 0);
+        return d;
+    }, [viewOffsetDays]);
+
+    const { daysList, cellWidth, totalWidth } = useMemo(() => {
+        let spanBefore = 21;
+        let spanAfter = 60;
+        let cWidth = 36;
+
+        if (viewScale === 'days') {
+            spanBefore = 14;
+            spanAfter = 35;
+            cWidth = 44;
+        } else if (viewScale === 'months') {
+            spanBefore = 60;
+            spanAfter = 180;
+            cWidth = 16;
+        }
+
+        const days = [];
+        const start = new Date(baseDate);
+        start.setDate(start.getDate() - spanBefore);
+
+        const totalDays = spanBefore + spanAfter;
+        for (let i = 0; i <= totalDays; i++) {
+            const cur = new Date(start);
+            cur.setDate(start.getDate() + i);
+            days.push(cur);
+        }
+
+        return {
+            daysList: days,
+            cellWidth: cWidth,
+            totalWidth: days.length * cWidth
+        };
+    }, [baseDate, viewScale]);
+
+    // Month headers grouping
+    const monthGroups = useMemo(() => {
+        const groups = [];
+        if (daysList.length === 0) return groups;
+
+        let currentMonth = -1;
+        let currentGroup = null;
+
+        daysList.forEach((day, index) => {
+            const m = day.getMonth();
+            if (m !== currentMonth) {
+                if (currentGroup) {
+                    currentGroup.width = currentGroup.daysCount * cellWidth;
+                    groups.push(currentGroup);
+                }
+                currentMonth = m;
+                currentGroup = {
+                    monthName: day.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+                    startIndex: index,
+                    daysCount: 1,
+                    width: cellWidth
+                };
+            } else {
+                currentGroup.daysCount += 1;
+            }
+        });
+
+        if (currentGroup) {
+            currentGroup.width = currentGroup.daysCount * cellWidth;
+            groups.push(currentGroup);
+        }
+
+        return groups;
+    }, [daysList, cellWidth]);
+
+    const timelineStartMs = daysList[0]?.getTime() || 0;
+
+    // Calculate bar position
+    const getTaskCoordinates = (task) => {
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+
+        let start = task.createdDate ? new Date(task.createdDate) : new Date(now);
+        start.setHours(0, 0, 0, 0);
+
+        let end = task.dueDate ? new Date(task.dueDate) : null;
+        if (!end) {
+            end = new Date(start);
+            end.setDate(start.getDate() + 5);
+        }
+        end.setHours(23, 59, 59, 999);
+
+        if (end.getTime() <= start.getTime()) {
+            end = new Date(start);
+            end.setDate(start.getDate() + 2);
+        }
+
+        const startDiffMs = start.getTime() - timelineStartMs;
+        const durationMs = end.getTime() - start.getTime();
+
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const leftPx = (startDiffMs / msPerDay) * cellWidth;
+        const widthPx = Math.max(cellWidth * 1.2, (durationMs / msPerDay) * cellWidth);
+
+        let progress = 0;
+        if (task.statusCategory === 'Done') progress = 100;
+        else if (task.subtaskCount > 0) progress = Math.round((task.subtaskCompletedCount / task.subtaskCount) * 100);
+        else if (task.statusCategory === 'InProgress') progress = 50;
+
+        return {
+            leftPx: Math.round(leftPx),
+            widthPx: Math.round(widthPx),
+            startDate: start,
+            endDate: end,
+            progress
+        };
+    };
+
+    // Calculate Today marker
+    const todayCoordinates = useMemo(() => {
+        const today = new Date();
+        today.setHours(12, 0, 0, 0);
+        const diffMs = today.getTime() - timelineStartMs;
+        const msPerDay = 24 * 60 * 60 * 1000;
+        const x = (diffMs / msPerDay) * cellWidth;
+        return {
+            x: Math.round(x),
+            isVisible: x >= 0 && x <= totalWidth
+        };
+    }, [timelineStartMs, cellWidth, totalWidth]);
+
+    const toggleGroupCollapse = (key) => {
+        setCollapsedGroups(prev => ({ ...prev, [key]: !prev[key] }));
+    };
+
+    const handleBarMouseEnter = (e, task, coords) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setTooltipPos({
+            x: rect.left + rect.width / 2,
+            y: rect.top - 8
+        });
+        setHoveredTask({ task, coords });
+    };
+
+    const handleBarMouseLeave = () => {
+        setHoveredTask(null);
+    };
+
+    const resetToToday = () => {
+        setViewOffsetDays(0);
+        if (scrollContainerRef.current && todayCoordinates.isVisible) {
+            scrollContainerRef.current.scrollLeft = Math.max(0, todayCoordinates.x - 300);
+        }
+    };
 
     return (
-        <div style={{ minHeight: '100%', backgroundColor: 'var(--bg-base)', color: 'var(--text-primary)' }}>
-            <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '24px 20px' }}>
-                {/* Page Header */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+        <div style={{ minHeight: '100%', backgroundColor: '#f8fafc', color: '#0f172a' }}>
+            <div style={{ maxWidth: '1680px', margin: '0 auto', padding: '24px 24px 48px 24px' }}>
+                
+                {/* ── Top Header ────────────────────────────────────────── */}
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '20px',
+                    flexWrap: 'wrap',
+                    gap: '16px'
+                }}>
                     <div>
-                        <h1 style={{ fontSize: '22px', fontWeight: '800', color: 'var(--text-primary)', margin: 0, letterSpacing: '-0.4px' }}>Timeline</h1>
-                        <p style={{ fontSize: '13px', color: 'var(--text-tertiary)', margin: '3px 0 0 0' }}>Visualize issue schedules, milestones, and sprint roadmaps</p>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <div style={{
+                                width: '34px',
+                                height: '34px',
+                                borderRadius: '8px',
+                                backgroundColor: '#1e3a8a',
+                                color: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontWeight: '800',
+                                fontSize: '16px',
+                                boxShadow: '0 2px 8px rgba(30, 58, 138, 0.3)'
+                            }}>
+                                🗺️
+                            </div>
+                            <div>
+                                <h1 style={{ fontSize: '24px', fontWeight: '800', color: '#0f172a', margin: 0, letterSpacing: '-0.5px' }}>
+                                    Roadmap Timeline
+                                </h1>
+                                <p style={{ fontSize: '13px', color: '#64748b', margin: '2px 0 0 0' }}>
+                                    High-level project roadmap, sprint deliverables, and release milestones
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <button
-                        onClick={() => setIsCreateModalOpen(true)}
-                        className="btn btn-primary"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            padding: '8px 18px',
-                            borderRadius: '8px',
-                            fontSize: '13px',
-                            fontWeight: '600',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        <span>+</span>
-                        <span>Create Issue</span>
-                    </button>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <button
+                            onClick={fetchTasks}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                padding: '8px 14px',
+                                borderRadius: '8px',
+                                border: '1px solid #cbd5e1',
+                                backgroundColor: '#ffffff',
+                                color: '#1e3a8a',
+                                fontSize: '13px',
+                                fontWeight: '600',
+                                cursor: 'pointer',
+                                transition: 'all 0.15s ease'
+                            }}
+                            title="Refresh Timeline"
+                        >
+                            <span>🔄</span>
+                            <span>Refresh</span>
+                        </button>
+
+                        <button
+                            onClick={() => setIsCreateModalOpen(true)}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                padding: '9px 20px',
+                                borderRadius: '8px',
+                                border: 'none',
+                                backgroundColor: '#1e3a8a',
+                                color: '#ffffff',
+                                fontSize: '13px',
+                                fontWeight: '700',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 12px rgba(30, 58, 138, 0.25)',
+                                transition: 'all 0.15s ease'
+                            }}
+                        >
+                            <span style={{ fontSize: '16px', lineHeight: 1 }}>+</span>
+                            <span>Create Issue</span>
+                        </button>
+                    </div>
                 </div>
 
-                {/* Toolbar */}
+                {/* ── Summary Metrics Ribbon ────────────────────────────── */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '14px',
+                    marginBottom: '20px'
+                }}>
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '10px',
+                        padding: '14px 18px',
+                        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.6px' }}>Total Issues</div>
+                        <div style={{ fontSize: '24px', fontWeight: '800', color: '#0f172a', marginTop: '4px' }}>{metrics.total}</div>
+                        <div style={{ fontSize: '12px', color: '#1e3a8a', marginTop: '2px', fontWeight: '600' }}>Across {groupedData.length} groups</div>
+                    </div>
+
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '10px',
+                        padding: '14px 18px',
+                        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.6px' }}>In Progress</div>
+                        <div style={{ fontSize: '24px', fontWeight: '800', color: '#1e40af', marginTop: '4px' }}>{metrics.inProgress}</div>
+                        <div style={{ fontSize: '12px', color: '#3b82f6', marginTop: '2px', fontWeight: '600' }}>Active execution</div>
+                    </div>
+
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '10px',
+                        padding: '14px 18px',
+                        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.6px' }}>Completed</div>
+                        <div style={{ fontSize: '24px', fontWeight: '800', color: '#15803d', marginTop: '4px' }}>{metrics.done}</div>
+                        <div style={{ fontSize: '12px', color: '#16a34a', marginTop: '2px', fontWeight: '600' }}>
+                            {metrics.total > 0 ? `${Math.round((metrics.done / metrics.total) * 100)}% roadmap progress` : '0%'}
+                        </div>
+                    </div>
+
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '10px',
+                        padding: '14px 18px',
+                        boxShadow: '0 1px 3px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.6px' }}>Backlog / To Do</div>
+                        <div style={{ fontSize: '24px', fontWeight: '800', color: '#475569', marginTop: '4px' }}>{metrics.todo}</div>
+                        <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px', fontWeight: '600' }}>Queued milestones</div>
+                    </div>
+                </div>
+
+                {/* ── Toolbar: Grouping, Search, Time Navigation & Scales ── */}
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     flexWrap: 'wrap',
-                    gap: '14px',
-                    marginBottom: '20px',
-                    padding: '16px 20px',
+                    gap: '12px',
+                    padding: '14px 18px',
                     backgroundColor: '#ffffff',
-                    border: '1px solid #cbdcf7',
+                    border: '1px solid #cbd5e1',
                     borderRadius: '12px',
-                    boxShadow: '0 4px 16px -4px rgba(48, 92, 222, 0.08)'
+                    marginBottom: '16px',
+                    boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <h2 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#0f172a', letterSpacing: '-0.3px' }}>
-                            Roadmap & Timeline
-                        </h2>
-                        <span style={{ fontSize: '12px', color: '#64748b', fontWeight: '500' }}>
-                            (Weekly Scale)
-                        </span>
+                    {/* Left: Group By and Search */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <span style={{ fontSize: '13px', fontWeight: '700', color: '#1e3a8a' }}>Group by:</span>
+                            <div style={{ display: 'flex', backgroundColor: '#f1f5f9', padding: '3px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                                {[
+                                    { id: 'sprint', label: 'Sprint' },
+                                    { id: 'epic', label: 'Epic' },
+                                    { id: 'assignee', label: 'Assignee' },
+                                    { id: 'status', label: 'Status' }
+                                ].map(g => (
+                                    <button
+                                        key={g.id}
+                                        onClick={() => setGroupBy(g.id)}
+                                        style={{
+                                            padding: '5px 12px',
+                                            fontSize: '12px',
+                                            fontWeight: groupBy === g.id ? '700' : '500',
+                                            color: groupBy === g.id ? '#ffffff' : '#475569',
+                                            backgroundColor: groupBy === g.id ? '#1e3a8a' : 'transparent',
+                                            border: 'none',
+                                            borderRadius: '6px',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.15s ease'
+                                        }}
+                                    >
+                                        {g.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div style={{ position: 'relative', width: '220px' }}>
+                            <input
+                                type="text"
+                                placeholder="Search roadmap..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                style={{
+                                    width: '100%',
+                                    padding: '7px 12px 7px 32px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #cbd5e1',
+                                    fontSize: '13px',
+                                    backgroundColor: '#f8fafc',
+                                    color: '#0f172a',
+                                    outline: 'none',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                            <span style={{ position: 'absolute', left: '10px', top: '8px', color: '#94a3b8', fontSize: '13px' }}>🔍</span>
+                        </div>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontSize: '13px', color: '#475569', fontWeight: '600' }}>Group by:</span>
-                        <div style={{
-                            display: 'flex',
-                            backgroundColor: '#f1f5fd',
-                            padding: '4px',
-                            borderRadius: '10px',
-                            border: '1px solid #cbdcf7'
-                        }}>
-                            {['sprint', 'epic', 'assignee'].map(type => (
+                    {/* Right: Date Travel and Scale controls */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <button
+                                onClick={() => setViewOffsetDays(prev => prev - 21)}
+                                style={{
+                                    padding: '6px 10px',
+                                    border: '1px solid #cbd5e1',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#ffffff',
+                                    color: '#1e3a8a',
+                                    cursor: 'pointer',
+                                    fontWeight: '700',
+                                    fontSize: '12px'
+                                }}
+                                title="Previous 3 Weeks"
+                            >
+                                ◀
+                            </button>
+                            <button
+                                onClick={resetToToday}
+                                style={{
+                                    padding: '6px 14px',
+                                    border: '1px solid #1e3a8a',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#eff6ff',
+                                    color: '#1e3a8a',
+                                    cursor: 'pointer',
+                                    fontWeight: '700',
+                                    fontSize: '12px'
+                                }}
+                            >
+                                Today
+                            </button>
+                            <button
+                                onClick={() => setViewOffsetDays(prev => prev + 21)}
+                                style={{
+                                    padding: '6px 10px',
+                                    border: '1px solid #cbd5e1',
+                                    borderRadius: '6px',
+                                    backgroundColor: '#ffffff',
+                                    color: '#1e3a8a',
+                                    cursor: 'pointer',
+                                    fontWeight: '700',
+                                    fontSize: '12px'
+                                }}
+                                title="Next 3 Weeks"
+                            >
+                                ▶
+                            </button>
+                        </div>
+
+                        {/* View Scale Switcher */}
+                        <div style={{ display: 'flex', backgroundColor: '#f1f5f9', padding: '3px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                            {[
+                                { id: 'days', label: 'Days' },
+                                { id: 'weeks', label: 'Weeks' },
+                                { id: 'months', label: 'Months' }
+                            ].map(s => (
                                 <button
-                                    key={type}
-                                    onClick={() => setGroupBy(type)}
+                                    key={s.id}
+                                    onClick={() => setViewScale(s.id)}
                                     style={{
-                                        padding: '6px 14px',
-                                        borderRadius: '7px',
-                                        border: 'none',
+                                        padding: '5px 12px',
                                         fontSize: '12px',
-                                        fontWeight: groupBy === type ? '700' : '600',
-                                        color: groupBy === type ? '#ffffff' : '#475569',
-                                        backgroundColor: groupBy === type ? '#305CDE' : 'transparent',
+                                        fontWeight: viewScale === s.id ? '700' : '500',
+                                        color: viewScale === s.id ? '#ffffff' : '#475569',
+                                        backgroundColor: viewScale === s.id ? '#1e3a8a' : 'transparent',
+                                        border: 'none',
+                                        borderRadius: '6px',
                                         cursor: 'pointer',
                                         textTransform: 'capitalize',
-                                        boxShadow: groupBy === type ? '0 2px 6px rgba(48, 92, 222, 0.35)' : 'none',
                                         transition: 'all 0.15s ease'
                                     }}
                                 >
-                                    {type}
+                                    {s.label}
                                 </button>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                {/* Timeline Visualization Container */}
+                {/* ── Main Timeline Roadmap Diagram Container ──────────── */}
                 {loading ? (
-                    <div style={{ textAlign: 'center', padding: '60px 0', color: '#64748b' }}>
-                        <div style={{ fontSize: '28px', marginBottom: '8px' }}>⚡</div>
-                        <div>Loading timeline roadmap...</div>
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '12px',
+                        padding: '100px 20px',
+                        textAlign: 'center',
+                        boxShadow: '0 4px 12px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '36px', marginBottom: '12px' }}>⌛</div>
+                        <div style={{ fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>Loading Timeline Roadmap...</div>
+                        <div style={{ fontSize: '13px', color: '#64748b', marginTop: '4px' }}>Aggregating sprint schedules and milestone deliverables</div>
+                    </div>
+                ) : filteredTasks.length === 0 ? (
+                    <div style={{
+                        backgroundColor: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '12px',
+                        padding: '80px 20px',
+                        textAlign: 'center',
+                        boxShadow: '0 4px 12px rgba(15, 23, 42, 0.05)'
+                    }}>
+                        <div style={{ fontSize: '36px', marginBottom: '12px' }}>🔍</div>
+                        <div style={{ fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>No tasks found</div>
+                        <div style={{ fontSize: '13px', color: '#64748b', marginTop: '4px' }}>Try adjusting your search criteria</div>
                     </div>
                 ) : (
                     <div style={{
+                        display: 'flex',
                         backgroundColor: '#ffffff',
-                        border: '1px solid #cbdcf7',
+                        border: '1px solid #cbd5e1',
                         borderRadius: '12px',
                         overflow: 'hidden',
-                        boxShadow: '0 4px 20px -4px rgba(48, 92, 222, 0.08)'
+                        boxShadow: '0 4px 20px rgba(15, 23, 42, 0.08)'
                     }}>
-                        {/* Timeline Header scale */}
+                        {/* ── Left Pane: Groups & Tasks Navigation (Width: 280px) */}
                         <div style={{
+                            width: '280px',
+                            minWidth: '280px',
+                            maxWidth: '280px',
+                            borderRight: '2px solid #cbd5e1',
+                            backgroundColor: '#ffffff',
+                            zIndex: 5,
                             display: 'flex',
-                            borderBottom: '1px solid #cbdcf7',
-                            backgroundColor: '#f8fafd',
-                            padding: '12px 0',
-                            position: 'relative'
+                            flexDirection: 'column'
                         }}>
-                            {/* Left label space */}
-                            <div style={{ width: '220px', paddingLeft: '20px', fontWeight: '700', fontSize: '11px', textTransform: 'uppercase', color: '#305CDE', letterSpacing: '0.6px' }}>
-                                Group / Issue
+                            {/* Table Header */}
+                            <div style={{
+                                height: '64px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                padding: '0 16px',
+                                backgroundColor: '#0a192f',
+                                color: '#ffffff',
+                                borderBottom: '1px solid #1e293b'
+                            }}>
+                                <div style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.6px', color: '#93c5fd' }}>
+                                    Group & Deliverables ({filteredTasks.length})
+                                </div>
                             </div>
 
-                            {/* Date ticks */}
-                            <div style={{ flex: 1, position: 'relative', height: '24px' }}>
-                                {timelineHeaders.map((date, idx) => {
-                                    const leftPct = ((date.getTime() - timelineStart.getTime()) / (timelineEnd.getTime() - timelineStart.getTime())) * 100;
+                            {/* Groups and Row items */}
+                            <div style={{ overflowY: 'hidden' }}>
+                                {groupedData.map(group => {
+                                    const isCollapsed = !!collapsedGroups[group.key];
+                                    const doneCount = group.tasks.filter(t => t.statusCategory === 'Done').length;
+                                    const pct = group.tasks.length > 0 ? Math.round((doneCount / group.tasks.length) * 100) : 0;
+
                                     return (
-                                        <div
-                                            key={idx}
-                                            style={{
-                                                position: 'absolute',
-                                                left: `${leftPct}%`,
-                                                transform: 'translateX(-50%)',
-                                                fontSize: '11px',
-                                                color: '#305CDE',
-                                                fontWeight: '600',
-                                                whiteSpace: 'nowrap'
-                                            }}
-                                        >
-                                            {date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                        <div key={group.key}>
+                                            {/* Group Banner */}
+                                            <div
+                                                onClick={() => toggleGroupCollapse(group.key)}
+                                                style={{
+                                                    height: '42px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'space-between',
+                                                    padding: '0 14px',
+                                                    backgroundColor: '#f1f5f9',
+                                                    borderBottom: '1px solid #e2e8f0',
+                                                    cursor: 'pointer',
+                                                    userSelect: 'none'
+                                                }}
+                                            >
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+                                                    <span style={{ fontSize: '10px', color: '#64748b' }}>{isCollapsed ? '▶' : '▼'}</span>
+                                                    <span style={{ fontSize: '14px' }}>{group.icon}</span>
+                                                    <span style={{
+                                                        fontSize: '12px',
+                                                        fontWeight: '700',
+                                                        color: '#1e3a8a',
+                                                        whiteSpace: 'nowrap',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis'
+                                                    }} title={group.title}>
+                                                        {group.title}
+                                                    </span>
+                                                </div>
+                                                <span style={{
+                                                    fontSize: '11px',
+                                                    fontWeight: '700',
+                                                    color: '#475569',
+                                                    backgroundColor: '#ffffff',
+                                                    padding: '2px 6px',
+                                                    borderRadius: '10px',
+                                                    border: '1px solid #cbd5e1'
+                                                }}>
+                                                    {doneCount}/{group.tasks.length}
+                                                </span>
+                                            </div>
+
+                                            {/* Task Items in Group */}
+                                            {!isCollapsed && group.tasks.map(task => (
+                                                <div
+                                                    key={task.taskId}
+                                                    onClick={() => setSelectedTaskId(task.taskId)}
+                                                    style={{
+                                                        height: '48px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        padding: '0 16px 0 28px',
+                                                        borderBottom: '1px solid #f1f5f9',
+                                                        cursor: 'pointer',
+                                                        backgroundColor: '#ffffff',
+                                                        transition: 'background-color 0.15s ease'
+                                                    }}
+                                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
+                                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
+                                                >
+                                                    <div style={{ minWidth: 0, flex: 1 }}>
+                                                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                            <strong style={{ fontSize: '11px', color: '#1e3a8a' }}>{task.issueKey}</strong>
+                                                            <span style={{
+                                                                fontSize: '12px',
+                                                                fontWeight: '500',
+                                                                color: '#0f172a',
+                                                                whiteSpace: 'nowrap',
+                                                                overflow: 'hidden',
+                                                                textOverflow: 'ellipsis'
+                                                            }} title={task.title}>
+                                                                {task.title}
+                                                            </span>
+                                                        </div>
+                                                        <div style={{ fontSize: '10px', color: '#64748b', marginTop: '2px' }}>
+                                                            👤 {task.userName}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </div>
                                     );
                                 })}
-
-                                {/* Today line indicator */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        left: `${todayPct}%`,
-                                        top: '0',
-                                        bottom: '-9999px',
-                                        width: '2px',
-                                        backgroundColor: '#ef4444',
-                                        zIndex: 10,
-                                        pointerEvents: 'none'
-                                    }}
-                                    title="Today"
-                                />
                             </div>
                         </div>
 
-                        {/* Groups and task rows */}
-                        <div style={{ maxHeight: '720px', overflowY: 'auto' }}>
-                            {groupedData.map(([groupKey, group]) => {
-                                return (
-                                    <div key={groupKey} style={{ borderBottom: '1px solid #eef3fc' }}>
-                                        {/* Group Header Banner */}
-                                        <div style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'space-between',
-                                            padding: '10px 20px',
-                                            backgroundColor: '#f4f8fe',
-                                            borderBottom: '1px solid #e2edfb',
-                                            fontSize: '13px',
-                                            fontWeight: '700',
-                                            color: '#1e3a8a'
-                                        }}>
-                                            <span>📁 {group.title}</span>
-                                            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '600' }}>
-                                                {group.tasks.length} {group.tasks.length === 1 ? 'issue' : 'issues'}
-                                            </span>
+                        {/* ── Right Pane: Scrollable Timeline Grid ───────────── */}
+                        <div
+                            ref={scrollContainerRef}
+                            style={{
+                                flex: 1,
+                                overflowX: 'auto',
+                                position: 'relative',
+                                backgroundColor: '#ffffff'
+                            }}
+                        >
+                            <div style={{ width: `${totalWidth}px`, position: 'relative' }}>
+                                
+                                {/* ── Header Row 1: Months ─────────────────────── */}
+                                <div style={{
+                                    height: '32px',
+                                    display: 'flex',
+                                    backgroundColor: '#0a192f',
+                                    borderBottom: '1px solid #1e293b'
+                                }}>
+                                    {monthGroups.map((group, idx) => (
+                                        <div
+                                            key={idx}
+                                            style={{
+                                                width: `${group.width}px`,
+                                                minWidth: `${group.width}px`,
+                                                height: '32px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                paddingLeft: '12px',
+                                                fontSize: '12px',
+                                                fontWeight: '800',
+                                                color: '#ffffff',
+                                                borderRight: '1px solid #1e293b',
+                                                letterSpacing: '0.4px',
+                                                textTransform: 'uppercase'
+                                            }}
+                                        >
+                                            {group.monthName}
                                         </div>
+                                    ))}
+                                </div>
 
-                                        {/* Task Bars */}
-                                        <div style={{ padding: '6px 0' }}>
-                                            {group.tasks.map(task => {
-                                                const barStyle = getBarStyles(task);
-                                                const isDone = task.statusCategory === 'Done';
+                                {/* ── Header Row 2: Days / Ticks ───────────────── */}
+                                <div style={{
+                                    height: '32px',
+                                    display: 'flex',
+                                    backgroundColor: '#f1f5f9',
+                                    borderBottom: '2px solid #cbd5e1'
+                                }}>
+                                    {daysList.map((day, idx) => {
+                                        const isWeekend = day.getDay() === 0 || day.getDay() === 6;
+                                        const isToday = day.toDateString() === new Date().toDateString();
+                                        const dayInitial = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'][day.getDay()];
 
-                                                return (
-                                                    <div
-                                                        key={task.taskId}
-                                                        onClick={() => setSelectedTaskId(task.taskId)}
-                                                        style={{
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            height: '40px',
-                                                            padding: '0 20px',
-                                                            cursor: 'pointer',
-                                                            position: 'relative',
-                                                            borderBottom: '1px solid #f8fafc',
-                                                            transition: 'background-color 0.15s ease'
-                                                        }}
-                                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafd'}
-                                                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                                                    >
-                                                        {/* Left title info */}
-                                                        <div style={{
-                                                            width: '200px',
-                                                            paddingRight: '16px',
-                                                            overflow: 'hidden',
-                                                            textOverflow: 'ellipsis',
-                                                            whiteSpace: 'nowrap',
-                                                            fontSize: '12px'
-                                                        }}>
-                                                            <strong style={{ color: '#305CDE', marginRight: '6px' }}>
-                                                                {task.issueKey}
-                                                            </strong>
-                                                            <span style={{ color: '#0f172a', fontWeight: '500' }}>{task.title}</span>
-                                                        </div>
+                                        return (
+                                            <div
+                                                key={idx}
+                                                style={{
+                                                    width: `${cellWidth}px`,
+                                                    minWidth: `${cellWidth}px`,
+                                                    height: '32px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    borderRight: '1px solid #e2e8f0',
+                                                    backgroundColor: isToday ? '#dbeafe' : isWeekend ? '#f8fafc' : '#ffffff',
+                                                    color: isToday ? '#1e3a8a' : isWeekend ? '#94a3b8' : '#334155'
+                                                }}
+                                            >
+                                                <span style={{ fontSize: '10px', fontWeight: isToday ? '800' : '600' }}>
+                                                    {day.getDate()}
+                                                </span>
+                                                {viewScale !== 'months' && (
+                                                    <span style={{ fontSize: '9px', fontWeight: '500', opacity: 0.8 }}>
+                                                        {dayInitial}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
 
-                                                        {/* Bar Chart Area */}
-                                                        <div style={{ flex: 1, position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>
+                                {/* ── Today Vertical Marker Line ────────────────── */}
+                                {todayCoordinates.isVisible && (
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            left: `${todayCoordinates.x}px`,
+                                            top: 0,
+                                            bottom: 0,
+                                            width: '2px',
+                                            backgroundColor: '#ef4444',
+                                            zIndex: 20,
+                                            pointerEvents: 'none'
+                                        }}
+                                    >
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '4px',
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            backgroundColor: '#ef4444',
+                                            color: '#ffffff',
+                                            fontSize: '9px',
+                                            fontWeight: '800',
+                                            padding: '2px 5px',
+                                            borderRadius: '4px',
+                                            whiteSpace: 'nowrap',
+                                            boxShadow: '0 2px 6px rgba(239, 68, 68, 0.4)'
+                                        }}>
+                                            TODAY
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* ── Groups and Task Roadmap Bars ──────────────── */}
+                                <div>
+                                    {groupedData.map(group => {
+                                        const isCollapsed = !!collapsedGroups[group.key];
+
+                                        return (
+                                            <div key={group.key}>
+                                                {/* Group Timeline Row */}
+                                                <div
+                                                    style={{
+                                                        height: '42px',
+                                                        backgroundColor: '#f8fafc',
+                                                        borderBottom: '1px solid #e2e8f0',
+                                                        backgroundImage: `repeating-linear-gradient(to right, transparent, transparent ${cellWidth - 1}px, #f1f5f9 ${cellWidth}px)`
+                                                    }}
+                                                />
+
+                                                {/* Task Timeline Rows */}
+                                                {!isCollapsed && group.tasks.map(task => {
+                                                    const coords = getTaskCoordinates(task);
+                                                    const isDone = task.statusCategory === 'Done';
+                                                    const isBlocked = task.blockedByTaskIds && task.blockedByTaskIds.length > 0;
+
+                                                    let barBg = 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)';
+                                                    let barBorder = '#1e3a8a';
+                                                    let barShadow = 'rgba(30, 58, 138, 0.25)';
+
+                                                    if (isDone) {
+                                                        barBg = 'linear-gradient(135deg, #15803d 0%, #16a34a 100%)';
+                                                        barBorder = '#166534';
+                                                        barShadow = 'rgba(22, 163, 74, 0.25)';
+                                                    } else if (isBlocked) {
+                                                        barBg = 'linear-gradient(135deg, #b91c1c 0%, #dc2626 100%)';
+                                                        barBorder = '#991b1b';
+                                                        barShadow = 'rgba(220, 38, 38, 0.25)';
+                                                    }
+
+                                                    return (
+                                                        <div
+                                                            key={task.taskId}
+                                                            style={{
+                                                                height: '48px',
+                                                                position: 'relative',
+                                                                borderBottom: '1px solid #f1f5f9',
+                                                                backgroundImage: `repeating-linear-gradient(to right, transparent, transparent ${cellWidth - 1}px, #f1f5f9 ${cellWidth}px)`
+                                                            }}
+                                                        >
+                                                            {/* Roadmap Bar */}
                                                             <div
+                                                                onClick={() => setSelectedTaskId(task.taskId)}
+                                                                onMouseEnter={(e) => handleBarMouseEnter(e, task, coords)}
+                                                                onMouseLeave={handleBarMouseLeave}
                                                                 style={{
                                                                     position: 'absolute',
-                                                                    left: barStyle.left,
-                                                                    width: barStyle.width,
-                                                                    height: '24px',
-                                                                    borderRadius: '6px',
-                                                                    backgroundColor: isDone ? '#dcfce7' : '#eef3fd',
-                                                                    border: isDone ? '1px solid #86efac' : '1px solid #305CDE',
+                                                                    left: `${coords.leftPx}px`,
+                                                                    width: `${coords.widthPx}px`,
+                                                                    top: '9px',
+                                                                    height: '30px',
+                                                                    borderRadius: '8px',
+                                                                    background: barBg,
+                                                                    border: `1px solid ${barBorder}`,
+                                                                    boxShadow: `0 2px 8px ${barShadow}`,
                                                                     display: 'flex',
                                                                     alignItems: 'center',
-                                                                    padding: '0 8px',
+                                                                    padding: '0 10px',
+                                                                    cursor: 'pointer',
+                                                                    overflow: 'hidden',
+                                                                    color: '#ffffff',
+                                                                    zIndex: 10,
+                                                                    transition: 'transform 0.15s ease, box-shadow 0.15s ease'
+                                                                }}
+                                                            >
+                                                                {/* Progress Fill */}
+                                                                <div style={{
+                                                                    position: 'absolute',
+                                                                    left: 0,
+                                                                    top: 0,
+                                                                    bottom: 0,
+                                                                    width: `${coords.progress}%`,
+                                                                    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                                                                    pointerEvents: 'none'
+                                                                }} />
+
+                                                                <span style={{
                                                                     fontSize: '11px',
                                                                     fontWeight: '700',
-                                                                    color: isDone ? '#15803d' : '#1e3a8a',
-                                                                    boxShadow: '0 2px 6px rgba(48, 92, 222, 0.12)',
                                                                     whiteSpace: 'nowrap',
                                                                     overflow: 'hidden',
                                                                     textOverflow: 'ellipsis',
-                                                                    transition: 'all 0.15s ease'
-                                                                }}
-                                                            >
-                                                                <span style={{
-                                                                    width: '6px',
-                                                                    height: '6px',
-                                                                    borderRadius: '50%',
-                                                                    backgroundColor: isDone ? '#16a34a' : (task.statusColor || '#305CDE'),
-                                                                    marginRight: '6px',
-                                                                    flexShrink: 0
-                                                                }} />
-                                                                <span>{task.title}</span>
+                                                                    textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                                                                    zIndex: 2
+                                                                }}>
+                                                                    {task.issueKey}: {task.title}
+                                                                </span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                                    );
+                                                })}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* ── Hover Tooltip ────────────────────────────────────────── */}
+                {hoveredTask && (
+                    <div
+                        style={{
+                            position: 'fixed',
+                            left: `${tooltipPos.x}px`,
+                            top: `${tooltipPos.y}px`,
+                            transform: 'translate(-50%, -100%)',
+                            backgroundColor: '#0a192f',
+                            color: '#ffffff',
+                            padding: '10px 14px',
+                            borderRadius: '8px',
+                            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.35)',
+                            border: '1px solid #1e3a8a',
+                            fontSize: '12px',
+                            pointerEvents: 'none',
+                            zIndex: 1000,
+                            minWidth: '220px'
+                        }}
+                    >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
+                            <strong style={{ color: '#93c5fd' }}>{hoveredTask.task.issueKey}</strong>
+                            <span style={{
+                                fontSize: '10px',
+                                fontWeight: '700',
+                                padding: '2px 6px',
+                                borderRadius: '4px',
+                                backgroundColor: hoveredTask.task.statusCategory === 'Done' ? '#15803d' : '#1e3a8a'
+                            }}>
+                                {hoveredTask.task.statusName || 'Active'}
+                            </span>
+                        </div>
+                        <div style={{ fontWeight: '600', marginBottom: '6px' }}>{hoveredTask.task.title}</div>
+                        <div style={{ fontSize: '11px', color: '#cbd5e1', lineHeight: 1.5 }}>
+                            <div>📅 Start: {hoveredTask.coords.startDate.toLocaleDateString()}</div>
+                            <div>🎯 Due: {hoveredTask.coords.endDate.toLocaleDateString()}</div>
+                            <div>👤 Assignee: {hoveredTask.task.userName}</div>
+                            {hoveredTask.task.sprintName && <div>🏃 Sprint: {hoveredTask.task.sprintName}</div>}
+                            {hoveredTask.task.epicName && <div>⚡ Epic: {hoveredTask.task.epicName}</div>}
                         </div>
                     </div>
                 )}
@@ -390,5 +1001,3 @@ const TimelineView = () => {
 };
 
 export default TimelineView;
-
-

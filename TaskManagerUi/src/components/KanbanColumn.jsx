@@ -145,7 +145,7 @@ const KanbanColumn = ({
 
             {/* Droppable Card List */}
             <div style={{
-                padding: '0 12px',
+                padding: '10px 12px 14px 12px',
                 overflowY: 'auto',
                 flex: 1,
                 minHeight: '80px',

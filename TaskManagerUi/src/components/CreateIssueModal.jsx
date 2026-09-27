@@ -209,10 +209,10 @@ const CreateIssueModal = ({
                     {parentTaskId && (
                         <div style={{
                             padding: '10px 14px',
-                            backgroundColor: 'rgba(99, 102, 241, 0.15)',
-                            border: '1px solid rgba(99, 102, 241, 0.35)',
+                            backgroundColor: '#eff6ff',
+                            border: '1px solid #bfdbfe',
                             borderRadius: '8px',
-                            color: '#c7d2fe',
+                            color: '#1e3a8a',
                             fontSize: '13px',
                             fontWeight: '600',
                             marginBottom: '16px',
@@ -228,7 +228,7 @@ const CreateIssueModal = ({
                     {/* Issue Type & Status row */}
                     <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Issue Type
                             </label>
                             <select
@@ -236,11 +236,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setIssueTypeId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -252,7 +252,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Column / Status
                             </label>
                             <select
@@ -260,11 +260,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setStatusId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -278,7 +278,7 @@ const CreateIssueModal = ({
 
                     {/* Title */}
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                             Summary / Title <span style={{ color: '#ef4444' }}>*</span>
                         </label>
                         <input
@@ -291,9 +291,9 @@ const CreateIssueModal = ({
                                 width: '100%',
                                 padding: '10px 12px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbd5e1',
                                 fontSize: '14px',
                                 boxSizing: 'border-box'
                             }}
@@ -302,7 +302,7 @@ const CreateIssueModal = ({
 
                     {/* Description */}
                     <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                             Description
                         </label>
                         <textarea
@@ -314,9 +314,9 @@ const CreateIssueModal = ({
                                 width: '100%',
                                 padding: '10px 12px',
                                 borderRadius: '6px',
-                                backgroundColor: '#1e293b',
-                                color: '#f8fafc',
-                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                backgroundColor: '#ffffff',
+                                color: '#0f172a',
+                                border: '1px solid #cbd5e1',
                                 fontSize: '13px',
                                 boxSizing: 'border-box',
                                 fontFamily: 'inherit'
@@ -328,11 +328,11 @@ const CreateIssueModal = ({
                     <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
                         <div style={{ flex: 1 }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                                <label style={{ fontSize: '12px', fontWeight: '700', color: '#94a3b8' }}>
+                                <label style={{ fontSize: '12px', fontWeight: '700', color: '#1e3a8a' }}>
                                     Assignee
                                 </label>
                                 {!isAdmin && (
-                                    <span title="Only administrators can assign tasks to other team members" style={{ fontSize: '10px', color: '#fbbf24', cursor: 'help' }}>
+                                    <span title="Only administrators can assign tasks to other team members" style={{ fontSize: '10px', color: '#b45309', cursor: 'help' }}>
                                         🔒 Assigned to you
                                     </span>
                                 )}
@@ -344,11 +344,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setUserId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: isAdmin ? '#1e293b' : 'rgba(255, 255, 255, 0.04)',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: isAdmin ? '#ffffff' : '#f8fafc',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box',
                                     cursor: isAdmin ? 'pointer' : 'not-allowed'
@@ -362,7 +362,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Priority
                             </label>
                             <select
@@ -370,11 +370,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setPriorityId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -389,7 +389,7 @@ const CreateIssueModal = ({
                     {/* Component, Story Points, Original Estimate & Due Date row */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.9fr 1fr 1fr', gap: '12px', marginBottom: '16px' }}>
                         <div>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Component
                             </label>
                             <select
@@ -397,11 +397,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setComponentId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -414,7 +414,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Story Points
                             </label>
                             <input
@@ -426,11 +426,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setStoryPoints(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -438,7 +438,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Estimate (hrs)
                             </label>
                             <input
@@ -450,11 +450,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setOriginalEstimateHours(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -462,7 +462,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Due Date
                             </label>
                             <input
@@ -471,11 +471,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setDueDate(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 10px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -486,7 +486,7 @@ const CreateIssueModal = ({
                     {/* Sprint & Epic row */}
                     <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Sprint
                             </label>
                             <select
@@ -494,11 +494,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setSprintId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -513,7 +513,7 @@ const CreateIssueModal = ({
                         </div>
 
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                            <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                                 Epic
                             </label>
                             <select
@@ -521,11 +521,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setEpicId(e.target.value)}
                                 style={{
                                     width: '100%',
-                                    padding: '8px 10px',
+                                    padding: '9px 12px',
                                     borderRadius: '6px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     fontSize: '13px',
                                     boxSizing: 'border-box'
                                 }}
@@ -542,15 +542,15 @@ const CreateIssueModal = ({
 
                     {/* Labels */}
                     <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '4px' }}>
                             Labels
                         </label>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
                             {labels.map((lbl, idx) => (
                                 <span key={idx} style={{
-                                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                                    color: '#c4b5fd',
-                                    border: '1px solid rgba(139, 92, 246, 0.25)',
+                                    backgroundColor: '#eff6ff',
+                                    color: '#1e3a8a',
+                                    border: '1px solid #bfdbfe',
                                     borderRadius: '4px',
                                     padding: '2px 8px',
                                     fontSize: '12px',
@@ -560,7 +560,7 @@ const CreateIssueModal = ({
                                     gap: '4px'
                                 }}>
                                     {lbl}
-                                    <span onClick={() => handleRemoveLabel(lbl)} style={{ cursor: 'pointer' }}>✕</span>
+                                    <span onClick={() => handleRemoveLabel(lbl)} style={{ cursor: 'pointer', color: '#dc2626' }}>✕</span>
                                 </span>
                             ))}
                         </div>
@@ -572,11 +572,11 @@ const CreateIssueModal = ({
                                 onChange={(e) => setLabelInput(e.target.value)}
                                 onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddLabel(); } }}
                                 style={{
-                                    padding: '6px 10px',
+                                    padding: '9px 12px',
                                     fontSize: '13px',
-                                    backgroundColor: '#1e293b',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    backgroundColor: '#ffffff',
+                                    color: '#0f172a',
+                                    border: '1px solid #cbd5e1',
                                     borderRadius: '6px',
                                     flex: 1
                                 }}
@@ -585,10 +585,10 @@ const CreateIssueModal = ({
                                 type="button"
                                 onClick={handleAddLabel}
                                 style={{
-                                    padding: '6px 12px',
-                                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                    color: '#f8fafc',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                    padding: '8px 16px',
+                                    backgroundColor: '#f1f5f9',
+                                    color: '#1e3a8a',
+                                    border: '1px solid #cbd5e1',
                                     borderRadius: '6px',
                                     fontSize: '13px',
                                     fontWeight: '600',

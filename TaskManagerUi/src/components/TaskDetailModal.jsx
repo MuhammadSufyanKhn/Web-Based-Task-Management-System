@@ -671,7 +671,7 @@ const TaskDetailModal = ({
                             {activeTab === 'details' && (
                                 <div>
                                     <div style={{ marginBottom: '18px' }}>
-                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
+                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '6px' }}>
                                             Title
                                         </label>
                                         <input
@@ -684,9 +684,9 @@ const TaskDetailModal = ({
                                                 padding: '10px 12px',
                                                 fontSize: '15px',
                                                 fontWeight: '600',
-                                                color: '#f8fafc',
-                                                backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)',
-                                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                                color: '#0f172a',
+                                                backgroundColor: canEdit ? '#ffffff' : '#f8fafc',
+                                                border: '1px solid #cbd5e1',
                                                 borderRadius: '6px',
                                                 outline: 'none',
                                                 boxSizing: 'border-box'
@@ -695,7 +695,7 @@ const TaskDetailModal = ({
                                     </div>
 
                                     <div style={{ marginBottom: '18px' }}>
-                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
+                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '6px' }}>
                                             Description
                                         </label>
                                         <textarea
@@ -708,9 +708,9 @@ const TaskDetailModal = ({
                                                 width: '100%',
                                                 padding: '10px 12px',
                                                 fontSize: '13px',
-                                                color: '#f8fafc',
-                                                backgroundColor: canEdit ? '#1e293b' : 'rgba(255, 255, 255, 0.04)',
-                                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                                color: '#0f172a',
+                                                backgroundColor: canEdit ? '#ffffff' : '#f8fafc',
+                                                border: '1px solid #cbd5e1',
                                                 borderRadius: '6px',
                                                 outline: 'none',
                                                 resize: 'vertical',
@@ -721,9 +721,9 @@ const TaskDetailModal = ({
                                     </div>
 
                                     {/* Subtasks Section */}
-                                    <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                                    <div style={{ marginTop: '24px', paddingTop: '18px', borderTop: '1px solid #e2e8f0' }}>
                                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                                            <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '700', color: '#ffffff' }}>
+                                            <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '700', color: '#0f172a' }}>
                                                 Subtasks ({subtasks.length})
                                             </h4>
                                         </div>
@@ -743,15 +743,15 @@ const TaskDetailModal = ({
                                                             alignItems: 'center',
                                                             justifyContent: 'space-between',
                                                             padding: '8px 12px',
-                                                            backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                                                            border: '1px solid rgba(255, 255, 255, 0.06)',
+                                                            backgroundColor: '#f8fafc',
+                                                            border: '1px solid #e2e8f0',
                                                             borderRadius: '6px',
                                                             fontSize: '12px'
                                                         }}
                                                     >
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                            <span style={{ color: '#60a5fa', fontWeight: '600' }}>{st.issueKey}</span>
-                                                            <span style={{ color: '#e2e8f0' }}>{st.title}</span>
+                                                            <span style={{ color: '#1e3a8a', fontWeight: '700' }}>{st.issueKey}</span>
+                                                            <span style={{ color: '#0f172a', fontWeight: '500' }}>{st.title}</span>
                                                         </div>
                                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                                             <span style={{
@@ -759,11 +759,12 @@ const TaskDetailModal = ({
                                                                 borderRadius: '4px',
                                                                 fontSize: '10px',
                                                                 backgroundColor: `${st.priorityColor}20`,
-                                                                color: st.priorityColor
+                                                                color: st.priorityColor,
+                                                                fontWeight: '600'
                                                             }}>
                                                                 {st.statusName}
                                                             </span>
-                                                            <span style={{ fontSize: '11px', color: '#94a3b8' }}>
+                                                            <span style={{ fontSize: '11px', color: '#64748b' }}>
                                                                 {st.assigneeName}
                                                             </span>
                                                         </div>
@@ -782,11 +783,11 @@ const TaskDetailModal = ({
                                                     onChange={(e) => setNewSubtaskTitle(e.target.value)}
                                                     style={{
                                                         flex: 1,
-                                                        padding: '7px 10px',
+                                                        padding: '8px 12px',
                                                         fontSize: '12px',
-                                                        backgroundColor: '#1e293b',
-                                                        color: '#ffffff',
-                                                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                                                        backgroundColor: '#ffffff',
+                                                        color: '#0f172a',
+                                                        border: '1px solid #cbd5e1',
                                                         borderRadius: '6px'
                                                     }}
                                                 />
@@ -794,8 +795,8 @@ const TaskDetailModal = ({
                                                     type="submit"
                                                     disabled={creatingSubtask || !newSubtaskTitle.trim()}
                                                     style={{
-                                                        padding: '7px 14px',
-                                                        backgroundColor: '#3b82f6',
+                                                        padding: '8px 16px',
+                                                        backgroundColor: '#1e3a8a',
                                                         color: '#ffffff',
                                                         border: 'none',
                                                         borderRadius: '6px',
@@ -811,26 +812,27 @@ const TaskDetailModal = ({
                                     </div>
 
                                     {/* Labels Section */}
-                                    <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#94a3b8', marginBottom: '6px' }}>
+                                    <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #e2e8f0' }}>
+                                        <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: '#1e3a8a', marginBottom: '6px' }}>
                                             Labels
                                         </label>
                                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
                                             {form.labels.map((lbl, idx) => (
                                                 <span key={idx} style={{
-                                                    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-                                                    color: '#c4b5fd',
-                                                    border: '1px solid rgba(139, 92, 246, 0.25)',
+                                                    backgroundColor: '#eff6ff',
+                                                    color: '#1e3a8a',
+                                                    border: '1px solid #bfdbfe',
                                                     borderRadius: '4px',
                                                     padding: '3px 8px',
                                                     fontSize: '11px',
+                                                    fontWeight: '600',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     gap: '6px'
                                                 }}>
                                                     {lbl}
                                                     {canEdit && (
-                                                        <span onClick={() => handleRemoveLabel(lbl)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                                                        <span onClick={() => handleRemoveLabel(lbl)} style={{ cursor: 'pointer', fontWeight: 'bold', color: '#dc2626' }}>
                                                             ✕
                                                         </span>
                                                     )}
@@ -849,11 +851,11 @@ const TaskDetailModal = ({
                                                     onChange={(e) => setNewLabelInput(e.target.value)}
                                                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddLabel(); } }}
                                                     style={{
-                                                        padding: '6px 10px',
+                                                        padding: '7px 10px',
                                                         fontSize: '12px',
-                                                        backgroundColor: '#1e293b',
-                                                        color: '#f8fafc',
-                                                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                                                        backgroundColor: '#ffffff',
+                                                        color: '#0f172a',
+                                                        border: '1px solid #cbd5e1',
                                                         borderRadius: '6px',
                                                         width: '180px'
                                                     }}
@@ -862,12 +864,13 @@ const TaskDetailModal = ({
                                                     type="button"
                                                     onClick={handleAddLabel}
                                                     style={{
-                                                        padding: '6px 12px',
-                                                        backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                                        color: '#f8fafc',
-                                                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                                                        padding: '7px 14px',
+                                                        backgroundColor: '#f1f5f9',
+                                                        color: '#1e3a8a',
+                                                        border: '1px solid #cbd5e1',
                                                         borderRadius: '6px',
                                                         fontSize: '12px',
+                                                        fontWeight: '600',
                                                         cursor: 'pointer'
                                                     }}
                                                 >
@@ -883,7 +886,7 @@ const TaskDetailModal = ({
                             {activeTab === 'time' && (
                                 <div>
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
-                                        <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#ffffff' }}>
+                                        <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                                             Time Tracking & Estimates
                                         </h3>
                                         <button
@@ -906,28 +909,28 @@ const TaskDetailModal = ({
                                     {/* Visual Progress Bar */}
                                     <div style={{
                                         padding: '16px',
-                                        backgroundColor: 'rgba(0, 0, 0, 0.25)',
-                                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                                        backgroundColor: '#f8fafc',
+                                        border: '1px solid #e2e8f0',
                                         borderRadius: '10px',
                                         marginBottom: '20px'
                                     }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '13px' }}>
                                             <div>
-                                                <span style={{ color: '#94a3b8' }}>Time Spent: </span>
-                                                <strong style={{ color: '#10b981' }}>{formatMinutes(form.timeSpentMinutes)}</strong>
+                                                <span style={{ color: '#475569' }}>Time Spent: </span>
+                                                <strong style={{ color: '#059669' }}>{formatMinutes(form.timeSpentMinutes)}</strong>
                                             </div>
                                             <div>
-                                                <span style={{ color: '#94a3b8' }}>Remaining: </span>
-                                                <strong style={{ color: '#38bdf8' }}>{formatMinutes(form.remainingEstimateMinutes)}</strong>
+                                                <span style={{ color: '#475569' }}>Remaining: </span>
+                                                <strong style={{ color: '#2563eb' }}>{formatMinutes(form.remainingEstimateMinutes)}</strong>
                                             </div>
                                             <div>
-                                                <span style={{ color: '#94a3b8' }}>Original Estimate: </span>
-                                                <strong style={{ color: '#cbd5e1' }}>{formatMinutes(form.originalEstimateMinutes)}</strong>
+                                                <span style={{ color: '#475569' }}>Original Estimate: </span>
+                                                <strong style={{ color: '#0f172a' }}>{formatMinutes(form.originalEstimateMinutes)}</strong>
                                             </div>
                                         </div>
 
                                         {/* Bar */}
-                                        <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255, 255, 255, 0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                                        <div style={{ width: '100%', height: '8px', backgroundColor: '#e2e8f0', borderRadius: '4px', overflow: 'hidden' }}>
                                             <div style={{
                                                 width: `${Math.min(100, form.originalEstimateMinutes > 0 ? (form.timeSpentMinutes / form.originalEstimateMinutes) * 100 : 0)}%`,
                                                 height: '100%',
@@ -941,70 +944,70 @@ const TaskDetailModal = ({
                                     {isLogWorkOpen && (
                                         <div style={{
                                             padding: '16px',
-                                            backgroundColor: '#1e293b',
-                                            border: '1px solid #3b82f6',
+                                            backgroundColor: '#f1f5f9',
+                                            border: '1px solid #cbd5e1',
                                             borderRadius: '8px',
                                             marginBottom: '20px'
                                         }}>
-                                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#ffffff' }}>Log Work Done</h4>
+                                            <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#0f172a', fontWeight: '700' }}>Log Work Done</h4>
                                             <form onSubmit={handleLogWork}>
                                                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px' }}>
                                                     <div>
-                                                        <label style={{ display: 'block', fontSize: '11px', color: '#94a3b8', marginBottom: '4px' }}>Hours</label>
+                                                        <label style={{ display: 'block', fontSize: '11px', color: '#1e3a8a', fontWeight: '600', marginBottom: '4px' }}>Hours</label>
                                                         <input
                                                             type="number"
                                                             min="0"
                                                             value={logWorkHours}
                                                             onChange={(e) => setLogWorkHours(e.target.value)}
-                                                            style={{ width: '80px', padding: '6px', borderRadius: '4px', backgroundColor: '#0f172a', border: '1px solid #334155', color: '#ffffff' }}
+                                                            style={{ width: '80px', padding: '7px', borderRadius: '4px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a' }}
                                                         />
                                                     </div>
                                                     <div>
-                                                        <label style={{ display: 'block', fontSize: '11px', color: '#94a3b8', marginBottom: '4px' }}>Minutes</label>
+                                                        <label style={{ display: 'block', fontSize: '11px', color: '#1e3a8a', fontWeight: '600', marginBottom: '4px' }}>Minutes</label>
                                                         <input
                                                             type="number"
                                                             min="0"
                                                             max="59"
                                                             value={logWorkMins}
                                                             onChange={(e) => setLogWorkMins(e.target.value)}
-                                                            style={{ width: '80px', padding: '6px', borderRadius: '4px', backgroundColor: '#0f172a', border: '1px solid #334155', color: '#ffffff' }}
+                                                            style={{ width: '80px', padding: '7px', borderRadius: '4px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a' }}
                                                         />
                                                     </div>
                                                     <div>
-                                                        <label style={{ display: 'block', fontSize: '11px', color: '#94a3b8', marginBottom: '4px' }}>Remaining Est. (hours)</label>
+                                                        <label style={{ display: 'block', fontSize: '11px', color: '#1e3a8a', fontWeight: '600', marginBottom: '4px' }}>Remaining Est. (hours)</label>
                                                         <input
                                                             type="number"
                                                             min="0"
                                                             placeholder="Auto adjust"
                                                             value={logWorkRemaining}
                                                             onChange={(e) => setLogWorkRemaining(e.target.value)}
-                                                            style={{ width: '130px', padding: '6px', borderRadius: '4px', backgroundColor: '#0f172a', border: '1px solid #334155', color: '#ffffff' }}
+                                                            style={{ width: '130px', padding: '7px', borderRadius: '4px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a' }}
                                                         />
                                                     </div>
                                                 </div>
 
                                                 <div style={{ marginBottom: '12px' }}>
-                                                    <label style={{ display: 'block', fontSize: '11px', color: '#94a3b8', marginBottom: '4px' }}>Work Description</label>
+                                                    <label style={{ display: 'block', fontSize: '11px', color: '#1e3a8a', fontWeight: '600', marginBottom: '4px' }}>Work Description</label>
                                                     <input
                                                         type="text"
                                                         placeholder="What work was completed?"
                                                         value={logWorkDesc}
                                                         onChange={(e) => setLogWorkDesc(e.target.value)}
-                                                        style={{ width: '100%', padding: '6px 10px', borderRadius: '4px', backgroundColor: '#0f172a', border: '1px solid #334155', color: '#ffffff', boxSizing: 'border-box' }}
+                                                        style={{ width: '100%', padding: '7px 10px', borderRadius: '4px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a', boxSizing: 'border-box' }}
                                                     />
                                                 </div>
 
                                                 <div style={{ display: 'flex', gap: '8px' }}>
                                                     <button
                                                         type="submit"
-                                                        style={{ padding: '6px 14px', backgroundColor: '#10b981', color: '#ffffff', border: 'none', borderRadius: '4px', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}
+                                                        style={{ padding: '7px 16px', backgroundColor: '#10b981', color: '#ffffff', border: 'none', borderRadius: '4px', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}
                                                     >
                                                         Save Log
                                                     </button>
                                                     <button
                                                         type="button"
                                                         onClick={() => setIsLogWorkOpen(false)}
-                                                        style={{ padding: '6px 12px', backgroundColor: 'transparent', color: '#94a3b8', border: '1px solid #475569', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}
+                                                        style={{ padding: '7px 14px', backgroundColor: 'transparent', color: '#64748b', border: '1px solid #cbd5e1', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}
                                                     >
                                                         Cancel
                                                     </button>
@@ -1014,14 +1017,14 @@ const TaskDetailModal = ({
                                     )}
 
                                     {/* Work Logs History Table */}
-                                    <h4 style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#94a3b8' }}>Work Log History</h4>
+                                    <h4 style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#1e3a8a', fontWeight: '700' }}>Work Log History</h4>
                                     {(!timeSummary?.logs || timeSummary.logs.length === 0) ? (
                                         <div style={{ fontSize: '12px', color: '#64748b', fontStyle: 'italic' }}>No work logged on this task yet.</div>
                                     ) : (
-                                        <div style={{ border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '6px', overflow: 'hidden' }}>
+                                        <div style={{ border: '1px solid #e2e8f0', borderRadius: '6px', overflow: 'hidden' }}>
                                             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px' }}>
                                                 <thead>
-                                                    <tr style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', color: '#94a3b8', textAlign: 'left' }}>
+                                                    <tr style={{ backgroundColor: '#f8fafc', color: '#1e3a8a', textAlign: 'left', borderBottom: '1px solid #e2e8f0' }}>
                                                         <th style={{ padding: '8px 12px' }}>User</th>
                                                         <th style={{ padding: '8px 12px' }}>Time</th>
                                                         <th style={{ padding: '8px 12px' }}>Description</th>
@@ -1031,10 +1034,10 @@ const TaskDetailModal = ({
                                                 </thead>
                                                 <tbody>
                                                     {timeSummary.logs.map(log => (
-                                                        <tr key={log.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)' }}>
-                                                            <td style={{ padding: '8px 12px', fontWeight: '600', color: '#60a5fa' }}>{log.userName}</td>
-                                                            <td style={{ padding: '8px 12px', color: '#10b981', fontWeight: '600' }}>{formatMinutes(log.timeSpentMinutes)}</td>
-                                                            <td style={{ padding: '8px 12px', color: '#cbd5e1' }}>{log.description || '—'}</td>
+                                                        <tr key={log.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                                            <td style={{ padding: '8px 12px', fontWeight: '600', color: '#1e3a8a' }}>{log.userName}</td>
+                                                            <td style={{ padding: '8px 12px', color: '#059669', fontWeight: '600' }}>{formatMinutes(log.timeSpentMinutes)}</td>
+                                                            <td style={{ padding: '8px 12px', color: '#334155' }}>{log.description || '—'}</td>
                                                             <td style={{ padding: '8px 12px', color: '#64748b' }}>{new Date(log.loggedAt).toLocaleDateString()}</td>
                                                             <td style={{ padding: '8px 12px', textAlign: 'center' }}>
                                                                 <button
@@ -1058,7 +1061,7 @@ const TaskDetailModal = ({
                             {activeTab === 'dependencies' && (
                                 <div>
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                                        <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#ffffff' }}>
+                                        <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                                             Issue Dependencies & Links
                                         </h3>
                                     </div>
@@ -1070,17 +1073,17 @@ const TaskDetailModal = ({
                                             alignItems: 'center',
                                             gap: '8px',
                                             padding: '12px',
-                                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                                            backgroundColor: '#f8fafc',
+                                            border: '1px solid #e2e8f0',
                                             borderRadius: '8px',
                                             marginBottom: '18px',
                                             flexWrap: 'wrap'
                                         }}>
-                                            <span style={{ fontSize: '12px', color: '#94a3b8' }}>This issue</span>
+                                            <span style={{ fontSize: '12px', color: '#475569', fontWeight: '600' }}>This issue</span>
                                             <select
                                                 value={depType}
                                                 onChange={(e) => setDepType(e.target.value)}
-                                                style={{ padding: '6px 10px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#ffffff', fontSize: '12px' }}
+                                                style={{ padding: '7px 10px', borderRadius: '6px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a', fontSize: '12px' }}
                                             >
                                                 <option value="Blocks">blocks</option>
                                                 <option value="IsBlockedBy">is blocked by</option>
@@ -1090,7 +1093,7 @@ const TaskDetailModal = ({
                                             <select
                                                 value={depTargetId}
                                                 onChange={(e) => setDepTargetId(e.target.value)}
-                                                style={{ flex: 1, minWidth: '220px', padding: '6px 10px', borderRadius: '6px', backgroundColor: '#1e293b', border: '1px solid #334155', color: '#ffffff', fontSize: '12px' }}
+                                                style={{ flex: 1, minWidth: '220px', padding: '7px 10px', borderRadius: '6px', backgroundColor: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a', fontSize: '12px' }}
                                             >
                                                 <option value="">Select target issue...</option>
                                                 {allOtherTasks.map(t => (
@@ -1102,7 +1105,7 @@ const TaskDetailModal = ({
 
                                             <button
                                                 type="submit"
-                                                style={{ padding: '6px 14px', backgroundColor: '#3b82f6', color: '#ffffff', border: 'none', borderRadius: '6px', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}
+                                                style={{ padding: '7px 16px', backgroundColor: '#1e3a8a', color: '#ffffff', border: 'none', borderRadius: '6px', fontSize: '12px', fontWeight: '600', cursor: 'pointer' }}
                                             >
                                                 Link
                                             </button>
@@ -1130,8 +1133,8 @@ const TaskDetailModal = ({
                                                             alignItems: 'center',
                                                             justifyContent: 'space-between',
                                                             padding: '10px 14px',
-                                                            backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                                                            border: '1px solid rgba(255, 255, 255, 0.06)',
+                                                            backgroundColor: '#ffffff',
+                                                            border: '1px solid #e2e8f0',
                                                             borderRadius: '8px',
                                                             fontSize: '12px'
                                                         }}
@@ -1142,13 +1145,13 @@ const TaskDetailModal = ({
                                                                 borderRadius: '4px',
                                                                 fontSize: '11px',
                                                                 fontWeight: '600',
-                                                                backgroundColor: label.includes('Blocked') ? 'rgba(239, 68, 68, 0.15)' : 'rgba(59, 130, 246, 0.15)',
-                                                                color: label.includes('Blocked') ? '#f87171' : '#60a5fa'
+                                                                backgroundColor: label.includes('Blocked') ? 'rgba(239, 68, 68, 0.12)' : 'rgba(30, 58, 138, 0.1)',
+                                                                color: label.includes('Blocked') ? '#dc2626' : '#1e3a8a'
                                                             }}>
                                                                 {label}
                                                             </span>
-                                                            <strong style={{ color: '#ffffff' }}>{otherKey}</strong>
-                                                            <span style={{ color: '#cbd5e1' }}>{otherTitle}</span>
+                                                            <strong style={{ color: '#1e3a8a' }}>{otherKey}</strong>
+                                                            <span style={{ color: '#0f172a' }}>{otherTitle}</span>
                                                         </div>
 
                                                         {canEdit && (
@@ -1171,7 +1174,7 @@ const TaskDetailModal = ({
                             {/* TAB 4: ACTIVITY AUDIT HISTORY */}
                             {activeTab === 'activity' && (
                                 <div>
-                                    <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '700', color: '#ffffff' }}>
+                                    <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                                         Activity & Audit Trail
                                     </h3>
 
@@ -1185,25 +1188,27 @@ const TaskDetailModal = ({
                                                 <div
                                                     key={a.id}
                                                     style={{
-                                                        padding: '10px 14px',
-                                                        backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                                                        borderLeft: '3px solid #3b82f6',
+                                                        padding: '12px 16px',
+                                                        backgroundColor: '#f8fafc',
+                                                        borderLeft: '3px solid #1e3a8a',
                                                         borderRadius: '0 6px 6px 0',
-                                                        fontSize: '12px'
+                                                        fontSize: '12px',
+                                                        border: '1px solid #e2e8f0',
+                                                        borderLeftWidth: '3px'
                                                     }}
                                                 >
                                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                                                        <span style={{ fontWeight: '600', color: '#60a5fa' }}>{a.userName}</span>
+                                                        <span style={{ fontWeight: '700', color: '#1e3a8a' }}>{a.userName}</span>
                                                         <span style={{ color: '#64748b', fontSize: '11px' }}>
                                                             {new Date(a.createdDate).toLocaleString()}
                                                         </span>
                                                     </div>
-                                                    <div style={{ color: '#e2e8f0' }}>
+                                                    <div style={{ color: '#1e293b', fontWeight: '500' }}>
                                                         {a.details || `${a.action} ${a.fieldName ? `(${a.fieldName})` : ''}`}
                                                     </div>
                                                     {a.oldValue && a.newValue && (
-                                                        <div style={{ fontSize: '11px', color: '#94a3b8', marginTop: '2px' }}>
-                                                            <span style={{ textDecoration: 'line-through' }}>{a.oldValue}</span> ➔ <strong style={{ color: '#38bdf8' }}>{a.newValue}</strong>
+                                                        <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>
+                                                            <span style={{ textDecoration: 'line-through' }}>{a.oldValue}</span> ➔ <strong style={{ color: '#1e3a8a' }}>{a.newValue}</strong>
                                                         </div>
                                                     )}
                                                 </div>
@@ -1216,24 +1221,24 @@ const TaskDetailModal = ({
                             {/* TAB 5: JIRA CLOUD */}
                             {activeTab === 'jira' && (
                                 <div>
-                                    <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '700', color: '#ffffff' }}>
+                                    <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: '700', color: '#0f172a' }}>
                                         Jira Cloud Integration
                                     </h3>
 
                                     {form.jiraIssueKey ? (
                                         <div style={{
-                                            padding: '16px',
-                                            backgroundColor: 'rgba(0, 82, 204, 0.12)',
-                                            border: '1px solid rgba(0, 82, 204, 0.3)',
+                                            padding: '18px',
+                                            backgroundColor: '#eff6ff',
+                                            border: '1px solid #bfdbfe',
                                             borderRadius: '10px'
                                         }}>
                                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                                                 <span style={{ fontSize: '20px' }}>🔷</span>
-                                                <h4 style={{ margin: 0, color: '#ffffff', fontSize: '15px' }}>Linked to Jira Cloud</h4>
+                                                <h4 style={{ margin: 0, color: '#1e3a8a', fontSize: '15px', fontWeight: '700' }}>Linked to Jira Cloud</h4>
                                             </div>
 
-                                            <div style={{ fontSize: '13px', color: '#cbd5e1', marginBottom: '14px' }}>
-                                                Jira Issue Key: <strong style={{ color: '#60a5fa' }}>{form.jiraIssueKey}</strong>
+                                            <div style={{ fontSize: '13px', color: '#334155', marginBottom: '14px' }}>
+                                                Jira Issue Key: <strong style={{ color: '#1d4ed8' }}>{form.jiraIssueKey}</strong>
                                             </div>
 
                                             {form.jiraIssueUrl && (
@@ -1246,7 +1251,7 @@ const TaskDetailModal = ({
                                                         alignItems: 'center',
                                                         gap: '6px',
                                                         padding: '8px 16px',
-                                                        backgroundColor: '#0052cc',
+                                                        backgroundColor: '#1e3a8a',
                                                         color: '#ffffff',
                                                         textDecoration: 'none',
                                                         borderRadius: '6px',
@@ -1261,10 +1266,10 @@ const TaskDetailModal = ({
                                     ) : (
                                         <div style={{
                                             padding: '24px',
-                                            backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                                            border: '1px dashed rgba(255, 255, 255, 0.1)',
+                                            backgroundColor: '#f8fafc',
+                                            border: '1px dashed #cbd5e1',
                                             borderRadius: '8px',
-                                            color: '#94a3b8',
+                                            color: '#475569',
                                             fontSize: '13px'
                                         }}>
                                             This task was created locally and is not yet synced to Jira Cloud.

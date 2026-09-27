@@ -207,7 +207,7 @@ const KanbanBoard = () => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', flex: 1, overflow: 'hidden' }}>
             {/* Filter and Control Toolbar */}
-            <div className="toolbar" style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #d4e4f8', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+            <div className="toolbar" style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #cbd5e1', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                 {/* Search */}
                 <div style={{ position: 'relative', width: '220px' }}>
                     <input
@@ -219,10 +219,10 @@ const KanbanBoard = () => {
                             width: '100%',
                             padding: '7px 12px 7px 32px',
                             backgroundColor: '#ffffff',
-                            border: '1px solid #d4e4f8',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '6px',
                             fontSize: '13px',
-                            color: '#0d233a',
+                            color: '#0f172a',
                             outline: 'none',
                             boxSizing: 'border-box'
                         }}
@@ -238,9 +238,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 12px',
                         borderRadius: '6px',
-                        border: onlyMyTasks ? '1px solid #0284c7' : '1px solid #d4e4f8',
-                        backgroundColor: onlyMyTasks ? '#dbeafe' : '#ffffff',
-                        color: onlyMyTasks ? '#0284c7' : '#2b4764',
+                        border: onlyMyTasks ? '1px solid #1e3a8a' : '1px solid #cbd5e1',
+                        backgroundColor: onlyMyTasks ? '#eff6ff' : '#ffffff',
+                        color: onlyMyTasks ? '#1e3a8a' : '#334155',
                         fontWeight: '600',
                         fontSize: '13px',
                         cursor: 'pointer',
@@ -260,9 +260,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid #d4e4f8',
+                        border: '1px solid #cbd5e1',
                         fontSize: '13px',
-                        color: '#0d233a',
+                        color: '#0f172a',
                         backgroundColor: '#ffffff'
                     }}
                 >
@@ -279,9 +279,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid #d4e4f8',
+                        border: '1px solid #cbd5e1',
                         fontSize: '13px',
-                        color: '#0d233a',
+                        color: '#0f172a',
                         backgroundColor: '#ffffff'
                     }}
                 >
@@ -298,9 +298,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid #d4e4f8',
+                        border: '1px solid #cbd5e1',
                         fontSize: '13px',
-                        color: '#0d233a',
+                        color: '#0f172a',
                         backgroundColor: '#ffffff'
                     }}
                 >
@@ -317,9 +317,9 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: '1px solid #d4e4f8',
+                        border: '1px solid #cbd5e1',
                         fontSize: '13px',
-                        color: '#0d233a',
+                        color: '#0f172a',
                         backgroundColor: '#ffffff'
                     }}
                 >
@@ -336,10 +336,10 @@ const KanbanBoard = () => {
                     style={{
                         padding: '6px 10px',
                         borderRadius: '6px',
-                        border: selectedSprint !== 'all' ? '1px solid #0284c7' : '1px solid #d4e4f8',
+                        border: selectedSprint !== 'all' ? '1px solid #1e3a8a' : '1px solid #cbd5e1',
                         fontSize: '13px',
-                        color: selectedSprint !== 'all' ? '#0284c7' : '#0d233a',
-                        backgroundColor: selectedSprint !== 'all' ? '#e0f2fe' : '#ffffff',
+                        color: selectedSprint !== 'all' ? '#1e3a8a' : '#0f172a',
+                        backgroundColor: selectedSprint !== 'all' ? '#eff6ff' : '#ffffff',
                         fontWeight: selectedSprint !== 'all' ? '600' : 'normal'
                     }}
                 >
@@ -367,7 +367,7 @@ const KanbanBoard = () => {
                         style={{
                             background: 'transparent',
                             border: 'none',
-                            color: '#0284c7',
+                            color: '#1e3a8a',
                             cursor: 'pointer',
                             fontSize: '13px',
                             fontWeight: '600',
@@ -383,21 +383,21 @@ const KanbanBoard = () => {
                         onClick={fetchBoard}
                         title="Refresh board"
                         style={{
-                            background: '#f0f7ff',
-                            border: '1px solid #d4e4f8',
+                            background: '#f8fafc',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '6px',
                             padding: '6px 12px',
                             fontSize: '13px',
                             cursor: 'pointer',
-                            color: '#0284c7',
+                            color: '#1e3a8a',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '6px',
                             fontWeight: '600',
                             transition: 'all 0.15s ease'
                         }}
-                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#dbeafe'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f0f7ff'; }}
+                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#eff6ff'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f8fafc'; }}
                     >
                         <span>🔄</span> Refresh
                     </button>
@@ -408,19 +408,19 @@ const KanbanBoard = () => {
                             setCreateModalOpen(true);
                         }}
                         style={{
-                            background: '#0284c7',
+                            background: '#1e3a8a',
                             color: '#ffffff',
                             border: 'none',
                             borderRadius: '6px',
-                            padding: '6px 14px',
+                            padding: '6px 16px',
                             fontSize: '13px',
                             fontWeight: '700',
                             cursor: 'pointer',
-                            boxShadow: '0 2px 6px rgba(2, 132, 199, 0.3)',
+                            boxShadow: '0 2px 8px rgba(30, 58, 138, 0.3)',
                             transition: 'all 0.15s ease'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0369a1'}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#0284c7'}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#172554'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1e3a8a'}
                     >
                         + Create Issue
                     </button>
@@ -508,7 +508,7 @@ const KanbanBoard = () => {
                 gap: '16px',
                 overflowX: 'auto',
                 overflowY: 'hidden',
-                backgroundColor: '#f8fafd'
+                backgroundColor: '#f8fafc'
             }}>
                 {loading ? (
                     <div style={{

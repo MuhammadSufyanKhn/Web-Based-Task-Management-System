@@ -1241,7 +1241,7 @@ const ProjectSettings = () => {
                                                 type="submit"
                                                 disabled={jiraLoading}
                                                 style={{
-                                                    backgroundColor: '#305CDE',
+                                                    backgroundColor: '#1e3a8a',
                                                     color: '#ffffff',
                                                     border: 'none',
                                                     borderRadius: '6px',
@@ -1279,34 +1279,41 @@ const ProjectSettings = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {jiraLogs.map(log => (
-                                                        <tr key={log.id} style={{ borderBottom: '1px solid #ebecf0' }}>
-                                                            <td style={{ padding: '10px', color: '#64748b' }}>
-                                                                {new Date(log.startedAt).toLocaleString()}
-                                                            </td>
-                                                            <td style={{ padding: '10px', fontWeight: '600' }}>
-                                                                {log.syncType}
-                                                            </td>
-                                                            <td style={{ padding: '10px' }}>
-                                                                <span style={{
-                                                                    padding: '2px 8px',
-                                                                    borderRadius: '10px',
-                                                                    fontSize: '11px',
-                                                                    fontWeight: '700',
-                                                                    backgroundColor: log.status === 'Success' ? '#e3fcef' : 'rgba(239, 68, 68, 0.1)',
-                                                                    color: log.status === 'Success' ? '#006644' : '#ef4444'
-                                                                }}>
-                                                                    {log.status}
-                                                                </span>
-                                                            </td>
-                                                            <td style={{ padding: '10px' }}>{log.tasksPushed}</td>
-                                                            <td style={{ padding: '10px' }}>{log.tasksImported}</td>
-                                                            <td style={{ padding: '10px', color: '#64748b' }}>{log.initiatedBy || 'System'}</td>
-                                                            <td style={{ padding: '10px', color: log.errorMessage ? '#ef4444' : '#64748b', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={log.errorMessage || 'Completed successfully'}>
-                                                                {log.errorMessage || 'Success'}
-                                                            </td>
-                                                        </tr>
-                                                    ))}
+                                                    {jiraLogs.map(log => {
+                                                        const dateVal = log.createdDate || log.startedAt;
+                                                        const dateDisplay = dateVal ? new Date(dateVal).toLocaleString() : 'Recent';
+                                                        const pushed = log.tasksPushed ?? log.itemsCreated ?? 0;
+                                                        const imported = log.tasksImported ?? log.itemsUpdated ?? 0;
+                                                        const initiator = log.initiatedBy || log.triggeredByName || 'System';
+                                                        return (
+                                                            <tr key={log.id} style={{ borderBottom: '1px solid #ebecf0' }}>
+                                                                <td style={{ padding: '10px', color: '#64748b' }}>
+                                                                    {dateDisplay}
+                                                                </td>
+                                                                <td style={{ padding: '10px', fontWeight: '600' }}>
+                                                                    {log.syncType}
+                                                                </td>
+                                                                <td style={{ padding: '10px' }}>
+                                                                    <span style={{
+                                                                        padding: '2px 8px',
+                                                                        borderRadius: '10px',
+                                                                        fontSize: '11px',
+                                                                        fontWeight: '700',
+                                                                        backgroundColor: log.status === 'Success' ? '#e3fcef' : 'rgba(239, 68, 68, 0.1)',
+                                                                        color: log.status === 'Success' ? '#006644' : '#ef4444'
+                                                                    }}>
+                                                                        {log.status}
+                                                                    </span>
+                                                                </td>
+                                                                <td style={{ padding: '10px' }}>{pushed}</td>
+                                                                <td style={{ padding: '10px' }}>{imported}</td>
+                                                                <td style={{ padding: '10px', color: '#64748b' }}>{initiator}</td>
+                                                                <td style={{ padding: '10px', color: log.errorMessage ? '#ef4444' : '#64748b', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={log.errorMessage || 'Completed successfully'}>
+                                                                    {log.errorMessage || 'Success'}
+                                                                </td>
+                                                            </tr>
+                                                        );
+                                                    })}
                                                 </tbody>
                                             </table>
                                         )}

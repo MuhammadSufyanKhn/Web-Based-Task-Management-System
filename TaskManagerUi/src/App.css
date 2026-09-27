@@ -9,30 +9,30 @@
 /* ── CSS Custom Properties (tokens) ──────────────────────── */
 /* ── CSS Custom Properties (tokens) ──────────────────────── */
 :root {
-  /* Surfaces — Royal Blue and White Theme */
-  --bg-base:         #f8fafd;
-  --bg-subtle:       #edf4fe;
+  /* Surfaces — Executive Navy Blue and White Theme */
+  --bg-base:         #f8fafc;
+  --bg-subtle:       #f1f5f9;
   --bg-surface:      #ffffff;
   --bg-overlay:      #ffffff;
-  --bg-elevated:     #e6f0fd;
-  --bg-border:       #cbdcf7;
-  --bg-border-subtle:#e2edfb;
+  --bg-elevated:     #ffffff;
+  --bg-border:       #cbd5e1;
+  --bg-border-subtle:#e2e8f0;
 
   /* Text */
   --text-primary:    #0f172a;
-  --text-secondary:  #243c5a;
-  --text-tertiary:   #506e8c;
-  --text-disabled:   #94a9be;
+  --text-secondary:  #334155;
+  --text-tertiary:   #64748b;
+  --text-disabled:   #94a3b8;
   --text-inverse:    #ffffff;
 
-  /* Accent — Modern SaaS Royal Blue (#305CDE) */
-  --accent:          #305CDE;
-  --accent-hover:    #2448b8;
-  --accent-active:   #1b3593;
-  --accent-subtle:   rgba(48, 92, 222, 0.08);
-  --accent-border:   rgba(48, 92, 222, 0.25);
-  --accent-muted:    #4a72e8;
-  --accent-strong:   #305CDE;
+  /* Accent — Executive Navy Blue (#1e3a8a / #1e40af) */
+  --accent:          #1e3a8a;
+  --accent-hover:    #172554;
+  --accent-active:   #1e40af;
+  --accent-subtle:   rgba(30, 58, 138, 0.08);
+  --accent-border:   rgba(30, 58, 138, 0.25);
+  --accent-muted:    #2563eb;
+  --accent-strong:   #1e3a8a;
 
   /* Semantic */
   --success:         #16a34a;
@@ -46,14 +46,14 @@
   --warning-text:    #b45309;
 
   --danger:          #dc2626;
-  --danger-subtle:    rgba(220, 38, 38, 0.10);
-  --danger-border:    rgba(220, 38, 38, 0.25);
-  --danger-text:      #b91c1c;
+  --danger-subtle:   rgba(220, 38, 38, 0.10);
+  --danger-border:   rgba(220, 38, 38, 0.25);
+  --danger-text:     #b91c1c;
 
-  --info:            #305CDE;
-  --info-subtle:     rgba(48, 92, 222, 0.10);
-  --info-border:     rgba(48, 92, 222, 0.25);
-  --info-text:       #2448b8;
+  --info:            #1e3a8a;
+  --info-subtle:     rgba(30, 58, 138, 0.10);
+  --info-border:     rgba(30, 58, 138, 0.25);
+  --info-text:       #1e3a8a;
 
   /* Typography */
   --font-sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -78,17 +78,17 @@
   --radius-2xl: 12px;
   --radius-full:9999px;
 
-  /* Shadows (Tailored for Light Blue Theme) */
-  --shadow-sm:  0 1px 3px rgba(13, 35, 58, 0.05);
-  --shadow-md:  0 4px 12px rgba(13, 35, 58, 0.08);
-  --shadow-lg:  0 12px 28px rgba(13, 35, 58, 0.10);
-  --shadow-card:0 1px 3px rgba(13, 35, 58, 0.05), 0 1px 2px rgba(13, 35, 58, 0.03);
-  --shadow-modal:0 20px 48px rgba(13, 35, 58, 0.18);
-  --shadow-focus:0 0 0 3px rgba(2, 132, 199, 0.25);
+  /* Shadows (Tailored for Crisp Navy and White Theme) */
+  --shadow-sm:  0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md:  0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg:  0 12px 28px rgba(15, 23, 42, 0.12);
+  --shadow-card:0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-modal:0 20px 48px rgba(15, 23, 42, 0.22);
+  --shadow-focus:0 0 0 3px rgba(30, 58, 138, 0.25);
 
   /* Layout */
-  --nav-width:     220px;
-  --navbar-height: 56px;
+  --nav-width:     230px;
+  --navbar-height: 58px;
   --page-gutter:   24px;
 
   /* Transitions */
@@ -115,7 +115,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-primary);
-  background-color: var(--bg-subtle);
+  background-color: var(--bg-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -135,7 +135,7 @@ body {
 .app-shell {
   display: flex;
   min-height: 100vh;
-  background: var(--bg-subtle);
+  background: var(--bg-base);
 }
 
 .app-main {
@@ -143,6 +143,7 @@ body {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  background: var(--bg-base);
 }
 
 .page-content {
@@ -151,12 +152,12 @@ body {
   overflow: auto;
 }
 
-/* ── Sidebar Navigation ────────────────────────────────────── */
+/* ── Sidebar Navigation (Executive Navy) ──────────────────── */
 .sidebar {
   width: var(--nav-width);
   min-height: 100vh;
-  background: #f4f8fe;
-  border-right: 1px solid var(--bg-border);
+  background: #0a192f;
+  border-right: 1px solid #1e293b;
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -172,25 +173,26 @@ body {
   height: var(--navbar-height);
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  border-bottom: 1px solid var(--bg-border);
-  gap: 10px;
+  padding: 0 18px;
+  border-bottom: 1px solid #1e293b;
+  gap: 12px;
   flex-shrink: 0;
-  background: #eaf2fe;
+  background: #071224;
 }
 
 .sidebar-logo {
-  width: 30px;
-  height: 30px;
-  background: var(--accent);
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 15px;
   color: #fff;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
 }
 
 .sidebar-brand-text {
@@ -203,7 +205,7 @@ body {
 .sidebar-brand-name {
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -211,7 +213,7 @@ body {
 
 .sidebar-brand-sub {
   font-size: var(--text-xs);
-  color: var(--text-tertiary);
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -225,7 +227,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--text-tertiary);
+  color: #64748b;
   padding: 0 8px;
   margin-bottom: 4px;
 }
@@ -233,19 +235,19 @@ body {
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   padding: 4px 8px;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 7px 8px;
+  gap: 10px;
+  padding: 8px 10px;
   border-radius: var(--radius-md);
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #cbd5e1;
   text-decoration: none;
   transition: var(--transition-fast);
   white-space: nowrap;
@@ -253,14 +255,15 @@ body {
 }
 
 .sidebar-link:hover {
-  background: var(--bg-elevated);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 .sidebar-link.active {
-  background: var(--accent-subtle);
-  color: var(--accent-strong);
-  font-weight: 600;
+  background: #1e40af;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.4);
 }
 
 .sidebar-link-icon {
@@ -275,14 +278,14 @@ body {
 
 .sidebar-divider {
   height: 1px;
-  background: var(--bg-border);
+  background: #1e293b;
   margin: 8px 16px;
 }
 
 .sidebar-footer {
   margin-top: auto;
   padding: 12px 8px;
-  border-top: 1px solid var(--bg-border);
+  border-top: 1px solid #1e293b;
 }
 
 .sidebar-user {
@@ -298,14 +301,14 @@ body {
 }
 
 .sidebar-user:hover {
-  background: var(--bg-elevated);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .user-avatar {
   width: 30px;
   height: 30px;
   border-radius: var(--radius-full);
-  background: var(--accent);
+  background: #1e40af;
   color: #fff;
   display: flex;
   align-items: center;
@@ -327,7 +330,7 @@ body {
 .user-name {
   font-size: var(--text-base);
   font-weight: 600;
-  color: var(--text-primary);
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -335,7 +338,7 @@ body {
 
 .user-role {
   font-size: var(--text-xs);
-  color: var(--text-tertiary);
+  color: #93c5fd;
 }
 
 /* ── Top Bar (within pages) ────────────────────────────────── */
@@ -1253,36 +1256,119 @@ textarea.input {
   animation: authFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* ── Auth Sliding Split Screen ──────────────────────────── */
+.auth-master-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.auth-slider-panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+}
+
+.auth-hero-panel {
+  left: 0;
+  z-index: 10;
+}
+
+.auth-hero-panel.panel-login {
+  transform: translateX(0%);
+}
+
+.auth-hero-panel.panel-register {
+  transform: translateX(100%);
+}
+
+.auth-form-panel {
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+}
+
+.auth-form-panel.panel-login {
+  transform: translateX(0%);
+}
+
+.auth-form-panel.panel-register {
+  transform: translateX(-100%);
+}
+
+@media (max-width: 900px) {
+  .auth-slider-panel {
+    position: relative;
+    width: 100%;
+    left: 0 !important;
+    transform: none !important;
+  }
+  .auth-master-wrapper {
+    position: relative;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+  .auth-hero-panel {
+    display: none;
+  }
+  .auth-form-panel {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
 .auth-toggle-tab {
   display: inline-flex;
   padding: 4px;
-  background-color: #f1f5fd;
+  background-color: #f1f5f9;
   border-radius: 10px;
-  border: 1px solid #cbdcf7;
+  border: 1px solid #cbd5e1;
   margin-bottom: 22px;
 }
 
+.auth-toggle-tab button,
 .auth-toggle-tab a {
   padding: 7px 22px;
   border-radius: 7px;
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
+  font-family: inherit;
 }
 
+.auth-toggle-tab button.active,
 .auth-toggle-tab a.active {
-  background-color: #305CDE;
+  background-color: #1e3a8a;
   color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(48, 92, 222, 0.32);
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.35);
 }
 
+.auth-toggle-tab button:not(.active),
 .auth-toggle-tab a:not(.active) {
   color: #64748b;
 }
 
+.auth-toggle-tab button:not(.active):hover,
 .auth-toggle-tab a:not(.active):hover {
-  color: #305CDE;
-  background-color: rgba(48, 92, 222, 0.06);
+  color: #1e3a8a;
+  background-color: rgba(30, 58, 138, 0.08);
 }

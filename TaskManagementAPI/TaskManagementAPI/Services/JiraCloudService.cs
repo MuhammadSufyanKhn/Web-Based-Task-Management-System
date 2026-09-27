@@ -204,9 +204,33 @@ namespace TaskManagementAPI.Services
         {
             var projectKey = settings.ProjectKey;
             var jql = string.IsNullOrWhiteSpace(projectKey) ? "order by created desc" : $"project = \"{projectKey}\" order by created desc";
-            var url = $"/rest/api/3/search?jql={Uri.EscapeDataString(jql)}&maxResults=50&fields=summary,description,status,issuetype,priority,created,duedate";
+            
+            // Atlassian CHANGE-2046: /rest/api/3/search is deprecated/removed in favor of /rest/api/3/search/jql
+            HttpResponseMessage response;
+            try
+            {
+                var searchPayload = new
+                {
+                    jql = jql,
+                    maxResults = 50,
+                    fields = new[] { "summary", "description", "status", "issuetype", "priority", "created", "duedate" }
+                };
+                var searchJson = new StringContent(JsonSerializer.Serialize(searchPayload), Encoding.UTF8, "application/json");
+                response = await client.PostAsync("/rest/api/3/search/jql", searchJson);
 
-            var response = await client.GetAsync(url);
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Fallback to GET /rest/api/3/search/jql
+                    var getUrl = $"/rest/api/3/search/jql?jql={Uri.EscapeDataString(jql)}&maxResults=50&fields=summary,description,status,issuetype,priority,created,duedate";
+                    response = await client.GetAsync(getUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Errors.Add($"Network error connecting to Jira Cloud: {ex.Message}");
+                return;
+            }
+
             if (!response.IsSuccessStatusCode)
             {
                 var err = await response.Content.ReadAsStringAsync();
@@ -340,6 +364,62 @@ namespace TaskManagementAPI.Services
                 return;
             }
 
+            // 1. Query available issue types for this Jira project so we never fail with "Specify a valid issue type"
+            var projectIssueTypes = new List<(string Id, string Name, bool IsSubtask)>();
+            try
+            {
+                // Try create metadata endpoint first
+                var metaResponse = await client.GetAsync($"/rest/api/3/issue/createmeta/{projectKey.Trim()}/issuetypes");
+                if (metaResponse.IsSuccessStatusCode)
+                {
+                    var metaStr = await metaResponse.Content.ReadAsStringAsync();
+                    var metaNode = JsonNode.Parse(metaStr);
+                    var typesArray = metaNode?["values"]?.AsArray() ?? metaNode?["issueTypes"]?.AsArray();
+                    if (typesArray != null)
+                    {
+                        foreach (var t in typesArray)
+                        {
+                            var id = t?["id"]?.ToString();
+                            var name = t?["name"]?.ToString();
+                            var subtask = t?["subtask"]?.GetValue<bool>() ?? false;
+                            if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(name))
+                            {
+                                projectIssueTypes.Add((id, name, subtask));
+                            }
+                        }
+                    }
+                }
+
+                // If createmeta was empty or unsupported, fallback to project details endpoint
+                if (!projectIssueTypes.Any())
+                {
+                    var projResponse = await client.GetAsync($"/rest/api/3/project/{projectKey.Trim()}");
+                    if (projResponse.IsSuccessStatusCode)
+                    {
+                        var projStr = await projResponse.Content.ReadAsStringAsync();
+                        var projNode = JsonNode.Parse(projStr);
+                        var typesArray = projNode?["issueTypes"]?.AsArray();
+                        if (typesArray != null)
+                        {
+                            foreach (var t in typesArray)
+                            {
+                                var id = t?["id"]?.ToString();
+                                var name = t?["name"]?.ToString();
+                                var subtask = t?["subtask"]?.GetValue<bool>() ?? false;
+                                if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(name))
+                                {
+                                    projectIssueTypes.Add((id, name, subtask));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Could not fetch issue types for project {ProjectKey}", projectKey);
+            }
+
             // Find local tasks that do not yet have a JiraIssueKey or were recently updated
             var localTasks = await _context.TaskItems
                 .Include(t => t.Status)
@@ -348,46 +428,118 @@ namespace TaskManagementAPI.Services
                 .Take(25)
                 .ToListAsync();
 
+            var nonSubtaskTypes = projectIssueTypes.Where(t => !t.IsSubtask).ToList();
+
             foreach (var task in localTasks)
             {
                 result.ItemsProcessed++;
                 try
                 {
-                    var issueType = task.IssueType?.Name ?? "Task";
-                    // Map common issue types
-                    if (issueType != "Bug" && issueType != "Story" && issueType != "Epic")
+                    var localTypeName = task.IssueType?.Name?.Trim() ?? "Task";
+                    string? targetTypeId = null;
+                    string targetTypeName = localTypeName;
+
+                    if (nonSubtaskTypes.Any())
                     {
-                        issueType = "Task";
+                        // 1. Direct name match (e.g. Bug, Story, Task, Epic)
+                        var directMatch = nonSubtaskTypes.FirstOrDefault(t => string.Equals(t.Name, localTypeName, StringComparison.OrdinalIgnoreCase));
+                        
+                        // 2. If task is a bug
+                        if (directMatch.Id == null && (localTypeName.Contains("Bug", StringComparison.OrdinalIgnoreCase) || localTypeName.Contains("Defect", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            directMatch = nonSubtaskTypes.FirstOrDefault(t => t.Name.Contains("Bug", StringComparison.OrdinalIgnoreCase));
+                        }
+
+                        // 3. Fallback: match "Task"
+                        if (directMatch.Id == null)
+                        {
+                            directMatch = nonSubtaskTypes.FirstOrDefault(t => string.Equals(t.Name, "Task", StringComparison.OrdinalIgnoreCase));
+                        }
+
+                        // 4. Fallback: match "Story" (very common in Jira Scrum templates)
+                        if (directMatch.Id == null)
+                        {
+                            directMatch = nonSubtaskTypes.FirstOrDefault(t => string.Equals(t.Name, "Story", StringComparison.OrdinalIgnoreCase));
+                        }
+
+                        // 5. Fallback: first available issue type
+                        if (directMatch.Id == null)
+                        {
+                            directMatch = nonSubtaskTypes.First();
+                        }
+
+                        targetTypeId = directMatch.Id;
+                        targetTypeName = directMatch.Name;
                     }
+                    else
+                    {
+                        // If project issue types couldn't be loaded, map common types
+                        if (localTypeName != "Bug" && localTypeName != "Story" && localTypeName != "Epic")
+                        {
+                            targetTypeName = "Task";
+                        }
+                    }
+
+                    // Build issue type field - prefer ID if available, otherwise name
+                    object issueTypeField = !string.IsNullOrEmpty(targetTypeId)
+                        ? new { id = targetTypeId }
+                        : new { name = targetTypeName };
 
                     var payload = new
                     {
-                        fields = new
+                        fields = new Dictionary<string, object>
                         {
-                            project = new { key = projectKey },
-                            summary = task.Title,
-                            description = new
-                            {
-                                type = "doc",
-                                version = 1,
-                                content = new[]
+                            { "project", new { key = projectKey } },
+                            { "summary", task.Title },
+                            { "description", new
                                 {
-                                    new
+                                    type = "doc",
+                                    version = 1,
+                                    content = new[]
                                     {
-                                        type = "paragraph",
-                                        content = new[]
+                                        new
                                         {
-                                            new { type = "text", text = task.Descriptions ?? "Created via TaskManagementSystem" }
+                                            type = "paragraph",
+                                            content = new[]
+                                            {
+                                                new { type = "text", text = task.Descriptions ?? "Created via TaskManagementSystem" }
+                                            }
                                         }
                                     }
                                 }
                             },
-                            issuetype = new { name = issueType }
+                            { "issuetype", issueTypeField }
                         }
                     };
 
                     var jsonContent = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
                     var response = await client.PostAsync("/rest/api/3/issue", jsonContent);
+
+                    // If failed specifically with issuetype error and we used ID or Name, retry with alternative name (e.g. Story or Task)
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var firstErr = await response.Content.ReadAsStringAsync();
+                        if (firstErr.Contains("issuetype", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var altName = targetTypeName == "Task" ? "Story" : "Task";
+                            var retryPayload = new
+                            {
+                                fields = new Dictionary<string, object>
+                                {
+                                    { "project", new { key = projectKey } },
+                                    { "summary", task.Title },
+                                    { "description", payload.fields["description"] },
+                                    { "issuetype", new { name = altName } }
+                                }
+                            };
+                            var retryContent = new StringContent(JsonSerializer.Serialize(retryPayload), Encoding.UTF8, "application/json");
+                            var retryResponse = await client.PostAsync("/rest/api/3/issue", retryContent);
+                            if (retryResponse.IsSuccessStatusCode)
+                            {
+                                response = retryResponse;
+                            }
+                        }
+                    }
 
                     if (response.IsSuccessStatusCode)
                     {

@@ -218,7 +218,7 @@ const AppNavbar = () => {
                             width: '100%',
                             border: 'none',
                             cursor: 'pointer',
-                            background: isNotifOpen ? 'var(--bg-elevated)' : 'transparent',
+                            background: isNotifOpen ? 'rgba(255, 255, 255, 0.12)' : 'transparent',
                             position: 'relative',
                         }}
                         aria-label={`Notifications${unreadCount > 0 ? ` (${unreadCount} unread)` : ''}`}
@@ -258,10 +258,10 @@ const AppNavbar = () => {
                             left: 'calc(100% + 8px)',
                             bottom: 0,
                             width: 340,
-                            background: 'var(--bg-overlay)',
-                            border: '1px solid var(--bg-border)',
-                            borderRadius: 'var(--radius-xl)',
-                            boxShadow: 'var(--shadow-lg)',
+                            background: '#ffffff',
+                            border: '1px solid #cbd5e1',
+                            borderRadius: '12px',
+                            boxShadow: '0 12px 36px rgba(15, 23, 42, 0.25)',
                             zIndex: 1100,
                             overflow: 'hidden',
                         }}>
